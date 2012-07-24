@@ -1,8 +1,6 @@
- static char * test_return_number() { 
+static char * test_return_number() { 
     int x; 
     x = is_palindrome("racecar", 0, 6); 
     mu_assert("racecar is not a palindrome", x == 1); 
     return 0; 
-  } 
-
-
+} 
