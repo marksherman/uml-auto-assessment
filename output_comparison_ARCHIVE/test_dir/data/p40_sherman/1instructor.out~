@@ -1,0 +1,17 @@
+010
+Language 1 accepts.
+Language 2 accepts.
+Language 3 accepts.
+001001001
+Language 1 accepts.
+Language 2 accepts.
+Language 3 accepts.
+0111
+Language 1 rejects.
+Language 2 rejects.
+Language 3 rejects.
+111000
+Language 1 rejects.
+Language 2 rejects.
+Language 3 rejects.
+

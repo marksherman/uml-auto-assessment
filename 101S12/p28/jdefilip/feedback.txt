@@ -1,0 +1,56 @@
+Student: jdefilip
+Assignment: p28
+Date: 2012-04-04 11:16:38.481417
+Grade: 3
+
+You have global variables, but the data you store in them is NOT global scope. 
+The fact that you reset the sum variable before you call "digitsum" is indicative that the data that will be stored in sum within digitsum is local only to digitsum.
+
+Having a global variable only for the purpose of resetting values is a dangerous practice that is prone to error. 
+
+Sum does not need to be accessed outside of digitsum, as you are retuning it. 
+nextint is passed into digitsum, and therefore does not need to be globally shared.
+rem is also a local variable to digitsum, not used anywhere else.
+
+The purpose of these variables is not global. Don't make them global.
+
+========== p28.c ==========
+/************************************/ 
+/* Programmer: James W. DeFilippo   */ 
+/* Program 28: Digit Sum            */ 
+/* Approximate Time: 35 minutes     */ 
+/************************************/ 
+
+
+
+
+#include <stdio.h>
+ 
+int digitsum( int x );
+ 
+/* these are declared as global variables for use in both functions */ 
+int nextint; 
+int rem;
+int sum = 0;
+ 
+int main( int argc, char *argv[] ){
+  FILE *fin;
+  fin = fopen( argv[ 1 ], "r" );
+  while( fscanf( fin, "%d", &nextint ) != EOF ) {
+    printf( "%d ", digitsum( nextint ) );
+    sum = 0; /* reset sum for each next integer that is read in */ 
+  }
+  printf( "\n" );  
+  fclose( fin );
+  return 0;
+}
+ 
+int digitsum( int nextint ) {
+  while( nextint > 0 ) { /* otherwise, sum would always be zero (after a few recursions)! */ 
+    rem = nextint % 10;
+    nextint = nextint / 10;
+    sum = sum + rem;
+   }
+ return sum;
+}
+

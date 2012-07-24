@@ -1,0 +1,29 @@
+Student: jdefilip
+Assignment: p16
+Date: 2012-03-18 21:46:01.064217
+Grade: 3
+
+-1 indentation issues. (see below) also, put a space between includes and main. Spend more than 16 minutes and check it over one more time.
+
+What is your 'c' variable for? Better, what does it actually do? Nothing. If you see that in the future, feel free to take it out.
+
+========== p16.c ==========
+/********************************/
+/* Author: James DeFilippo      */
+/* Title: Count Characters      */
+/* Approximate Time: 15 minutes */
+/********************************/
+
+#include<stdio.h>
+int main ( int argc, char *argv[] ) 
+{
+  int c; /* some variable to hold the results of getchar() */ 
+  int count; /* some variable to hold the number of calls to getchar before EOF */ 
+  while (( c = getchar() ) != EOF )
+    {  <<<<<<<<<<<< These braces should be aligned with the "while"
+      count = count + 1;  /* increment by one */ 
+    }
+  printf("You entered %d characters.\n", count); /* print the number of calls to getchar */ 
+  return 0; 
+}
+

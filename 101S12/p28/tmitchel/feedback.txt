@@ -1,0 +1,61 @@
+Student: tmitchel
+Assignment: p28
+Date: 2012-04-05 09:56:32.985740
+Grade: 3
+
+This will break if there are more than 100 numbers, as you will run out of room in your array.
+
+That begs the question: why do we need to store all the numbers? Look at your loop. At every point in time, you read a number from file, store it somewhere, process that number, and print out the result. You never go back and look at a number again.
+
+You read -> process -> print, and that's it, so it's ok to forget. You don't need to store the numbers. This program can easily be changed to not use an array, and work perfectly, on any size input.
+
+========== p28.c ==========
+
+/****************************************************/
+/*  Programmer: Thomas Mitchell                     */
+/*  Program 28: Digit Sum                           */
+/*  Aproximate Completion time: 25 Minutes          */
+/*                                                  */
+/*                                                  */
+/*                                                  */ 
+/****************************************************/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+int sum( int number )
+{
+  
+  if( number<10 ) return number;
+
+  return sum(number/10) + number % 10;
+
+}
+
+
+int main( int argc, char *argv[] )
+{
+    
+    FILE *fin;
+    int x = 0;
+    int array[100];
+    int z = 0;
+    
+    fin = fopen( argv[1] , "r" );
+
+    printf ( "The integers in the file add up to these numbers:\n" );
+
+    while ( fscanf( fin , "%d" , &array[x] ) != EOF ) {
+	z = sum( array[x] );
+	printf( "%d = %d\n" , array[x] , z );
+    }
+   
+    return 0;
+    
+    fclose( fin );
+
+}
+

@@ -1,0 +1,7 @@
+Student: jgorham
+Assignment: p21
+Date: 2012-04-05 20:15:34.839020
+Grade: 2
+Incorrect output/ compile error.
+Modification in the program. changed filename and compiled.
+-1 for each.

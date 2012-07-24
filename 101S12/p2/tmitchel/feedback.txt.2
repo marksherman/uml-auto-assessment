@@ -1,0 +1,24 @@
+Student: tmitchel
+Assignment: p2
+Date: 2012-02-17 09:27:55.265657
+Grade: no change, grade already assigned 
+
+What are those extra braces for below?
+The TA didn't seem to catch them. They certainly don't belong there. I'd like to know why you think they do.
+
+-Mark
+
+========== p2.c ==========
+#include<stdio.h>
+
+main()
+{
+  int number;
+
+    printf( "Enter Number Here\n" );
+    scanf( "%d",&number);{        <--------- this brace
+    printf( "\n%d\n",number );
+    }         <----------- and this one.... why?
+    printf( "**** END OF PROGRAM ****\n" ); <---- also, you don't need this at all
+}
+

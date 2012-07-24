@@ -1,0 +1,5 @@
+Student: tthok
+Assignment: p18
+Date: 2012-03-17 22:25:38.631036
+Grade: 2
+-2 for incorretc usage of pi.

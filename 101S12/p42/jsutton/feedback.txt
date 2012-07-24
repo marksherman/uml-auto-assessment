@@ -1,0 +1,5 @@
+Student: jsutton
+Assignment: p42
+Date: 2012-05-12 21:38:06.968262
+Grade: 3
+-1 for runtime errors in a few cases 

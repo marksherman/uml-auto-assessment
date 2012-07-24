@@ -1,0 +1,5 @@
+Student: dpackard
+Assignment: p26
+Date: 2012-04-07 21:29:45.691258
+Grade: 3
+-1 for incorrect output.

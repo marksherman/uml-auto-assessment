@@ -1,0 +1,5 @@
+Student: jcavalie
+Assignment: p5
+Date: 2012-02-24 16:21:33.434290
+Grade: 2
+Incorrect logic. Reading from filewas not part of the problem. 

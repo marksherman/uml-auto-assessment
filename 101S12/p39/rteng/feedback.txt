@@ -1,0 +1,5 @@
+Student: rteng
+Assignment: p39
+Date: 2012-04-25 13:58:52.127192
+Grade: 5
+-1 for incorrect output.

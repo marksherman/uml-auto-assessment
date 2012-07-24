@@ -1,0 +1,7 @@
+Student: sotten
+Assignment: p4
+Date: 2012-02-21 12:57:03.664207
+Grade: 2
+-1 Incorrect code.  Main was not found.
+-1 errors and warnings
+

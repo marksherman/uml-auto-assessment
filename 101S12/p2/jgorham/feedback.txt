@@ -1,0 +1,5 @@
+Student: jgorham
+Assignment: p2
+Date: 2012-02-14 16:40:05.425000
+Grade: 4
+ nice work.

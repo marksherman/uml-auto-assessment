@@ -1,0 +1,6 @@
+Student: bmcclory
+Assignment: p31
+Date: 2012-04-13 16:13:36.938363
+Grade: 2
+-1 for compile errors
+-1 for using 2 iterators.

@@ -1,0 +1,22 @@
+
+Rock! Paper! Scissors! Lizard! Spock!
+
+Enter what was played for both players (r,p,s,l,k): Inputs: p and s
+
+Player 2 wins!
+
+Enter what was played for both players (r,p,s,l,k): Inputs: r and p
+
+Player 2 wins!
+
+Enter what was played for both players (r,p,s,l,k): Inputs: l and r
+
+Player 2 wins!
+
+Enter what was played for both players (r,p,s,l,k): Inputs: k and l
+
+Player 2 wins!
+
+Enter what was played for both players (r,p,s,l,k): Inputs: s and k
+
+Player 2 wins!

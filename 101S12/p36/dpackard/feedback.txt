@@ -1,0 +1,6 @@
+Student: dpackard
+Assignment: p36
+Date: 2012-04-20 16:30:55.512191
+Grade: 2
+-1 for incorrect output.
+-1 for incorrect logic.

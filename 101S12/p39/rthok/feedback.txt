@@ -1,0 +1,5 @@
+Student: rthok
+Assignment: p39
+Date: 2012-04-25 13:59:19.805717
+Grade: 5
+-1 . Program enters an infinite loop.

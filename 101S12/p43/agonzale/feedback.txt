@@ -1,0 +1,6 @@
+Student: agonzale
+Assignment: p43
+Date: 2012-05-14 00:57:06.793434
+Grade: 4
+incorrect output/logic
+

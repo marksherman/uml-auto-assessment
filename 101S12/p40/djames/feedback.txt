@@ -1,0 +1,12 @@
+Student: djames
+Assignment: p40
+Date: 2012-05-09 15:37:37.146047
+Grade: 12.5/15
+
+Written: 8.5/9
+
+Code: 4/6
+
+You have two state variables for each language, one local and one global. This is a dangerous practice, as you have to do extra work to keep both up-to-date. It also lends the question: why? Why not just have one, and always use that?
+
+L2 and L3 are wrong in most tests.

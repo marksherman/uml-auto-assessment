@@ -1,0 +1,72 @@
+/***********************************************/
+/*                                             */
+/*  Mike Begonis                               */
+/*  Program p43                                */
+/*                                             */
+/*  Program Description Goes Here              */
+/*                                             */
+/*                                             */
+/*  Approx Completion Time: ## minutes         */
+/***********************************************/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int prime_detector();
+void print(int N, int initial_value, int* array);
+int main(int argc, char* argv[]){
+  
+  int N, initial_value, i;
+  int *array;
+  
+  printf("Input the array size please: ");
+  scanf("%d",&N);
+  printf("Input the initial value please: ");
+  scanf("%d",&initial_value);
+  
+  array=(int*)malloc(N*N*sizeof(int));
+  
+  
+  print(N, initial_value, array);
+  
+  for(i=0;i<N*N;i++){
+    printf("%d    ",array[i]);
+  }
+  
+  free(array);
+  
+  return 0;
+}
+
+void print(int N, int initial_value, int* array){
+  
+  int i, j, n=N, array_size;
+  array_size=(n*n);
+  n=((n*n)-1)/2;
+  
+  for(i=0;i<N;i++){
+    for(j=0;j<=i+i;j++){ 
+      array[n+j]=n;
+      n=n+1;
+    }
+    if(n==array_size)
+      break;
+    for(j=0;j<=i+i;j++){ 
+      array[n-(j*5)]=n;
+      n=n-5;
+    }
+    for(j=0;j<=i+i+1;j++){ 
+      array[n-j]=n;
+      n=n-1;
+    }
+    for(j=0;j<=i+i+1;j++){ 
+      array[n+(j*5)]=n;
+      n=n+5;
+    }
+  }
+  return;
+}
+
+
+
+

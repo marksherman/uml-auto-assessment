@@ -1,0 +1,17 @@
+Student: jswanbec
+Assignment: p44
+Date: 2012-05-13 19:11:30.640373
+Grade: 10
+
+Indentation problems. Braces should be immediately under the conditional or loop that they are attached to, not indented past it. Please read the code specifications of what class/job/etc you are working in. They tend to care a lot. Like me. -1
+
+Did not put all your variable declarations at the beginning of main function. NODE* n = start; is a declaration. not sure why that didn't throw an error from the compiler.
+
+Clever backwards (recursive) printing function. Very simple. I like it.
+
+Does not exit when user enters an EOF character on the terminal, it needs to be inserted into the data stream. This is a point that wasn't specified well, so I'm going to give it to you.
+
+Your read-in while loop first checks x before x is initialized. -1.
+
+Otherwise good.
+

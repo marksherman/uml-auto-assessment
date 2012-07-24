@@ -1,0 +1,5 @@
+Student: rdriscol
+Assignment: p3
+Date: 2012-02-21 10:45:52.961026
+Grade: 4
+good work

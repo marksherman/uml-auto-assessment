@@ -1,0 +1,5 @@
+Student: dpackard
+Assignment: p3
+Date: 2012-02-21 09:44:43.225386
+Grade: 4
+good work.

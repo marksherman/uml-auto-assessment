@@ -1,0 +1,5 @@
+Student: kwhite
+Assignment: p3
+Date: 2012-02-21 10:22:45.292491
+Grade: 4
+good work. !

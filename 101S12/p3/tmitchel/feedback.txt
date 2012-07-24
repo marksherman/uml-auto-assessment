@@ -1,0 +1,7 @@
+Student: tmitchel
+Assignment: p3
+Date: 2012-02-21 10:51:41.299862
+Grade: 2
+-1 for not including header table.
+-1 for warnings
+

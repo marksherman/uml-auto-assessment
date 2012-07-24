@@ -1,0 +1,49 @@
+Student: rteng
+Assignment: p28
+Date: 2012-04-05 08:44:25.569342
+Grade: 3
+
+Two big things:
+- You need to print the digit sum of ALL the numbers in the file, not just the last one.
+- Your digitsum variable in digitsumfunction is never intitialized, so your answer is almost always wrong
+
+Small things:
+"digitsumfunction" is a redundant name. It is obvious that it's a function. If you want to very clear, make the name of the function a verb of some kind, as functions *do* things. 
+Try not to use the same exact phrase in names of multiple things, but I think you get that, and that's what you were trying to do.
+
+========== p28.c ==========
+/*********************************************************/
+/* Programmer: Rathanak Teng                             */
+/*                                                       */
+/* Program p28: Digit Sum                                */
+/*                                                       */
+/* Approximate completion time: 22 minutes               */
+/*********************************************************/
+#include <stdio.h>
+int digitsumfunction (int input);
+int main(int arc, char* argv[])
+{
+  int input, digitsum;
+  FILE *fin;
+  fin = fopen (argv[1], "r");
+  /*Allows opening of file with argv[1] from command line*/
+  while(fscanf (fin, "%d", &input) != EOF){
+    digitsum = digitsumfunction (input);
+    /*directs the input to separate function*/
+  }
+  printf ("The sum of the individual digits in the file is %d.\n", digitsum);
+  fclose (fin);
+  return 0;
+}
+int digitsumfunction (int input)
+{
+  int digitsum;
+  while (input != 0){
+    digitsum += input % 10;
+    input /= 10;
+    /*Computes sum of all digits present in the file*/
+  }
+  return digitsum;
+  /*Returns the calculated sum to main function*/
+}
+

@@ -1,0 +1,5 @@
+Student: jking
+Assignment: p2
+Date: 2012-02-14 16:40:42.080000
+Grade: 3
+ -1 for not including the box about the program info at the top. This is really important for person reading your code to know whats happening inside the code.

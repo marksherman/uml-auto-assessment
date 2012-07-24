@@ -1,0 +1,4 @@
+test case: 6 => 6
+
+Make instructions: 
+echo "6" | ./a.out 

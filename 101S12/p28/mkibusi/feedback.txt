@@ -1,0 +1,66 @@
+Student: mkibusi
+Assignment: p28
+Date: 2012-04-05 08:10:47.670698
+Grade: 0
+
+This is all over the place. I can't address every little probem, but I'll do my best.
+
+You have compiler warnings. These are EASY warnings to get rid of, as they point out unused variables. Just get rid of those variable declarations. Having warnings is an automatic -1.
+
+p28.c: In function ‘main’:
+p28.c:15: warning: unused variable ‘z’
+p28.c:15: warning: unused variable ‘n’
+p28.c:15: warning: unused variable ‘sum’
+
+You do not have a separate function to do the digit sum algorithm. You sort of have the digit sum algorithm at the bottom of main, but it is incomplete. It needs to be separated into its own function, where it has one input argument. It will sum all the digits of that input, and return that sum.
+
+Incomplete program header. No program number/name, and no completion time. This is usually an automatic -1.
+
+You include math.h and don't use it. If you don't use the library, don't include the header.
+
+Your indentation has no consistency and does not reflect layers of control structure. I'll mark it up below.
+
+fgetc is probably not the function you want to use to read data from the file. you want to pull whole integers, which fscanf is really good at. 
+
+Are you using emacs? If so, just hit the tab key and it will put the line where it should be. Do that on every line and it will help you.
+
+-1 late
+
+========== p28.c ==========
+/**********************************************/
+/* Programmer: MARTIN KIBUSI                  */
+/* 	       	      			      */
+/* Program :				      */
+/* 	   				      */
+/* Approximate completion time :              */
+/**********************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main( int argc,char* argv[] ) {
+  FILE* fin;
+  int sum,j, i,n, y, z; 
+    
+    fin = fopen(argv[1], "r"); <<<< too much indent. This is the same level as the lines above it. Nothing has changed.
+      char x;    <<<<<< same. Should be same tab level as the "int sum" above.
+      for(i = 1;(x = fgetc(fin)) != EOF ; i++){   <<<< too much indent. This is still at the same level as above.
+        putchar(x);  <<< this SHOULD be indented, and is. Good.
+     
+      } <<< this is aligned with the "for", which is good
+      
+      fclose(fin); <<< too much indent.
+
+      for(j = 0; j <= argc  ; j++){  <<<<< this should be at that same first level with "int sum"
+          y = x % 10;
+
+        printf("The number %c \n", x);  <<<< not enough indent. Indent should be the same as the "y = x % 10", as they are both in the body of the for loop
+        } <<<< does not align with the "for" above
+
+      printf("The sum %d \n", y ); <<< too much indent
+
+   return 0; <<<< actually right
+}
+                                                                                                                                                                     
+

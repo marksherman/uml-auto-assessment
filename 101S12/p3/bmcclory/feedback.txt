@@ -1,0 +1,7 @@
+Student: bmcclory
+Assignment: p3
+Date: 2012-02-15 16:48:57.673193
+Grade: 3
+This is the revised grade.
+-1 for late
+Please use scanf only once to input. 

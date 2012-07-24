@@ -1,0 +1,5 @@
+Student: rdriscol
+Assignment: p35
+Date: 2012-04-15 18:11:02.126429
+Grade: 4
+There was no point of using macros for rows and column as 3 when you never use them

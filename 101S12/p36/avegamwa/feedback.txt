@@ -1,0 +1,5 @@
+Student: avegamwa
+Assignment: p36
+Date: 2012-04-20 16:27:09.750243
+Grade: 3
+The program asks you to run a loop till EOF. -1

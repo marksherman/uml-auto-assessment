@@ -1,0 +1,5 @@
+Student: hchan
+Assignment: p20
+Date: 2012-03-18 17:26:56.281527
+Grade: 3
+-1 for late.

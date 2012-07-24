@@ -1,0 +1,11 @@
+Student: zrobicha
+Assignment: p40
+Date: 2012-05-09 15:47:36.916248
+Grade: 12.5/15
+
+Written: 8.5/9
+
+Code: 4/6
+
+L2 and L3 have problems in the logic. Your basic setup is great.
+

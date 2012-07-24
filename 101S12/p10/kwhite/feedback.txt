@@ -1,0 +1,6 @@
+Student: kwhite
+Assignment: p10
+Date: 2012-03-11 21:37:41.477379
+Grade: 2
+Incorrect logic. -1
+-1 for errors.

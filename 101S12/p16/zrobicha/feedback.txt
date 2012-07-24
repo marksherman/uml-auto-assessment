@@ -1,0 +1,30 @@
+Student: zrobicha
+Assignment: p16
+Date: 2012-03-19 09:14:42.457692
+Grade: 3
+
+Program works. Prompting would be nice, as you are dealing with a human user. 
+
+Your indentation is off. The close brace for a conditional should be aligned with that conditional, in this case the "while." see below.
+
+========== p16.c ==========
+/*****************************************************************************/
+/* Programmer : Zachary Robichaud                                            */
+/*                                                                           */
+/* Assignment : Count Characters                                             */
+/*                                                                           */
+/* Approximate Completion Time : 10 minutes                                  */
+/*****************************************************************************/
+
+#include <stdio.h>
+
+int main( int argc , char* argv[] ) {
+
+  int y ;
+  while( getchar() != EOF ) {
+      y = y+1 ; <<<<<< actually good. keep this here.
+    } <<<<<<<< too much indent. Should align with the "while" above it
+  printf( "\nThe number of characters entered is :\n%d\n" , y ) ;
+  return 0 ;
+}
+

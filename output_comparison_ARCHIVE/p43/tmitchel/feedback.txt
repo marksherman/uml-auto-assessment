@@ -1,0 +1,5 @@
+Student: tmitchel
+Assignment: p43
+Date: 2012-05-14 01:16:38.823389
+Grade: 4
+compile errors

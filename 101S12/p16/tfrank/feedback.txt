@@ -1,0 +1,37 @@
+Student: tfrank
+Assignment: p16
+Date: 2012-03-19 08:44:19.776916
+Grade: 4
+
+Good. Program works perfectly. Prompting would be nice. Good work initializing the variable 'c' before the loop, so it has a real value when you check it. (A lot of people missed that nuance)
+
+I'll let you slide on the prompting. Good indenting.
+
+ps: don't put a blank line between a function definition and it's opening brace (in this case main)
+
+========== p16.c ==========
+/**********************************************/
+/*Programmer: Thomas Frank                    */
+/*                                            */
+/*Program 16:Count Characters                 */
+/*                                            */
+/*Approximate completion time: 40 minutes     */
+/**********************************************/
+
+#include <stdio.h>
+int main (int argc, char*argv[])
+
+{
+	int c, i;
+	i = 0;
+	c = getchar();
+	while ( c != EOF){
+		i++;
+		c = getchar();
+	}
+	printf("%d\n",i);
+	
+	return 0;
+}
+
+

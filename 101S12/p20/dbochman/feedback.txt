@@ -1,0 +1,5 @@
+Student: dbochman
+Assignment: p20
+Date: 2012-03-18 17:17:43.247619
+Grade: 3
+-1 for compilation error which will is mainly because of incorrect comparison in condition.

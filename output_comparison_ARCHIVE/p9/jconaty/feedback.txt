@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p9
+Date: 2012-03-11 20:39:39.975012
+Grade: 3
+-1 for header at the top.
+Ideal way would be to check for the EOF and not using the counting variable.

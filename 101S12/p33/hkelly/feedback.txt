@@ -1,0 +1,5 @@
+Student: hkelly
+Assignment: p33
+Date: 2012-04-09 20:17:06.160013
+Grade: 3
+the program goes into infinite loop for x = 0; -1

@@ -1,0 +1,11 @@
+Student: jcavalie
+Assignment: p40
+Date: 2012-05-09 16:16:00.042653
+Grade: 14 / 15
+
+Written: 8.5 / 9
+
+Code: 5.5 / 6
+
+You cheated a bit with L3. FSM's don't know how many symbols have come by, so having propositional logic based on an input symbol counter is not possible. It's a clever trick, but a trick.
+

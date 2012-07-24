@@ -1,0 +1,6 @@
+Student: bmakovoz
+Assignment: p35
+Date: 2012-04-13 16:38:18.560865
+Grade: 3
+-1 for illecgal contract.
+There is no use of passing row and coulmn to the function. Also they are not used in the method

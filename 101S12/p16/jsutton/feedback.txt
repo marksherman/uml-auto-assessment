@@ -1,0 +1,35 @@
+Student: jsutton
+Assignment: p16
+Date: 2012-03-19 07:25:07.725614
+Grade: 4
+
+Your ouput was very messy, as it was on the same line as the user's input, with no space at all. Next time this will be a point reduction.
+
+What does the variable "c" do? I can't see any use for it.
+
+Otherwise, nice work.
+
+========== p16.c ==========
+/*********************************************/
+/* Programmer: Joanna Sutton                 */
+/*                                           */
+/* Assignment: Sount Characters              */
+/*                                           */
+/* Approximate Completion Time: 30 minutes   */
+/*********************************************/
+#include <stdio.h>
+int main(int argc, char* argv[]){
+  int c;
+  int x;
+  
+  printf("Please enter some characters:");
+  while((c=getchar()) !=EOF)
+    x++;
+
+  printf("The number of characters entered is: %d\n",x);
+  
+
+  return 0;
+
+}
+

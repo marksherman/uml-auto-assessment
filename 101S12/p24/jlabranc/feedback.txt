@@ -1,0 +1,5 @@
+Student: jlabranc
+Assignment: p24
+Date: 2012-04-05 22:02:36.968418
+Grade: 3
+ -1 for not closing file in the end. counting the numbers in the file and dividing by that will be a better approcach.

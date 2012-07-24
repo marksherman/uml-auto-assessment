@@ -1,0 +1,6 @@
+Student: hchan
+Assignment: p25
+Date: 2012-04-05 22:33:49.866517
+Grade: 2
+ -1 for late.
+-1 for incorrect output.

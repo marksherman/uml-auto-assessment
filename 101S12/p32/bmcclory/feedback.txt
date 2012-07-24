@@ -1,0 +1,6 @@
+Student: bmcclory
+Assignment: p32
+Date: 2012-04-09 19:22:53.554903
+Grade: 2
+-1 for incorrect logic
+-1 for wrong syntax.

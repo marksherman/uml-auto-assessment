@@ -1,0 +1,25 @@
+Student: dpackard
+Assignment: p16
+Date: 2012-03-18 21:28:04.600830
+Grade: 1
+
+This is not even close.
+
+- this does not wait until an EOF is entered
+- this does not count the number of characters entered
+
+Those two things are the whole point of the assignment.
+
+========== p16.c ==========
+/********************/
+/*   Danny Packard  */
+/*      p16         */
+/*   20 minutes     */
+/********************/
+#include<stdio.h>
+int main(int argc, char*argv[]){
+  int x;
+  printf("%d\n", x=getchar());
+  return 0;
+}
+

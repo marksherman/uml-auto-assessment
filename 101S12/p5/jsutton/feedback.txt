@@ -1,0 +1,5 @@
+Student: jsutton
+Assignment: p5
+Date: 2012-02-24 16:31:57.517343
+Grade: 4
+No need of the last if condition its already covered by the else.

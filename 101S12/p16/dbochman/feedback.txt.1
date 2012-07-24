@@ -1,0 +1,30 @@
+Student: dbochman
+Assignment: p16
+Date: 2012-03-18 21:20:30.750858
+Grade: 3
+
+This program gives one LESS than the correct answer. Why? because you subtract one in the printf. I'm not sure why you did this. My guess is that you don't completely understand how the while conditional works. When the conditional fails (EOF is returned), then the body is NOT EXECUTED, so it will not be counted in 'c'. Pretty clever setup, and you came really close.
+
+What's the point of i?
+
+You may have wanted to spend more than 10 minutes on this, as you would have noticed these things.
+
+========== p16.c ==========
+/********************************************************/
+/* Programmer:   Dylan Bochman                          */
+/* Program 16:   Count Characters                       */
+/* Time:         10 minutes                             */
+/********************************************************/
+#include <stdio.h>
+ 
+int main() {
+ 
+  int i,c;
+ 
+  while ( i = getchar() != EOF ) c++ ;
+ 
+  printf( "%d characters\n" , c-1) ;
+ 
+  return 0;
+}
+

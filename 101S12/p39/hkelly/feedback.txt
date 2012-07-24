@@ -1,0 +1,5 @@
+Student: hkelly
+Assignment: p39
+Date: 2012-04-25 13:46:36.412178
+Grade: 5
+-1. The program ends up in an infinite loop.

@@ -1,0 +1,5 @@
+Student: jsutton
+Assignment: p27
+Date: 2012-04-08 13:34:18.085687
+Grade: 4
+ there is no need to use a second iterator . you can do it with only 1 iterator.

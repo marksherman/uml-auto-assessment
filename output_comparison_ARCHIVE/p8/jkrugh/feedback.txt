@@ -1,0 +1,5 @@
+Student: jkrugh
+Assignment: p8
+Date: 2012-03-11 18:55:45.095061
+Grade: 2
+incorrect outputs.

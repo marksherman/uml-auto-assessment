@@ -1,0 +1,28 @@
+Student: tmitchel
+Assignment: p2
+Date: 2012-02-17 09:32:41.336319
+Grade: 1 (updated)
+
+Having run your program, I am assessing an additional -1 for compiler warnings.
+-1 warnings
+-1 late
+-1 no header
+
+Please see me if you can't figure out what's wrong with the code (and see my last email).
+
+-Mark
+
+========== p2.c ==========
+#include<stdio.h>
+
+main()
+{
+  int number;
+
+    printf( "Enter Number Here\n" );
+    scanf( "%d",&number);{
+    printf( "\n%d\n",number );
+    }
+    printf( "**** END OF PROGRAM ****\n" );
+}
+

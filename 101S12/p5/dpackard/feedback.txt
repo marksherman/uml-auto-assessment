@@ -1,0 +1,5 @@
+Student: dpackard
+Assignment: p5
+Date: 2012-02-24 16:16:22.916194
+Grade: 4
+the last if clause is not required it is automatically the leftover case.

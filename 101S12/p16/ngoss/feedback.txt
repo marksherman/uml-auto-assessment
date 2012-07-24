@@ -1,0 +1,43 @@
+Student: ngoss
+Assignment: p16
+Date: 2012-03-19 07:47:47.270877
+Grade: 2
+
+Your program prints out one greater than the correct answer. This is caused from getting the new character from inside loop, as the loop will count one on the first pass before any character was tested. That creates the extra count. This is ok, but it needs to be offset with a -1 somewhere.
+
+On the first pass of the while loop, the variable inchar is UNINITIALIZED when it it tested. This is very bad. Don't do it. You must write to a variable before it can be read. Testing if it is equal to something is a read.
+
+Your braces are wrong for the while loop. Braces must align with the conditional statement they belong to.
+
+Your header is incomplete.
+
+========== p16.c ==========
+/*************************************************/
+/* Programmer: Nathan Goss                       */
+/*                                               */
+/* Program 16: Count Characters                  */
+/*                                               */
+/* Approximate completion time:                  */
+/*************************************************/
+
+
+#include <stdio.h>
+
+
+int main(int argc, char* argv[])
+{
+  int count=0, inchar;
+
+  printf("Enter any characters, EOF when done:");
+
+  while(inchar != EOF)
+    {
+      inchar = getchar();
+      count++;
+    }
+
+  printf("You entered %d characters.\n", count);
+
+  return 0;
+}
+

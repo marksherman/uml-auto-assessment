@@ -1,0 +1,32 @@
+Student: agonzale
+Assignment: p44
+Date: 2012-05-13 17:24:45.897936
+Grade: 1
+
+This is not a good submission. It does not compile, for which my policy is a grade of 1.
+
+That's harsh, so I tried to figure out how well it would work if it could compile (often a futile effort, as if it worked, it would compile)...
+
+There is a lot broken. There is a lot missing. There are statements that simply aren't valid C expressions. 
+
+One issue I see multiple times in your p44.c is declarations of local variables. Declarations always follow the same form:
+
+type name ;
+
+or 
+
+type name = initial_value ;
+
+You are using names of variables as types. Types must be created with a typedef or a built-in type, not arbitrary things.  "linked_list" is not a data type. The concept of a linked list is built out of the NODE data type.
+
+You didn't even change the payload typedef (DATA_T) to be a float, as was requested. That was a one line change.
+
+You have a countdown from 999 that makes no sense to me. What is x?
+
+What this looks like is you simply did not have the time. This appears to be code in the exploratory phase, plus rushing to get something in. 
+
+Not your best work.
+
+My recommendations: study how structs and typedefts work. Study how pointers to structures work (it's pretty basic, just a slight addition to your previous concept of pointers). This will all be on the final, which is your big opportunity to make up the loss of points here.
+
+Good luck.

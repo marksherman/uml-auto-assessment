@@ -1,0 +1,5 @@
+Student: lmayers
+Assignment: p39
+Date: 2012-04-25 13:54:56.396336
+Grade: 5
+-1. the program enters an infinite loop.

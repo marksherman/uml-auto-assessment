@@ -1,0 +1,5 @@
+Student: agonzale
+Assignment: p9
+Date: 2012-03-11 20:26:50.500431
+Grade: 3
+Incorrect use of the loop. Iterate the loop five times and a better way could be to use comparision to EOF this saves a lot of space. consider a situation when you dont know the length of the file and filoe can contain any count of numbers. -1.

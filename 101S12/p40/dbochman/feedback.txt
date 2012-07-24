@@ -1,0 +1,11 @@
+Student: dbochman
+Assignment: p40
+Date: 2012-05-09 16:30:25.969227
+Grade: 12 / 15
+
+Written: 8/9
+
+Code: 4/6
+
+Every lanugage was wrong with some test input. Structure was very good.
+

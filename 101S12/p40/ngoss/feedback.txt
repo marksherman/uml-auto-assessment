@@ -1,0 +1,13 @@
+Student: ngoss
+Assignment: p40
+Date: 2012-05-09 16:25:03.572922
+Grade: 13 / 15
+
+Written: 8 / 9
+
+Code: 5 / 6
+
+Interesting that you didn't use any extra functions. Very interesting.
+
+L2 has some issues with logic.
+

@@ -1,0 +1,11 @@
+Student: egraceff
+Assignment: p40
+Date: 2012-05-09 16:35:09.124101
+Grade: 12.5 / 15
+
+Written: 8.5 /  9
+
+Code: 4 / 6
+
+L2 and L3 were wrong in most cases, indicating a logical error in your code. Structure is good.
+

@@ -1,0 +1,9 @@
+Student: rteng
+Assignment: p31
+Date: 2012-04-09 17:40:13.225583
+Grade: 1
+-1 for incorrect output.
+-1 for using two iterators.
+-1 for incorrect logic and syntax used in vector defination.
+ Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

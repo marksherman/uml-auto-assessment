@@ -1,0 +1,5 @@
+Student: dpackard
+Assignment: p1
+Date: 2012-02-14 15:42:44.211724
+Grade: 6
+

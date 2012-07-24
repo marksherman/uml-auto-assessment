@@ -1,0 +1,5 @@
+Student: ksouthwi
+Assignment: p24
+Date: 2012-04-05 22:05:42.150444
+Grade: 4
+for loop is not the correct approach here.

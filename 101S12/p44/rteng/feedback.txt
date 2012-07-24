@@ -1,0 +1,36 @@
+Student: rteng
+Assignment: p44
+Date: 2012-05-14 09:41:50.537612
+Grade: 0
+
+This program is not complete. Not even close. There is an unfinished printf statement. The linked_list files have not been modified save you adding your name.
+
+The little bit of code you wrote (the for loop), is incorrect. What does i have to do with it? You didn't even declare i to be a variable.
+
+This is not a submission.
+
+========== p44.c ==========
+/****************************************************************/
+/* Programmer: Rathanak Teng                                    */
+/*                                                              */
+/* Program 44: Linked List                                      */
+/*                                                              */
+/* Program Completion Time: 20 minutes                          */
+/****************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "linked_list.h"
+
+int main (int argc, char* argv[])
+{
+	NODE* start = NULL;
+	for(i = 0; start != EOF; i++){
+	  printf("Enter a character ");
+	  scanf("%d", &start);
+	}
+	printf("
+	free_list(start);
+	return 0;
+}
+

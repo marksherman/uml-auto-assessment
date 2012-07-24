@@ -1,0 +1,5 @@
+Student: bmakovoz
+Assignment: p18
+Date: 2012-03-17 21:34:07.728570
+Grade: 2
+The program seems to be written okay. But he program is unable to compile.

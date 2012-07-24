@@ -1,0 +1,11 @@
+Student: ynakamur
+Assignment: p40
+Date: 2012-05-09 16:06:54.695921
+Grade: 14.5 / 15
+
+Written: 9 / 9
+
+Code: 5.5 / 6
+
+You used a trick to solve L3. It's a very clever trick, but not an FSM. 
+

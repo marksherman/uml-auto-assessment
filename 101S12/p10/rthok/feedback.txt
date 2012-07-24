@@ -1,0 +1,7 @@
+Student: rthok
+Assignment: p10
+Date: 2012-03-11 21:42:17.337157
+Grade: 2
+-1 for not using loop.
+-1 for using more than 1 variable. 
+incorrect logic.

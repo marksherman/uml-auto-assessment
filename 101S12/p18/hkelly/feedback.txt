@@ -1,0 +1,5 @@
+Student: hkelly
+Assignment: p18
+Date: 2012-03-17 21:42:58.103731
+Grade: 3
+-1 for incorrect output

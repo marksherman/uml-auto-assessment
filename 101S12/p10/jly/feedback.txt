@@ -1,0 +1,5 @@
+Student: jly
+Assignment: p10
+Date: 2012-03-11 21:24:03.788189
+Grade: 4
+Incorrect choice of variable names. the testdata10 name of the variable name is confusing. its not a mistake but not a good practice.

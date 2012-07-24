@@ -1,0 +1,60 @@
+Student: djames
+Assignment: p28
+Date: 2012-04-01 21:02:26.238681
+Grade: 3
+
+The digitsum functions should ONLY take a single number, then return the digit sum of that number. It should NOT deal with files at all.
+
+with that above mistake, it is difficult for you to do the next step, which is make a loop that reads in multiple values from the file until the end, and for each value calls the digitsum function, and prints its sum.
+
+========== p28.c ==========
+/**********************************************/
+/*Programmer: Dalton James                    */
+/*                                            */
+/*Program 28: Digit Sum                       */
+/*                                            */
+/*Approximate completeion time: 45 minutes    */
+/**********************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int digitsum( FILE* a );
+
+int main(int argc, char* argv[]){
+
+  FILE* fin;
+
+  int x;
+
+  fin = fopen( argv[1], "r" );
+
+  x = digitsum( fin );
+
+  printf( "the sum of the individual integeres are: %d\n", x ); 
+
+  fclose( fin );
+
+  return 0;
+}
+
+int digitsum( FILE* a ){
+
+  int y,z,g=0;
+
+  fscanf( a, "%d", &y );
+
+  while( y > 0 ){
+
+    z = y%10;
+
+    g = g+z;
+
+    y = y/10;
+
+  }
+
+  return g;
+
+}
+

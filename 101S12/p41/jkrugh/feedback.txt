@@ -1,0 +1,6 @@
+Student: jkrugh
+Assignment: p41
+Date: 2012-05-02 18:49:37.181661
+Grade: 2
+-1 for incorrect output.
+-1 for incorrect logic and usage of pointers.

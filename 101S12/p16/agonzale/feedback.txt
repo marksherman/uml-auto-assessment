@@ -1,0 +1,35 @@
+Student: agonzale
+Assignment: p16
+Date: 2012-03-18 19:55:20.821130
+Grade: 4
+
+Good. Should put a newline at the start of the ending output, that way it's on a different line than the user's input.
+
+========== p16.c ==========
+/*************************************/
+/* Programmer: Alexander Gonzalez    */
+/*                                   */
+/* Assignment: Count Characters      */
+/*                                   */
+/* Completion Time: 1 hour           */
+/*************************************/
+
+#include <stdio.h>
+
+int main (int argc, char* argv[]) {
+
+    int x;
+    char ch;
+    
+    x = 0;
+
+    printf("Please Enter Any Series Of Characters:\n");
+    
+    while ((ch = getchar()) !=EOF) {
+	x++;
+    }
+    printf( "The Text You Entered Contained %i Characters\n",x);
+
+    return 0;
+}
+

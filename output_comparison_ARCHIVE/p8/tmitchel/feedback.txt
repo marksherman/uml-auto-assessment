@@ -1,0 +1,6 @@
+Student: tmitchel
+Assignment: p8
+Date: 2012-03-11 19:24:04.274456
+Grade: 2
+-1 for compile errors and incorrect filename use.
+-1 for late.

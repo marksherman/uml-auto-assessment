@@ -1,0 +1,5 @@
+Student: jking
+Assignment: p6
+Date: 2012-02-27 15:55:01.319128
+Grade: 4
+

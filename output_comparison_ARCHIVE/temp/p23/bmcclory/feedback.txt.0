@@ -1,0 +1,47 @@
+Student: bmcclory
+Assignment: p23
+Date: 2012-03-27 21:32:15.223555
+Grade: 
+
+Ok, so you're really close. 
+- fgetc gets a character from a file. Where is that character going? fgetc returns it, but you're not using it.
+
+Note [1] below... I bet you put that there as a way to get data out of the file. Atoi doesn't get data from anywhere, it converts a string into a number. The string you are giving it will result in some number, which will be the same number all the time as the string doesn't change, and that number is useless.
+
+My first point above is the important one.
+
+It's almost there. Took me sub-1 minute to fix. That little to change.
+
+
+========== p23.c ==========
+/*********************************************************/
+/* Programmer: Brian McClory                             */
+/*                                                       */
+/* Program #23: fgetc and toupper                        */
+/*                                                       */
+/* Approximate Completion Time: 30 minutes               */
+/*********************************************************/
+
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+ 
+  FILE *read;
+  
+  char ch;
+
+  read = fopen("testdata23", "r");
+
+  while(fgetc(read) != EOF){
+    ch = atoi("testdata23"); <<<<<<< this is wrong and unneccesary [1]
+    ch = toupper(ch); << this works
+    putchar(ch); /* this file is named testdata23 */ << this works
+  }
+
+  fclose(read);
+
+  return 0;
+}
+

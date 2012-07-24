@@ -1,0 +1,8 @@
+Student: myui
+Assignment: p31
+Date: 2012-04-09 17:35:07.981754
+Grade: 2
+ -1 for compile errors.
+-1 for hardcoding the size.
+ Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+Also using the temp array in the inner function is strongly discouraged. The goal is to optimize the program and get the correctoutput. The last loop and temp array is highly discouraged.

@@ -1,0 +1,8 @@
+Student: kwhite
+Assignment: p21
+Date: 2012-04-05 20:21:53.806602
+Grade: 2
+Incorrect output. error in the filename.
+Modified the program for correct filename and reran and it compiled.
+
+-1 for each.

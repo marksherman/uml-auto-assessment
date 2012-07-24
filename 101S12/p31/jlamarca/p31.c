@@ -1,0 +1,41 @@
+/****************************************************/
+/* Programmer: Joe LaMarca                          */
+/* Program: p31, inner product of two vectors       */
+/* Approximate time of completion:                  */
+/****************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float inner(float u[], float v[], int size);
+
+int main(int argc, char* argv[]){
+
+  float x[8];
+  float y[8];
+  
+  x[8]=atof(argv[8]);
+  y[8]=atof(argv[16]);
+  
+  inner(x[8],y[8],16);
+
+  printf("%f",sum);
+
+ 
+  return 0;
+}
+
+float inner(float u[], float v[], int size){
+  
+  float z;
+  float sum;
+  float prod;
+
+  z=size;
+  for(size=0;size<=z;size++){
+    prod=u[size]*v[size];
+    sum+=prod;
+  }
+
+  return sum;
+}

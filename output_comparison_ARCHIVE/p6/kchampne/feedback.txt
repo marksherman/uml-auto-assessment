@@ -1,0 +1,5 @@
+Student: kchampne
+Assignment: p6
+Date: 2012-02-27 16:01:22.089493
+Grade: 4
+

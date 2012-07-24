@@ -1,0 +1,5 @@
+Student: kwhite
+Assignment: p26
+Date: 2012-04-07 21:37:23.243569
+Grade: 3
+-1 for not closing the file in the end.

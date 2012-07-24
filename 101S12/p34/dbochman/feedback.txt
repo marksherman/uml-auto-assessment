@@ -1,0 +1,64 @@
+Student: dbochman
+Assignment: p34
+Date: 2012-05-02 18:29:26.581407
+Grade: 3
+
+Does not work. Only tests if the outer two characters match. All the recursing is thrown away, as the result of the recursive call is not returned. The problem is in your else if case in the is_palindrome function. There really needs to be a third "else" case to pull it off the way you are doing it.
+
+Case 1: There is 1 or 0 characters in the substring, return YES
+Case 2: The outer two characters do NOT match, return NO
+Case 3: The outer two characers do match, return the result of the recurse.
+
+Also, your indenation is all screwed up. Why are your if statements indented in crazily?
+
+3/5
+
+========== p34.c ==========
+/********************************************************/
+/* Programmer:   Dylan Bochman                          */
+/* Program 34:   Palindrome Detector                    */
+/* Time:         45 minutes                             */
+/********************************************************/
+#include <string.h>
+#include <stdio.h>
+int is_palindrome( char* the_string , int start_char , int end_char );
+int main ( int argc, char *argv[] ) 
+{
+    int start_char, end_char,  result;
+    char the_string[20];
+    start_char=0;
+    printf( "Please enter a potential palindrome: \n");
+    scanf("%s", the_string);
+    end_char = strlen ( the_string ) - 1;
+    result=is_palindrome( the_string, start_char, end_char  );
+	      if ( result == 1)
+	      {
+		  printf ( "\n Palindrome Detected \n" );
+		  return 0;
+	      }
+	      else 
+	      {
+		  printf ( "\n Not a Palindrome \n" );
+		  return 0;
+              }
+}
+int is_palindrome(char* the_string , int start_char , int end_char)
+	{    
+	    int length;
+	    length = strlen( the_string );
+	    if (the_string[start_char] != the_string[end_char])
+	    {
+		return  0;
+	    }
+	    else if (the_string[start_char] == the_string[end_char])
+	    {
+		start_char++;
+		end_char--;
+		is_palindrome (the_string , start_char , end_char );
+		return 1;
+	    }
+	    return 0;
+	}
+
+
+

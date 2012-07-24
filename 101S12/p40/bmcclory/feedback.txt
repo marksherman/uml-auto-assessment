@@ -1,0 +1,11 @@
+Student: bmcclory
+Assignment: p40
+Date: 2012-05-09 14:57:45.301166
+Grade: 8/15
+
+Written: 7/9
+
+Code: 1/6
+
+Huge number of compilation errors. I tried fixing them, and it gave me a new huge number of compilation errors. This program is nowhere near ready for submission. I can't assess if your logic even works.
+

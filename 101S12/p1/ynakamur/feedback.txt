@@ -1,0 +1,5 @@
+Student: ynakamur
+Assignment: p1
+Date: 2012-02-14 16:16:20.349519
+Grade: 2
+p1b.c and p1c.c was not found -2 for each.

@@ -1,0 +1,5 @@
+Student: hkelly
+Assignment: p36
+Date: 2012-04-20 16:31:43.387822
+Grade: 3
+-1. the program runs in an infinite loop.

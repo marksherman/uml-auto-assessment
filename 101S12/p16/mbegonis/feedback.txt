@@ -1,0 +1,32 @@
+Student: mbegonis
+Assignment: p16
+Date: 2012-03-19 07:36:15.516630
+Grade: 3
+
+Program works fine, but your code style leaves much to be desired.
+- Header block is wrong format and incomplete. See website.
+- last bracket of the "while" is indented incorrectly. The closing bracket of a conditionals body should be aligned with the conditional statement. you indented it. (see below)
+
+========== p16.c ==========
+/*
+
+Mike Begonis
+Program p16
+This program counts the number of characters entered by the user until it reaches EOF.  It then returns the number of characters entered.
+
+*/
+
+#include <stdio.h>
+
+int main(int argc, char* argv[]){
+
+  int x,y=0;
+
+  while((x=getchar())!=EOF){
+    y++;
+    } <<<<<<<< too much indent here
+  printf("\n%d\n",y);
+
+  return 0;
+}
+

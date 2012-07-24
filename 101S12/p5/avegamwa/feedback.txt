@@ -1,0 +1,7 @@
+Student: avegamwa
+Assignment: p5
+Date: 2012-02-21 13:24:35.999181
+Grade: 3
+-1 Incorrect out put
+use only 1 if condition. 
+

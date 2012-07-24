@@ -1,0 +1,5 @@
+Student: ksouthwi
+Assignment: p35
+Date: 2012-04-15 18:02:38.682111
+Grade: 4
+The program seems to work fine. I couldnt figure out why did you pass only size variable as argument. instead you could have passed foo (int a[][3], int row, int coulmn) and iterated loop on these or you could have directly used the values 3 in the loops. I was inclined to give a -1 for this approach but as your code runs fine and i somehow you followed the contract i am not deducting any marks. But i would suggest this is not a good programming practice.

@@ -1,0 +1,27 @@
+import os 
+import fileinput 
+
+###preformat dst_file 
+dst_file = open('dst_file','r+') # create a new file called 'copy data'
+dst_file.write('#include<minunit.h>')
+dst_file.write('\n')
+
+
+
+src_file = open('src_file', 'r+')
+#src_file_content = src_file.read()
+#dst_file.write(src_file_content)
+
+for line in src_file: 
+    line = line.replace('main', 'student_main')
+    dst_file.write(line)
+
+
+
+
+
+#for line in fileinput.FileInput("dst_file",inplace=1):
+#    line = line.replace("main","student_main")
+#    print line,
+
+

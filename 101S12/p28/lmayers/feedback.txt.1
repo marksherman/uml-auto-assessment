@@ -1,0 +1,39 @@
+Student: lmayers
+Assignment: p28
+Date: 2012-04-05 07:53:27.212258
+Grade: 2
+
+Your main function is using atoi to convert the command line argument into a number. To use this program, that command line argument will be a name of a file, which is probably not a number. You need to use that file name to open the file, and read numbers out of there.
+
+Good job with the recursion, but please solve this iteratively with a loop. Save the recursive version for later, which will come up.
+
+========== p28.c ==========
+/*************************************************************************/
+/* Programmer: Lisa Mayers                                               */
+/*                                                                       */
+/* Program: Digit Sum                                                    */
+/*                                                                       */
+/* Approximate completion time: 20 minutes                               */
+/*************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+int digitsum(int n);
+
+int main (int argc , char *argv[]) {
+
+  int n , sum ;
+
+  n = atoi( argv[1] );
+  sum =digitsum( n );
+  printf("\nThe sum is %d.\n",sum );
+
+  return 0;
+}
+
+int digitsum( int n){
+
+  if (n < 10) return n;
+  return (n % 10) + digitsum(n / 10);
+
+}
+

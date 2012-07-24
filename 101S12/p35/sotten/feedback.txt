@@ -1,0 +1,6 @@
+Student: sotten
+Assignment: p35
+Date: 2012-04-15 18:12:42.246485
+Grade: 3
+ -1 for illegal contract of the function. There is no point of passing only one variable size to the function.
+Pass both values of rows and columns to the function and use them as termination condition. If you program says that you will always get an square matrix then you can use size. Also when you pass an argument to a function makesure you use that argument elese there is no point in passing the parameter.

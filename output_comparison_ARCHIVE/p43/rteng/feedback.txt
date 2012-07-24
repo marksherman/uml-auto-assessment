@@ -1,0 +1,5 @@
+Student: rteng
+Assignment: p43
+Date: 2012-05-14 01:13:23.640198
+Grade: 4
+comile errors and wrnings

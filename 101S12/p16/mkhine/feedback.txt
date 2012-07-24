@@ -1,0 +1,32 @@
+Student: mkhine
+Assignment: p16
+Date: 2012-03-19 07:38:31.265150
+Grade: 3
+
+Program works fine, but....
+Where are main's arguments?
+What does the variable "a" do? Nothing.
+The body of the while loop needs to be on it's own line, indented.
+Your output looks messy, as it has an extra space at the beginning of the line.
+
+========== p16.c ==========
+/**************************************************/
+/*Programer : Min Thet Khine                      */
+/*                                                */
+/*Program name : Count characters                 */
+/*                                                */
+/*Approximate completion time: 20 minutes         */
+/**************************************************/
+
+#include<stdio.h>
+
+int main() {
+  char a;
+  int i;
+  printf("Please type the characters to be counted: "); 
+  
+  while ((a=getchar()) != EOF) i++;
+  printf("\n number of characters typed is  %d \n", i);
+  return 0;
+}
+

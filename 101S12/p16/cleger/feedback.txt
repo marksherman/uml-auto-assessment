@@ -1,0 +1,37 @@
+Student: cleger
+Assignment: p16
+Date: 2012-03-18 21:18:34.736423
+Grade: 4
+
+Very good. Really. Nice work.
+
+========== p16.c ==========
+/************************************************/
+/*                                              */
+/*     Programmer: Chris Leger                  */
+/*                                              */
+/*     Title: Count Characters                  */
+/*                                              */
+/*     Time to Completion: 25 Minutes           */
+/*                                              */
+/************************************************/
+
+#include<stdio.h>
+
+int main(int argc, char* argv[]){
+  
+  int c;
+  int num;
+  
+  while(c != EOF){
+
+    c = getchar();
+    
+    num++;
+  }
+
+  printf("\n %d Characters Before EOF \n",num-1);
+
+  return(0);
+}
+

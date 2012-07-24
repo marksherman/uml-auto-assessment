@@ -1,0 +1,5 @@
+Student: rthok
+Assignment: p43
+Date: 2012-05-14 01:15:11.609191
+Grade: 5
+-1 for warnings

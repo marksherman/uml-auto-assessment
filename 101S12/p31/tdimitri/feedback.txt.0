@@ -1,0 +1,7 @@
+Student: tdimitri
+Assignment: p31
+Date: 2012-04-09 17:44:36.246922
+Grade: 3
+-1 for incorrect output. I believ its negotiable. Contact the instructor.
+Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

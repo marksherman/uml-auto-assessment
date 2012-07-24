@@ -1,0 +1,19 @@
+n = 43
+# Square Deal
+test : main
+	#
+	# Should 
+	#
+	echo "3 100" | ./a$(n)
+	echo "15 1" | ./a$(n)
+
+main : p$(n).c
+	gcc -Wall -ansi -pedantic -lm -O p$(n).c -o a$(n)
+
+debug : p$(n).c
+	gcc -Wall -ansi -pedantic -lm -g p$(n).c -o a$(n)
+
+clean :
+	rm -f a$(n)
+	rm -f *~
+	rm -f \#*\#

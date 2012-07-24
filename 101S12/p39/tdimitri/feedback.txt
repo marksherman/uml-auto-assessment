@@ -1,0 +1,5 @@
+Student: tdimitri
+Assignment: p39
+Date: 2012-04-25 13:59:57.662023
+Grade: 4
+-2 for including loop in amin function. U are supposed to do it recursively

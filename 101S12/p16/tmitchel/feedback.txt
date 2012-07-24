@@ -1,0 +1,53 @@
+Student: tmitchel
+Assignment: p16
+Date: 2012-03-19 08:58:46.467243
+Grade: 2
+
+Don't put a newline between a function declaration and the opening bracket.
+
+This program prints out a line %d Characters for each char entered. The goal of the program is to count the characters, then print out the final count at the end. 
+
+I don't believe that you tested this program, saw that result, and said to yourself, "ah, perfect!"
+
+This could easily be fixed by putting the print statement outside of the loop.
+
+Your indentation is also wrong inside the while loop. Both the y++ and the printf are at the same level, so they should look it.
+
+What's with all the extra space in the header?
+
+-1 late
+
+========== p16.c ==========
+/****************************************************/
+/*  Programmer: Thomas Mitchell                     */
+/*  Program 16: Count Characters                    */
+/*  Aproximate Completion time: 15 Minutes          */
+/*                                                  */
+/*                                                  */
+/*                                                  */ 
+/****************************************************/
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main( int argc, char *argv[] )
+
+{
+  int x;
+  int y; 
+  
+  printf ( "I count characters (including enter), try me! Type some stuff!\n" );
+
+  while ( ( x = getchar( ) ) != EOF ){
+      
+    y++;
+
+      printf ( "%d Characters \n"  , y );
+  
+  }
+
+  return 0;
+
+}
+

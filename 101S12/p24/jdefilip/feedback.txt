@@ -1,0 +1,6 @@
+Student: jdefilip
+Assignment: p24
+Date: 2012-04-05 22:00:03.016855
+Grade: 3
+ -1 forn not using a loop to get data from file.
+counting the numbers in the file and dividing by that will be a better approcach.

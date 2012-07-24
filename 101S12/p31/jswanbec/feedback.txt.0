@@ -1,0 +1,8 @@
+Student: jswanbec
+Assignment: p31
+Date: 2012-04-09 17:25:25.872801
+Grade: 2
+-1 for not using loops and hardcoding.
+-1 for wrong output.
+ Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

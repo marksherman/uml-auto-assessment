@@ -1,0 +1,5 @@
+Student: sotten
+Assignment: p42
+Date: 2012-05-12 22:02:03.487016
+Grade: 2
+-2 compilation errors

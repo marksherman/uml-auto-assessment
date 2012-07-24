@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p30
+Date: 2012-04-09 16:03:26.992493
+Grade: 2
+-1 for compilation errors.
+-1 for incorrect code. When you retun you result from main function its a big mistake.

@@ -1,0 +1,22 @@
+Student: bmcclory
+Assignment: p44
+Date: 2012-05-13 17:53:46.908642
+Grade: 1
+
+Does not compile, which gives a grade of 1.
+
+Looking at the code, there is a lot wrong. You defined an insertNode function INSIDE of your main, inside your driver program, which does not make sense. You have free list in your driver program file, which is also incorrect.
+
+You renamed all of the functions and files. Not sure why you did this. All you had to do was fill in the blanks.
+
+inside the linked_list.c file, the makenode and insertNode are pretty good, but your freeList clearly demonstrates that you're missing some concepts. 
+- start should NEVER equal EOF. Can't happen with the rest of the program.
+- you do not traverse the list. (start - 1) will not do anything, as the nodes are not laid out sequentially in memory. You need to get the pointer of the next node from the "next" field of the current node.
+
+You also have calls to functions that have the return type at the front of the line:
+	void freeList(...)
+
+If you start the line with a type, then it is  DECLARATION OF A NEW VARIABLE OR FUNCTION, not a simple call. This is a basic concept.
+
+Not your best work. 
+

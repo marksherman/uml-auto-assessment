@@ -1,0 +1,23 @@
+n = 32
+# Non-recursive Factorial
+test : build
+	#
+	# Should output 
+	# 362880
+	# 40320
+	# 120
+	# 1
+	# 
+	./a$(n) 9
+	./a$(n) 8
+	./a$(n) 5
+	./a$(n) 0
+
+build : p$(n).c
+	gcc -Wall -ansi p$(n).c -g -o a$(n)
+
+clean :
+	rm -f a$(n)
+	rm -f *~
+	rm -f \#*\#
+

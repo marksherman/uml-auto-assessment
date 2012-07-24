@@ -1,0 +1,13 @@
+Student: dhoyt
+Assignment: p40
+Date: 2012-05-09 14:37:03.739683
+Grade: 10/15
+
+Written: 8/9
+
+Code: 2/6
+
+Every language was wrong in at least one test case. Your code is messy, and missing some obvious things, like argument types. 
+
+int function( name ); should be int function( type name );
+

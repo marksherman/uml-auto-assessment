@@ -1,0 +1,6 @@
+Student: tmitchel
+Assignment: p4
+Date: 2012-02-21 12:59:32.484258
+Grade: 2
+ error while compiling. filename is testdata4 and not testdata.txt. 
+-1 for the incorrect program header.

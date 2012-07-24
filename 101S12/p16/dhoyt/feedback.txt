@@ -1,0 +1,41 @@
+Student: dhoyt
+Assignment: p16
+Date: 2012-03-18 21:23:44.610210
+Grade: 2
+Late -1
+
+Why do you have an i--? This program prints one less than the right answer, and that's why. You should have caught that in testing. Delte that and it would work perfectly. So close!
+
+Also, complete your comment box. Put the solid line on the bottom, too.
+
+ps: what does 'x' do?
+
+========== p16.c ==========
+/******************************/
+/* Programmer: David Hoyt     */
+/* Program: Count Characters  */
+/* Time: 40min                */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+  int x, i = 0;
+
+  printf( "Enter characters, press ctrl+d when done:\n" );
+
+  while( ( x = getchar() ) != EOF){ 
+
+    i++;
+
+  }
+
+  i--;
+
+  printf( "Number of characters: %d\n", i );
+
+  return 0;
+
+  }
+

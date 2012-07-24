@@ -1,0 +1,5 @@
+Student: bmcclory
+Assignment: p42
+Date: 2012-05-12 21:22:10.125284
+Grade: 3
+-1  for compile errors

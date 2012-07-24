@@ -1,0 +1,33 @@
+Student: tdimitri
+Assignment: p16
+Date: 2012-03-19 08:40:54.238369
+Grade: 4
+
+Good job. A few pro-tips:
+
+- put a blank line between your include and your first function, also between the header and the includes.
+
+- If you have a "for" loop (or any loop) with no body, it's ok to put a semicolon at the end and not bother with the braces. 
+for(i = 0; cond ; i++);
+
+- Your final newline is made with a putchar. That easily could have been included in the printf above it, after the number was printed.
+
+That's it. Pretty nitpicky stuff, so you good job.
+
+========== p16.c ==========
+/*************************************************/
+/* Programmer: Theodore Dimitriou                */
+/* Program 16: Count Characters                  */
+/* Approximate completion time: 60 mins          */
+/*************************************************/
+#include <stdio.h>
+int main(int argc, char* argv[]) {
+  int i;
+  printf( "Type stuff in to find out how many characters you typed: \n");
+  for(i=0; getchar()!=EOF; i++){  
+  }
+  printf("\n%d", i);
+  putchar('\n');
+  return 0;
+}
+

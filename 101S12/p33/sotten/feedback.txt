@@ -1,0 +1,5 @@
+Student: sotten
+Assignment: p33
+Date: 2012-04-09 20:36:33.332467
+Grade: 3
+-1. The program returns segmentation fault for x =0;

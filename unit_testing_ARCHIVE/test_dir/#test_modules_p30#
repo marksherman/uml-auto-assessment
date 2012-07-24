@@ -1,0 +1,34 @@
+static char * test() { 
+       int x; 
+       u_test = { 1, 2, 3, 4, 5, 6, 7, 8 } 
+       v_test = { 1, 2, 3, 4, 5, 6, 7, 8 } 
+       x = inner( u_test, v_test )
+       mu_assert("Function inner returns incorrect value.", x == 204); 
+       return 0; 
+} 
+       
+
+static char * test() { 
+       int x; 
+       a = 55; 
+       b = 54
+       x = swap ( *a
+
+  
+
+void swap( int *a, int *b ) {
+  
+  int temp;
+  
+  temp = *a;
+  *a = *b;  
+  *b = temp;
+}
+
+
+
+
+
+  
+
+

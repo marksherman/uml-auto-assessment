@@ -1,0 +1,5 @@
+Student: mbegonis
+Assignment: p3
+Date: 2012-02-21 10:24:42.648778
+Grade: 4
+Adding extra lines to seprate code fragments is not a good idea. For small programs its fine but when you think of a 4k-5k lines of code then it will be annoying. 

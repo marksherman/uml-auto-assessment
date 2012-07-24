@@ -1,0 +1,58 @@
+Student: tfrank
+Assignment: p28
+Date: 2012-04-05 09:52:50.390042
+Grade: 4
+
+Nice work.
+Since when do you check for a valid file pointer? while it's a good thing in general, it's not needed in this class. I promise all the files will be valid, and all input will be correct. Unless you found this motivation elsewhere... please explain.
+
+Indentation is beautiful. Without it this would be a steaming mess. But it's nice.
+
+You need to do MUCH better with your variable naming. What is z versus a? they have no meaning, but the variables must serve explicit purposes, or they wouldn't exist. Find a name for them.
+
+========== p28.c ==========
+/**********************************************/
+/*Programmer: Thomas Frank                    */
+/*                                            */
+/*Program 28:Digit Sum                        */
+/*                                            */
+/*Approximate completion time: 40 minutes     */
+/**********************************************/
+
+#include <stdio.h>
+
+int digitsum( int a);
+
+int main (int argc, char*argv[])
+{
+	int x, y;
+	x = y = 0;
+	FILE *fin;
+	fin = fopen (argv[1],"r");
+	if (fin == NULL){
+		printf("Not a valid file\n");
+	}
+	else{
+		while(fscanf( fin, "%d", &x) != EOF){	
+			y = digitsum(x);
+			
+			printf("For %d, the digit sum is %d\n", x, y);
+		}
+	fclose(fin);
+	}
+	return 0;
+}
+
+int digitsum( int x)
+{
+
+	int z, a;
+	a = z = 0;
+	while(x != 0){
+		z = (x % 10);
+		x = (x / 10);
+		a = a + z;
+	}
+	return a;
+}
+

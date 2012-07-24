@@ -1,0 +1,8 @@
+Student: mkhine
+Assignment: p1
+Date: 2012-02-14 16:02:49.646667
+Grade: 5
+
+the code is supposes to have a box on the top giving information about the program and more. 
+The code is supposed to be written in a good indented fashion which was not seen in the code.
+I am striking off -1 for them together but will be penalized more in future.

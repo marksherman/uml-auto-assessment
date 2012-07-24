@@ -1,0 +1,6 @@
+Student: bmakovoz
+Assignment: p3
+Date: 2012-02-15 16:45:58.826250
+Grade: 3
+nice work with the code
+-1 for the header.

@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p10
+Date: 2012-03-11 21:20:15.331942
+Grade: 2
+-1 for incorrect header at top.
+-1 for not closing the file at the end.

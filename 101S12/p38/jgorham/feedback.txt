@@ -1,0 +1,6 @@
+Student: jgorham
+Assignment: p38
+Date: 2012-04-23 15:41:32.787291
+Grade: 2
+-1 for incorrect output.
+-1 for incorrect logic.

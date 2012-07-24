@@ -1,0 +1,9 @@
+Student: mbegonis
+Assignment: p40
+Date: 2012-05-09 15:06:03.948910
+Grade: 14.5/15
+
+Written: 8.5/9
+
+Code: 6/6
+

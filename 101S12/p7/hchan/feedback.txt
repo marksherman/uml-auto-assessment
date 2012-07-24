@@ -1,0 +1,7 @@
+Student: hchan
+Assignment: p7
+Date: 2012-02-27 16:36:26.609661
+Grade: 3
+we can do the same problem with 2 if clauses. the third case will automatically
+be covered by else clause
+-1 for late

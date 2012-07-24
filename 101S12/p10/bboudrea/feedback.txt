@@ -1,0 +1,7 @@
+Student: bboudrea
+Assignment: p10
+Date: 2012-03-18 18:15:23.336274
+Grade: 3
+
+Throws a warning of mixed declarators with code, meaning you didn't do all your variable declarations before you started executable statements. -1
+

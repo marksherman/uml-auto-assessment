@@ -1,0 +1,10 @@
+Student: kwhite
+Assignment: p31
+Date: 2012-04-09 17:29:32.724491
+Grade: 1
+ -1 for hardcoding size.
+-1 for incorrect output.
+-1 for using 2 iterators.
+
+Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

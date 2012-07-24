@@ -1,0 +1,7 @@
+Student: bmcclory
+Assignment: p35
+Date: 2012-04-15 17:52:29.693429
+Grade: 1
+-1 for compile errors.
+-1 for incorrect logic.
+-1 for incorrect syntax

@@ -1,0 +1,5 @@
+Student: jlabranc
+Assignment: p2
+Date: 2012-02-14 16:45:15.921724
+Grade: 4
+ please follow the style of the box on the top of the code as explained in the class.

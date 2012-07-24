@@ -1,0 +1,32 @@
+Student: tthok
+Assignment: p10
+Date: 2012-03-18 18:12:20.557506
+Grade: 3
+
+-1 for formatting issues, see below
+
+========== p10.c ==========
+/****************************************/
+/* Programmer: Thearisatya Thok         */
+/*                                      */
+/* Program 10: Sum of Twenty            */
+/*                                      */
+/* Approximate completion time: 1 hour  */
+/****************************************/         
+
+#include<stdio.h>
+
+int  main() <-- there's more here, but this was an early problem
+  {  <-- too much indent, should be flush with the above line
+    int num, sum = 0;
+    FILE *fin;
+    fin = fopen( "testdata10", "r"); 
+	while(fscanf(fin, "%d", &num) != EOF )  <<<< too much indent. align with other lines that are in this block
+	  {  <<<< too much indent, should line up with the "while" it attaches to
+	    sum = sum + num; << this SHOULD be indented relative to the while
+	  }  << same as it's pair above, too much indent
+   printf ("%d\n", sum);
+   fclose ( fin );
+   return 0;
+  }
+

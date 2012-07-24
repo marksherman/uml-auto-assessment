@@ -1,0 +1,7 @@
+Student: tmitchel
+Assignment: p35
+Date: 2012-04-15 18:15:42.167554
+Grade: 4
+ The program is correct. But does you problem say that you will always get an square matrix ? how about we give a[5][4];
+will your program work ?
+A programmer should be careful about these kind of errors and assumptions. 

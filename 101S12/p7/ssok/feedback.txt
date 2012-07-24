@@ -1,0 +1,8 @@
+Student: ssok
+Assignment: p7
+Date: 2012-02-27 16:58:30.039508
+Grade: 3
+Incorrect header. -1
+we can do the same problem with 2 if clauses. the third case will automatically
+be covered by else clause
+

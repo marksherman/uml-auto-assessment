@@ -1,0 +1,6 @@
+Student: ssok
+Assignment: p42
+Date: 2012-05-12 22:03:04.453497
+Grade: 1
+-1 for compilation errors 
+-2 for incorrect logic and code

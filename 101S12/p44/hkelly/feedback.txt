@@ -1,0 +1,18 @@
+Student: hkelly
+Assignment: p44
+Date: 2012-05-13 18:33:27.894534
+Grade: 10 
+
+Does not exit on EOF. In this case, you need to watch for scanf's return value, as it returns EOF when it finds EOF. Weird, i know, but you should have seen this in testing.
+
+Did you test it?
+How did you stop the program?
+
+You also are writing to uninitialized memory.
+You create a new node, but only allocate enough memory for DATA_T, which is just a float. 
+	newnode = (NODE*)malloc(sizeof(DATA_T));
+Corrected:
+	newnode = (NODE*)malloc(sizeof(NODE));
+
+	
+

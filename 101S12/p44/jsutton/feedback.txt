@@ -1,0 +1,14 @@
+Student: jsutton
+Assignment: p44
+Date: 2012-05-13 19:04:00.566974
+Grade: 9 
+
+Your print function does not recurse, so it just prints the first value over and over again, infinitely. 
+
+The list appears to build in memory properly, which is very good.
+
+There is a weird memory error caused by your line in p44.c that creates the first node. Here's teh trick: you didn't need to do it at all. The insert_node function works fine if the start pointer is NULL, or empty.
+
+But that first-node line in p44.c is strange.
+
+

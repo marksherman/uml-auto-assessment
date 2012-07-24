@@ -1,0 +1,6 @@
+Student: mkibusi
+Assignment: p6
+Date: 2012-02-27 16:09:34.103440
+Grade: 3
+Incorrect header format -1.
+The second if condition is not required when we do if x==0 then the else part already covers the rest of the cases. The solution you provided is correct but not optimal.

@@ -1,0 +1,5 @@
+Student: jgorham
+Assignment: p30
+Date: 2012-04-09 16:09:47.182172
+Grade: 3
+-1 for not following the problem correctly. You were supposed to prompt the user for the values.

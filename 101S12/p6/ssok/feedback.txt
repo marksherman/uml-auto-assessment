@@ -1,0 +1,5 @@
+Student: ssok
+Assignment: p6
+Date: 2012-02-27 16:20:03.921037
+Grade: 3
+incorrect header format -1.

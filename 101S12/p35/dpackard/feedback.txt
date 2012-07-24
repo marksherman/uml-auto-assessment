@@ -1,0 +1,7 @@
+Student: dpackard
+Assignment: p35
+Date: 2012-04-15 17:56:01.561756
+Grade: 2
+-1 for incorrect output.
+-1 for illegal contract. The variables passed i and j donot hold any relevance to the function in the code provided. 
+They should either be used in the termination conditions of the loop else need not be passed.

@@ -1,0 +1,6 @@
+Student: myui
+Assignment: p14
+Date: 2012-03-17 18:14:22.368472
+Grade:2
+-1 for incorrect output.
+-1 for late.

@@ -1,0 +1,6 @@
+Student: jgorham
+Assignment: p3
+Date: 2012-02-21 10:01:31.409457
+Grade: 3
+i1 for incorrect use of scanf. Use scanf only once to input 2 numbers.
+

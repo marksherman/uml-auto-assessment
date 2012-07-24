@@ -1,0 +1,5 @@
+Student: jlamarca
+Assignment: p42
+Date: 2012-05-12 21:37:07.665080
+Grade: 2
+-2 for runtime errors

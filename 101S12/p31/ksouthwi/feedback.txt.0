@@ -1,0 +1,8 @@
+Student: ksouthwi
+Assignment: p31
+Date: 2012-04-09 17:28:03.778246
+Grade: 3
+-1 for hardcoding size.
+The idea of using a nested loops is not good and is very confusing. Avoid it in future. We will strike off 1 point for this. Its  really a bad style of writing code.
+Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

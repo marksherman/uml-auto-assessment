@@ -1,0 +1,78 @@
+Student: myui
+Assignment: p28
+Date: 2012-04-05 08:24:05.475333
+Grade: 1
+
+Your digitsum function looks great.
+
+You get a warning when compiled, which is automatic -1:
+p28.c: In function ‘main’:
+p28.c:23: warning: format ‘%s’ expects type ‘char *’, but argument 3 has type ‘char **’
+
+The program segmentation faults. If the TA were to grade this, he'd give it a 1/4 and move on. I'm going to try to explain through it.
+
+Your logic in your main function is as follows:
+- open a file
+- read a string in from the file
+- store that string into memory that has not been allocated (BAD)
+- convert that string into a single number with atoi
+- process digitsum on that number
+
+So... why not skip all the string business and just scan numbers straight out of the file? You're already using scanf, just search for %d instead of %s. 
+
+You have NO IDEA how long that string is. That string might contain ALL of the numbers from the file. It might contain only one. atoi will try to take all of that string and convert it into a single number, which will most likely be wrong.
+
+If you can read one number from the file with scanf, you can read all the numbers by putting scanf in a loop.
+
+The goal is to read all the numbers from the file, one by one, and for each one print out the digitsum of that number.
+
+========== p28.c ==========
+/**********************************************/
+/* Programmer: Ming Yui Chung Jacky           */
+/*                                            */
+/* Program : Digit Sum                        */
+/*                                            */
+/* Approximate completion time: 15 minutes    */
+/**********************************************/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int digitsum( int n );
+
+int main( int argc, char *argv[] ) {
+
+  char *characters;
+  int sum, n;
+
+  FILE *scanfile;
+
+  scanfile = fopen( argv[1] , "r" );
+
+  fscanf( scanfile, "%s", &characters );
+
+  n = atoi( characters );
+  sum = digitsum( n );
+
+  printf( "The sum is %d.\n", sum );
+  
+  fclose( scanfile );
+
+  return 0;
+}
+
+int digitsum( int n ){
+
+  int digit, sum = 0;
+
+  while ( n > 10 ) {
+    
+    digit = n % 10;
+    sum = sum + digit;
+    n = n / 10;
+
+  }
+
+  return sum;
+}
+

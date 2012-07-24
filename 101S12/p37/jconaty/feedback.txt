@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p37
+Date: 2012-04-22 01:30:28.269103
+Grade: 2
+-1 for compile errors.
+-1 for incorrect logic.

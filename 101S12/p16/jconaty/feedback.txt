@@ -1,0 +1,35 @@
+Student: jconaty
+Assignment: p16
+Date: 2012-03-18 21:41:34.045027
+Grade: 3
+
+No header -1
+You have no prompting to the user whatsoever. if you're dealing with keyboard i/o, you're dealing with a user, so you need to be nice. -1
+
+What does the variable 'x' do? Nothing at all. Spend the time to read over your stuff. You also have a rediculous amount of extra space between the printf and the return, which makes me think there may have been some copy-paste action going on.
+
+do NOT copy others' solutions. If you are having trouble (which I believe you are), then come see me, and we'll figure out what you're missing, and put you on track. 
+
+========== p16.c ==========
+#include <stdio.h>
+
+int main(int argc, char* argv[]){
+
+  int x;
+  int y;
+
+  while((x=getchar())!=EOF){
+
+    y++;
+  }
+
+
+  printf("\n%d\n", y);
+
+
+
+
+
+  return 0;
+}
+

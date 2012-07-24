@@ -1,0 +1,6 @@
+Student: ssok
+Assignment: p18
+Date: 2012-03-17 22:23:26.111903
+Grade: 1
+-1 for errors.
+-2 for incorrect usage of pi.

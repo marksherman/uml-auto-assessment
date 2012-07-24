@@ -1,0 +1,6 @@
+Student: jcavalie
+Assignment: p3
+Date: 2012-02-21 09:48:46.167948
+Grade: 3
+-1 for incorrect table format of the header.
+

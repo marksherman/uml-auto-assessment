@@ -1,0 +1,7 @@
+Student: kwhite
+Assignment: p22
+Date: 2012-04-05 20:52:13.269783
+Grade: 2
+-1 for error.
+-1 for incorrect output.
+The file name used in the program was not correct. corrected and recompiled it.

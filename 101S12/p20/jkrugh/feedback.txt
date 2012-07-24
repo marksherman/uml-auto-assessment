@@ -1,0 +1,5 @@
+Student: jkrugh
+Assignment: p20
+Date: 2012-03-18 17:32:48.994978
+Grade: 3
+-1 for incorrect logic and output.

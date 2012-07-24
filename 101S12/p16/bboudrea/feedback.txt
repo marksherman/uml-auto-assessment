@@ -1,0 +1,34 @@
+Student: bboudrea
+Assignment: p16
+Date: 2012-03-18 20:19:11.727212
+Grade:  2
+
+-1 incomplete header
+Irreguar indenting (letting it slide)
+-1 no user prompting. Shouldn't have to tell you. If you're doing keyboard i/o, you're dealing with a user, and they need to be talked to nicely.
+
+========== p16.c ==========
+/*********************************************/
+/*                                           */
+/* Programmer: Brian Boudreau                */
+/*                                           */
+/* Assignment :                              */
+/*                                           */
+/* Estimated time of Completion:   minutes */
+/*                                           */
+/*********************************************/
+
+#include<stdio.h>
+
+int main(int argc, char* argv[]){
+  int c;
+  int count;
+
+  while ( ( c = getchar() ) != EOF )
+    count ++ ;
+
+ printf( "%d characters\n" , count ) ;
+    
+  return(0);
+}
+

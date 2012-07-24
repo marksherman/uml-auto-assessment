@@ -1,0 +1,6 @@
+Student: jgorham
+Assignment: p42
+Date: 2012-05-12 21:34:27.593394
+Grade: 2
+-1 for incorrect output in 1 case.
+-1 for not freeing mempory

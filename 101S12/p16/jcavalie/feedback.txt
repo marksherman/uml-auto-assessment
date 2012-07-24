@@ -1,0 +1,29 @@
+Student: jcavalie
+Assignment: p16
+Date: 2012-03-18 21:39:31.974998
+Grade: 3
+
+Good code. I'm taking 1 off for a messy header box and a stray close bracket. hard to believe you spent 45 minutes and didn't have time to indent. (see below)
+
+========== p16.c ==========
+/*********************/
+/*John Cavalieri     */
+/*p16 count characters*/
+/*45 mins           */
+/********************/
+
+
+#include <stdio.h>
+
+int main(int argc,char* argv[]){
+
+  int x = 0;
+  printf("type characters to be counted: \n");
+
+  while(getchar() !=EOF){
+   x++;
+} <<<<<<<<< this one shoudl be indented to the level of the "while"
+  printf(" number of characters typed: %d\n",x);
+  return 0;
+}
+

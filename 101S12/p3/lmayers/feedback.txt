@@ -1,0 +1,6 @@
+Student: lmayers
+Assignment: p3
+Date: 2012-02-21 10:23:22.238085
+Grade: 3
+incorrect output. The program asked to sum numbers not to multiply. I believe it was a silly mistake.
+

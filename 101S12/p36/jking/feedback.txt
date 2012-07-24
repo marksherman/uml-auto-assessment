@@ -1,0 +1,5 @@
+Student: jking
+Assignment: p36
+Date: 2012-04-20 16:46:20.047272
+Grade: 3
+-1 for infinite loop.

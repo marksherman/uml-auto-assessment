@@ -1,0 +1,37 @@
+Student: hkelly
+Assignment: p16
+Date: 2012-03-18 21:33:02.999557
+Grade: 4
+
+Really good. Well constructed. Looks pro.
+There is a slightly simpler way to do it, but it's conceptually the same as what you did. be proud, you didn't fall into any of my traps.
+
+========== p16.c ==========
+/****************************************************/
+/* Programmer: Harrison Kelly                       */
+/*                                                  */
+/* Program 16: Count Characters                     */
+/*                                                  */
+/* Approximate completion time: 30 minutes          */
+/****************************************************/
+
+#include <stdio.h>
+
+int main( int argc, char* argv[] ){
+
+  char nextchar;
+  int total;
+
+  printf( "Enter characters.\n" );
+  nextchar = getchar();
+  
+  total = 0;
+  while( nextchar != EOF ){
+    total++;
+    nextchar = getchar();
+  }
+  printf("\nYou entered %d characters.\n", total);
+
+ return 0;
+}
+

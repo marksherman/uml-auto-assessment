@@ -1,0 +1,5 @@
+Student: mkhine
+Assignment: p30
+Date: 2012-04-09 16:18:02.535434
+Grade: 3
+ -1 for not following the problem statment. prompt the user for input.

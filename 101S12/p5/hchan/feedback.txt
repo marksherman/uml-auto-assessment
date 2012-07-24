@@ -1,0 +1,6 @@
+Student: hchan
+Assignment: p5
+Date: 2012-02-24 16:18:14.923083
+Grade: 3
+-1 for late
+The last if condition was not required.

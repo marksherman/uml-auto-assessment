@@ -1,0 +1,7 @@
+Student: rthok
+Assignment: p12
+Date: 2012-03-12 04:56:38.383908
+Grade: 2
+-1 for incorrect output. 
+-1 for late. 
+please use float or double in place of int.

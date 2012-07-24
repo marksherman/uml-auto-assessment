@@ -1,0 +1,62 @@
+Student: tmitchel
+Assignment: p44
+Date: 2012-05-14 10:06:52.427727
+Grade: 6
+
+Compiler warning, -1
+p44.c:26: warning: format ‘%d’ expects type ‘int’, but argument 2 has type ‘struct NODE *’
+This warning is indicating that you are trying to print a pointer to a node as a simple integer, which is probably NOT what you want to do. You probably want to print the data, and even then it should be a float.
+
+You did not update the header file to make DATA_T be float. 
+
+The scanf to get data only accepts integers. It must accept floats, or the program never stops and other bad things happen. -1
+
+I was able to test the rest of the program by only using integers.
+Forward print works, but then the program seg faults.
+
+make_node function does not set the new node's next field properly. It always set it to NULL. This will made it such that you had to manually set that field in the insert_node function. It also breaks the program specification I gave you. If I used your library with a different program, it would not behave as expected. -1
+
+Look at insert_node and tell me, really, what is the point of passing in "start" and then seting the field to "start" manually? seems like you're doing the same thing twice (or once not at all, as discussed above).
+
+free_list look ok, but I can't test it beecause the program seg faults before it gets to use it.
+
+No attempt is made to print the list in reverse order. -3
+
+
+
+========== p44.c ==========
+/****************************************************************/
+/* Programmer: Thomas Mitchell                                  */
+/*                                                              */
+/* Program 44: Linked List                                      */
+/*                                                              */
+/* Program Completion Time: 3 hours (very confused)             */
+/****************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "linked_list.h"
+
+int main (int argc, char* argv[])
+{
+	NODE* start = NULL ;
+	int num = 0 ;
+	NODE* prnt ; 
+
+	printf( "Enter integers to input into the Linked List\n" ) ;
+	while ( scanf( "%d" , &num ) != EOF ) {
+	  insert_node( num , start ) ; 
+	    }
+
+	prnt = start ;
+	while ( prnt!=NULL ) {
+	  printf( "%d\n" , prnt->next ) ;
+	  prnt = prnt->next;
+	}
+
+	free_list(start);
+	
+	return 0;
+}
+
+

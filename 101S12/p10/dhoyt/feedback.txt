@@ -1,0 +1,6 @@
+Student: dhoyt
+Assignment: p10
+Date: 2012-03-11 21:16:11.026972
+Grade: 2
+-1 for warnings.
+-1 for incorrect filenames used while closing.

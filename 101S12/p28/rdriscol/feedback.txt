@@ -1,0 +1,68 @@
+Student: rdriscol
+Assignment: p28
+Date: 2012-04-05 08:30:45.710379
+Grade: 3.5
+
+Works perfectly.
+
+Thank you for citing the help you got in the digitsum function. I think you also got help with the "failure to open file" check, as we have never done that in class, and you did it a little bit incorrectly.
+
+Checking if the file pointer is NULL after you do fopen does check to make sure fopen worked. In normal software, this is an absolutely important check. In computing 1, I'm guaranteeing you that the file will be right, and the user will play nice.
+Checking for a successful file open generally must be done immediately after the fopen command, that way you know if the fopen was successful before you move along and do anything else. 
+Below, you put the check in the while loop. Two things about this:
+1- it will be the same every time, as fin never changes in the loop. So every iteration the result is the same. Does not need to be looped.
+2- You already read from the file with fscanf before the check. If the fopen had failed, you wouldn't know until AFTER fscanf tried and failed, crashing the program. The check is useless where it is.
+
+Returning 1 with an error condition is also something I haven't ever asked you to do. It is correct, but I'll bet that, with the fin/NULL check, came from somewhere else.
+That website is just random people trying to help. The suggestion to check for the file is NOT the problem he was trying to solve. The students who started that thread should have just asked his class mailing list instead of putting out to the internet, where people don't know the specific limits of the class you're working in. 
+
+You include the math library but don't use it.
+
+Your indentation is beautiful.  
+
+========== p28.c ==========
+/***********************************/
+/* Programmer: Rachel Driscoll     */
+/*                                 */
+/* Program: Digit Sum              */
+/*                                 */
+/* Approx Completion Time: 30 min  */
+/***********************************/
+
+#include <stdio.h>
+#include <math.h>
+
+
+int digitsum( int n );
+
+int main( int argc, char * argv[]){
+  int n;
+  FILE * fin;
+  fin = fopen( argv[1], "r");
+  
+  while(fscanf( fin, "%d", &n) != EOF){
+    printf( "The sum of %d is %d. \n",n, digitsum(n));
+    if( NULL == fin){
+      printf( "Failure to open file:\n");
+      return 1;
+    }
+  }
+  fclose( fin );
+  return 0;
+}
+
+
+
+/*  
+I got help from: 
+http://cboard.cprogramming.com/c-programming/107642-digit-sum.html*/ 
+int digitsum( int n ){
+  int digit,sum = 0;
+  while( n > 0 ){
+    digit = n % 10;
+    n = n / 10;
+    sum = sum + digit;
+  }
+  return sum;
+}
+

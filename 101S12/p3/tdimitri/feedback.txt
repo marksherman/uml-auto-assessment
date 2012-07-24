@@ -1,0 +1,5 @@
+Student: tdimitri
+Assignment: p3
+Date: 2012-02-21 10:50:41.753105
+Grade: 4
+Good work

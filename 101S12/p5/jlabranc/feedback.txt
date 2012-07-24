@@ -1,0 +1,8 @@
+Student: jlabranc
+Assignment: p5
+Date: 2012-02-24 16:26:47.698695
+Grade: 2
+ Sorry for the previous mail. 
+-1 for incorrect header at top.
+-1 for late
+The last if condition could be omitted as it is thge only leftover case so only an else could have covered it.

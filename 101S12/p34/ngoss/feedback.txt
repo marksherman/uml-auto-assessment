@@ -1,0 +1,67 @@
+Student: ngoss
+Assignment: p34
+Date: 2012-05-09 09:44:55.223067
+Grade: 4
+
+Your logic in the is_palindrome function is not quite right. There are a lot of cases that your program gets incorrect.
+
+Here are some tests that it gets wrong:
+False positives:
+	Input a string (max 20 characters): abcdecba is a palindrome.
+	Input a string (max 20 characters): abcddba is a palindrome.
+False negative:
+	Input a string (max 20 characters): a is not a palindrome.
+
+========== p34.c ==========
+/************************************************************/
+/* Programmer: Nathan Goss                                  */
+/*                                                          */
+/* Program 034: Palindrome Detector                         */
+/*                                                          */
+/* Approximate completion time: 025 minutes                 */
+/************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+
+int is_palindrome( char* the_string , int start_char , int end_char );
+
+
+int main(int argc, char* argv[])
+{
+    char the_string[20];
+    int length, retval;
+
+    printf("Input a string (max 20 characters): ");
+
+    scanf("%s", the_string);
+    
+    length = strlen(the_string);
+    
+    retval = is_palindrome(the_string, 0, length - 1);
+
+    if(retval == 1)
+	printf("%s is a palindrome.\n", the_string);
+    else
+	printf("%s is not a palindrome.\n", the_string);
+
+    return 0;
+}
+
+
+int is_palindrome( char* the_string , int start_char , int end_char )
+{
+    if(the_string[start_char] == the_string[end_char])
+    {
+	start_char++;
+	end_char--;
+	if(start_char - end_char > 1)
+	    return is_palindrome(the_string, start_char, end_char);
+	else
+	    return 1;
+    }
+    else
+	return 0;
+}
+

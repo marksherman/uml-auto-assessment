@@ -1,0 +1,5 @@
+one arbitrary integer pair (x, y)
+[test case: two numbers which sum to 30]
+
+Make instructions: 
+echo “15 15” | ./a.out

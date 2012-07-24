@@ -1,0 +1,6 @@
+Student: hkelly
+Assignment: p23
+Date: 2012-04-05 21:31:58.618243
+Grade: 2
+-1 for incorrect output.
+-1 for not closing file in the end.

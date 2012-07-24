@@ -1,0 +1,5 @@
+Student: tthok
+Assignment: p1
+Date: 2012-02-14 16:15:39.408328
+Grade: 5
+-1 for late.

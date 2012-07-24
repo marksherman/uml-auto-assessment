@@ -1,0 +1,5 @@
+Student: agonzale
+Assignment: p4
+Date: 2012-02-21 11:09:57.152993
+Grade: 2
+incorrect output and warnings

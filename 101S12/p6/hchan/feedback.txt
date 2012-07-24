@@ -1,0 +1,6 @@
+Student: hchan
+Assignment: p6
+Date: 2012-02-27 13:54:06.214412
+Grade: 3
+-1 for late submission.
+The if else clauses do give correct output but it is not the optimal way to do it. When you compare x==0 so rest all cases are where x!= 0 so we need only 1 if else statment. more number of if statements increase the complexity of the program making it hard to read and understand and in very very large codes increases running time.

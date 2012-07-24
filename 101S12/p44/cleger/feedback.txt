@@ -1,0 +1,11 @@
+Student: cleger
+Assignment: p44
+Date: 2012-05-13 17:19:10.530881
+Grade: 12
+
+Excellent work on the linked list.
+
+You have one trick in there that's clever, but unneccesary. That's using a counter to know how many nodes to print. This clearly doens't work if you start from somewhere other than the very beginning. The generally accepted way is to just check if you're on the last node yet (next==NULL), and if it's not the last, then keep going.
+
+But yeah, really good.
+

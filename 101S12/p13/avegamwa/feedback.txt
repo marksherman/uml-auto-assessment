@@ -1,0 +1,5 @@
+Student: avegamwa
+Assignment: p13
+Date: 2012-03-13 16:27:01.384743
+Grade: 4
+No need of the second statment. The second line of printing argv[x] is totally incorrect. first of all x is never initialized and second it dosnt prints any thing. Doesnt effect the output but points could be striked off later.

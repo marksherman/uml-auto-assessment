@@ -1,0 +1,5 @@
+Student: jkrugh
+Assignment: p2
+Date: 2012-02-14 16:41:45.432989
+Grade: 4
+

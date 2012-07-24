@@ -1,0 +1,5 @@
+Student: mkhine
+Assignment: p35
+Date: 2012-04-15 18:06:28.563791
+Grade: 3
+ -1 for illegal contract of the function. The passed parameter size is never used in the function code.

@@ -1,0 +1,4 @@
+mode = 1 
+reference_file = "out.8jdefilip"
+student_file = "out8.egraceff"
+substrings = ["is positive", "is negative", "is zero"] 

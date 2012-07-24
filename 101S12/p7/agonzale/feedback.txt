@@ -1,0 +1,5 @@
+Student: agonzale
+Assignment: p7
+Date: 2012-02-27 16:25:43.605051
+Grade: 4
+we can do the same problem with only 2 if clauses the third case is automatically covered.

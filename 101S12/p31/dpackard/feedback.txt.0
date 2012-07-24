@@ -1,0 +1,8 @@
+Student: dpackard
+Assignment: p31
+Date: 2012-04-09 17:14:41.804829
+Grde:2
+-1 for hardcoding the iterator count(size).
+ -1 for not using the same iterator. Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+
+

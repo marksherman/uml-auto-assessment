@@ -1,0 +1,5 @@
+Student: ngoss
+Assignment: p35
+Date: 2012-04-15 18:08:37.996857
+Grade: 4
+Looking at the code of function i was inclined to do a -1 for passing only 1 parameter length and hardcoding the other value. This confused me a little. But as you have not violated any contract I am not deducting any marks. But for future this is not a good programming practice. Either pass both row count and column count.

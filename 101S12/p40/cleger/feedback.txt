@@ -1,0 +1,13 @@
+Student: cleger
+Assignment: p40
+Date: 2012-05-09 15:10:23.433468
+Grade: 13/15
+
+Written: 9/9
+
+Code: 4/6
+
+Your languages have both false positives and false negatives in some cases. Your code and writeup are extroadanarily well written and organized. 
+
+The ternary operator in the return of the language functions is brialliant. Too bad the logic is broken.
+

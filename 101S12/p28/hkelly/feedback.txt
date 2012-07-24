@@ -1,0 +1,7 @@
+Student: hkelly
+Assignment: p28
+Date: 2012-04-04 11:14:08.953165
+Grade: 3
+
+You calculate all the digit sum values, but you only print the last one. I bet you can figure out why.
+

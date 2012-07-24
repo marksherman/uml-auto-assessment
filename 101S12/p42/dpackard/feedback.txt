@@ -1,0 +1,5 @@
+Student: dpackard
+Assignment: p42
+Date: 2012-05-12 21:27:34.038419
+Grade: 2
+Compilation errors.

@@ -1,0 +1,5 @@
+Student: myui
+Assignment: p30
+Date: 2012-04-09 16:19:02.971800
+Grade: 3
+ -1 for not following the problem statment. prompt the user.

@@ -1,0 +1,5 @@
+Student: ngoss
+Assignment: p3
+Date: 2012-02-21 10:36:05.751165
+Grade: 3
+ -1 for warnings.

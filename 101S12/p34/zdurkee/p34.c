@@ -1,0 +1,70 @@
+/**********************************************/
+/*  Programmer: Zachary Durkee                */
+/*                                            */
+/*  Program 34: Palindrom Detector            */
+/*                                            */
+/*  Approximate completion time: 2 hours      */
+/**********************************************/
+
+#include <stdio.h>
+
+#include <string.h>
+
+int is_palindrome( char* the_string, int start_char, int end_char );
+
+int main( int argc, char *argv[] ){
+
+  char word[25];
+
+  int result;
+
+  int b, a = 0;
+
+  printf( "Enter a word: " );
+
+  scanf( "%s", word );
+
+  b = strlen( word ) - 1;
+
+  result =  is_palindrome( word, a, b );
+
+  printf( "If 1, then the word is a palindrome.If 0, then it is not:  %d\n", result );
+
+  return 0;
+
+}
+
+int is_palindrome( char* the_string, int start_char, int end_char ){
+
+  static int a;
+
+  static int b;
+
+  if ( the_string[start_char] == the_string[end_char] ){
+
+    a = start_char + 1;
+
+    b = end_char - 1;
+
+    if ( a >= b ){
+
+      return 1;
+
+    }
+    
+    else{      
+
+     return is_palindrome( the_string, a, b );
+
+    }
+
+  }
+
+  else{
+
+    return 0;
+
+  }
+
+  return 0;
+}

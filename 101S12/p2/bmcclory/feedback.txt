@@ -1,0 +1,5 @@
+Student: bmcclory
+Assignment: p2
+Date: 2012-02-14 16:30:34.676564
+Grade: 3
+the integer entered by the user should be printed.

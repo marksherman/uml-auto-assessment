@@ -1,0 +1,6 @@
+Student: sotten
+Assignment: p5
+Date: 2012-02-24 16:41:49.868324
+Grade: 2
+Incorrect logic
+Incorrect code.

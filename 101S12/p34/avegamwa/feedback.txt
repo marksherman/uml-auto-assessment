@@ -1,0 +1,64 @@
+Student: avegamwa
+Assignment: p34
+Date: 2012-04-30 17:52:07.207314
+Grade: 3
+
+p34.c:22: warning: format ‘%s’ expects type ‘char *’, but argument 2 has type ‘char (*)[20]’
+Compiler warning, -1
+
+With input length = 20 (the maximum), your program misses the last character.
+
+Your is_palindrome function only detects if the outermost characters are the same. It NEVER goes into the else condition. How could it? If the characters are the same, return 1. if they are not the same, return 0. What's left? Nothing. there is no other case that would ring it to the else, which is where the recursion happens. -1
+
+========== p34.c ==========
+/******************************************/
+/* Programmer: Aezaz Vegamwala            */
+/*                                        */
+/* Program p34: Palindrome                */
+/*                                        */
+/* Approximate completion time:30 minutes */
+/******************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int is_palindrome( char* the_string, int start_char, int end_char );
+
+int main(int argc, char* argv[])
+{
+
+  char x[20];
+  int i;
+  int str_length = 0;
+
+  printf( "Please enter a palindrome:\n" );
+  scanf( "%s", &x );
+
+  for( i=0; i<20; i++ ){
+    str_length = (x[i]==0);
+
+  }
+
+  if( is_palindrome(x, 0, str_length) == 1 )
+    printf( "The string is a palindrome\n");
+  else
+    printf( "The string is NOT a palindrome\n" );
+
+  return 0;
+
+
+}
+int is_palindrome( char* the_string, int start_char, int end_char ){
+
+
+
+  if ( the_string [start_char] == the_string [end_char] )
+    return 1;
+  if ( the_string [start_char] != the_string [end_char] )
+    return 0;
+  else
+    return is_palindrome( the_string, start_char+1, end_char-1 );
+
+
+}
+

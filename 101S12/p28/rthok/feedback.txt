@@ -1,0 +1,67 @@
+Student: rthok
+Assignment: p28
+Date: 2012-04-05 09:12:30.181053
+Grade: 3
+
+Very good, but one bug.
+
+1019 (and other numbers with a "10" in them) don't give the right answer. I see why, and it's a tiny mistake. I'll let you figure it out.
+
+Valiant attempt with the recursion, but you have sub-optimal recursive structure. The recursive call MUST the return line of the function. You make a recursive call, then do other stuff, then return. This structure will not receive the optimization from the compiler, and therefore could blow the runtime stack if the recursion is too deep. 
+
+For this assignment, i would like you to solve it iteratively, using a loop. We'll do a recursive version soon!
+
+========== p28.c ==========
+
+/**************************************************************************/
+/*                                                                        */
+/* Programmer: Ravy Thok                                                  */
+/*                                                                        */
+/* Program 28 : Digit Sum                                                 */
+/*                                                                        */
+/* Approximate Completion Time: 90 minutes                                */
+/*                                                                        */
+/**************************************************************************/
+
+#include <stdio.h>
+
+int digitsum(int x);
+
+int main( int argc, char *argv[] ) {
+
+  FILE* fin;
+  int x;
+  int i = 1;
+  int sum;   
+
+  fin = fopen(argv[i],"r");
+
+  while(fscanf(fin,"%d", &x)!= EOF) {
+      sum = digitsum(x);
+      printf("\nThe digitsum of %d is %d.\n\n", x , sum);   
+   }
+
+  fclose(fin);
+
+  return 0 ;
+
+}
+
+int digitsum (int x){
+
+  int y,z;
+
+  y = x % 10;
+
+  x = x / 10;
+
+  if( x >10){
+     x = digitsum(x);
+    }
+
+  z = y + x;
+
+return z;
+
+}
+

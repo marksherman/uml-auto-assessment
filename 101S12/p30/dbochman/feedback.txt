@@ -1,0 +1,5 @@
+Student: dbochman
+Assignment: p30
+Date: 2012-04-09 15:57:55.664698
+Grade: 3
+-1 for not following the problem. User should be prompted for values. Your version returned segmentation fault for our setup but when run manually it compiled and returned well.

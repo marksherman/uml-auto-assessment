@@ -1,0 +1,48 @@
+Student: agonzale
+Assignment: p28
+Date: 2012-04-01 20:00:32.925854
+Grade: 2 
+
+- Does not use a separate function to process digit sums. Looks like it works, but was not abstracted into a function.
+
+Errors:
+gcc -Wall -ansi -g p28.c -o a28
+p28.c: In function ‘main’:
+p28.c:20: warning: passing argument 1 of ‘fscanf’ from incompatible pointer type
+So let's look at your call to fscanf (below)
+
+========== p28.c ==========
+/************************************/
+/* Programmer: Alexander Gonzalez   */
+/*                                  */
+/* Assignment: Digit Sum            */
+/*                                  */
+/* Completion time: 30 min          */
+/************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+int main (int argc, char* argv[]) {
+
+    int num;
+    int sum = 0;
+    int a;
+
+    FILE *testdata28;
+    testdata28 = fopen(argv[1], "r");
+
+    while ( fscanf(argv[1], "%d", &num) != EOF){ << needs a FILE*, you're giving it a string. You already used argv[1] to create the file pointer, which you named "testdata28". Use that here, as the argument to fscanf. You did it right in fclose below.
+	a++;
+    }
+
+    while ( argv[1] != 0 ) {
+	a = num % 10;
+	num = num / 10;
+	sum = sum + a;
+    }
+    fclose(testdata28);
+    
+    return sum;
+
+}
+

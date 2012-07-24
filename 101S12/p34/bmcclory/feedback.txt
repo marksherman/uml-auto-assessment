@@ -1,0 +1,76 @@
+Student: bmcclory
+Assignment: p34
+Date: 2012-05-02 18:23:15.241346
+Grade: 1
+
+Program does not compile. Highest grade I can give you is 1.
+
+gcc -Wall -ansi -g p34.c -o a34
+p34.c: In function ‘main’:
+p34.c:23: warning: passing argument 1 of ‘strlen’ makes pointer from integer without a cast
+p34.c:18: warning: unused variable ‘i’
+p34.c: In function ‘palidromeDetector’:
+p34.c:32: warning: passing argument 1 of ‘strlen’ makes pointer from integer without a cast
+p34.c:34: warning: passing argument 1 of ‘strlen’ makes pointer from integer without a cast
+p34.c:36: warning: passing argument 1 of ‘strlen’ makes pointer from integer without a cast
+p34.c:38: error: subscripted value is neither array nor pointer
+p34.c:38: error: subscripted value is neither array nor pointer
+p34.c:39: error: ‘false’ undeclared (first use in this function)
+p34.c:39: error: (Each undeclared identifier is reported only once
+p34.c:39: error: for each function it appears in.)
+p34.c:42: error: ‘true’ undeclared (first use in this function)
+p34.c:45: error: too few arguments to function ‘palidromeDetector’
+p34.c:45: error: too few arguments to function ‘palidromeDetector’
+p34.c:47: warning: control reaches end of non-void function
+make: *** [main] Error 1
+
+
+========== p34.c ==========
+/*********************************************************/
+/* Programmer: Brian McClory                             */
+/*                                                       */
+/* Program #34: Palidrome Detector                       */
+/*                                                       */
+/* Approximate Completion Time: 30 minutes               */
+/*********************************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+char palidromeDetector(char string, int i, int j); /* i = start and j = end */
+
+  int main(int argc, char* argv[]){
+
+  char string;
+
+  int i = 0, j;
+
+  printf("Type a string: ");
+  scanf("%s", &string);
+
+  j = strlen(string);
+
+  char palidromeDetector(char string, int i, int j);
+
+  return 0;
+}
+
+char palidromeDetector(char string, int i, int j){
+
+  i = strlen(string);
+
+  j = strlen(string);
+
+  int length = strlen(string);
+
+  if(string[i] != string[j]){
+    return false;
+  }
+  else if(length <= 1){
+    return true;
+  }
+  else{
+    palidromeDetector(palidromeDetector(string));
+  }
+}
+

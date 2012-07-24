@@ -1,0 +1,5 @@
+Student: mbegonis
+Assignment: p9
+Date: 2012-03-11 20:51:02.505175
+Grade: 3
+Ideal way would be to check for the EOF and not using the counting variable. Please use correct header format. -1

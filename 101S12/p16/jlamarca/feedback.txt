@@ -1,0 +1,34 @@
+Student: jlamarca
+Assignment: p16
+Date: 2012-03-19 07:20:10.030069
+Grade: 
+
+It's good, but it prints one less than the correct answer. Why does it do this? Because you subtracted 1 at the last second in the print statement. Why? Maybe 5 more minutes would have been worth it to test it a few more times.
+
+Also, what does the variable "x" do?
+
+-1 wrong answer
+-1 late
+
+========== p16.c ==========
+/********************************************************/
+/* Programmer: Joe LaMarca                              */
+/* Program: p16 count characters                        */
+/* Approximate time of completion: 15 min               */
+/********************************************************/
+
+#include <stdio.h> 
+
+int main (int argc, char* argv[]){
+
+  int x;
+  int num;
+  
+  while((x=getchar())!=EOF)
+    num++;
+
+  printf("The number of characters is:%d\n",num-1);
+
+  return 0;
+}
+

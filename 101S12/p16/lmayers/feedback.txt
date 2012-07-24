@@ -1,0 +1,37 @@
+Student: lmayers
+Assignment: p16
+Date: 2012-03-19 07:33:38.895022
+Grade: 4
+
+If you are going to have a while loop with a body (using braces) PUT THE BODY CODE IN THE BODY, not on the same line as the while. Really, what's the point? (see below)
+
+Your program works fine. Output is messy, as it appears immediately after the user's input with no space or newline. 
+
+If you spent more time testing your work you would have seen this strange output.
+
+========== p16.c ==========
+
+/*************************************************************************/
+/* Programmer: Lisa Mayers                                               */
+/*                                                                       */
+/* Program: Count Characters                                             */
+/*                                                                       */
+/* Approximate completion time: 5 minutes                                */
+/*************************************************************************/
+#include <stdio.h>
+
+int main ( int argc , char *argv[] ) {
+  
+  int count = 0 ;
+  
+  printf("Please enter a string of characters until control D to signal EOF:\n");
+  
+  while( getchar() != EOF) { count ++;  <<< body statment should be on the next line, indented
+    
+  }
+
+  printf("The amount of characters recorded are:%d \n", count );
+
+  return 0;
+}
+

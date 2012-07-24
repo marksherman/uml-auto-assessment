@@ -1,0 +1,5 @@
+Student: jcavalie
+Assignment: p27
+Date: 2012-04-08 13:28:48.545471
+Grade: 4
+There is no need to use a different iterator 

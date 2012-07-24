@@ -1,0 +1,5 @@
+Student: zdurkee
+Assignment: p26
+Date: 2012-04-07 21:46:07.616718
+Grade: 3
+-1 for not closing the file.

@@ -1,0 +1,49 @@
+Student: tdimitri
+Assignment: p44
+Date: 2012-05-14 09:55:20.062591
+Grade: 8
+
+Seg faults when it tries to print, and I know why.
+
+The "insert_node" function adds a new node at the front of the list, and then returns the pointer to that new node. You never update your "start" variable with the pointer to the new starting node of the list. Actually, you never update the start variable at all, so it always contains NULL. Then your print functions try to print, and it tries to print the node located at NULL, which doesn't exist, and seg faults.
+
+I fixed it, and tried again, just to see. I encountered more problems. Your combined printing-and-freeing function creates more problems. You would have been able to test this if you had gotten past the previous issue.
+
+Come see me if you'd like to talk about it.
+
+========== p44.c ==========
+/****************************************************************/
+/* Programmer: Theodore Dimitriou                               */
+/*                                                              */
+/* Program 44: Linked List                                      */
+/*                                                              */
+/* Program Completion Time: 7 hours                             */
+/****************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "linked_list.h"
+
+int main (int argc, char* argv[])
+{
+  NODE* start = NULL;
+
+  NODE *cur, *new_next;
+  DATA_T new_data = 0, data = 0;
+
+  cur = start;
+
+  printf( "Enter integers until EOF: " );
+  make_node( new_data, new_next );
+  while ( scanf( "%f", &data ) != EOF ){
+    insert_node( new_data, new_next );
+    printf( "Enter data: " );
+  }
+  putchar( '\n' );
+  originalprint( start );
+  putchar( '\n' );
+  free_list( start );
+  
+  return 0;
+}
+

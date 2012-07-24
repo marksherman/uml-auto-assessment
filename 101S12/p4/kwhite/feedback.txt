@@ -1,0 +1,5 @@
+Student: kwhite
+Assignment: p4
+Date: 2012-02-21 12:32:12.890905
+Grade: 3
+Segmentation fault encountered. file name supplied was incorrect.

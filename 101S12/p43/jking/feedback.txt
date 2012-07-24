@@ -1,0 +1,5 @@
+Student: jking
+Assignment: p43
+Date: 2012-05-14 01:07:06.544169
+Grade: 6
+

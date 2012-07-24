@@ -1,0 +1,5 @@
+Student: dhoyt
+Assignment: p36
+Date: 2012-04-20 16:28:59.797855
+Grade: 3
+The pogram runs in an infinite loop. -1.

@@ -1,0 +1,6 @@
+Student: ssok
+Assignment: p3
+Date: 2012-02-21 10:48:55.143765
+Grade: 2
+-1 for warnings
+-1 for incorrect header format

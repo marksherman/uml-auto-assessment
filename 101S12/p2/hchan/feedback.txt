@@ -1,0 +1,5 @@
+Student: hchan
+Assignment: p2
+Date: 2012-02-14 16:34:36.161657
+Grade: 4
+ please follow the indentation rules for all lines in the program

@@ -1,0 +1,5 @@
+Student: ssok
+Assignment: p4
+Date: 2012-02-21 12:58:11.181421
+Grade: 3
+incorrect program header. -1.

@@ -1,0 +1,5 @@
+Student: agonzale
+Assignment: p24
+Date: 2012-04-05 21:48:22.201323
+Grade: 4
+ I believe if you count the numbers in the file rather than using 4 directly. The output is correct just a suggestion.

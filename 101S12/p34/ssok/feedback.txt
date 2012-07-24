@@ -1,0 +1,78 @@
+Student: ssok
+Assignment: p34
+Date: 2012-05-02 20:14:11.273090
+Grade: 3
+
+Does not work. Has a warning at compile time.
+p34.c:21: warning: format ‘%s’ expects type ‘char *’, but argument 2 has type ‘char (*)[20]’
+
+Let's look at this strange piece of code:
+
+for( i=0; i<= str_length/2; i++ ){
+    str_length = strlen(x);
+  }
+
+When this first runs, str_length is zero. So your condition is i <= 0/2, which i<=0.
+
+That means it will run exactly once, so str_length = length of x.
+But now, as i is incremented to 1, i<=(half the string length) is still true. but this begs the question: how many times do you need to run strlen(x)? It's going to be the same every single time. You don't need to run it n/2 times.
+
+Your program, in my testing ALWAYS says "not a palindrome." It doesn't even identify "aa" as a palindrome.
+
+The is_palindrome function needs to handle three different cases:
+Case 1: There is 1 or 0 characters in the substring, return YES
+Case 2: The outer two characters do NOT match, return NO
+Case 3: The outer two characers do match, return the result of the recurse.
+
+Honestly, I'm not sure exactly what coctail of subtle mistakes is making this program reject everything. I bet you can figure it out, with these notes.
+
+========== p34.c ==========
+
+/******************************************/
+/*Programmer: Scott Sok                   */
+/*                                        */
+/*Ptogram 34: Palindrome Detector         */
+/*                                        */
+/*Approximate completion time: 10 minutes */
+/******************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int is_palindrome( char* the_string, int start_char, int end_char );
+int main(int argc, char* argv[])
+{
+  char x[20];
+  int str_length = 0;
+  int i;
+
+  printf( "Please enter a palindrome:\n" );
+  scanf( "%s", &x );
+  
+
+
+  for( i=0; i<= str_length/2; i++ ){
+    str_length = strlen(x);
+  }
+  
+  if( is_palindrome(x, 0, str_length) == 1 )
+    printf( "The string is a palindrome\n");
+  else
+    printf( "The string is NOT a palindrome\n" );
+
+
+  return 0;
+}
+int is_palindrome( char* the_string, int start_char, int end_char ){
+
+
+  if ( the_string [start_char] == the_string [end_char] )
+    return 1;
+  if ( the_string [start_char] != the_string [end_char] )
+    return 0;
+  else
+    return is_palindrome( the_string, start_char+1, end_char-1 );
+
+}
+
+

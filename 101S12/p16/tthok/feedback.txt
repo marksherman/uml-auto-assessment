@@ -1,0 +1,39 @@
+Student: tthok
+Assignment: p16
+Date: 2012-03-19 09:08:00.745219
+Grade: 2
+
+So close! This prints out one less than the correct value. That first getchar (outside the loop) is not counted. Your structure is good, and could be made to work by initializing count to 1 and not 0.
+
+On that subject, you never initialize "count". Never. The first time to you store something to it is with the ++ operator, which is read action, then an add, then a store. You must store BEFORE you read. The compiler is being super nice to you and initializing count to 0 for you, but that is not to be depended on, as it doesn't always do that.
+
+Your brace indentation is wrong in the while loop. (see below)
+
+Where are main's arguments?
+
+Late -1
+
+========== p16.c ==========
+/*******************************************/
+/* Programmer: Thearisatya Thok            */
+/*                                         */
+/* Program 16 : count characters           */
+/*                                         */
+/* Approximate completion time:120 minutes */
+/*******************************************/
+
+#include <stdio.h>
+int main()
+{
+  int c, count;
+  printf("Enter characters: ");
+  c = getchar();
+  while ((c= getchar()) != EOF)
+    { <<<< these braces should line up with the "while" - too much indent
+      count++;
+    } <<< same level
+  printf("%d characters\n", count);
+
+  return 0;  
+}
+

@@ -1,0 +1,6 @@
+Student: jsutton
+Assignment: p30
+Date: 2012-04-09 16:13:51.075842
+Grade: 2
+-1 for not following the problem statment. prompt the user for input values.
+-1 for not printing the output back,.

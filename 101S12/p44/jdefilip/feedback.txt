@@ -1,0 +1,22 @@
+Student: jdefilip
+Assignment: p44
+Date: 2012-05-13 18:47:43.917091
+Grade: 9
+
+Does not compile, so I have to give you a 1.
+
+The errors it gives is "multiple definition" of functions. I know why. Here it is.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "linked_list.h"
+#include "linked_list.c"
+
+That's in your p44.c file. You *included* the linked list c file in it. That means it has the body of all those functions copied into the driver program file. When it compiles, it sees the same code there, and in the linked_list.c file, so it's a re-definition. 
+
+It was so simple to fix, I fixed it, so I'll grade it normally and just give you a penalty for the multiple inclusion. It is otherwise near-perfect.
+
+Bracket indentation problems in your free_list function.
+
+9/12.
+

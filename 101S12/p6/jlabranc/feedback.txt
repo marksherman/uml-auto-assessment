@@ -1,0 +1,6 @@
+Student: jlabranc
+Assignment: p6
+Date: 2012-02-27 15:56:32.214702
+Grade: 3
+-1 for incorrect header format
+The second if cluse is not necessary because the only left over case from x==0 is that x !=0 so the simple else covers it. 

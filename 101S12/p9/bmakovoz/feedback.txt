@@ -1,0 +1,6 @@
+Student: bmakovoz
+Assignment: p9
+Date: 2012-03-11 20:31:11.632484
+Grade: 4
+ The program runs fine but it might not be the correct way to do this. In a case like this try using the condition '!=EOF'
+

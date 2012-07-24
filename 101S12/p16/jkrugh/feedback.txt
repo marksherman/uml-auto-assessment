@@ -1,0 +1,36 @@
+Student: jkrugh
+Assignment: p16
+Date: 2012-03-19 07:14:59.488236
+Grade: 2
+
+Gives an answer that is one less than correct. Why? Because you reduced count by 1 in the print statement. Why did you do this?
+
+-1 wrong output
+-1 late
+
+Also, what does the "c" variable do? Please, be honest with me, what code example did you base this on? I want to know.
+
+========== p16.c ==========
+/************************************************************/
+/* Programmer: Jeremy Krugh                                 */
+/*                                                          */
+/* Program 16: Count Characters                             */
+/*                                                          */
+/* Approximate time completion: 25 minutes                  */
+/************************************************************/
+
+#include <stdio.h>
+
+int main(int argc, char* argv[]){
+
+  int c;
+  int count;
+
+  while((c = getchar()) != EOF)
+    count ++;
+
+  printf("%d character\n" , count-1);
+
+  return 0;
+}
+

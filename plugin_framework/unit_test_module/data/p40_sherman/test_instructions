@@ -1,0 +1,9 @@
+Should Accept, Accept, Reject, Reject on all 3 languages 
+Test Case 1: 
+echo "010" | ./a.out => “Language 1 accepts.”, “Language 2 accepts.” “Language 3 accepts.”
+Test Case 2:
+echo  "001001001" | ./a.out => “Language 1 accepts.”, “Language 3 accepts.”, Language 3 accepts.”
+Test Case 3:
+echo "0111" | ./a.out => “Language 1 rejects.”, “Language 2 rejects.”, “Language 3 rejects.”
+Test Case 4:
+echo "111000" | ./a.out => “Language 1 rejects.”, “Language 2 rejects.”, “Language 3 rejects.”

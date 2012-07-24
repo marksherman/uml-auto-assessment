@@ -1,0 +1,59 @@
+Student: dhoyt
+Assignment: p28
+Date: 2012-04-01 20:51:36.630639
+Grade: 1
+
+So this doesn't work.
+
+You should not define functions within other functions. That's magic your wand isn't strong enough for yet.
+
+The loop that reads successive values from the file belongs in main. In each iteration, it should call the dsum funciton. The ONLY purpose of the dsum function is to take a single number and return the digit sum.
+
+Why did you name the file pointer "blu"? That is not descriptive of anything. Every variable name must be descriptive to its purpose.
+
+You claim only 20 minutes on, yet you must know that you submitted it not working. It was late anyway. It clearly wasn't ready yet.
+
+Grade 2
+Late -1
+
+========== p28.c ==========
+/******************************/
+/* Programmer: David Hoyt     */
+/* Program: Digit Sum         */
+/* Time: 20min                */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int x, sum;
+
+int dsum( int x );
+
+int main( int argc, char* argv[] ){
+
+  FILE* blu;
+
+  blu = fopen( argv[1], "r" );
+
+  int dsum( int sum ){
+
+    while( (fscanf( blu, "%d", &x )) != EOF ){
+
+    fscanf( blu, "%d", &x );
+
+    sum = sum + x;
+
+    }
+
+    fclose( blu );
+
+    return sum; 
+
+  }
+
+  printf( "%d\n", sum );
+
+  return 0;
+
+}
+

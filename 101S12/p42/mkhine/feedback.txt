@@ -1,0 +1,5 @@
+Student: mkhine
+Assignment: p42
+Date: 2012-05-12 21:52:23.287089
+Grade: 2
+-1 for not implementing the row sum and column sum

@@ -1,0 +1,5 @@
+Student: sotten
+Assignment: p3
+Date: 2012-02-21 10:48:19.193880
+Grade: 4
+good work

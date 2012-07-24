@@ -1,0 +1,8 @@
+Student: jlamarca
+Assignment: p31
+Date: 2012-04-09 17:23:54.928434
+Grade: 2
+-1 for compile errors.
+-1 for incorrect logic and usage.
+ Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

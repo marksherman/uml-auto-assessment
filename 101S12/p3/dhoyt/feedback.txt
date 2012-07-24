@@ -1,0 +1,5 @@
+Student: dhoyt
+Assignment: p3
+Date: 2012-02-21 09:42:18.613509
+Grade: 4
+A little work on the indentation is required. All lines of code should be alligned. Make use of "TAB" spaces. It should help.

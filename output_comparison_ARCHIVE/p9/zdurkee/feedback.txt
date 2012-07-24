@@ -1,0 +1,5 @@
+Student: zdurkee
+Assignment: p9
+Date: 2012-03-11 21:01:44.086663
+Grade: 4
+Ideal way would be to check for the EOF and not using the counting variable. Make sure to use a newline char at the end of each output.

@@ -1,0 +1,7 @@
+Student: cleger
+Assignment: p10
+Date: 2012-03-11 21:14:31.659119
+Grade: 1
+-1 for incorrect logic
+-1 for errors
+-1 for incoorect filename use.

@@ -1,0 +1,5 @@
+Student: bmakovoz
+Assignment: p27
+Date: 2012-04-07 22:19:17.861294
+Grade: 3
+-1 for incorrect representation of the output.

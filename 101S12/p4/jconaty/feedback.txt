@@ -1,0 +1,5 @@
+Student: jconaty
+Assignment: p4
+Date: 2012-02-21 12:20:04.562472
+Grade: 3
+program header was missing. -1 for that. Please make use of "\n" after printf statments helps readability of the output. will be penalized in later assignments.

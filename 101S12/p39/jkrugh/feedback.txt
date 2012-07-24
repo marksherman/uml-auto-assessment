@@ -1,0 +1,6 @@
+Student: jkrugh
+Assignment: p39
+Date: 2012-04-25 13:52:07.552078
+Grade: 4
+-1 for incorrect output.
+-1 for compile errors.

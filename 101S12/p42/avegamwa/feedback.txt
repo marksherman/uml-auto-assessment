@@ -1,0 +1,6 @@
+Student: avegamwa
+Assignment: p42
+Date: 2012-05-12 21:17:34.323951
+Grade: 1
+-1 for compilation errors
+-2 for incorrect logic

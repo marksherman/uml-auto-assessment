@@ -1,0 +1,5 @@
+Student: jdefilip
+Assignment: p4
+Date: 2012-02-21 12:21:15.531020
+Grade: 4
+ it is good to write comments really helps the readability of code. Good work. but its not necessary for obvious statments. It makes the code messy to read. Just a suggestion !

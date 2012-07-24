@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p13
+Date: 2012-03-13 17:00:16.391414
+Grade: 3
+-1 for incorrect header at the top.
+There is no need of extra variable x to store args. just print it directly.

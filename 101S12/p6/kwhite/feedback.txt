@@ -1,0 +1,5 @@
+Student: kwhite
+Assignment: p6
+Date: 2012-02-27 16:03:05.467911
+Grade: 4
+

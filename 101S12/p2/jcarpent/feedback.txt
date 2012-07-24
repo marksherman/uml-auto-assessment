@@ -1,0 +1,5 @@
+Student: jcarpent
+Assignment: p2
+Date: 2012-02-14 16:35:59.540763
+Grade: 3
+ incorrect indemtation. 

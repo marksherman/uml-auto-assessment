@@ -1,0 +1,7 @@
+Student: hchan
+Assignment: p23
+Date: 2012-04-05 21:30:34.784875
+Grade: 1
+ -1 for incorrect output.
+-1 for incorrect filename used.
+changed the filename used but still errors persist.

@@ -1,0 +1,6 @@
+Student: rdriscol
+Assignment: p20
+Date: 2012-03-18 17:40:17.423459
+Grade: 2
+-1 for incorrect output.
+-1 for incorrect logic.

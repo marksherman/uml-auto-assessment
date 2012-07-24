@@ -1,0 +1,23 @@
+/*                                  */
+/* Programmer: Rachel Driscoll      */
+/*                                  */
+/* Title: Count Characters          */
+/*                                  */
+/* Approx Completion Time: 30 min   */
+/*                                  */
+
+#include <stdio.h>
+
+
+int main ( ){
+   
+ 
+  int count;
+  while ( getchar()  != EOF )
+    count ++ ;
+
+  printf( "%d characters\n", count );
+
+    return 0;
+}
+

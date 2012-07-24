@@ -1,0 +1,45 @@
+Student: rthok
+Assignment: p44
+Date: 2012-05-14 09:45:07.473452
+Grade: 7
+
+The linked list builds and frees properly, but you did not even attempt to print out the list.
+
+This assignment required you to print the list forwards and backwards. You simply printed the data of the first node. That was half of the work of the assignment.
+
+========== p44.c ==========
+/****************************************************************/
+/* Programmer: Ravy Thok                                        */
+/*                                                              */
+/* Program 44: Linked List                                      */
+/*                                                              */
+/* Program Completion Time: 150 mintues (didn't finish)         */
+/****************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "linked_list.h"
+
+int main (int argc, char* argv[]){
+
+	NODE* start = NULL;
+
+	float data = 0 ;
+
+	printf( "Enter a number: " ) ;
+
+	while( scanf( "%f", &data ) != EOF  ){
+
+		start = insert_node( data , start ) ;
+
+		printf( "\nEnter another number or EOF( twice ): " ) ;
+
+	}
+
+	printf( "\n%f\n", start -> data ) ;
+
+	free_list( start );
+	
+	return 0;
+}
+

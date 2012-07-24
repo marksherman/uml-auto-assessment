@@ -1,0 +1,48 @@
+Student: dpackard
+Assignment: p34
+Date: 2012-05-09 11:01:50.532555
+Grade: 3
+
+Messy code. Space out the blocks that belong together. Let it breathe a little more.
+
+char* string; creates a pointer, but does not point at any malloc'd memory. Scanf
+does not perform the memory allocation for you, so you end up storing the string
+ into unallocated memory that word happens to point at.
+This could have been solved by changing word to a fixed-length array of characte
+rs:
+char string[20]
+(-.5)
+
+Palindrome function is not reursive. -1
+
+There is no user interface at all. No prompting, no explanation. -.5
+
+========== p34.c ==========
+/***************************/
+/* Danny Packard           */
+/* p34 palindrome detector */
+/* 45 minutes              */
+/***************************/
+#include<stdio.h>
+#include<string.h>
+int is_palindrome(char*the_string, int start_char, int end_char);
+int main(int argc, char*argv[]){
+  char *string;
+  scanf("%s", string);
+  int i=strlen(string);
+  if(is_palindrome(string,0,i-1)==1)
+    printf("yes\n");
+  else if(is_palindrome(string,0,i-1)==0)
+    printf("no\n");
+  return 0;
+}
+int is_palindrome(char*the_string, int start_char, int end_char){  
+  while(start_char<=end_char){
+    if(the_string[start_char]!=the_string[end_char])
+      return 0;
+    start_char++;
+    end_char--;
+  }
+  return 1;
+}
+

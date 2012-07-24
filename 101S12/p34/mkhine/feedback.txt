@@ -1,0 +1,53 @@
+Student: mkhine
+Assignment: p34
+Date: 2012-05-09 10:01:07.157125
+Grade: 2
+
+- What's with your comment box header? Missing the top line, and is uneven.
+- Your data input is incorrect. The problem specified you scan in data from standard input. You elected to take it from command line arguments. Your program does not work as desired or expected. -1
+- Independant of data input, your program does not properly assess if a string is a palindrome. The reason is, you only have one print statement, and it is "not a palindrome." What happens if the input actually is? You have no way to tell the user that. -1
+- Your main function never even calls the is_palindrome function.
+- The is_palindrome function is not recursive. It also can't work. The strlen stuff needs to be done in main and handed to is_palindrome. How is main supposed to find the end_char without calling strlen? There are many ways to fix it, but what you have doesn't seem to work.
+- I can't follow the logic of your is_palindrome function. It may work, but I doubt it. No way to know as your main never calls it. -1
+
+========== p34.c ==========
+/*Programer : Min Thet Khine                      */
+ /*                                                */
+ /*Program name : Palindrome detector              */
+ /*                                                */
+ /*Approximate completion time: 1 hour             */
+ /**************************************************/
+ 
+#include<stdio.h>
+#include<string.h>
+
+int is_palindrome( char* the_string , char start_char , char end_char )
+{
+  int i;
+  int middle;
+  int j;
+  i=strlen(the_string);
+  middle= i/2;
+  for(j=0; j<middle; j++){
+    start_char= the_string[j];
+    end_char= the_string[i-j-1];
+
+    if(start_char != end_char){
+      return 0;
+    }
+  }
+  return 1;
+}
+
+int main (int argc, char ** argv)
+{
+  int a;
+  for(a= 1; a< argc; a++){
+    printf("%s is not a palindrome.\n ", argv[a]);
+
+  }
+
+  return 0;
+}
+
+

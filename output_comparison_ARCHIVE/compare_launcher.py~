@@ -1,0 +1,109 @@
+#! /usr/bin/env python 
+
+import sys
+import compare_substring_functional
+import compare_literal_functional 
+import compare_numeric_functional 
+
+def compare_literal(reference_file, student_file): 
+    DEBUG = 1
+    reference_output_string = reference_file.read()
+    student_output_string = student_file.read()
+
+    if DEBUG > 0 :
+        print reference_output_string
+        print student_output_string
+
+    split_reference = reference_output_string.split(" ")
+    split_student = student_output_string.split(" ")
+
+    if split_reference == split_student : 
+        print "PASS"
+    else: 
+        print "FAIL"
+    
+    return 
+
+def str_is_digit(s): return s.isdigit()
+
+def compare_numeric(reference_file, student_file): 
+
+    DEBUG = 0
+    reference_output_string = reference_file.read()
+    student_output_string = student_file.read()
+    
+    reference_output = reference_output_string.split() 
+    student_output = student_output_string.split()
+
+    if DEBUG > 0 :
+        print reference_output
+        print student_output
+        
+    reference_output_sanitized = filter(str_is_digit, reference_output)
+    student_output_sanitized = filter(str_is_digit, student_output)
+
+    if DEBUG > 0 :
+        print reference_output_sanitized
+        print student_output_sanitized
+
+    if reference_output_sanitized == student_output_sanitized :
+        print "PASS" 
+    else:
+        print "FAIL"
+    
+    return
+
+
+def reference_search(sub_string): 
+        if reference_output_string.find(sub_string) == -1 :
+            return 0
+        else :
+            return 1
+
+
+def student_search(sub_string): 
+        if student_output_string.find(sub_string) == -1 :
+            return 0
+        else :
+            return 1
+
+def compare_sub(reference_file, student_file, substrings): 
+    DEBUG = 0 
+    reference_output_string = reference_file.read().lower()
+    student_output_string = student_file.read().lower()
+    if DEBUG > 0 :
+        print reference_output_string
+        print student_output_string
+    reference_substrings_found = map(reference_search, substrings)
+    student_substrings_found = map(student_search, substrings)
+    if reference_substrings_found  == student_substrings_found  :
+        print "PASS" 
+    else:
+        print "FAIL"
+    return
+
+
+###############################
+# Mode 1: compare_literal.py  #
+# Mode 2: compare_numeric.py  #
+# Mode 3: compare_substring.py# 
+###############################
+
+reference_file = open(sys.argv[1], 'r')
+student_file = open(sys.argv[2], 'r')
+mode = sys.argv[3]
+
+# Alter this list as desired.
+substrings = ["is positive", "is negative", "is zero"] 
+
+if mode == "1": 
+    compare_literal(reference_file, student_file) 
+if mode == "2": 
+    compare_numeric(reference_file, student_file)
+if mode == "3": 
+    compare_substring(reference_file, student_file)
+
+#if ((mode != "1") or (mode != "2") or (more != "3")): 
+#    print "Check that you have entered a correct value for mode." 
+
+

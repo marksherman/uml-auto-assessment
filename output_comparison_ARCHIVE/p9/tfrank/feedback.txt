@@ -1,0 +1,5 @@
+Student: tfrank
+Assignment: p9
+Date: 2012-03-11 20:59:53.134382
+Grade: 4
+Ideal way would be to check for the EOF and not using the counting variable.

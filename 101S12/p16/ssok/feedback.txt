@@ -1,0 +1,44 @@
+Student: ssok
+Assignment: p16
+Date: 2012-03-19 08:05:14.748933
+Grade: 4
+
+Program works great.
+
+Header is very messy. Please draw a nice box.
+What does the "ch" variable do? Nothing, really.
+
+Keep taking your time. Take pride in your work.
+
+========== p16.c ==========
+/*Programmer: Scott Sok*/
+
+/*Program p16: Counts Character*/
+
+/*approximate completion time: 45 minutes*/
+
+#include <stdio.h>
+
+int main (int argc, char* argv[])
+{
+
+  int x;
+  
+  char ch;
+
+  x = 0;
+
+  printf("please enter the amount of charcter you wish to be counted:\n");
+  while((ch = getchar()) !=EOF) {
+    x++;
+
+  }
+
+  printf("the amount of charcter is: %i \n", x);
+
+  return 0;
+
+}
+
+
+

@@ -1,0 +1,41 @@
+Student: kwhite
+Assignment: p16
+Date: 2012-03-19 07:31:45.813865
+Grade: 1
+
+This program does not come close to achieving the objective.
+- There is no loop to wait for EOF character
+- It does not count the number of characters input
+
+Additionally,
+- incomplete header
+- should not have a space between a function declaration and it's opening brace (main in this case)
+
+========== p16.c ==========
+/************************************************/
+/* Programmer: Kyle White                       */
+/* Program 16: Count Characters                 */
+/* Approximate completion time:                 */
+/*                                              */
+/************************************************/
+
+
+#include <stdio.h>
+
+int main (int argc, char* argv [])
+
+{
+
+  int x;
+  int nextchar;
+
+  nextchar = getchar ();
+
+  x = scanf("%d", &nextchar);
+
+  printf("%d\n", x);
+
+  return 0;
+
+}
+

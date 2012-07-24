@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p12
+Date: 2012-03-12 04:12:06.152466
+Grade: 2
+-1 for missing header.
+-1 for incorrect output. Use float instead of int.

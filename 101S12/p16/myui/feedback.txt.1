@@ -1,0 +1,42 @@
+Student: myui
+Assignment: p16
+Date: 2012-03-19 07:43:05.950497
+Grade: 3
+
+The first time the while loop checks the conditional, the variable "check" is uninitialized. You must assign a value to a variable before it is read. look, you read it before it is written to on the first pass.
+
+The 'if' you have within the body of the while is redundant. The body is only executed when that condition is true. Asking that question again in the body is unnecessary. "But I got a new value from getchar!" you may say. Then let the loop handle it completely. Have the next conditional check be what tests the new value. You're already testing each value twice.
+
+========== p16.c ==========
+/**********************************************/
+/* Programmer: Ming Yui Chung Jacky           */
+/*                                            */
+/* Program : Count Characters                 */
+/*                                            */
+/* Approximate completion time:               */
+/**********************************************/
+
+#include<stdio.h>
+
+int main( int argc, char *argv[] ) {
+
+  int check, i;
+
+  printf( "Enter a phrase: " );
+
+  while ( check != EOF ) {
+    
+    check = getchar( );
+    
+    if ( check != EOF ) {
+      
+      i++;
+    }
+
+  }
+
+  printf( "\nKey Entered: %d\n", i );
+
+  return 0;
+}
+

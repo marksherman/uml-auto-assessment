@@ -1,0 +1,5 @@
+Student: djames
+Assignment: p10
+Date: 2012-03-11 21:17:00.220839
+Grade: 4
+Make sure you use the same variable names as asked in the problem. here sum should be used.

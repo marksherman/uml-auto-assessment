@@ -1,0 +1,7 @@
+Student: jly
+Assignment: p5
+Date: 2012-02-24 16:30:01.533407
+Grade: 2
+-1 for late
+-1 Incorrect logic.
+The last if could be omitted as it is the only case left.

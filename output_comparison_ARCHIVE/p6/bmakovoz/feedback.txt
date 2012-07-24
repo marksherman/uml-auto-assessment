@@ -1,0 +1,5 @@
+Student: bmakovoz
+Assignment: p6
+Date: 2012-02-27 13:49:57.986900
+Grade: 3
+ Please follow the correct header format at the top.  -1

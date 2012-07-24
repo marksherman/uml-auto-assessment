@@ -1,0 +1,10 @@
+Student: mkhine
+Assignment: p4
+Date: 2012-02-21 12:44:31.674735
+Grade: 2
+
+This has unspecificied behavior. You are doing lots of thigns you were not asked to do, and do you do not do what the assignment asked.
+
+-1: reading wrong file
+-1: unexpected behavior
+

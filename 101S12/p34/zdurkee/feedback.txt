@@ -1,0 +1,85 @@
+Student: zdurkee
+Assignment: p34
+Date: 2012-04-30 18:02:57.427310
+Grade: 
+
+MAIN MAY NOT RETURN ARBITRARY DATA. MAIN MUST RETURN A STATUS CODE TO THE OPERATING SYSTEM, WHERE 0=NO ERROR. By having main return your result, the OS is going to assume that the program had a problem. This was not obvious to you in testing, but rediculously broke my testing scripts, as it thought components were failing. 
+
+Return 0 for successful execution. Return non-zero for the program, as a whole, failing (this is automatically done when you crash... it returns non-zero).
+
+other than that, good job. Your recursive function is a little wordy, and uses some local memory that's not needed, but it completely works. 
+
+Fine, I'll give you full credit. 5
+
+========== p34.c ==========
+/**********************************************/
+/*  Programmer: Zachary Durkee                */
+/*                                            */
+/*  Program 34: Palindrom Detector            */
+/*                                            */
+/*  Approximate completion time: 2 hours      */
+/**********************************************/
+
+#include <stdio.h>
+
+#include <string.h>
+
+int is_palindrome( char* the_string, int start_char, int end_char );
+
+int main( int argc, char *argv[] ){
+
+  char word[25];
+
+  int result;
+
+  int b, a = 0;
+
+  printf( "Enter a word: " );
+
+  scanf( "%s", word );
+
+  b = strlen( word ) - 1;
+
+  result =  is_palindrome( word, a, b );
+
+  printf( "If 1, then the word is a palindrome.If 0, then it is not:  %d\n", result );
+
+  return result;
+
+}
+
+int is_palindrome( char* the_string, int start_char, int end_char ){
+
+  static int a;
+
+  static int b;
+
+  if ( the_string[start_char] == the_string[end_char] ){
+
+    a = start_char + 1;
+
+    b = end_char - 1;
+
+    if ( a >= b ){
+
+      return 1;
+
+    }
+    
+    else{      
+
+     return is_palindrome( the_string, a, b );
+
+    }
+
+  }
+
+  else{
+
+    return 0;
+
+  }
+
+  return 0;
+}
+

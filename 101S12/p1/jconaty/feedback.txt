@@ -1,0 +1,7 @@
+Student: jconaty
+Assignment: p1
+Date: 2012-02-14 15:44:26.775318
+Grade: 5
+errors:- 
+The problem clearly asked to give a new line character after the output but
+the output didnt included a newline character.

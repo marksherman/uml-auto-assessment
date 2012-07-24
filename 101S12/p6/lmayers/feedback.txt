@@ -1,0 +1,5 @@
+Student: lmayers
+Assignment: p6
+Date: 2012-02-27 16:03:36.239165
+Grade: 4
+There is no need of taking 3 if clauses. when we write if(x == 0) {....} else {...} this serves out purpose. The solution you provided is correct but not optimal. 

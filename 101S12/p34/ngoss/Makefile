@@ -1,0 +1,25 @@
+n = 34
+# Palindrome Detector
+test : main
+	#
+	# Should output YES IS palindrome
+	#
+	echo "abcdefghijjihgfedcba" | ./a$(n)
+	echo "abcdefghijihgfedcba" | ./a$(n)
+	#
+	# Should output NO NOT palindrome
+	#
+	echo "abcdecba" | ./a$(n)
+	echo "abcddba" | ./a$(n)
+	#
+	# BIG DATA TEST (yes, is palindrome)
+	#
+	echo "abcdefghijklmnopqrstuvwxyzzyxwvutsrqponmlkjihgfedcbaabcdefghijklmnopqrstuvwxyzzyxwvutsrqponmlkjihgfedcbaabcdefghijklmnopqrstuvwxyzzyxwvutsrqponmlkjihgfedcba" | ./a$(n)
+
+main : p$(n).c
+	gcc -Wall -ansi -g p$(n).c -o a$(n)
+
+clean :
+	rm -f a$(n)
+	rm -f *~
+	rm -f \#*\#

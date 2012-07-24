@@ -1,0 +1,50 @@
+Student: zrobicha
+Assignment: p28
+Date: 2012-04-05 10:02:06.687005
+Grade: 3
+
+Very good, except that it only processes the first number in the file. You need to create a loop in main that will read ALL the numbers in the file, and for each one print out the digit sum. 
+
+also, x is not decriptive. Clearly that variable means *something* and it should have a name to reflect that.
+
+========== p28.c ==========
+/*****************************************************************************/
+/* Programmer : Zachary Robichaud                                            */
+/*                                                                           */
+/* Assignment : Digit Sum                                                    */
+/*                                                                           */
+/* Approximate Completion Time : 40 minutes                                  */
+/*****************************************************************************/
+
+
+#include <stdio.h>
+#include <stdlib.h> 
+
+
+int sum( int x ) ;
+
+int main( int argc , char* argv[] ) {
+
+  int x ;
+  FILE* fin ;
+    
+  fin = fopen( argv[1] , "r" ) ;
+  fscanf( fin , "%d" , &x ) ;
+  x = sum( x ) ;
+  printf( "The sum of the digits is : %d\n" , x ) ;
+  fclose(fin) ;
+  return 0 ;
+}
+
+int sum( int x ) {
+
+  int sum = 0 , i ;
+
+  while( x != 0 ) {
+    i = x % 10 ;
+    x = x / 10 ;
+    sum += i ;
+  }
+  return sum ;
+}
+

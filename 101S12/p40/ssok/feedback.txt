@@ -1,0 +1,9 @@
+Student: ssok
+Assignment: p40
+Date: 2012-05-09 14:55:35.159765
+Grade: 8/15
+
+Written: 7/9
+
+Code: 1/6
+

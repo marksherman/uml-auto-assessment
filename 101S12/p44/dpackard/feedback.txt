@@ -1,0 +1,23 @@
+Student: dpackard
+Assignment: p44
+Date: 2012-05-13 18:23:15.925321
+Grade: 12
+
+Nice printing.
+
+Once paren error in free_list:
+
+void free_list( NODE* start ){
+  if(start->next==NULL)
+    free(start);
+  else{
+    free_list(start->next);
+  free(start);
+  }
+       
+}
+
+Do you see it? free in the else body is not indented enough.
+
+Whatev, I'll let it slide. 
+

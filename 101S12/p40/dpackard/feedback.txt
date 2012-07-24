@@ -1,0 +1,17 @@
+Student: dpackard
+Assignment: p40
+Date: 2012-05-09 16:21:13.198679
+Grade: 9.5 / 15
+
+Written: 7.5 / 9
+
+Code: 2/6
+
+Your code has a lot going on with it. 
+
+You did not follow the parallel instruction. One string of input must be fed to all three machines, having only been typed in by the user once.
+
+I don't even know how to assess if your logic is correct. There's functions going everywhere. It's messy.
+
+When I figured out how to make the tests work on your program, I get stuck inputting for L2, which doesn't work.
+

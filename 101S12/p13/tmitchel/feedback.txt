@@ -1,0 +1,5 @@
+Student: tmitchel
+Assignment: p13
+Date: 2012-03-13 17:18:27.873997
+Grade: 4
+The last loop statment is not required as the problem only asks you to print the number of arguments and not mor ethan that.

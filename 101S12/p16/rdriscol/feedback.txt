@@ -1,0 +1,45 @@
+Student: rdriscol
+Assignment: p16
+Date: 2012-03-19 07:51:58.318815
+Grade: 3 
+
+Your program works great, but...
+
+Do not submit your a.out file. Only submit source code.
+
+Your 'main' definition is incomplete. It needs a return type and arguments. The lack of return type generated a compiler warning.
+
+Please complete the header box. You only need to do it out once, then you can insert it in to every program you do.
+
+Why is the return indented? It's not in a conditional body or another function. It should be at the same level as everything else in main.
+
+What does the variable "c" do? From what I can tell, nothing. 
+
+Your output looks messy, as it appears immediately after the user's input with no space or newline.
+
+========== p16.c ==========
+/*                                  */
+/* Programmer: Rachel Driscoll      */
+/*                                  */
+/* Title: Count Characters          */
+/*                                  */
+/* Approx Completion Time: 30 min   */
+/*                                  */
+
+#include <stdio.h>
+
+
+main ( ){
+   
+  
+  int c;
+  int count;
+  while ( ( c = getchar() ) != EOF )
+    count ++ ;
+
+  printf( "%d characters\n", count );
+
+    return 0;
+}
+
+

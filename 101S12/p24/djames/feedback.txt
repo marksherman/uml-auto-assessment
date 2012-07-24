@@ -1,0 +1,6 @@
+Student: djames
+Assignment: p24
+Date: 2012-04-05 21:54:20.408688
+Grade: 3
+ -1 forn not closing file in end.
+counting the numbers in the file and dividing by that will be a better approcach.

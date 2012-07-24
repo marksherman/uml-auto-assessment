@@ -1,0 +1,7 @@
+Student: lmayers
+Assignment: p7
+Date: 2012-02-27 16:50:04.685404
+Grade: 4
+we can do the same problem with 2 if clauses. the third case will automatically
+be covered by else clause
+

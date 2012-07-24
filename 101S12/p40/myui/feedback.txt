@@ -1,0 +1,11 @@
+Student: myui
+Assignment: p40
+Date: 2012-05-09 14:41:23.514303
+Grade: 11.5/15
+
+Written: 6.5/9
+
+Code: 5/6
+
+L3 fails in one test case
+

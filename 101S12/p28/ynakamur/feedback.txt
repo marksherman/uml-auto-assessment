@@ -1,0 +1,59 @@
+Student: ynakamur
+Assignment: p28
+Date: 2012-04-05 09:59:03.684020
+Grade: 2
+
+You only process the first number in the file. You must process all the numbers in the file.
+
+Digitsum function does not work. It only does one iteration of the algorithm, which right now returns the number divided by 10, plus the last digit.
+
+So if the input is 123, what is returned is 12 + 3. What we want is 1 + 2 + 3. Close, but not quite there yet.
+
+========== p28.c ==========
+/****************************************************************/
+/* Programmer: Yasutoshi Nakamura                               */
+/*                                                              */
+/* Program 28: Digit Sum                                        */
+/*                                                              */
+/* Approximate completion time: 20 minutes                      */
+/****************************************************************/
+
+#include <stdio.h>
+
+int digitsum( int input );
+int main( int argc, char *argv[] ) {
+
+  int number, sum;
+  FILE* fin;
+
+  fin = fopen( argv[1], "r" );
+
+  fscanf( fin, "%d", &number );
+
+  sum = digitsum( number );
+
+  printf( "\n%d\n\n", sum );
+
+  fclose( fin );
+
+  return 0;
+
+}
+
+
+int digitsum( int input ) {
+
+  int x, sum;
+
+  if( input == 0 ) {
+    return 0;
+  }
+
+  else {
+    x = input % 10;
+    sum = ( input / 10 ) + x;
+    return sum;
+  }
+
+}
+

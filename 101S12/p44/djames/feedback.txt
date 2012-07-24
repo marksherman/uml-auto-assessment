@@ -1,0 +1,62 @@
+Student: djames
+Assignment: p44
+Date: 2012-05-13 18:20:40.362326
+Grade: 11
+
+So close! One problem:
+	newnode = (NODE*) malloc( sizeof( DATA_T ) );
+
+You are trying to create a new node (type NODE), but only allocating enough space for a DATA_T, or float. Corrected:
+	newnode = (NODE*) malloc( sizeof( NODE ) );
+
+That's really it.
+
+========== linked_list.c ==========
+/****************************************************************/
+/* Programmer: Dalton James                                     */
+/*                                                              */
+/* linked_list.c: Provides linked list tools                    */
+/* - The last node in the list will have next == NULL           */
+/* - The payload data type is DATA_T, defined in linked_list.h  */
+/*                                                              */
+/****************************************************************/
+
+#include <stdlib.h>
+#include "linked_list.h"
+
+NODE* make_node( DATA_T new_data, NODE* new_next ){
+
+  NODE* newnode;
+
+  newnode = (NODE*) malloc( sizeof( DATA_T ) );
+
+  newnode -> data = new_data;
+
+  newnode -> next = new_next;
+
+  return newnode;
+}
+
+NODE* insert_node( DATA_T new_data, NODE* start ){
+
+  NODE* newstart;
+
+  newstart = make_node( new_data, start );
+		
+  return newstart;
+}
+
+void free_list( NODE* start ){
+
+  if( start -> next == NULL ){
+
+    free(start);
+
+  }else{
+
+    free_list( start -> next );
+
+    free( start );
+  }
+}    
+

@@ -1,0 +1,7 @@
+Student: jlamarca
+Assignment: p35
+Date: 2012-04-15 18:00:34.901338
+Grade: 2
+-1 for compilation errors.
+-1 for incorrect logic and implementation.
+See me or Mark in our office hours to get to the right approach.

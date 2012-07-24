@@ -1,0 +1,13 @@
+static char * test1() { 
+       int x; 
+       x = sum( 5432 ); 
+       mu_assert("Function make_node returns incorrect type.", type(); 
+       return 0; 
+} 
+
+static char * test2() { 
+       int x; 
+       x = sum( 0 ); 
+       mu_assert("Function sum returns incorrect value.", x == 0); 
+       return 0; 
+} 

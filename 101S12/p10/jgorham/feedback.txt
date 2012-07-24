@@ -1,0 +1,6 @@
+Student: jgorham
+Assignment: p10
+Date: 2012-03-11 21:21:23.872120
+Grade: 4
+Output is incorrect 
+just print what the problem says.

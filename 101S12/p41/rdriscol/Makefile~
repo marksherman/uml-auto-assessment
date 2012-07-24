@@ -1,0 +1,12 @@
+n = 46
+test : main
+	# Prints 630
+	cat input | ./a$(n)
+
+main : p$(n).c
+	gcc -Wall -ansi -pedantic -g p$(n).c -o a$(n)
+
+clean :
+	rm -f a$(n)
+	rm -f *~
+	rm -f \#*\#

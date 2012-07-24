@@ -1,0 +1,5 @@
+Student: bmakovoz
+Assignment: p24
+Date: 2012-04-05 21:51:51.481030
+Grade: 4
+counting the numbers in the file and dividing by that will be a better approcach.

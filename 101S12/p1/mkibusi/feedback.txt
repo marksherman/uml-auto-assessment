@@ -1,0 +1,5 @@
+Student: mkibusi
+Assignment: p1
+Date: 2012-02-14 16:08:19.361510
+Grade: 6
+Warning: please make sure you follow the box pattern on the top in future as told in class.

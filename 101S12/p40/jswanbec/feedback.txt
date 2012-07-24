@@ -1,0 +1,11 @@
+Student: jswanbec
+Assignment: p40
+Date: 2012-05-09 16:11:52.377933
+Grade: 14 / 15
+
+Written: 9 / 9
+
+Code: 6 / 6
+
+Bad print -1
+

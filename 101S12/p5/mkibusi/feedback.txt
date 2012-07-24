@@ -1,0 +1,7 @@
+Student: mkibusi
+Assignment: p5
+Date: 2012-02-24 16:37:00.967723
+Grade: 3
+The logic and code is incorrect.
+Though runs fine because of the absence of any syntax error. 
+else doesnot take any condiions so "else (x<=100);" is incorreect.

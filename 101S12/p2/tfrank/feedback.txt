@@ -1,0 +1,7 @@
+Student: tfrank
+Assignment: p2
+Date: 2012-02-14 16:58:20.805093
+Grade: 3
+ good work.
+-1 for late submission.
+

@@ -1,0 +1,6 @@
+Student: hkelly
+Assignment: p42
+Date: 2012-05-12 21:31:01.188944
+Grade: 2
+-1  for incorrect output.
+-1 for runtime errors.

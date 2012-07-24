@@ -1,0 +1,5 @@
+Student: tmitchel
+Assignment: p33
+Date: 2012-04-09 20:39:24.803386
+Grade: 3
+-1. The program fails on x = 0;

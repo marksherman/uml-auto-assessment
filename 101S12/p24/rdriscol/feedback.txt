@@ -1,0 +1,7 @@
+Student: rdriscol
+Assignment: p24
+Date: 2012-04-05 22:10:18.495929
+Grade: 2
+ -1 for not closing the file in end.
+-1 for incorrect reading of data from file.
+also counting the numbers in the file and dividing by that will be a better approcach.

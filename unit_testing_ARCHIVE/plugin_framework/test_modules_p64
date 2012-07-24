@@ -1,0 +1,27 @@
+char * test1() { 
+     int x; 
+     x = is_prime( 7 ); 
+     mu_assert("Function is_prime returns the incorrect value!", x == 7); 
+     return 0; 
+} 
+
+char * test2() { 
+     int x; 
+     x = is_prime( 1 ); 
+     mu_assert("Function is_prime returns the incorrect value!", x == 0); 
+     return 0; 
+} 
+
+char * test3() { 
+     int x; 
+     x = is_prime( 2 ); 
+     mu_assert("Function is_prime returns the incorrect value!", x == 2); 
+     return 0; 
+} 
+
+char * test4() { 
+     int x; 
+     x = is_prime( 8 ); 
+     mu_assert("Function is_prime returns the incorrect value!", x == 0); 
+     return 0; 
+}

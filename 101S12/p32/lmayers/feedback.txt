@@ -1,0 +1,5 @@
+Student: lmayers
+Assignment: p32
+Date: 2012-04-09 19:42:41.848186
+Grade: 3
+We expect a mseperate method to do computation. -1

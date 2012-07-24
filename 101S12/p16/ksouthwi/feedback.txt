@@ -1,0 +1,38 @@
+Student: ksouthwi
+Assignment: p16
+Date: 2012-03-19 07:26:51.894607
+Grade: 4
+
+Good program. Works well. 
+What does the variable 'c' do? Nothing that I can see.
+Also, one bracket is not indented correctly. Last warning (see below)
+
+========== p16.c ==========
+/***********************************************/
+/* Programmer: Kevin Southwick                 */
+/*                                             */
+/* Program 16: Count Characters                */
+/*                                             */
+/* Approximate completion time: 35  minutes    */
+/***********************************************/
+
+#include <stdio.h>
+
+int main ( int argc , char* argv[] ) {
+
+  int c, x = 0 ;
+
+  printf( "Type characters, end with ctrl+d twice.\n" );
+
+  while( (c = getchar ()) != EOF ){
+
+    x = x + 1 ;
+    
+ }  <<<<<< This bracket should align with the "while" statement it's attached to
+
+  printf ( " \n %d \n " , x ); 
+
+  return 0;
+
+}
+

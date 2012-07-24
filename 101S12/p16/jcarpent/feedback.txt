@@ -1,0 +1,38 @@
+Student: jcarpent
+Assignment: p16
+Date: 2012-03-18 21:38:17.250333
+Grade: 4
+
+What does the variable "stuff" do? If you answered "nothing," you're right! Don't need it. Take the time to make one last check. You'd spot that.
+
+Very nice. Keep up the good work.
+
+========== p16.c ==========
+/*************************************************************************/
+/* Programmer: John Carpenter                                            */
+/*                                                                       */
+/* Program: Count Characters                                             */
+/*                                                                       */
+/* Approximate completion time: 20 minutes                               */
+/*************************************************************************/
+
+#include <stdio.h>
+
+int main( int argc, char* argv[] ){
+     
+	int num, stuff;
+
+	num = 0;
+
+	printf( "Please enter a few random characters.\n" );
+
+	while( ( stuff = getchar() ) != EOF )
+
+		num ++;
+	
+	printf( "\nYou typed %d characters.\n", num );
+
+return 0;
+
+}
+

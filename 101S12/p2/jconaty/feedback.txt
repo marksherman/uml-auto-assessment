@@ -1,0 +1,6 @@
+Student: jconaty
+Assignment: p2
+Date: 2012-02-14 16:38:53.458207
+G ade: 3
+
+the box on the top of the code is missing. It holds good importance for person reading the code.

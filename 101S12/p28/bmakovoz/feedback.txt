@@ -1,0 +1,40 @@
+Student: bmakovoz
+Assignment: p28
+Date: 2012-04-01 20:11:05.280928
+Grade: 2
+
+- Your count function works.
+- You do no file i/o, you read in the number from the argument.
+What was asked of you was to read in the first argument to be *the name of the file* where the numbers can be found.
+
+You then open that file with fopen etc, read numbers from there, and run the count function for each number it finds in the file. Missed a decent chunk of the program.
+
+Also, stylistically, you should put the main function first in the file. You'll the need to add a function declarator for count at the top.
+
+========== p28.c ==========
+/******************************/
+/*       Betty Makovoz        */
+/*        Digit Sum           */
+/*        30 minutes          */
+/******************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int count (int x){
+  int y=0;
+  int z=0;
+  while (x != 0){
+    y= x%10;
+    x=(x-y)/10;
+    z=z+y;
+  }
+  return z;
+}
+int main(int argc,char*argv[]){
+  int z=0;
+  z = count(atoi(argv[1]));
+  printf("The sum of the numbers is:%d\n",z);
+  return 0;
+}
+

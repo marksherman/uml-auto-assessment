@@ -1,0 +1,11 @@
+Student: rthok
+Assignment: p40
+Date: 2012-05-09 16:27:01.549267
+Grade: 11.5 / 15 
+
+Written: 7.5 / 9
+
+Code: 4 / 6
+ 
+L2 and L3 have logic problems. Structure is slick. Good work overall.
+

@@ -1,0 +1,6 @@
+Student: lmayers
+Assignment: p42
+Date: 2012-05-12 21:51:12.326804
+Grade: 2
+-1 for incorrect output.
+-1 for not using free at the end

@@ -1,0 +1,37 @@
+Student: avegamwa
+Assignment: p16
+Date: 2012-03-18 19:57:59.947006
+Grade: 4
+
+Should have more prompting (even on the output) to keep the user in the loop. More importantly, READ THE CODING STANDARDS ON THE WEBSITE.
+(see below)
+
+========== p16.c ==========
+/******************************************/
+/* Programmer: Aezaz Vegamwala            */
+/*                                        */
+/* Program p16:argc                       */
+/*                                        */
+/* Approximate completion time:30 minutes */
+/******************************************/
+#include <stdio.h>
+int main(int argc, char* argv[])
+{  <<< good
+
+  char c;
+  int x;
+
+  printf( "Please enter text:\n" );
+  
+  while((c = getchar()) !=EOF){
+    scanf("%d", &x);
+    x++;
+      
+      }  <<< what's this doing here? It should line up with the "while"
+
+  printf("%d", x);
+  printf("\n");
+
+  return 0;
+}
+

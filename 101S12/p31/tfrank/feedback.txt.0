@@ -1,0 +1,7 @@
+Student: tfrank
+Assignment: p31
+Date: 2012-04-09 17:45:22.183174
+Grade: 3
+ -1 for hardcoding the size.
+ Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

@@ -1,0 +1,5 @@
+Student: cleger
+Assignment: p9
+Date: 2012-03-11 20:32:53.297515
+Grade: 3
+Once you open a file you do need to close it. -1

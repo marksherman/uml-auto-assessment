@@ -1,0 +1,9 @@
+Student: jgorham
+Assignment: p40
+Date: 2012-05-09 15:30:07.562294
+Grade: 13/15
+
+Written: 8/9
+
+Code: 5/6
+

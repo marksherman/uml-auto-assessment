@@ -1,0 +1,59 @@
+Student: mkhine
+Assignment: p28
+Date: 2012-04-05 08:05:01.982045
+Grade: 1
+
+Lets walk through your digit_sum function.
+s = 0. ok.
+s += num, which is 0 += num, because s == 0.
+So basically, you s = num, then return s.
+So you return the value of num.
+That function returns its argument. Calling it on an argument is the same as just evaluating the argument directly.
+
+Your main function looks really good, except for two things:
+1. It will only print the result of the LAST number it processes. We want it to print all of them.
+2. DO NOT PUT A SPACE BETWEEN A FUNCTION CALL AND THE ARGUMENT PARENS. :
+	fscanf (fin, "%d", &num)  NO
+	fscanf(fin, "%d", &num)  yes
+
+========== p28.c ==========
+/**************************************************/
+/*Programer : Min Thet Khine                      */
+/*                                                */
+/*Program name : Digit Sum                        */
+/*                                                */
+/*Approximate completion time: 20 minutes         */
+/**************************************************/
+#include <stdio.h>
+
+int digit_sum (int num){
+  static int s = 0;
+  s += num;
+  return s;
+}
+
+
+int main (int argc, char *argv[])
+{
+  int sum= 0, num;
+  int i = 0;
+  FILE *fin;
+
+  fin = fopen (argv[1], "r"); /*opens the file with the name argv[1]  */
+  
+  
+  while (fscanf (fin, "%d", &num) != EOF){
+    /* read integers from fin and store in the number */  
+    sum = digit_sum(num);
+    i++;
+  }
+  printf ("The sum of digits of number is %d\n", sum);
+  
+
+
+  
+fclose (fin);  /*closes the file */
+
+  return 0;
+}
+

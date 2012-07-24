@@ -1,0 +1,9 @@
+Student: jking
+Assignment: p40
+Date: 2012-05-09 15:24:08.252279
+Grade: 13.5/15
+
+Written: 7.5/9
+
+Code: 6/6
+

@@ -1,0 +1,6 @@
+Student: sotten
+Assignment: p38
+Date: 2012-04-23 15:53:56.720529
+Grade: 3
+-1 for incorrect output.
+See ta or instructor if you still have trouble running this.

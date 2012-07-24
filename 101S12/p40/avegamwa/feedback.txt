@@ -1,0 +1,157 @@
+Student: avegamwa
+Assignment: p40
+Date: 2012-05-09 14:44:44.121622
+Grade: 8/15
+
+Written: 7/9
+
+Code: 1/6
+Your basic program stucture does not work. Data is being stolen by single-language functions, not shared across all languages. I think your conceptual understanding of the FSM is weak.
+
+========== p40.c ==========
+/******************************************/
+/* Programmer: Aezaz Vegamwala            */
+/*                                        */
+/* Program p40: Finite State Machines     */
+/*                                        */
+/* Approximate completion time:90 minutes */
+/******************************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+int language1(int string);
+int language2(int string);
+int language3(int string);                                                                         
+
+int main(int argc, char *argv[])
+{
+  int y, lan1, lan2, lan3;
+  printf("Please enter a string of characters:\n");
+
+  scanf("%d", &y);
+
+  lan1 = language1(y);
+  if ( lan1 == 3)
+    printf( "language 1 is accepted %d \n", lan1);
+  else
+    printf( "language 1 is rejected %d \n", lan1);
+  
+  lan2 = language2(y);
+  if ( lan2 == 3)
+    printf( "language 2 is accepted %d \n", lan2);
+  else
+    printf( "language 2 is rejected %d \n", lan2);
+  
+  scanf("%d", &y );
+  
+  lan3 = language3(y);
+  if ( lan3 == 1)
+    printf( "language 3 is accepted %d \n", lan3);
+  else
+    printf( "language 3 is rejected %d \n", lan3);
+  
+  return 0;
+}
+
+int language1(int string){
+
+  int state = 0;
+  int input;
+
+  while( scanf("%d", &input) != EOF){
+
+    if( state == 0){
+      if( input == 0 )
+        state = 1;
+      else if( input == 1 )
+        state = 0;
+     }
+
+  else if( state == 1 ){
+    if( input == 0 )
+      state = 1;
+    else if( input == 1 )
+      state = 2;
+  }
+  else if( state == 2){
+    if( input == 0 )
+      state = 3;
+    else if( input == 1 )
+      state = 0;
+  }
+  else if (state == 3){
+    if( input == 0 )
+      state = 3;
+    else if (input == 1 )
+      state = 3;
+  }
+  }
+
+return state;
+
+}
+int language2(int string)
+{
+
+  int state = 0;
+  int input;
+
+  while( scanf("%d", &input) != EOF){
+  
+    if(state == 0){
+      if(input == 0)
+	state = 1;
+      else if( input == 1)
+        state = 2;
+    }
+
+    else if( state == 1){
+      if(input == 0)
+        state = 0;
+      else if( input == 1)
+        state = 3;
+    }
+
+    else if ( state == 2){
+      if (input == 0)
+        state = 3;
+      else if( input == 1)
+        state = 0;
+    }
+
+    else if( state == 3){
+      if( input == 0)
+        state = 2;
+      else if(input == 1)
+        state = 1;
+    }
+  }
+
+  return state;
+}
+
+int language3(int string)
+{
+
+  int state = 0;
+  int input;
+
+  while( scanf("%d", &input) != EOF){
+
+    if (state == 0){
+      if (input == 0)
+        state = 1;
+      else if( input == 1)
+        state = 1;
+    }
+
+    else if (state == 1){
+      if (input == 0 )
+        state = 0;
+      else if ( input == 1)
+        state = 0;
+    }
+  }
+  return state;
+}
+

@@ -1,0 +1,5 @@
+Student: cleger
+Assignment: p32
+Date: 2012-04-09 19:23:59.325392
+Grade: 4
+Its recommended that when you write a function not in the main.

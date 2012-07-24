@@ -1,0 +1,55 @@
+Student: jswanbec
+Assignment: p28
+Date: 2012-04-04 11:38:09.125324
+Grade: 1 
+
+I see you did have trouble. I marked up the code below, which hopefully will help you. 
+I highly recommend you build one piece at a time. Maybe start with writing a program that reads all the numbers from the file and simply prints them out. Once that's working, work on making the digit sum function. Then hook them together. Break it into pieces, and solve each piece separately, in separate files if you need to, then put them together.
+
+Come see me or Mike if you need more help. We can figure out what you don't understand and hopefully get it learned.
+
+========== p28.c ==========
+/*********************************************/
+/* Programmer: Jimmy Swanbeck                */
+/*                                           */
+/* Program 28: Digit Sum                     */
+/*                                           */
+/* Approximate completion time: 3 hours      */
+/*********************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int sum = 0;
+
+int add( );  <<<< what are the arguments to this function? How will I know how to use it by looking at this?
+
+int main( int argc, char *argv[] )
+{
+  int total = 0;
+  int integer;
+  char x;
+  FILE *fin;
+  fin = fopen( argv[1],"r" );   <<< everything to here is good in main
+  while( x != EOF )  <<<<< x is uninitialized on the first check. Could be anything. Must initialize first.
+    {    <<<< too much indent, { should align with the beginning of "while"
+      x = fgetc( fin );
+      if( x != EOF)   <<< If you design your "while" right, then you'll know that the whole body will only work when this is true.
+	{				You are basically asking the same question twice. See me or Mike for more explanation
+	  integer = x - '0';		<<< this is why you're off by 38. Why are you subtracting a character value '0' (which =48, btw)
+	  total = add( integer );
+	}   <<<< again, too much indent. READ THE GUIDELINES.
+    }
+  printf( "%d\n",total+38 ); <<<< we call this a "fudge factor" and is indicative of something being off elsewhere
+  fclose( fin ); << good
+  return 0;
+}
+
+int add( int z )
+{
+  sum = sum + z; <<< this is not it. This will sum all the numbers, but not find the digit-sum.
+  return sum;
+}
+
+/* I had a lot of trouble on this one. For some reason it kept returning a number that was 38 less than it should be and I couldn't figure out why so I just added +38 to the total. I know it might work completely differently on someone else's computer, but this is the best I could do. */
+

@@ -1,0 +1,13 @@
+Student: jlamarca
+Assignment: p40
+Date: 2012-05-09 15:57:54.989613
+Grade: 11.5
+
+Written: 8.5/9
+
+Code: 3/6
+
+You call getchar() twice in each loop, once in the conditional, and again in the body, so only every other character is being processed. This breaks everything.
+
+Your code that you passed in and your paper submission differ. The electronic code doesn't ever stop running. The handed in code works, but works poorly. The languages don't have a chance to be right because of the double call to getchar in the main function.
+

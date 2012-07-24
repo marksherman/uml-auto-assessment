@@ -1,0 +1,6 @@
+Student: jcavalie
+Assignment: p22
+Date: 2012-04-05 20:42:10.876330
+Grade: 2
+-1 for incorrect logic
+-1 for incorrect output

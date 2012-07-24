@@ -1,0 +1,7 @@
+Student: rteng
+Assignment: p28
+Date: 2012-04-05 08:46:54.318792
+Grade: 2
+
+Forgot -1 for being late = 2
+

@@ -1,0 +1,7 @@
+Student: agonzale
+Assignment: p42
+Date: 2012-05-12 21:15:32.635277
+Grade: 1
+-1 for warnings
+-1 for incorrect output.
+-1 for not using malloc. You dont know how many numbers we want to input.

@@ -1,0 +1,44 @@
+Student: bmcclory
+Assignment: p16
+Date: 2012-03-18 21:04:27.159665
+Grade: 1
+
+- the EOF char is generated from ctrl-D, not ctrl-C. 
+- your program does not terminate when an EOF is entered.
+- the getchar != EOF is part of the initialization, so it is only run once, and it's result doesn't matter. This is what caused the compiler warning.
+- The conditional in your your 'for' loop is completely empty, so it is infinite.
+- if your for loop was right (getchar as the conditional), then you would have the problem of two getchars. With a getchar as a conditional AND in the loop, it's only comparing every other character. You are storing the char in the loop to a variable (ch), which you are not using. If you used that variable in your conditional instead of another call to getchar, you wouldn't miss any. Or you could just have the one in the conditional, with no body, and that would be fine.
+
+There is a LOT wrong here, and it was late. 
+Also, don't put an extra line between a function definition and it's opening brace. (main in this case)
+
+Score: 1
+
+========== p16.c ==========
+/*********************************************************/
+/* Programmer: Brian McClory                             */
+/*                                                       */
+/* Program #16: Count Characters                         */
+/*                                                       */
+/* Approximate Completion Time: 30 minutes               */
+/*********************************************************/
+
+#include <stdio.h>
+
+int main(int argc, char* argv[])
+
+{
+
+  int ch, i;
+
+  printf("Type a string. Press control + C twice when finished: ");
+  
+  for(i = 0, getchar() != EOF; ; i++){
+    ch = getchar();
+  }
+
+  putchar(i);
+
+  return 0;
+}
+

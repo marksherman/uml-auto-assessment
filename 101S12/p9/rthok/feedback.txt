@@ -1,0 +1,5 @@
+Student: rthok
+Assignment: p9
+Date: 2012-03-11 20:56:22.703449
+Grade: 3
+reading data into 5 variables is not the right approach. a better way could be to use a loop and making acomparision to EOF this saves a lot of space. consider a situation when you dont know the length of the file and filoe can contain any count of numbers. -1.

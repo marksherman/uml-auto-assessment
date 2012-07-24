@@ -1,0 +1,44 @@
+Student: sotten
+Assignment: p16
+Date: 2012-03-19 08:02:32.238116
+Grade: 4
+
+Program works fine. 
+
+The body of the while loop must be indented to indicate that it is inside the while. (see below)
+
+Otherwise, no problems. Good job. I'm going to let that indent slide this time.
+
+What does the variable "count" do? From what I can see, nothing. Spend a few more minutes looking over your work. If you spot something that's no longer necessary, take it out.
+
+========== p16.c ==========
+/**********************************/
+/* Programmer: Samantha M. Otten  */
+/*                                */
+/*Program 16: Count Characters    */
+/*                                */
+/*Approx. Completion Time: 15mins */
+/*                                */
+/**********************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char*argv[]){
+
+  int count,a;
+
+  a=0;
+
+  printf("Type characters to be counted then hit control+d twice\n");
+
+  while((count=getchar())!=EOF)
+
+  a=a+1; <<<<<< should be indented 1 more level
+
+  printf("\n %d\n",a);  
+
+  return 0;
+
+}
+

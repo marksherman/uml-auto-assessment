@@ -1,0 +1,74 @@
+Student: bmcclory
+Assignment: p25
+Date: 2012-03-27 21:40:01.748418
+Grade: 
+
+This is kinda complex. Way more complex than it needs to be. What happened to your working solid box?
+I replaced the comments with what each "if" is actually asking. It may not be exactly what you think it says.
+
+I see your method is to work one character at a time, and figure out where it is and what to do for each one. This is valid, but your approach to implementing this method isn't there yet. Try to sketch out on paper what you want to happen. You can do this method with fewer and/or simpler "if" cases.
+
+========== p25.c ==========
+/*********************************************************/
+/* Programmer: Brian McClory                             */
+/*                                                       */
+/* Program #25: Unfilled Box                             */
+/*                                                       */
+/* Approximate Completion Time: 60 minutes               */
+/*********************************************************/
+
+#include <stdio.h>
+
+int main(int argc, char* argv[]){
+
+  int L, H, i, H_tmp, L_tmp;
+ 
+  printf("Enter the length: ");
+  scanf("%d", &L);
+  
+  printf("Enter the height: ");
+  scanf("%d", &H);
+
+  H_tmp = H; The way you are using these, it seems these are more like H_max, which is more descriptive
+  L_tmp = L;
+  
+  i = L * H;
+
+  for(; i > 0; i--){   <<< put the i initializer in here. There's a spot for it. Do it.
+    if(H == H_tmp && L > 1){ /* Is H in the last row AND if so, is L not in the first column? */ 
+      printf("%c", '*'); /* Print one asterisk */
+      L -= 1; /* Next position */
+    }
+    if(H == H_tmp && L == 1){ /* Is H in the last row AND if so, is L in the first column? */
+      printf("%c\n", '*'); /* Print the final asterisk and move to the next line */
+      H -= 1; /* This row is done */
+      L = L_tmp; /* Reset L so the next row can be printed */
+    }
+    if(H < H_tmp){ /* Is H NOT in the last row? */
+      if(L == L_tmp){ /* AND if so, is L in the first column?  */
+	printf("%c", '*');  <<<<< this is the same exact case as the "if" above ^^
+	L -= 1; /* Next position */
+      }
+      if(L < L_tmp && L != 1){ /* Is L NOT in the last column, and if so, is L NOT in the first column? */ <<< this is the best question you ask in this program.
+	printf("%c", 32);
+	L -= 1; /* Next position */
+      }
+      if(L < L_tmp && L == 1){ /* is L NOT in the last column, and if so, is L in the first column?
+	printf("%c\n", '*'); /* Final asterisk in this row. Time for the next one */
+	H -= 1; /* Just printed a row */
+      }
+      if(H == 1 && L == L_tmp){ /* Is H in the first row, AND if so, is L in the last column? */
+	printf("%c", '*');
+	H -= 1;
+      }
+      if(L == 0){ /* Is L somehwere before the first column? (this program is 1-indexed so far... until here)
+	L = L_tmp;
+      }
+      if(H == 0 && L == L_tmp){ /* Is H in row zero... I don't even know anymore */
+	printf("\n");
+      }
+    }
+  }
+  return 0;
+}
+

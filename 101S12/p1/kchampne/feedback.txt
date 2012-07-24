@@ -1,0 +1,5 @@
+Student: kchampne
+Assignment: p1
+Date: 2012-02-14 15:59:52.168269
+Grade: 2
+ p1a.c and p1b.c are missing -2 for each.

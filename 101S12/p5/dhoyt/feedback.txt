@@ -1,0 +1,6 @@
+Student: dhoyt
+Assignment: p5
+Date: 2012-02-24 16:13:15.354555
+Grade: 2
+-1 for late. The logic is incorrect so -1. 
+The problem was supposed to use only 1 if statment. Also the last condition for equality check is not required could have just used else because it is the only case left.

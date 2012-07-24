@@ -1,0 +1,37 @@
+Student: rteng
+Assignment: p16
+Date: 2012-03-19 07:59:27.400696
+Grade: 2 
+
+Your program works fine, except for messy output. Your output appears immediately after the user's input, with no space or newline.
+
+Your while loop has a body. That body must be on a new line, indented, even if you don't use brackets.
+
+Incomplete header. Missing approx. completion time.
+
+Late -1.
+
+========== p16.c ==========
+/******************************************************************/
+/*                                                                */
+/*                        Rathanak Teng                           */
+/*                         Program p16.c                          */
+/*                         Due: 2/22/12                           */
+/*                     Computing 1 Mark Sherman                   */
+/*                                                                */
+/******************************************************************/
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+int main(int argc, char* argv[])
+{
+    char a;
+    int i;
+    printf("Input the characters to be counted:\n");
+    while ((a=getchar()) != EOF) i++;  <<<< the i++ should be below
+	X <<<< should be here
+    printf("The number of characters typed is %d\n", i);
+    return 0;
+  }
+

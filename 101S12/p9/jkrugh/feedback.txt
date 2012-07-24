@@ -1,0 +1,7 @@
+Student: jkrugh
+Assignment: p9
+Date: 2012-03-11 20:42:04.248981
+Grade:2
+-1 Incorrect logic.
+-1 Incorrect Output.2
+

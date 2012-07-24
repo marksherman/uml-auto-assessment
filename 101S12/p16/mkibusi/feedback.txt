@@ -1,0 +1,30 @@
+Student: mkibusi
+Assignment: p16
+Date: 2012-03-19 07:40:49.039231
+Grade: 3
+
+Program works fine, but...
+- header is incorrect
+
+There are other ways to make this program work, that don't involve pre-setting a variable to -1. I don't just mean subracting 1 off later. This works, but think if you can come up with any other ways.
+
+========== p16.c ==========
+/* Martin Kibusi */
+/* Count Characters */
+
+#include <stdio.h>
+
+int main(int argc,char*argv[]){
+  char n, i; 
+  printf("Please enter characters ");
+  
+  n =0;
+  for(i = -1; n != EOF ; i++){
+    n = getchar();
+   
+  }
+  printf("\nThe number of characters are %d \n ", i );
+  
+  return 0;
+}
+

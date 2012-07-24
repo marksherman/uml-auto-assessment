@@ -1,0 +1,6 @@
+Student: rthok
+Assignment: p31
+Date: 2012-04-13 16:26:36.129037
+Grade: 2
+-1 for using 2 iterators.
+-1 for wrong output.

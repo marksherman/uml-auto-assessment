@@ -1,0 +1,47 @@
+Student: jstone1
+Assignment: p16
+Date: 2012-03-19 07:23:40.648264
+Grade: 4
+
+Very good. Lots of people are doing the count-1 thing at the end and breaking their programs, but yours actually needs it. Good job to you. If you know why everyone else is doing count-1, please tell me. There must be some example they're going from.
+
+========== p16.c ==========
+
+/***********************************************/
+/*                                             */
+/* Programmer: Josh Stone                      */
+/*                                             */
+/* Program: P16 - Count Characters             */
+/*                                             */
+/* Approx. Completion Time: 30 Mins.           */
+/***********************************************/
+
+
+#include <stdio.h>
+
+int main (int argc, char* argv []){
+
+    int count = 0;
+
+    int i;
+
+    printf("Enter Characters:");
+
+    i = 0;
+
+    while(i != EOF){
+
+        i = getchar(); 
+
+        count++;
+
+    }
+
+    count = (count - 1);
+ 
+    printf("\nYou enterted %d characters\n ",count);
+
+    return 0;
+
+}
+

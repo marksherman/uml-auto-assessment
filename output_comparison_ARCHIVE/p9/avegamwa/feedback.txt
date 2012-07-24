@@ -1,0 +1,12 @@
+Student: avegamwa
+Assignment: p9
+Date: 2012-03-11 20:29:36.211306
+Grade: 3
+
+Incorrect use of the loop. Iterate the loop five times and a better way
+ could be to use comparision to EOF this saves a lot of space. consider
+ a situation when you dont know the length of the file and filoe can contain any count of numbers.
+-1. 
+
+Also  make sure you use a newline char when printing results. will be penalized in future
+

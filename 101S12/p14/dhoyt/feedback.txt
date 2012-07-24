@@ -1,0 +1,6 @@
+Student: dhoyt
+Assignment: p14
+Date: 2012-03-17 17:59:32.398143
+Grade: 2
+-1 for late.
+-1 for incorrect output.

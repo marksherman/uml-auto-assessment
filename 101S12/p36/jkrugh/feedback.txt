@@ -1,0 +1,5 @@
+Student: jkrugh
+Assignment: p36
+Date: 2012-04-20 16:46:51.794535
+Grade: 3
+-1 for incorrect output

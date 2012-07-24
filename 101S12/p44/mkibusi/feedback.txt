@@ -1,0 +1,25 @@
+Student: mkibusi
+Assignment: p44
+Date: 2012-05-14 09:25:48.735517
+Grade: 1
+
+You have many compilation errors. I can explain a few of them to you.
+
+The operator -> only works when the expression on the left is a pointer to a struct, and the expression on the right is a field name within that struct.
+	ptr_to_struct -> field_name
+You cannot use -> on a local struct, in that case you use the period.
+	actual_struct.field_name
+
+"make_node" and "insert_node" take the raw data to be stored in the node and create a node around it. They do not take a pre-formed node as an argument.
+
+"make_node" does not need to be called at all from the driver program. It is used inside "insert_node", so "insert_node" handles everything.
+
+p44.c: you have a } on line 40 that doesn't seem to belong there. That prematurely ends the main function. That is causing most of the following errors.
+
+Your forward_start and reverse_start functions are defined in p44.c, which means their prototypes should also be in p44.c, at the top, NOT in the linked_list.h header file. That header file is for functions that are in the linked_list.c code file.
+
+The forward_start and reverse_start functions will not work.
+	 ptr -> next = data; makes no sense
+The 'next' field is a pointer to a node, and the 'data' at that moment is not a defined variable. Inside a node, there is a field named 'data', which is of a completely different type than the 'next' field.
+
+Why are you counting (with variable i)? what is a "NUM" type for?

@@ -1,0 +1,39 @@
+Student: bmcclory
+Assignment: p27
+Date: 2012-03-27 21:56:12.784204
+Grade: 
+
+I don't know what you're talking about. This works fine. The newline after each value is a little much, but this works completey fine. 
+
+I have no data to substantiate your "I have no idea how to make this work" comment.
+
+========== p27.c ==========
+/*********************************************************/
+/* Programmer: Brian McClory                             */
+/*                                                       */
+/* Program #27: Reverse                                  */
+/*                                                       */
+/* Approximate Completion Time: 30 minutes               */
+/*********************************************************/
+
+#include <stdio.h>
+
+int main(int argc, char* argv[]){
+
+  int values[10];
+
+  int i;
+
+  printf("Type ten integer values: ");
+
+  for(i = 0; i < 10; i++){
+    scanf("%d", &values[i]);
+  }
+  
+  for(i = 9; i >= 0; i--){
+    printf("%d\n", values[i]);
+  }
+
+  return 0;
+}
+

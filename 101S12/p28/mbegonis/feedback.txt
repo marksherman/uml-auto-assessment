@@ -1,0 +1,52 @@
+Student: mbegonis
+Assignment: p28
+Date: 2012-04-05 08:00:18.302287
+Grade: 1
+
+This program sums the character code values of the file. This is not the desired behavior.
+
+You open the file correctly. fgetc pulls characters from the file. You want to pull whole integer numbers. fscanf would be a better solution to do that, as it can find whole numbers intelligently. Your function just sums the two values, which you feed back into itself through the loop, creating a whole-file summation. This is not right either.
+
+Your function will take a single number, add the digits of that number together, and return that sum. 
+
+Your main function will call the digit-sum function on each number that it finds in the file, and print out the result for each.
+
+========== p28.c ==========
+/**********************************************************************************************/
+/*                                                                                            */
+/*  Mike Begonis                                                                              */
+/*  Program p28                                                                               */
+/*                                                                                            */
+/*  This program reads a file, designated by the user, and outputs the sum of the             */
+/*  indivisual digits.                                                                        */
+/*                                                                                            */
+/*  Approx Completion Time: 60 minutes                                                        */
+/**********************************************************************************************/
+
+
+#include <stdio.h>
+
+int magic(int a, int b);
+
+int main(int argc, char* argv[]){
+  
+  int x=0,y=0;
+  FILE *fin;
+  
+  fin = fopen(argv[1],"r");
+  
+  while((x=fgetc(fin))!=EOF){
+    y=magic(x,y);
+  }
+  fclose(fin);
+  
+  printf("%d\n",y);
+
+  return 0;
+}
+
+int magic(int a, int b){
+  b=b+a;
+  return b;
+}
+

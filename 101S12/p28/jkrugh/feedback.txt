@@ -1,0 +1,64 @@
+Student: jkrugh
+Assignment: p28
+Date: 2012-04-04 11:23:35.431651
+Grade: 3
+
+I did not get a seg fault when I ran it. My guess is you were calling it without providing a first argument. When it goes to check argv[1], if there isn't one, you will get a seg fault. So on the command line it MUST be called with a file to read as an argument.
+
+Some of your indentation is a little wrong, see below.
+
+It only processes the first number in the file, instead of all of them.
+
+========== p28.c ==========
+/**************************************************************************/
+/* Programmer: Jeremy Krugh                                               */
+/*                                                                        */
+/* Program 28: Digit Sum                                                  */
+/*                                                                        */
+/* Approximate completion time: Unable to find and fix segmantaiton fault */
+/**************************************************************************/
+
+#include <stdio.h>
+
+int total(int z);
+
+int main(int argc, char* argv[]){
+
+  int x;
+  FILE* fin;
+  int y;
+
+  fin = fopen(argv[1],"r");
+  fscanf(fin,"%d",&x);
+
+  y = total(x);
+
+  printf("Digit sum: %d", y);
+
+  fclose(fin);
+
+  return 0;
+}
+
+int total(int z){
+
+  int k;
+  int sum;
+
+  k = 1;
+  sum = 0;
+
+  while(z != 0)
+    { 		<<<< Too much indent. Should align with the start of the "while"
+      k = z%10;		<<< this should be indented one tab level past the "while." good.
+      sum = sum + k;
+      k = z/10;
+      z=k;
+	
+    }		<<< line up with his buddy, which should align with the "while"
+
+      return sum;
+}    
+
+/* I tried for hours to write this without segmentation faults, but could not determine where I am getting one. I fixed all errors and warnings but then once I ran it, I got the segmantation fault. */
+

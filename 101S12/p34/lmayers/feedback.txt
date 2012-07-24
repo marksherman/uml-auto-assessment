@@ -1,0 +1,54 @@
+Student: lmayers
+Assignment: p34
+Date: 2012-05-09 10:46:52.685344
+Grade: 4.5 
+
+Program works in most cases, but has some problems.
+
+The string is not stored in allocated memory. This is dangerous. gets does not malloc up memory for you. It expects your pointer to point at a block of memory that you already allocated. You did not.
+This could have been solved by changing word to a fixed-length array of characte
+rs: char string[20]
+
+Why do you have a variable named "sum"? Summing has nothing to do with how that variable is actually used. It is actually holding the result of if the string is a palindrome or not. A better name, like "result" or "palindrome_result" would be more clear.
+
+Having said that, your palindrome function is excellent.
+
+Pro tip: is what you wrote:
+	start_char == end_char || start_char > end_char
+Not the same as
+	start_char >= end_char
+?
+
+========== p34.c ==========
+/*************************************************************************/
+/* Programmer: Lisa Mayers                                               */
+/*                                                                       */
+/* Program: Palindrome Dectector                                         */
+/*                                                                       */
+/* Approximate completion time: 2 hours                                  */
+/*************************************************************************/
+#include <stdio.h>
+#include <string.h>
+
+int is_palindrome ( char *String,  int start_char,  int end_char ) {
+  
+  if (String[start_char] != String[end_char]) return 0;
+  if (start_char == end_char || start_char > end_char) return 1;
+  return is_palindrome(String, start_char + 1, end_char -1 );
+}
+
+int main ( int argc, char *argv[]) {
+  
+  char * String;
+  int sum = 0;
+  
+  printf("Please enter a string value:\n");
+  gets( String );
+  sum = is_palindrome(String, 0, strlen(String) - 1);
+
+  if (sum == 1)printf("This string is a palindrome\n");
+  else
+    printf("this string is not a palindrome\n");
+    return 0;
+}
+

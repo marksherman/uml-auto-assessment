@@ -1,0 +1,55 @@
+Student: ssok
+Assignment: p28
+Date: 2012-04-05 09:15:50.607935
+Grade: 4
+
+Very good! Excellent!
+
+My only comments are very small:
+- you include math.h, but you don't use the math library. Delete inclusions you don't end up using.
+- the prototype for the sum function should also show the arguments. I'm surprised the compiler let that through. Without the arguments, how am I to know at a glance how to use that function?
+
+- "x" as a variable name isn't descriptive.
+
+========== p28.c ==========
+/******************************************/
+/*Programmer: Scott Sok                   */
+/*                                        */
+/*Ptogram 28: Digit Sum                   */
+/*                                        */
+/*Approximate completion time: 10 minutes */
+/******************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int sum();
+int main(int argc, char* argv[])
+{
+  int x;
+  int num_from_file;
+  FILE *testdata28;
+
+  testdata28 = fopen( argv[1], "r" );
+
+  while( fscanf( testdata28, "%d", &num_from_file) != EOF){
+    x = sum(num_from_file);
+    printf("%d \n", x );
+  }
+  return 0;
+}
+
+int sum(int input){
+  int digit = 0;
+  int x = 0;
+
+  while( input > 0 ){
+    digit = input % 10;
+    input /= 10;
+    x = x + digit;
+  }
+
+  return x;  
+}
+
+

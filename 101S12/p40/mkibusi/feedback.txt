@@ -1,0 +1,11 @@
+Student: mkibusi
+Assignment: p40
+Date: 2012-05-09 15:04:29.089688
+Grade: 9/15
+
+Written: 7/9
+
+Code: 3/6
+
+Bad print -1
+

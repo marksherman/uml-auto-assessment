@@ -1,0 +1,5 @@
+Student: tmitchel
+Assignment: p39
+Date: 2012-04-25 14:00:55.101909
+Grade: 4
+-2 for using loops in main. Use recursive function call.

@@ -1,0 +1,8 @@
+Student: jswanbec
+Assignment: p9
+Date: 2012-03-11 20:47:49.618043
+Grade: 2
+-1 for late
+-1 for not closing the file at end.
+Ideal way would be to check for the EOF and not using the counting variable.
+Sorry for multiple posting.

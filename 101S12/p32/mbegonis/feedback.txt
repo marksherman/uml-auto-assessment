@@ -1,0 +1,5 @@
+Student: mbegonis
+Assignment: p32
+Date: 2012-04-09 19:43:57.752442
+Grade: 4
+It is recommended that you use method and variables name which makes more sense in contect of the program. It really makes code easy to read and understand.

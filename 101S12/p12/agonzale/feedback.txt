@@ -1,0 +1,6 @@
+Student: agonzale
+Assignment: p12
+Date: 2012-03-12 03:55:36.752971
+Grade: 2
+-1 for incorrect output.
+-1 for warnings.

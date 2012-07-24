@@ -1,0 +1,9 @@
+test case 1: 
+n = 3, initial_value = 100 => 3 100 103 101 107
+test case 2: 
+n = 7, initial_value = 50 => 7 50 83 79 67 53, 61, 89, 59, 71, 73, 97
+
+Make instructions: 
+echo "3 100" | ./a.out 
+echo "7 50" | ./a.out 
+

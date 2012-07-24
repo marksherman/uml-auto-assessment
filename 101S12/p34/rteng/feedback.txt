@@ -1,0 +1,63 @@
+Student: rteng
+Assignment: p34
+Date: 2012-05-09 08:50:48.925524
+Grade: 5
+
+Very good, but with ONE fault:
+
+You do the is_palindrome computation twice, which is unecessary. 
+If you were to change your printing code to this, it would make it so you only compute the palindrome once, which on big problems will save you valuable compute resources:
+
+  if((is_palindrome(string, i, size) == 0))
+    printf("The word is not a palindrome.\n");
+  
+  else
+    printf("The word is a palindrome.\n");
+
+Do you know what I changed? I changed it to be a simple "else", not an "else if", which gets rid of the second call to is_palindrome. Pro tip: if you're calling a function with the EXACT SAME input data, you're probably wasting time. It will come back with the same answer, so why do it twice?
+
+Also, computing is_palindrome a second time will give you exactly the same answer, so asking if it is == 1 after you asked if it is ==0 is redundant. If the first one fails, the second one clearly will pass. "else" is all you need.
+
+========== p34.c ==========
+/*********************************************************/
+/* Programmer: Rathanak Teng                             */
+/*                                                       */
+/* Program 34: Palindrome Detector                       */
+/*                                                       */
+/* Approximate completion time: 50 minutes               */
+/*********************************************************/
+#include <string.h>
+#include <stdio.h>
+int is_palindrome( char* the_string , int start_char , int end_char );
+int main(int argc, char* argv[])
+{
+  char* string[20];
+  int i = 0, size;
+  printf("Input a word to check if it is a palindrome: ");
+  /*Ask user for string input*/ 
+  scanf("%s", &string);
+  /*Stores inputted string into array*/
+  size = strlen(string);
+  /*Finds the length of inputted string*/
+  if((is_palindrome(string, i, size) == 0))
+    printf("The word is not a palindrome.\n");
+  /*Prints not a palindrome if function is false*/
+  else if((is_palindrome(string, i, size) == 1))
+    printf("The word is a palindrome.\n");
+  /*Prints is a palindrome if function is true*/
+  return 0;
+}
+int is_palindrome( char* the_string , int start_char , int end_char )
+{
+  if(end_char <= 1)
+    return 1;
+  /*Once the end char reaches 1 the palindrome has checked for all match ups on both sides of word.*/
+  /*Also provides case for a single character entered as a palindrome.*/
+  else if(the_string[start_char] != the_string[end_char - 1])
+    return 0;
+  /*If the chars don't match, function will return false.*/
+  else
+    return is_palindrome(the_string, start_char + 1, end_char - 1);
+  /*Calls function again to check the inner characters and will continue until true.*/
+}
+

@@ -1,0 +1,11 @@
+Student: tmitchel
+Assignment: p40
+Date: 2012-05-09 15:13:54.425733
+Grade: 14/15
+
+Written: 8/9
+
+Code 6/6
+
+Very unique solution. Clever.
+

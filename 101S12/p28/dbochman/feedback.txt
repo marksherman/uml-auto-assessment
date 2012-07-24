@@ -1,0 +1,41 @@
+Student: dbochman
+Assignment: p28
+Date: 2012-04-01 20:33:18.780268
+Grade: 3
+
+Your code is cramped. Separate logical sections with some whitespace. Too cramped and it's hard to read. 
+
+Your indentation is wrong in the digitsum function's definition. The opening brace should be left-aligned. your indents are also very shallow. They should be at least 4 characters.
+
+Most importantly, main is not the first function defined in the file. It should be. 
+
+oh, and your output doesn't put any whitespace between the output values, so it all runs together.
+
+========== p28.c ==========
+/********************************************************/
+/* Programmer:   Dylan Bochman                          */
+/* Program 28:   Digit Sum                              */
+/* Time:         45 minutes                             */
+/********************************************************/
+#include <stdio.h>
+int digitsum ( x )
+ {
+  int digit, sum = 0 ;
+  while ( x > 0 ) {
+    digit = x % 10 ;
+    x = x / 10 ;
+    sum = sum + digit ;
+  }
+  return sum ;
+}
+int main ( int argc, char *argv[] ) {
+  int x ;
+  FILE *fin = fopen ( argv[1], "r" ) ;
+  printf ( "\n" ) ;
+  while ( fscanf ( fin, "%d", &x ) != EOF ) 
+    printf ( "%d", digitsum (x) ) ;
+  fclose ( fin ) ; 
+  printf ( "\n\n" ) ;  
+  return 0 ;
+}
+

@@ -1,0 +1,8 @@
+Student: rdriscol
+Assignment: p31
+Date: 2012-04-09 17:38:27.485797
+Grade: 2
+-1 for hardcoding the size to 8.
+-1 for incorrect output.
+ Inner is not a good name for the function. Use some more informative name such as innerProduct etc..
+

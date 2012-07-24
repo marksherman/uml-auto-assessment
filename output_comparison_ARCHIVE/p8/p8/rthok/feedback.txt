@@ -1,0 +1,5 @@
+Student: rthok
+Assignment: p8
+Date: 2012-03-11 19:16:49.669525
+Grade: 3
+incorrect out put -1.

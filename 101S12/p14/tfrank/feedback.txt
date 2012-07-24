@@ -1,0 +1,5 @@
+Student: tfrank
+Assignment: p14
+Date: 2012-03-17 18:21:13.551912
+Grade: 3
+-1 for incorrect output which is probably because of using an int variable to store data rather than an float or double.

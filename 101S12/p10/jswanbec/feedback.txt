@@ -1,0 +1,7 @@
+Student: jswanbec
+Assignment: p10
+Date: 2012-03-11 21:34:45.954715
+Grade: 2
+-1 for late.
+-1 for not closing file at the end.
+Sorry for multiple posting,

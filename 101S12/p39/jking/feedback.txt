@@ -1,0 +1,6 @@
+Student: jking
+Assignment: p39
+Date: 2012-04-25 13:49:51.291733
+Grade: 5
+-1. The program ends up in an infinite loop.
+Recursively calling main is a strictly discouraged procedure and should never be followed in practice. It demands striking off more points but as this is the first occourence we are not.

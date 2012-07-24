@@ -1,0 +1,5 @@
+Student: avegamwa
+Assignment: p22
+Date: 2012-04-05 20:34:39.603190
+Grade: 4
+The program output is correct but the implementation is not the recommended way. Please see TA or instructor for clarification. The use of while(true) and break is not the right approach here.

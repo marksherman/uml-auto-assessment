@@ -1,0 +1,33 @@
+Student: djames
+Assignment: p16
+Date: 2012-03-18 21:26:29.717706
+Grade: 4
+
+Gorgeous.
+
+========== p16.c ==========
+/**********************************************/
+/*Programmer: Dalton James                    */
+/*                                            */
+/*Program 16: Count Characters                */
+/*                                            */
+/*Approximate completeion time: 30 minutes    */
+/**********************************************/
+
+#include <stdio.h>
+int main(int argc, char* argv[]){  
+
+  int x=0;
+
+  printf( "enter a string\n" );
+
+  while( getchar() !=EOF )
+    x++;
+ 
+  putchar( '\n' );
+
+  printf( "The number of characters counted is %d\n", x);
+
+  return 0;
+}
+

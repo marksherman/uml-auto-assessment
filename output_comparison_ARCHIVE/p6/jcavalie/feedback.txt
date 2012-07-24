@@ -1,0 +1,5 @@
+Student: jcavalie
+Assignment: p6
+Date: 2012-02-27 15:52:35.735320
+Grade: 3
+ Incorrect header format.

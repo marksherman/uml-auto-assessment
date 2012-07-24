@@ -1,0 +1,5 @@
+Student: jconaty
+Assignment: p3
+Date: 2012-02-21 09:59:54.215962
+Grade: 3
+-1 for missing header.

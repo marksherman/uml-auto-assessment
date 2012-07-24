@@ -1,0 +1,80 @@
+Student: ksouthwi
+Assignment: p34
+Date: 2012-05-09 10:42:53.763747
+Grade: 4
+
+Great work. I like the "fall through" method of using n in your is_palindrome function.
+
+One problem: the string is stored into space that is never allocated.
+
+char* x; creates a pointer, but does not point at any malloc'd memory. Scanf
+does not perform the memory allocation for you, so you end up storing the string
+ into unallocated memory that word happens to point at.
+This could have been solved by changing word to a fixed-length array of characte
+rs:
+char x[20]
+-.5
+
+Additionally, x/y/z are horrible names. Makes it very hard to assess if your function calls using them are right. -.5
+
+========== p34.c ==========
+/********************************************/
+/* Programmer: Kevin Southwick              */
+/*                                          */
+/* Program 34: Palindrome Detector          */
+/*                                          */
+/* Approximate completion time: 35  minutes */
+/********************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int is_palindrome( char* the_string , int start_char , int end_char );
+
+int main( int argc , char* argv [] ) {
+
+  char* x;
+  int y = 0 , z ;
+
+  printf( "input a string \n" );
+
+  scanf( "%s" , x );
+
+  z = strlen( x ) - 1 ;
+  
+  if( is_palindrome( x , y , z ) == 1 )
+
+    printf( "this is a palindrome \n" );
+
+  else
+    
+    printf( "this is not a palindrome \n" );
+  
+  return 0;
+
+}
+
+int is_palindrome( char* the_string , int start_char , int end_char ){
+
+  int n = 1;
+
+  if(  the_string[ start_char ] != the_string[ end_char ] )  
+    /* base cases - automatically non-palindrome cases */
+    return 0;
+
+  else{
+/* possible palindrome case - first and last chars are the same so check more*/
+    start_char ++ ;
+      /* redefine start and end characters for next iteration */
+    end_char -- ;
+
+    if (start_char <= end_char )/* false means it's already been checked */
+
+      n = is_palindrome( the_string , start_char , end_char ); 
+              /* recursive call */
+    return n;
+    
+  }
+  
+}
+

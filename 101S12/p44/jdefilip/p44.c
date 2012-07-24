@@ -1,0 +1,53 @@
+/****************************************************************/
+/* Programmer: James DeFilippo                                  */
+/*                                                              */
+/* Program 44: Linked List                                      */
+/*                                                              */
+/* Program Completion Time: 3 hours                             */
+/****************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "linked_list.h"
+
+
+int print_list_endfirst ( NODE* current ); 
+int print_list_beginfirst ( NODE* current ); 
+int main (int argc, char* argv[])
+{
+  DATA_T c; 
+  NODE* start = NULL;
+  printf( "Hi! Please enter an integer. " ); 
+  while ( (scanf("%f", &c)) != EOF ) { 
+      printf( "Enter another integer: " ); 
+      start = insert_node ( c, start); 
+  }
+
+  print_list_endfirst (start); /* print in reverse order */ 
+  printf("\n"); 
+  print_list_beginfirst (start); /* print in original order */ 
+  return 0; 
+}
+
+
+int print_list_endfirst( NODE* current ) { 
+  while ( current != NULL ) {
+    printf("%f   ", current -> data); 
+    current = current -> next; 
+  }
+  return 0; 
+} 
+
+int print_list_beginfirst( NODE* current ) { 
+
+  if (current -> next == NULL ) {
+    printf("%f   ", current -> data); 
+    return 0;  
+  }
+  else {
+    print_list_beginfirst( current -> next ); 
+    printf("%f   ", current -> data); 
+    return 0; 
+  }
+}
+

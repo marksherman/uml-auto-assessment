@@ -1,0 +1,6 @@
+Student: bmakovoz
+Assignment: p42
+Date: 2012-05-12 21:20:10.6627
+Grade: 2
+-1 for incorrect output.(in a few cases) due to incorrect logic
+-1 for runtime errors.
