@@ -8,9 +8,16 @@
 
 from subprocess import call
 from subprocess import check_call
+import os.path
+
+###Check for the existnece of the destination file 
+
+if os.path.exists('dst_file'): 
+    dst_file = open('dst_file.c','r+')
+else: 
+    dst_file = open('dst_file.c', 'w')
 
 ###Prepare destination file, open it, clear it, add header include
-dst_file = open('dst_file.c','r+')
 dst_file.truncate()
 dst_file.write('#include "minunit.h"\n')
 
@@ -48,5 +55,5 @@ build_command = ['make']
 #call('./a.out') 
 
 check_call(build_command)
-#check_call('./a.out',shell=True)
+
 
