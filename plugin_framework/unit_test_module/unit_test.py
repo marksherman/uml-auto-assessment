@@ -1,4 +1,4 @@
-## /usr/bin/env python 
+#! /usr/bin/env python 
 
 # unit_test.py 
 # James DeFilippo 
@@ -9,10 +9,9 @@
 from subprocess import call
 from subprocess import check_call
 
-###preformat dst_file 
+###Prepare destination file, open it, clear it, add header include
 dst_file = open('dst_file.c','r+')
 dst_file.truncate()
-### create a new file called 'copy data'
 dst_file.write('#include "minunit.h"\n')
 
 ###read in src_file one line at a time, replace main with student_main and write to dst_file
@@ -35,12 +34,19 @@ template_file = open('template_file', 'r+')
 template_file_content = template_file.read()
 dst_file.write(template_file_content)
 
+# Done using files, close them up.
+dst_file.close()
+src_file.close()
+test_modules.close()
+template_file.close()
+
 
 ### compile the dst_file generated from src_file.c with unit tests attached
 #build_command = ['gcc','-Wall','-ansi', 'dst_file.c']
-#call(build_command)
+build_command = ['make']
+#call(build_command).wait()
 #call('./a.out') 
 
-check_call('make', shell=True)
-check_call('./a.out',shell=True)
+check_call(build_command)
+#check_call('./a.out',shell=True)
 
