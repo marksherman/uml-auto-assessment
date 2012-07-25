@@ -1,12 +1,16 @@
-#! /usr/bin/env python 
+#!/usr/bin/env python 
 
-### Import Libraries
+# compare_master.py
+# Part of Automated Assessment Project. 
+# Compare Master is a suite of output comparison tests which compare output of a student's program with an ideal output provided by the instructor. This script allows for multiple test cases. The result will print the number of successful test cases out of the total. When executed in a directory, the script will look for all the output files containing substrings which specify the name of the instructor and the name of the student. These substrings are contained in config.py. The config file must be in the same directory. 
+# by James DeFilippo (jms.defilippo@gmail.com)
+# with Mark Sherman (msherman@cs.uml.edu)
 
 import sys
 import os
-import config # config file must be in same directory 
+import config 
 
-### Literal Comparison Test 
+# Literal Comparison Test: reads in both the student and the instructor's output, performs whitespace reduction, splits the string, and checks for the equality of the two ordered string lists.
 
 def compare_literal(reference_file, student_file): 
     DEBUG = 1
@@ -25,7 +29,7 @@ def compare_literal(reference_file, student_file):
     else: 
         return 0 
     
-### Numeric Comparison Test
+# Numeric Comparison Test: reads in both the student and the instructor's output, performs whitespace reduction, splits the string, and applies the filter function, checking for whether a substring is a digit. If the substring is a digit, then that substring is added to a sanitized ordered string list. The sanitized lists are then compared for equality. 
 
 def str_is_digit(s): return s.isdigit()
 
@@ -55,7 +59,7 @@ def compare_numeric(reference_file, student_file):
         return 0
     
 
-### Substring Comparison Test
+# Substring Comparison Test: The map function is applied to both instructor and student output. The search function is applied to the input of the map function. An ordered list of zeros and ones is generated, with 1 representing a found substring and 0 representing a failed search for a substring.
 
 def compare_sub(reference_file, student_file): 
     def reference_search(sub_string): 
@@ -82,7 +86,7 @@ def compare_sub(reference_file, student_file):
         return 0
 
 
-### Main Program
+# Main Program: cycle through current directory. Check for all files which end with some string. For each file which meets these specifications, a count variable is incremented. A test determined by the config file is run. If the test returns a success, the count pass variable is incremented. 
 
 count = 0
 count_pass = 0
@@ -105,7 +109,7 @@ for root,dirs,files in os.walk(directory):
               temp = compare_sub(instructor_file, student_file)
               count_pass = count_pass + temp
 
-### Display Results
+# User Feedback: Using the results of count_pass and count, a result is displayed via standard out. 
      
 if count_pass != count:           
     print 'Your submission succeeded for %d' % count_pass
