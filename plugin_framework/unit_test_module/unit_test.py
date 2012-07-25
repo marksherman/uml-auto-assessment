@@ -12,9 +12,17 @@
 
 from subprocess import call
 from subprocess import check_call
+import os.path
 
-# Prepare destination file, open it, clear it, add unit test include
-dst_file = open('dst_file.c','r+')
+# Check for the existance of the destination file 
+# TODO There may be a better (safer) way to do this
+
+if os.path.exists('dst_file'): 
+    dst_file = open('dst_file.c','r+')
+else: 
+    dst_file = open('dst_file.c', 'w')
+
+# Prepare destination file: clear it, add unit test include
 dst_file.truncate()
 dst_file.write('#include "minunit.h"\n')
 
