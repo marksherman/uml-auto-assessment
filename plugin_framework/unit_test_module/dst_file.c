@@ -43,14 +43,12 @@ int is_palindrome( char* the_string , int start_char , int end_char ) {
 }
 
 int tests_run = 0;
- static char * test_return_number() { 
+static char * test_return_number() { 
     int x; 
     x = is_palindrome("racecar", 0, 6); 
     mu_assert("racecar is not a palindrome", x == 1); 
     return 0; 
-  } 
-
-
+} 
 static char * all_tests() {
     mu_run_test(test_return_number);
     return 0;
