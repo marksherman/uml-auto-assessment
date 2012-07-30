@@ -1,26 +1,24 @@
 {
-    name             = CppTddPlugin;
-    version.major    = 2;
-    version.minor    = 3;
-    version.revision = 2;
-    version.date     = 20080415;
+    name             = CPlugin;
+    version.major    = 1;
+    version.minor    = 0;
+    version.revision = 1;
+    version.date     = 07262012;
     autoPublish      = true;
     requires         = ( ANTForPlugins, PerlForPlugins );
-    provider         = "Virginia Tech Computer Science";
-    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    provider         = "University of Massachusetts Lowell Department of Computer Science";
+    provider.url     = "http://www.webcat.cs.uml.edu";
     license          = "GNU Affero General Public License v.3";
     license.url      = "http://www.gnu.org/licenses/agpl.html";
-    copyright        = "(c) 2006-2008 Virginia Tech Department of Computer Science";
-    info.url         = "http://web-cat.cs.vt.edu/WCWiki/CppTddPlugin";
-    history.url      = "http://web-cat.cs.vt.edu/WCWiki/CppTddPlugin/ChangeHistory";
-    executable       = execute.pl;
+    copyright        = "(c) 2012 University of Massachusetts Lowell Department of Computer Science";
+    info.url         = "http://www.webcat.cs.uml.edu";
+    history.url      = "http://www.webcat.cs.uml.edu";
+    executable       = execute.py;
     interpreter.prefix = "${PerlForPlugins.perl.exe}";
-    author     = "Stephen Edwards (edwards@cs.vt.edu)";
-    authorUid  = edwards;
-    languages  = ( { name = "C++"; version = "g++ 3.4.x"; } );
-    description = "This is the standard C++ one-step grading script.
-It includes ANT-based compilation, CxxTest processing of student-written
-tests, and support for instructor-written reference tests.";
+    author     = "Mark Sherman and James DeFilippo";
+    authorUid  = uml;
+    languages  = ( { name = "C"; version = "gcc 3.4.x"; } );
+    description = "This is an output comparison plugin designed to faciliate C programming.";
     timeoutMultiplier = 2;
     timeoutInternalPadding = 400;
     assignmentOptions = (
@@ -28,26 +26,16 @@ tests, and support for instructor-written reference tests.";
             property    = testCases;
             type        = fileOrDir;
             fileTypes   = ( h );
-            name        = "CxxTest Reference Test Class(es)";
+            name        = "Instructor Reference Test Cases";
             description =
-  "A C++ header file (or directory of header files) containing CxxTest tests
-  to run against student code to assess completeness of problem coverage.
-  If you select a single C++ header file, it must contain a CxxTest test class
-  definition.  If you select a directory, it should contain CxxTest test
-  classes, all of which will be used.  If you make no selection, an empty
-  set of instructor reference tests will be used instead.";
+  "Instructor Reference Tests which contain ideal output for each programming assignment.";
         },
         {
             property    = localFiles;
             type        = fileOrDir;
             name        = "Data Files for Student";
             description =
-  "A file (or a directory of files) to place in the student's current working
-  directory when running his/her tests and when running reference tests.  The
-  file you select (or the entire contents of the directory you select) will be
-  copied into the current working directory during grading so that
-  student-written and instructor-written test cases can read and/or write to
-  the file(s).  The default is to copy no files.";
+  "A file (or a directory of files) to place in the student's current working  directory when running his/her tests and when running reference tests.  The   file you select (or the entire contents of the directory you select) will be   copied into the current working directory during grading so that   student-written and instructor-written test cases can read and/or write to the file(s).  The default is to copy no files.";
         },
         {
             property    = assignmentIncludes;
@@ -55,10 +43,7 @@ tests, and support for instructor-written reference tests.";
             fileTypes   = ();
             name        = "#Include Directory";
             description =
-  "A directory of files to place on the include path while compiling the
-  student's code (as well as instructor reference tests).  This directory
-  appears earlier on the include path than the reusable configuration setting.
-  The default is to use no path.";
+  "A directory of files to place on the include path while compiling the  student's code (as well as instructor reference tests).  This directory appears earlier on the include path than the reusable configuration setting. The default is to use no path.";
         },
         {
             property    = assignmentLib;
@@ -72,7 +57,7 @@ tests, and support for instructor-written reference tests.";
         }
     );
     optionCategories = (
-        "C++ Settings",
+        "C Settings",
         "Scoring Settings",
         "Feedback Settings",
         "Script Developer"
@@ -94,9 +79,9 @@ tests, and support for instructor-written reference tests.";
             type        = file;
             fileTypes   = ( a );
             name        = "Static Linking Library";
-            category    = "C++ Settings";
+            category    = "C Settings";
             description =
-  "A g++-compatible library file to link with the student's code.";
+  "A gcc-compatible library file to link with the student's code.";
         },
         {
             property    = allStudentTestsMustPass;
