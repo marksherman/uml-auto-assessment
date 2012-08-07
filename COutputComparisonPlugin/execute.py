@@ -44,6 +44,9 @@ def open_file(file_to_open):
 reference_file = open_file("reference.out")
 student_file = open_file("student.out") 
 
+if DEBUG > 0 :
+    print sys.argv[1]
+
 n = "1"
 compile_command = ["gcc", "-ansi", "-Wall", "p" + n + ".c"] 
 call(compile_command)
