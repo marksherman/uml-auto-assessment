@@ -29,19 +29,23 @@ def compare_literal(reference_file, student_file):
         print "Failure!"
         return 0
 
-if os.path.exists("reference.out"): 
-    reference_file = open("reference.out", "r+")
-else: 
-    reference_file = open("reference.out", "w")
-    reference_file = open("reference.out", "r+")
+# Opens a file, creating the file if it does not exist.
+# This is likely a hack, but for nwo it works. #TODO better way?
+def open_file(file_to_open):
+    if os.path.exists(file_to_open): 
+        file_handle = open(file_to_open, "r+")
+    else: 
+        file_handle = open(file_to_open, "w")
+        file_handle = open(file_to_open, "r+")
 
-if os.path.exists("student.out"): 
-    student_file = open("student.out", "r+") 
-else: 
-    student_file = open("student.out", "w")
-    student_file = open("student.out", "r+")
+#### Go actual program (definitions go above) ####
 
-print sys.argv[1]
+
+reference_file = open_file("reference.out")
+student_file = open_file("student.out") 
+
+if DEBUG > 0 :
+    print sys.argv[1]
 
 n = "1"
 compile_command = ["gcc", "-ansi", "-Wall", "p" + n + ".c"] 
