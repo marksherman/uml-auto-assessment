@@ -1,0 +1,7 @@
+This directory contains the open source work of Web-CAT, downloaded from http://sourceforge.net/projects/web-cat/
+
+This work is licensed under the GNU Affero General Public License, as specified on Sourceforge. The authors of this modified version of the work are interpreting the license of the original work as AGPLv3, available here: http://www.gnu.org/licenses/agpl-3.0.html
+
+The origional work (Web-CAT) has been added to this source repository without modification. All modifications to the origional work are trackable through this repository: https://github.com/marksherman/uml-auto-assessment
+
+The addition of this notice is the first change to the origional work, added on August 16, 2012 by Mark Sherman, msherman@cs.uml.edu
