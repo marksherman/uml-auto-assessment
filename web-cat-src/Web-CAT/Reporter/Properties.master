@@ -1,0 +1,27 @@
+# ===================================================================
+# Reporter subsystem characteristics
+# ===================================================================
+subsystem.Reporter = org.webcat.reporter.Reporter
+
+Reporter.version.major = 1
+Reporter.version.minor = 1
+Reporter.version.revision = 6
+Reporter.requires = BIRTRuntime, Core, Grader, JobQueue
+
+Reporter.copyright = (c) 2007-2012 Virginia Tech Department of Computer Science
+Reporter.provider = Virginia Tech Computer Science
+Reporter.provider.url = http\://web-cat.org/updates
+Reporter.info.url = http\://web-cat.org/WCWiki/ReporterSubsystem
+Reporter.history.url =\
+    http\://web-cat.org/WCWiki/ReporterSubsystem/ChangeHistory
+Reporter.license = GNU Affero General Public License v.3
+Reporter.license.url = http\://www.gnu.org/licenses/agpl.html
+
+Reporter.description =\
+    This subsystem provides all of Web-CAT's data reporting services.
+
+
+# -------------------------------------------------------------------
+# Reporter subsystem configuration property defaults
+# -------------------------------------------------------------------
+reporter.resumeSuspendedJobs = true

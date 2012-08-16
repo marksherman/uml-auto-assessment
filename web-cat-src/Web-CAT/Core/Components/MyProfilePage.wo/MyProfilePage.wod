@@ -1,0 +1,239 @@
+ApplyChanges: WCButton {
+    action = apply;
+    label  = "Save";
+    class  = "pos";
+}
+
+ApplyTimeFormats: WCButton {
+    action = applyTimeFormats;
+    label  = "Save";
+    class  = "pos";
+}
+
+BlueJLinkInfo: org.webcat.core.PopUpInfo {
+    title   = "BlueJ Submission URL";
+    message = "Web-CAT uses this URL to publish assignment definitions for use with the <a href=&quot;http://www.bluej.org/extensions/submitter/submitter.html&quot;>BlueJ submitter extension</a>. See the &quot;Configure BlueJ&quot; section of the <a href=&quot;http://web-cat.cs.vt.edu/WCWiki/ConfigureBlueJsSubmitter&quot;>ConfigureBlueJsSubmitter</a> recipe in the Web-CAT Cookbook.";
+}
+
+CanChangePassword: WOConditional {
+    condition = user.canChangePassword;
+}
+
+CanTA: WOConditional {
+    condition = user.hasTAPrivileges;
+}
+
+CanTeach: WOConditional {
+    condition = user.hasFacultyPrivileges;
+}
+
+CompactName: WOString {
+    value = aCourseOffering.compactName;
+}
+
+CourseName: WOString {
+    value = aCourseOffering.course.name;
+}
+
+CustomBackgroundInfo: org.webcat.core.PopUpInfo {
+    title   = "Custom Background URL";
+    message = "You can provide a URL to an external image you wish to use as the background image on Web-CAT.  This image will be used instead of the default background for your selected theme.  You can use a URL to a publicly available image on the web, or to one you have uploaded to your personal web space on another server.";
+}
+
+CustomCssInfo: org.webcat.core.PopUpInfo {
+    title   = "Custom CSS URL";
+    message = "You can provide a URL to an external CSS (Cascading Style Sheet) file you have uploaded to your personal web space on another server.  Using CSS, you can override the look of most features in Web-CAT&apos;s user interface.";
+}
+
+DateFormat: WOPopUpButton {
+    list		  = user.authenticationDomain.dateFormats;
+    item   		  = aFormat;
+    selection     = user.dateFormat;
+    displayString = formattedCurrentTime;
+}
+
+DomainName: WOString {
+    value = user.authenticationDomain.displayableName;
+}
+
+EclipseLinkInfo: org.webcat.core.PopUpInfo {
+    title   = "Eclipse Submission URL";
+    message = "Web-CAT uses this URL to publish assignment definitions for use with the <a href=&quot;http://web-cat.cs.vt.edu/WCWiki/EclipsePlugins/SubmissionPlugin&quot;>Eclipse submitter plug-in</a>. See the &quot;Configure Eclipse&quot; section of the <a href=&quot;http://web-cat.cs.vt.edu/WCWiki/ConfigureEclipseSubmitter&quot>ConfigureEclipseSubmitter</a> recipe in the Web-CAT Cookbook.";
+}
+
+Email: WCTextBox {
+    value = user.email;
+    style = "width: 20em";
+}
+
+EnrolledInCourses: WOConditional {
+    condition = user.enrolledIn.count;
+}
+
+EnrollmentRepetition: WORepetition {
+    item  = aCourseOffering;
+    list  = enrolledInDisplayGroup.displayedObjects;
+    index = index;
+}
+
+FirstName: WCTextBox {
+    value = user.firstName;
+    style = "width: 20em";
+}
+
+Form1: WCForm {
+    action = apply;
+}
+
+Form2: WCForm {
+    action = applyTimeFormats;
+}
+
+iCal: WOImage {
+    filename  = "icons/cal.gif";
+    framework = "Grader";
+    width     = 16;
+    height    = 16;
+    alt       = "Subscribe to your ical dates";
+    title     = "Subscribe to your ical dates";
+    border    = 0;
+}
+
+iCalLinkInfo: org.webcat.core.PopUpInfo {
+    title   = "iCalendar Export URL";
+    message = "Web-CAT uses this URL to publish assignment due date information for use by iCal-capable calendaring programs.  You can copy-and-paste this link into your calendar program to subscribe.  Alternately, if your browser and/or operating system supports the webcal protocol, use the subscription link below.";
+}
+
+InstructorName: WOHyperlink {
+    href   = anInstructor.url;
+    string = anInstructor.shortName;
+}
+
+InstructorRepetition: WORepetition {
+    item = anInstructor;
+    list = aCourseOffering.instructors;
+}
+
+LastName: WCTextBox {
+    value = user.lastName;
+    style = "width: 20em";
+}
+
+NewPassword1: WOPasswordField {
+    value = newPassword1;
+    style = "width: 20em";
+    class = "dijit dijitReset dijitLeft dijitTextBox fakeControl";
+}
+
+NewPassword2: WOPasswordField {
+    value = newPassword2;
+    style = "width: 20em";
+    class = "dijit dijitReset dijitLeft dijitTextBox fakeControl";
+}
+
+NotEnrolledInCourses: WOConditional {
+    condition = user.enrolledIn.count;
+    negate    = true;
+}
+
+NotTAInCourses: WOConditional {
+    condition = user.graderFor.count;
+    negate    = true;
+}
+
+NotTeachingCourses: WOConditional {
+    condition = user.teaching.count;
+    negate    = true;
+}
+
+Page : org.webcat.core.WCPageWithNavigation {
+    title         = "Manage My Profile";
+    extraRequires = "dojox.image.Lightbox";
+    extraCssFiles = "Core.framework/WebServerResources/dojox/image/resources/Lightbox.css";
+}
+
+RepositoryLink: WOHyperlink {
+    href = aRepositoryProviderURL;
+    string = aRepositoryProviderURL;
+}
+
+RepositoryRepetition: WORepetition {
+    list = repositoryProviders;
+    index = indexOfARepositoryProvider;
+    item = aRepositoryProvider;
+}
+
+TAInCourses: WOConditional {
+    condition = user.graderFor.count;
+}
+
+TARepetition: WORepetition {
+    item  = aCourseOffering;
+    list  = TADisplayGroup.displayedObjects;
+    index = index;
+}
+
+TeachingCourses: WOConditional {
+    condition = user.teaching.count;
+}
+
+TeachingRepetition: WORepetition {
+    item  = aCourseOffering;
+    list  = teachingDisplayGroup.displayedObjects;
+    index = index;
+}
+
+PreviewLink: WOHyperlink {
+    href     = "~@org.webcat.woextensions.WCResourceManager@resourceURLFor(\"Core.framework/WebServerResources/theme/\" + aTheme.dirName + \"/\" + aTheme.inherit.properties.preview, null)";
+    dojoType = "dojox.image.Lightbox";
+    group    = "Themes";
+    title    = aTheme.name;
+}
+
+ThemeTable: WOGenericContainer {
+    elementName = "table";
+/*    class = "theme-thumb";*/
+    class = "~((aTheme.id == session.theme.id) ? \"theme-thumb selected\" : \"theme-thumb\")";
+}
+
+ThemeThumb: WOImage {
+    filename  = "~\"theme/\" + aTheme.dirName + \"/\" + aTheme.inherit.properties.thumb";
+    framework = "Core";
+}
+
+TimeFormat: WOPopUpButton {
+    list		  = user.authenticationDomain.timeFormats;
+    item   		  = aFormat;
+    selection     = user.timeFormat;
+    displayString = formattedCurrentTime;
+}
+
+TimeZone: WOPopUpButton {
+    list		  = user.authenticationDomain.timeZones;
+    item   		  = zone;
+    selection     = selectedZone;
+    displayString = zone.printableName;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+
+URL: WCTextBox {
+    value = user.url;
+    style = "width: 20em";
+}
+
+UserName: WOString {
+    value = user.userName;
+}
+
+WebcalLinkInfo: org.webcat.core.PopUpInfo {
+    title   = "Webcal Subscription";
+    message = "If your browser and/or operating system supports the webcal protocol, click this link to subscribe to the calendar events for your courses.";
+}
+
+WebDAVLink: WOHyperlink {
+    href = webdavURL;
+    string = webdavURL;
+}

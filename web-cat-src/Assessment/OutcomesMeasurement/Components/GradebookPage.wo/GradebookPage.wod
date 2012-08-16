@@ -1,0 +1,4 @@
+UploadInfo: org.webcat.core.PopUpInfo {
+    title   = "Upload an Excel Gradebook";
+    message = "Select the Excel file you want to upload and click \'Upload\'.  On the next page, you will see a preview of your data and be able to specify the meaning of your columns.  As of last update, this supports .xls and .xlsx files.";
+}

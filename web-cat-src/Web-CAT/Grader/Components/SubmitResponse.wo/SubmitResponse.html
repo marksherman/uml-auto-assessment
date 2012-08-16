@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+<title>Web-CAT Grader Submission Response</title>
+<wo:if condition="$shouldRefreshImmediately"><wo name="Refresh"/></wo:if>
+<style type="text/css">
+body {
+    font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 125%;
+}
+.warning {
+    padding: 10px;
+    border: 1px solid #888800;
+    background-color: #FFFFCC;
+}
+.error {
+    padding: 10px;
+    border: 1px solid #880000;
+    background-color: #FFCCCC;
+}
+</style>
+</head><body>
+<wo:not condition="$criticalError">
+  <wo:if condition="$notAcceptingSubmissions">
+    <p>Web-CAT refused to accept your submission.</p>
+  </wo:if>
+  <wo:else>
+    <wo:if condition="$gradingPaused">
+      <p>An internal error occured while the Grader was processing
+      your submission.  The administrator has been notifed of the error.
+      An e-mail message will be sent to you at
+      <wo:str value="$user.email"/>
+      once the results for this submission are available.</p>
+    </wo:if>
+    <wo:else>
+      <wo:if condition="$prefs.assignmentOffering.gradingSuspended">
+        <p>Processing of submissions for this assignment has been
+        temporarily halted.  Your submission has been received and
+        the time has been properly recorded.  It will be processed
+        once the instructor has resolved the issue.
+        If the delay is long, an e-mail message will be sent to you at
+        <wo:str value="$user.email"/>
+        once the results for this submission are available.</p>
+      </wo:if>
+      <wo:else>
+        <p>Your submission has been received by the Web-CAT Grader
+        and is being processed.  If you are not automatically redirected
+        to your graded results,
+        <wo:link href="$resultsURL">click here to view them.</wo:link>
+        </p>
+      </wo:else>
+    </wo:else>
+  </wo:else>
+</wo:not>
+
+<wo:if condition="$error"><p class="error">
+  <wo:loop list="$errorMessages" item="$aMessage">
+    <wo:str value="$aMessage" escapeHTML="false"/>
+  </wo:loop>
+</p></wo:if>
+
+<wo:if condition="$partnersNotFound.count"><div class="warning">
+    Your submission was successful, but Web-CAT could not find the following
+    partners that you entered. Are you sure that you typed their
+    <b>Web-CAT user names</b> correctly?
+    <ul><wo:loop list="$partnersNotFound" item="$aPartnerNotFound">
+        <li><wo:str value="$aPartnerNotFound"/></li>
+    </wo:loop></ul>
+    If one or more of your partners is in the list above, please make sure that
+    you correctly entered their <b>user names</b> (not their real names) and
+    make another submission so that they will also be able to view their
+    results and receive credit for the assignment.
+</div></wo:if>
+
+</body></html>

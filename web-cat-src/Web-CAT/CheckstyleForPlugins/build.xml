@@ -1,0 +1,7 @@
+<project name="CheckstyleForPlugins" default="install" basedir=".">
+
+  <property name="external.resource.includes" value="checkstyle-all.jar"/>
+
+  <import file="../Core/framework.xml"/>
+
+</project>

@@ -1,0 +1,7 @@
+//PageWrapper: WOSwitchComponent {
+//	WOComponentName  = pageWrapperName;
+//	_componentUnroll = true;
+//	_unroll          = true;
+//}
+
+PageWrapper: org.webcat.admin.WCPageWrapper {}

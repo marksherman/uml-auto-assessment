@@ -1,0 +1,19 @@
+{
+    "WebObjects Release" = "WebObjects 5.1"; 
+    encoding = NSUTF8StringEncoding; 
+    variables = {
+        statsDisplayGroup = {
+            class = ERXDisplayGroup; 
+            formatForLikeQualifier = "%@*"; 
+            localKeys = (); 
+            numberOfObjectsPerBatch = 0; 
+            sortOrdering = (
+                {
+		    		class        = EOSortOrdering;
+		    		key          = sourceFileName;
+		    		selectorName = "compareCaseInsensitiveAscending:";
+				}
+	    	); 
+        }; 
+    }; 
+}

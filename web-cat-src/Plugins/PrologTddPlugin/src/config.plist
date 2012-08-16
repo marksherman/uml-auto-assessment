@@ -1,0 +1,70 @@
+{
+    name       	     = PrologTddPlugin;
+    version.major    = 1;
+    version.minor    = 6;
+    version.revision = 2;
+    version.date     = 20111104;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU General Public License v.2";
+    license.url      = "http://www.gnu.org/copyleft/gpl.html";
+    copyright        = "(c) 2006 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/PrologTddPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/PrologTddPlugin/ChangeHistory";
+    executable = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (edwards@cs.vt.edu)";
+    authorUid  = edwards;
+    languages  = ( { name = "Prolog"; version = "SWI-Prolog 5.x"; } );
+    description = "This is a Prolog execution script.  It is designed
+to execute the student program and a reference implementation against
+a set of student tests.  It does not generate any feedback.";
+    timeoutMultiplier = 2;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+        {
+            property    = instructorReference;
+            type        = file;
+            fileTypes   = ( pro, plg, prolog );
+            name        = "Instructor Reference Implementation";
+            description =
+  "A Prolog reference implementation
+  that serves as the instructor's model of correct behavior.";
+        },
+        {
+            property    = predicateList;
+            type        = shortText;
+	    size        = 30;
+            name        = "Allowed Predicate List";
+            description =
+  "A list of predicate names for the predicates listed in the assignment, and
+  which student-written tests can be executed against in the reference
+  implementation.  All of a student's tests are run against student-written
+  code, but only tests of the predicates with names appearing here will
+  be run against the reference implementation.  Separate predicates in the
+  list with | (a vertical bar).  Perl-style regular expressions can be used.";
+        }
+    );
+    options = (
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        },
+        {
+            property    = hintsLimit;
+            type        = integer;
+            default     = 3;
+            name        = "Hints Limit";
+            description = "Maximum number of hints the
+                           student will receive from failed reference tests.";
+        }
+    );
+}

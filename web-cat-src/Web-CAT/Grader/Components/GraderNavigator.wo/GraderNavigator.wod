@@ -1,0 +1,116 @@
+AssignmentControls: WCDropDownItem {
+    isSelectable = false;
+}
+
+AssignmentMenu: WCDropDownList {
+    list = assignments;
+    item = assignmentInRepetition;
+    selection = selectedAssignment;
+    id = idFor.assignmentSelector;
+    menuId = idFor.assignmentMenu;
+    noSelectionString = "Select an assignment...";
+}
+
+AssignmentMenuItem: WCDropDownItem {
+    onClick = "window.navUnderlay = new dijit.DialogUnderlay({}); window.navUnderlay.show();";
+    action = okPressed;
+}
+
+AssignmentPane: WCContentPane {
+    id = idFor.assignmentPane;
+    class = "inlined";
+}
+
+ClosedIcon: WOImage {
+    framework = "Grader";
+    filename = "icons/assignment-closed.png";
+    alt = "Closed";
+    title = "Closed";
+    class = "icon";
+}
+
+CourseMenu: WCDropDownList {
+    list = courseOfferings;
+    item = courseOfferingInRepetition;
+    selection = selectedCourseOffering;
+    id = idFor.courseSelector;
+    menuId = idFor.courseMenu;
+    noSelectionString = "Select a course...";
+}
+
+CourseMenuItem: WCDropDownItem {
+    onClick = "window.navUnderlay = new dijit.DialogUnderlay({}); window.navUnderlay.show();";
+    action = updateAssignmentsAndClearSelection;
+    remote = true;
+}
+
+CourseOfferingControls: WCDropDownItem {
+    isSelectable = false;
+}
+
+CoursePane: WCContentPane {
+    id = idFor.coursePane;
+    class = "inlined";
+}
+
+IsClosed: WOConditional {
+    condition = assignmentInRepetition.isClosed;  // VALID
+}
+
+IsOpen: WOConditional {
+    condition = assignmentInRepetition.isClosed;  // VALID
+    negate = true;
+}
+
+IsPublished: WOConditional {
+    condition = assignmentInRepetition.isUnpublished;  // VALID
+    negate = true;
+}
+
+IsUnpublished: WOConditional {
+    condition = assignmentInRepetition.isUnpublished;  // VALID
+}
+
+OpenIcon: WOImage {
+    framework = "Grader";
+    filename = "icons/assignment-open.png";
+    alt = "Open for submissions";
+    title = "Open for submissions";
+    class = "icon";
+}
+
+SemesterMenu: WCDropDownList {
+    list = semesters;
+    item = semesterInRepetition;
+    selection = selectedSemester;
+    id = idFor.semesterMenu;
+}
+
+SemesterMenuItem: WCDropDownItem {
+    onClick = "window.navUnderlay = new dijit.DialogUnderlay({}); window.navUnderlay.show();";
+    action = updateCourseOfferingsAndClearSelection;
+    remote = true;
+}
+
+ToggleClosedAssignments: WCLink {
+    action = toggleClosedAssignments;
+    remote = true;
+}
+
+ToggleIncludeAdminAccess: WCLink {
+    action = toggleIncludeAdminAccess;
+    remote = true;
+}
+
+ToggleUnpublishedAssignments: WCLink {
+    action = toggleUnpublishedAssignments;
+    remote = true;
+}
+
+UnpublishedIcon: WOImage {
+    framework = "Grader";
+    filename = "icons/assignment-unpublished.png";
+    alt = "Unpublished";
+    title = "Unpublished";
+    class = "icon";
+}

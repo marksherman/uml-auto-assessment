@@ -1,0 +1,78 @@
+<wo name="Page">
+<wo:org.webcat.core.WCPageModule title="Installed Subsystems">
+<webobject name="Form2">
+<table><thead><tr><th>Installed Subsystems
+<webobject name="IsVerbose"><webobject name="TerseDescriptions"/></webobject>
+<webobject name="IsTerse"><webobject name="VerboseDescriptions"/></webobject>
+</th>
+  <th>Build Date</th><th>Will Update?</th><th>Action</th></tr>
+</thead><tbody><webobject name="SubsystemRepetition">
+<webobject name="TR">
+<td><b><wo:if condition="$subsystemInfoUrl"><webobject name="Name"/></wo:if><wo:else><wo:str value="$subsystem.name"/></wo:else> <webobject name="Version"/></b>
+<webobject name="UpToDate">(up to date</webobject><webobject name="OutOfDate">(<b class="warn">v.<webobject name="NewVersion"/>
+is available</b></webobject><webobject name="HasHistory">, <webobject name="History">history</webobject></webobject>)
+<webobject name="IsVerbose"><br/><b>Description:</b> <webobject name="Description"/></webobject></td>
+<td><webobject name="BuildDate"/></td>
+<td class="s"><webobject name="UpToDate">not needed</webobject>
+<webobject name="OutOfDate"><webobject name="CanUpdate">
+  <webobject name="AutoUpdateEnabled"><webobject name="WillUpdate"/></webobject>
+  <webobject name="AutoUpdateNotEnabled"><webobject name="WillNotUpdate"/></webobject>
+</webobject><webobject name="CannotUpdate">
+  <webobject name="WillNotUpdate"/>
+</webobject></webobject></td>
+<td><webobject name="CanUpdate"><webobject name="DownloadNow"/></webobject><webobject name="HasOptions"><webobject name="Edit"/></webobject></td>
+</webobject></webobject></tbody></table>
+</webobject></wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Available for Web-based Installation" open="false">
+<wo:WOForm multipleSubmit="true">
+<webobject name="NewSubsystemsAvailable">
+<table><thead><tr><th>Available for Installation
+<webobject name="IsVerbose"><webobject name="TerseDescriptions"/></webobject>
+<webobject name="IsTerse"><webobject name="VerboseDescriptions"/></webobject>
+</th>
+  <th>Build Date</th><th>Download?</th></tr></thead><tbody>
+<webobject name="NewSubsystemRepetition">
+<webobject name="TR">
+<td><b><wo:if condition="$featureInfoUrl"><webobject name="NewName"/></wo:if><wo:else><wo:str value="$feature.name"/></wo:else> <webobject name="NewNewVersion"/></b>
+<webobject name="NewHasHistory">(<webobject name="NewHistory">history</webobject>)</webobject>
+<webobject name="IsVerbose"><br/><b>Provider:</b> <webobject name="NewProvider"/>
+<br/><b>URL:</b> <webobject name="NewProviderURL"/>
+<br/><b>Description:</b> <webobject name="NewDescription"/></webobject></td>
+<td><webobject name="NewBuildDate"/></td>
+<td><webobject name="CanUpdate"><webobject name="DownloadNewNow"/></webobject>
+<webobject name="CannotUpdate">install manually</webobject>
+</td>
+</webobject></webobject></tbody></table>
+</webobject><webobject name="NoNewSubsystemsAvailable">
+<p>After scanning known providers, no new subsystems were detected.</p>
+</webobject>
+<p>Add provider URL:
+<webobject name="ProviderURL"/><wo name="ScanNow">Scan Now</wo>
+</p>
+</wo:WOForm></wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Automatic Updates" open="false">
+<wo:WOForm multipleSubmit="true">
+<webobject name="CannotUpdate"><p>
+Automatic updates <b class="warn">are disabled</b> on this installation.
+Automatic updates are only available on servlet-based deployments of this
+application.  Any updates must be downloaded and applied by hand when
+the application is not executing.
+</p></webobject>
+<webobject name="CanUpdate"><p>
+Automatic updates:
+<webobject name="AutoUpdateEnabled"><b class="check">Enabled</b>
+<wo name="DisableAutoUpdates">Disable</wo></webobject>
+<webobject name="AutoUpdateNotEnabled"><b class="warn">Disabled</b>
+<wo name="EnableAutoUpdates">Enable</wo></webobject>
+</p><p>
+This application is capable of downloading and installing new updates to
+subsystems that are currently installed.  When enabled, Web-CAT will check
+for newer versions of all installed subsystems on each restart, and download
+any available updates at that time.  You can also <span class="hl">manually
+download</span> updates on demand using the download icons in the table.
+All downloaded updates will <span class="hl">be applied when the application
+restarts.</span>
+</p>
+</webobject></wo:WOForm></wo:org.webcat.core.WCPageModule></wo>

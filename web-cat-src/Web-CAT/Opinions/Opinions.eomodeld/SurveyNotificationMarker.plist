@@ -1,0 +1,28 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = assignmentOfferingId; 
+            name = assignmentOfferingId; 
+            prototypeName = foreignId; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (assignmentOfferingId, id); 
+    className = "org.webcat.opinions.SurveyNotificationMarker"; 
+    classProperties = (assignmentOffering); 
+    externalName = SurveyNotificationMarker; 
+    fetchSpecificationDictionary = {}; 
+    name = SurveyNotificationMarker; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = AssignmentOffering; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = assignmentOfferingId; }); 
+            name = assignmentOffering; 
+        }
+    ); 
+}

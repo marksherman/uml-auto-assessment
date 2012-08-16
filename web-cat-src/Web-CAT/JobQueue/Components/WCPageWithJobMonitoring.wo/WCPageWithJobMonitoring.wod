@@ -1,0 +1,60 @@
+CancelJob: WCButton {
+    label = "Cancel";
+    action = cancelJob;
+}
+
+DeleteJob: WCButton {
+    label = "Delete Job";
+    action = deleteJob;
+}
+
+Form : WCForm {
+}
+
+JobProgressWatcher : WCDiv {
+    dojoType = "webcat.jobqueue.JobProgressWatcher";
+    jsId = "JobProgressPageWrapper_watcher";
+    pageRPC = "JobProgressPageWrapper_jsonrpc.page";
+}
+
+JobProgressWatcherScript : WCScriptFragment {
+    filename = "javascript/JobProgressWatcher.js";
+    location = "head";
+}
+
+Page : WCPageWithNavigation {
+    title = title;
+    extraRequires = extraRequires;
+    permalink = permalink;
+}
+
+ProgressBar: WCDiv {
+    id = "JobProgressPageWrapper_progressBar";
+    dojoType = "dijit.ProgressBar";
+    style = "width: 100%";
+    progress = "~'' + job.progressPercentage + '%'";
+}
+
+ProgressMessage: WOGenericContainer {
+    elementName = "span";
+    id = "JobProgressPageWrapper_progressMessage";
+}
+
+RPC : WCJSONRPC {
+    name = "JobProgressPageWrapper_jsonrpc";
+    proxyName = "page";
+}
+
+Reloader : WCActionFunction {
+    jsId = "JobProgressPageWrapper_reloadPage";
+    action = reloadPage;
+}
+
+RestartJob: WCButton {
+    label = "Restart Job";
+    action = restartJob;
+}
+
+Spinner: WCSpinner {
+    isSpinning = true;
+}

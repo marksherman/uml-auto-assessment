@@ -1,0 +1,8 @@
+CommitList: GitCommitListComponent {
+    commits = commits;
+    gitContext = gitContext;
+}
+
+GitPage: GitBasePage {
+    gitContext = gitContext;
+}

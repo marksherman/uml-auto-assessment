@@ -1,0 +1,24 @@
+# ===================================================================
+# WebAPI subsystem characteristics
+# ===================================================================
+subsystem.WebAPI=
+
+WebAPI.version.major=1
+WebAPI.version.minor=0
+WebAPI.version.revision=1
+WebAPI.requires=Core, Grader
+
+WebAPI.copyright=\
+	(c) 2008-2010 Virginia Tech Department of Computer Science
+WebAPI.provider=Virginia Tech Computer Science
+WebAPI.provider.url=http\://web-cat.org/updates
+WebAPI.info.url=\
+	http\://web-cat.org/WCWiki/WebApiSubsystem
+WebAPI.history.url=\
+	http\://web-cat.org/WCWiki/WebApiSubsystem/ChangeHistory
+WebAPI.license=GNU Affero General Public License v.3
+WebAPI.license.url=http\://www.gnu.org/licenses/agpl.html
+
+WebAPI.description=\
+	This subsystem provides a general-purpose HTML-base API for other \
+	tools to use in accessing Web-CAT's services.

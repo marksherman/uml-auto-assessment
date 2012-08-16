@@ -1,0 +1,12 @@
+OutcomeRepetition: WORepetition {
+	list = outcomePairStats;
+	item = anOutcomeStat;
+}
+
+SelectSemester: WCFilteringSelect {
+    list          = allSems;
+    selection     = currSemester;
+    item          = aSem;
+    autoComplete   = true;
+    invalidMessage = "Invalid semester selection";
+}

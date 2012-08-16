@@ -1,0 +1,24 @@
+<wo name="Page">
+
+<wo:WCPageModule title="Assignment-Specific Options">
+<p>For: <span class="hl"><wo:str value="$step.assignment.titleString"/></span></p>
+<wo name="AssignmentOptionEditor"/>
+<p><b>Note:</b> To upload files, use <b>git</b> (preferred) or
+<b>WebDAV</b>.  For upload links, see the "My Repositories"
+section on your <wo:link action="$myProfile">My Profile</wo:link> page.</p>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Reusable Configuration Options">
+<wo:if condition="$step.script.configDescription.options.count">
+<p>This plug-in supports additional option settings that can be placed in a
+named configuration profile that is shared among several assignments.</p>
+
+<p>Reusable option set:
+<wo name="ReusableList"/><wo name="EditReusableConfig"/>
+<wo name="NewReusableConfig"/></p>
+
+</wo:if><wo:else>
+<p>This plug-in has no reusable configuration options.</p>
+</wo:else>
+</wo:WCPageModule>
+</wo>

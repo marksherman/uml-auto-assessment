@@ -1,0 +1,36 @@
+<project name="WebObjectsUpdater" default="install" basedir=".">
+
+  <import file="../Core/framework.xml"/>
+
+  <!-- ...............................................................
+    Jars up the framework that was built in a form that can be used
+    for Web-CAT server updates.
+  -->
+  <target name="export.jar" depends="build.woframework">
+    <!-- need to jar framework up somewhere, based on version number -->
+    <property name="export.jar.name"
+      value="../${framework.name}_${project.version}.jar"/>
+    <jar destfile="${export.jar.name}"
+      basedir="${install.dir}"
+      includes="${framework.name}.framework/**">
+      <!-- The list in the fileset below should be taken from the Web-CAT
+           project's woproject/ant.frameworks.wo.wosystemroot file instead
+           of being explicitly listed here.
+      -->
+      <fileset dir="${wo.wosystemroot}/Library/Frameworks">
+        <include name="JavaDirectToWeb.framework/**"/>
+        <include name="JavaDTWGeneration.framework/**"/>
+        <include name="JavaEOAccess.framework/**"/>
+        <include name="JavaEOControl.framework/**"/>
+        <include name="JavaEOProject.framework/**"/>
+        <include name="JavaFoundation.framework/**"/>
+        <include name="JavaJDBCAdaptor.framework/**"/>
+        <include name="JavaWebObjects.framework/**"/>
+        <include name="JavaWOJSPServlet.framework/**"/>
+          <exclude name="JavaWOJSPServlet.framework/WebServerResources/com/"/>
+          <exclude name="JavaWOJSPServlet.framework/WebServerResources/*.orig"/>
+      </fileset>
+    </jar>
+  </target>
+
+</project>

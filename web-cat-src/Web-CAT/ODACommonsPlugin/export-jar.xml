@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: export-jar.xml,v 1.2 2008/04/11 04:26:51 aallowat Exp $ -->
+
+<project default="jar_export" name="build">
+    <target name="jar_export">
+        <jar destfile="../Reporter/Libraries/webcat-oda-commons.jar"
+            basedir="bin"
+            includes="**/*.class"/>
+        <eclipse.refreshLocal
+            resource="Reporter/Libraries"
+            depth="infinite"/>
+    </target>
+</project>

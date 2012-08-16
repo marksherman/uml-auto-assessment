@@ -1,0 +1,24 @@
+Control: WOGenericContainer {
+    elementName = "span";
+    class = "WCDropDownList";
+    id = id;
+}
+
+DropDown: WCContentPane {
+    id = menuId;
+    class = "WCDropDownListMenu";
+}
+
+DropDownList: WOGenericContainer {
+    elementName = "ul";
+    style = cssListStyle;
+}
+
+Item: WCDropDownItem {
+    isSelectable = true;
+}
+
+SelectionSpan: WOGenericContainer {
+    elementName = "span";
+    id = selectionId;
+}

@@ -1,0 +1,24 @@
+# ===================================================================
+# Opinions subsystem characteristics
+# ===================================================================
+subsystem.OutcomesMeasurement=org.webcat.outcomesmeasurement.OutcomesMeasurement
+
+OutcomesMeasurement.version.major=1
+OutcomesMeasurement.version.minor=0
+OutcomesMeasurement.version.revision=0
+OutcomesMeasurement.requires=Core, EOJDBCPrototypes, DBUpdateEngine
+
+OutcomesMeasurement.copyright=\
+    (c) 2010 Virginia Tech Department of Computer Science
+OutcomesMeasurement.provider=Virginia Tech Computer Science
+OutcomesMeasurement.provider.url=http\://web-cat.cs.vt.edu/updates
+OutcomesMeasurement.info.url=\
+    http\://web-cat.cs.vt.edu/WCWiki/OutcomesMeasurementSubsystem
+OutcomesMeasurement.history.url=\
+    http\://web-cat.cs.vt.edu/WCWiki/OutcomesMeasurementSubsystem/ChangeHistory
+OutcomesMeasurement.license=GNU Affero General Public License v.3
+OutcomesMeasurement.license.url=http\://www.gnu.org/licenses/agpl.html
+
+OutcomesMeasurement.description=\
+    This subsystem provides entry pages and data tracking for \
+    outcomes assessment information about courses.

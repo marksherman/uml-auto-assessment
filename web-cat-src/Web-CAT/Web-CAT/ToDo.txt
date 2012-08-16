@@ -1,0 +1,174 @@
+--  file not found silently swallowed when viewing code
+    under grading tab
+
+--  at oopsla
+    --  EMSE paper
+    --  moodle gateway interaction
+    --  checkstyle extension for BlueJ?
+    --  Program 4 for Web-CAT
+    --  difference between apply-all on script properties/select page
+        vs. elsewhere
+	--  file selections still aren't being saved
+    --  passing timeout to script: what if it is null?
+    --  Script knows its own timeout and grace period
+    --  fix short names xpath in pmd.xml to allow in, at, to, etc.
+    --  fix sorting of files on feedback summary to add file name
+        as a secondary sort key
+
+From Servlet:
+applicationBaseURL = /WebObjects
+baseURL = /WebObjects
+cgiAdaptorURL = http://homestation//Web-CAT/WebObjects
+directConnectURL = http://homestation:-1//Web-CAT/WebObjects/Web-CAT.woa
+servletConnectURL = http://homestation//Web-CAT/WebObjects/Web-CAT.woa
+webserverConnectURL = http://homestation//Web-CAT/WebObjects/Web-CAT.woa/--1
+frameworksBaseURL = /WebObjects/Frameworks
+host = homestation
+
+From WO:
+applicationBaseURL = /WebObjects
+baseURL = /WebObjects
+cgiAdaptorURL = http://192.168.0.100/cgi-bin/WebObjects
+directConnectURL = http://192.168.0.100:3000/cgi-bin/WebObjects/Web-CAT.woa
+servletConnectURL = http://192.168.0.100/cgi-bin/WebObjects/Web-CAT.woa
+webserverConnectURL = http://192.168.0.100/cgi-bin/WebObjects/Web-CAT.woa/-3000
+frameworksBaseURL = /WebObjects/Frameworks
+host = homestation
+
+
+web-cat graphic visualizations
+moodle gateway
+generation of submission refs
+instructor ui fro assignment grading step properties
+
+--  grading scripts
+--  manuel's hint fading/restoring
+--  minimum coverage level to receive feedback
+--  perl data crawler
+    --  complete spreadsheet
+    --	all coverage data
+    --  all other stats
+    --  static analysis info
+    --	collect test case failure data?
+    --	moodle quiz analysis: question discriminating power?
+
+
+--  c++ grader
+    ??  fix detection of timeouts on test runs
+    --  positive tracking of test execution in C++ grader?
+    --  include bullseye coverage info
+    --  option for coverage score required
+    --  wrap dot output in CxxTest ErrorFormatter ...
+
+-- done
+    --  can heap corruption crash the program?
+    --  linking in code for shadow lib?
+    --  change text of "does not conform ..." msg
+
+
+--  testing paper
+--  make text area self-auto-sizing?
+--  fix specification of point balance in assignment properties
+--  Allow instructors to view files for suspended assignments
+
+--  better alerting/highlighting of stopped/unpublished assignments
+    and stalled jobs on front page
+--  show potential conflicting assignment due dates/times, either
+    on front page, or on assignment properties
+--  Change student grading list to show jobs in queue (different
+    color highlighting, or include queued jobs in list) + refresh
+    button
+--  redo scoring display in feedback reports according to manuel's
+    suggestions
+--  reword grader feedback, based on manuel's suggestions
+
+--  Add tar file support: http://www.trustice.com/java/tar/
+
+--  Check into messages for setup/teardown errors in CxxTest test
+    cases (and in JUnit too!)
+
+--  administrative access to clear/regrade stalled jobs
+--  administrative access to edit other courses/assignments
+--  staff access to submit to courses they are enrolled in
+--  fix dangling quotes in C++ hiints
+
+
+void testFoo()
+{
+    System.out.println( "exception hint: ..." );
+    ...
+}
+
+--  when creating a new offering, set the due date based on the
+    most recent offering for this assignment?
+
+
+--  C++ script
+    --  add restrictor
+    
+--  Java script
+    --  add extra hints limiting support
+    --  add coverage metric support
+
+--  redo web-cat.cs.vt.edu main page
+--  redo sourceforge page
+--  check into "regular site" wiki theme
+
+--  reusable scripts
+    --  write a mini-tutorial on setting up an assignment?
+
+--  revamp user file editing page
+
+--  Help pages!
+
+--  lifecycle management of tomcat applications
+    --  Scheduled restarts:
+        Programs->Accessories->System Tools->Scheduled Tasks
+	"shutdown -r" to reboot the machine (or write a batch file
+	to net start/net stop the services)
+    --  set jvm params at:
+        HKEY_LOCAL_MACHINE\SOFTWARE\Apache Software Foundation\Procrun 2.0\Tomcat5\Parameters\Java    
+    --  Add and test external wccycle.bat script that users can
+        place somewhere.  Provide a property like "webcat.cycleServer"
+	that, if set, is called instead of system.exit().  Provide a
+	default script that net stop's apache, then tomcat, and then
+	net starts tomcat, then apache.  Users can customize both.
+
+--  Modify stylesheet links in BarePage to work for both split installs
+    and non-split installs, including servlet deployment and https
+    --  wc.css
+    --  wc-ie5.css
+    --  wc-ie6.css
+
+--  Fix privacy statement url so it comes from the properties file with a
+    default of ours.
+
+--  Fix fileBrowser select action to chain to parent's next() action
+
+--  Fix authenticatorMap in User to use all database-hosted settings so
+    that authentication info can be set interactively instead of just
+    through properties.  Have property readings override db on initialization.
+    
+--  Fix user name searches in authenticators to search on name/domain pairs
+    instead of just userName.
+
+--  Fix mime type translation to use er mime types mapper and standard
+    mime.types-style file.
+
+--  Fix feedback page to include the extra info from the wonder extensions.
+
+--  Add default URL info to auth domain, then change edit field in my profile
+    to custom subclass like ERXEditURL.
+
+--  Document eomodeler bugs: doesn't preserve userInfo dictionaries!
+
+--  Bring all the *.api files up-to-date.
+
+--  Extend handlePotentiallyFatalException to handle out of file handle
+    situations.
+
+--  Get shared editing context working without screwing up inter-model
+    relationships.
+
+--  move url validation from EditAssignmentPage to Assignment
+--  Look for other validation issues, and scaffold them the same way

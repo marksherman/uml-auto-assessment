@@ -1,0 +1,19 @@
+<student.web.internal.tests.support.CircularClass fieldset="true" id="66db2725-ac0d-4628-8517-7d6467ad60a7">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>ref</string>
+    <student.web.internal.tests.support.CircularClass>
+      <student.web.internal.converters.Alias fieldset="true" id="36d35467-773a-4427-befc-793a1b3c0a37">
+        <no-comparator/>
+        <java.util.Map_-Entry>
+          <string>contextMap</string>
+          <string>context-object</string>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>key</string>
+          <string>class2</string>
+        </java.util.Map_-Entry>
+      </student.web.internal.converters.Alias>
+    </student.web.internal.tests.support.CircularClass>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.CircularClass>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.5"?>
+
+<target name="Mac OS X Target Platform">
+<locations>
+<location path="${eclipse_home}" type="Profile"/>
+</locations>
+<environment>
+<os>macosx</os>
+<ws>cocoa</ws>
+<arch>x86</arch>
+<nl>en_US</nl>
+</environment>
+</target>

@@ -1,0 +1,39 @@
+.webcatReportPageNavigationIcon {
+    background-image: url('../images/ReportPageNavigation.gif');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
+.webcatReportPageNavigationIconFirst { background-position: 0px; }
+.webcatReportPageNavigationIconPrevious { background-position: -18px; }
+.webcatReportPageNavigationIconNext { background-position: -36px; }
+.webcatReportPageNavigationIconLast { background-position: -54px; }
+
+.infoBox {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.warningBox {
+    background-color: #FFFCCC;
+    border: 1px solid #999900;
+    padding: 5px;
+}
+
+.errorBox {
+    background-color: #FFCCCC;
+    border: 1px solid #990000;
+    padding: 5px;
+}
+
+.cause {
+    padding-left: 16px;
+    font-size: 80%;
+}
+
+#reportBlock {
+    background-color: white;
+}

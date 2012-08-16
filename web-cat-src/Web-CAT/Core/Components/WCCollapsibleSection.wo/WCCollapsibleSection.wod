@@ -1,0 +1,23 @@
+Anchor: WOGenericContainer {
+	elementName = "a";
+	alt = "show/hide";
+	title = "show/hide";
+	href = "javascript:void(0)";
+	onclick = onClickValue;
+}
+
+Div: WOGenericContainer {
+    elementName = "div";
+    class       = "expboxcontent";
+    id          = divId;
+    style       = "~initiallyExpanded ? \"\" : \"display:none\"";
+}
+
+Image: WOImage {
+	alt       = "show/hide";
+	title     = "show/hide";
+	width     = "16";
+	height    = "16";
+	filename  = "~initiallyExpanded ? \"icons/expanded.gif\" : \"icons/collapsed.gif\"";
+	framework = "Core";
+}

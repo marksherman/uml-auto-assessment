@@ -1,0 +1,88 @@
+AddStaff: WOImageButton {
+    filename = "images/add-sm-btn.gif";
+    action   = addStaff;
+    border   = "0";
+    width    = "46";
+    height   = "17";
+    title     = "Add this staff member";
+    alt       = "Add this staff member";
+    class    = "icon";
+}
+
+BatchNavigator1: org.webcat.core.WCBatchNavigator {
+    displayGroup = potentialDisplayGroup;
+    persistentKey = "EditStaffPage.batchSize";
+}
+
+Email: WOHyperlink {
+    href = aUser.emailHref;
+}
+
+Name: WOHyperlink {
+    href = aUser.url;
+}
+
+Page: SaveCancelPage {
+    title = sideStepTitle;
+//    applyEnabled = true;
+}
+
+Remove: WOImageButton {
+    action    = removeStaff;
+    filename  = "icons/trash.gif";
+    framework = "Core";
+    border    = "0";
+    width     = "14";
+    height    = "17";
+    title     = "Remove this staff member";
+    alt       = "Remove this staff member";
+    class     = "icon";
+}
+
+Repetition1: WORepetition {
+    item  = aUser;
+    list  = potentialDisplayGroup.displayedObjects;
+    index = index;
+}
+
+Repetition2: WORepetition {
+    item = aUser;
+    list = staffDisplayGroup.displayedObjects;
+    index = index;
+}
+
+StaffSection: WCPageModule {
+    title = "~userRole + \"(s) for \" + courseOffering.compactName + \" \" + courseOffering.course.name";
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+
+UserID: WOString {
+    value = aUser.userName;
+}
+
+WCSortOrder1: org.webcat.woextensions.WCSortOrder {
+    displayGroup = potentialDisplayGroup;
+    displayKey = "Name";
+    key = "name_LF";
+}
+
+WCSortOrder2: org.webcat.woextensions.WCSortOrder {
+    displayGroup = potentialDisplayGroup;
+    displayKey = "User Name";
+    key = "userName";
+}
+
+WCSortOrder3: org.webcat.woextensions.WCSortOrder {
+    displayGroup = staffDisplayGroup;
+    displayKey = "Name";
+    key = "name_LF";
+}
+
+WCSortOrder4: org.webcat.woextensions.WCSortOrder {
+    displayGroup = staffDisplayGroup;
+    displayKey = "User Name";
+    key = "userName";
+}

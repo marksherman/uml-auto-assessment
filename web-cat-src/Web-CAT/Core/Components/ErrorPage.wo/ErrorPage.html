@@ -1,0 +1,34 @@
+<webobject name="Page">
+<div id="content"><div id="page"><div class="width100 floatRight">
+<div class="med-logo"><div class="module">
+<h2>Unexpected Exception</h2>
+<p>
+An unexpected exception has occured while trying to process your request.
+The details of the exception have been e-mailed to the Web-CAT
+administrator.
+</p>
+<p>
+After returning to your Web-CAT home page, you can continue to work.
+If you continue to experience problems, you should logout.
+</p>
+<webobject name="MyForm">
+<center><webobject name="SubmitButton"/><webobject name="IsLoggedIn"> <webobject name="LogoutButton"/></webobject></center>
+</webobject>
+</div></div>
+
+<wo:if condition="$isAdminUser"><div class="module"><h2>Exception Details</h2>
+<p><b>Error:</b> <wo:str value="$exception.getClass.getName"/></p>
+<wo:if condition="$exception.getMessage">
+<p><b>Reason:</b> <wo:str value="$exception.getMessage"/></p></wo:if>
+<table><thead>
+<tr><th>Class</th>
+<th>Method</th>
+<th>Line</th></tr>
+</thead><tbody><wo name="ReasonRepetition"><tr>
+  <td><wo:str value="$errorline.className"/></td>
+  <td><wo:str value="$errorline.methodName"/></td>
+  <td><wo:str value="$errorline.lineNumber"/></td>
+</tr></wo>
+</tbody></table></div></wo:if>
+</div></div></div><webobject name="Footer"/>
+</webobject>

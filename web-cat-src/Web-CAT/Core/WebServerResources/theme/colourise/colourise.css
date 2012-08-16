@@ -1,0 +1,318 @@
+/* =================================================================== */
+/* @group Page Content
+====================================================================== */
+
+body {
+    background-color: #070707;
+    background-image: url(colourise.jpg);
+    background-position: top center;
+}
+
+/* @end
+====================================================================== */
+/* @group Header/Footer
+====================================================================== */
+
+#header .title h1,
+#header .title h2 {
+    color: white;
+}
+
+#roles, #utils {
+    color: white;
+}
+
+#roles a, #utils a, #roles span {
+    color: white;
+    background-image: url(../base/images/white-15.png);
+    text-decoration: none;
+    padding: 0.1em 0.5em;
+}
+
+#roles a:hover, #utils a:hover, #roles a.here {
+    background-image: url(../base/images/black-50.png);
+    text-decoration: underline;
+}
+
+#header a:hover,
+#footer a:hover {
+    border-bottom: none;
+}
+
+#footer {
+    color: white;
+}
+
+#footer a {
+    color: white;
+    background-image: url(../base/images/white-15.png);
+    text-decoration: none;
+    padding: 0.1em 0.5em;
+}
+
+#footer a:hover {
+    color: white;
+    background-image: url(../base/images/black-50.png);
+    text-decoration: underline;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Main Menu
+====================================================================== */
+
+#mainMenu li {
+}
+
+#mainMenu a {
+    color: #fff;
+    background-image: url(../base/images/white-15.png);
+}
+
+
+#mainMenu a:hover,
+#mainMenu .here a,
+#roles span.here {
+    background-image: url(../base/images/black-50.png);
+}
+
+#mainMenu li:hover a {
+    background-image: none;
+}
+
+#mainMenu > li:hover > a {
+    background-image: url(../base/images/black-50.png);
+}
+
+#mainMenu :hover  ul {
+    background-image: url(../base/images/black-50.png);
+}
+
+#mainMenu li:hover li:hover > a,
+#mainMenu li.here:hover li.here:hover > a {
+    color: black;
+    background-image: url(../base/images/white-40.png);
+}
+#mainMenu li.here:hover li.here > a {
+    color: black;
+    background-image: url(../base/images/white-25.png);
+}
+
+#mainMenu li a:hover ul li a:hover {
+    background-image: url(../base/images/white-40.png);
+}
+
+
+/* @end
+====================================================================== */
+/* @group Basic Look
+====================================================================== */
+
+a, a:active, a:link {
+    text-decoration: none;
+    color: #006193;
+}
+a:visited { text-decoration: none; }
+a:hover { color: white; border-bottom: 1px dotted #438800; }
+
+h1 { color: white; }
+h2, h3, h4, h5, h6 { color: #ABABAB; }
+.disabled { color: #555; }
+b, strong { color: #ccc; }
+.check { color: #9f4; }
+.warn  { color: #e20; }
+.date { color: #335; }
+
+span.hl {
+    font-weight: bold;
+    /* color: #aad518;
+       padding: 0 2px; */
+    /* background-image: url(../base/images/white-40.png);
+    color: black; */
+    color: #fe7;
+    background-color: black;
+    padding: 0.1em 0.3em;
+}
+
+.module {
+    background: transparent url(../base/images/black-25.png) repeat top left;
+    color:  #5B5B5B;
+}
+
+pre, .code {
+    background-image: url(../base/images/white-05.png);
+    border-left: 4px solid #444;
+}
+
+label em { color: #e20; }
+
+
+/* @end
+====================================================================== */
+/* @group =Tables
+====================================================================== */
+
+table {
+    border: 1px solid #211E20;
+    border-top: 1px solid #48780E;
+}
+
+table th {
+    background-image: url(../base/images/white-15.png);
+    color: white;
+}
+
+table th a, table th a:active, table th a:link {
+    color: #bcf;
+}
+
+table thead {
+    border-bottom: 1px solid #211E20;
+}
+
+.batchnav { background-image: url(../base/images/white-15.png); }
+
+/* tr.o  { background-color: transparent; } */
+tr.e  { background-image: url(../base/images/white-10.png); }
+
+.selected,
+tr.o.selected,
+.theme-thumb.selected {
+    color: black;
+    background-image: url(../base/images/white-20.png);
+    border: 1px solid #48780E;
+}
+tr.e.selected {
+    color: black;
+    background-image: url(../base/images/white-30.png);
+    border: 1px solid #48780E;
+}
+
+.caution, tr.o.caution, tr.o.caution.selected {
+    color: black;
+    background-image: url(../base/images/white-15.png);
+    background-color: #552;
+}
+tr.e.caution,
+tr.e.caution.selected {
+    color: black;
+    background-image: url(../base/images/white-25.png);
+    background-color: #552;
+}
+
+.error,
+tr.o.error,
+tr.o.caution.error,
+tr.o.error.selected,
+tr.o.caution.error.selected {
+    color: black;
+    background-image: url(../base/images/white-15.png);
+    background-color: #522;
+}
+tr.e.error,
+tr.e.caution.error,
+tr.e.error.selected,
+tr.e.caution.error.selected {
+    color: black;
+    background-image: url(../base/images/white-25.png);
+    background-color: #522;
+}
+
+
+    /*
+    ================================================================== */
+    /* @group Mini-Histogram
+    ================================================================== */
+
+    table.distchart {
+        background-color: white;
+        border-bottom: 1px solid black;
+    }
+
+
+    /* @end
+    ================================================================== */
+
+
+    /*
+    ================================================================== */
+    /* @group Paginated tables
+    ================================================================== */
+
+    table .pagination .active {
+        background-color: transparent;
+        color: #EEE;
+        border-color: gray;
+    }
+
+    table .pagination .current {
+        border-color: gray;
+        color: #333;
+        background-color: #A0C0FF;
+    }
+
+    /* @end
+    ================================================================== */
+
+
+    /*
+    ================================================================== */
+    /* @group Meter
+    ================================================================== */
+
+    table.percentbar td.plus  { background-color: #00df00; }
+    table.percentbar td.minus { background-color: #df0000; }
+    table tr#divider td { border-top: 1px solid #ccc; }
+
+
+    /* @end
+    ================================================================== */
+
+
+    /*
+    ================================================================== */
+    /* @group Printout
+    ================================================================== */
+
+
+    /* @end
+    ================================================================== */
+
+
+/* @end
+====================================================================== */
+/* @group Notices
+====================================================================== */
+
+
+
+
+/* @end
+====================================================================== */
+/* @group Dojo Nihilo
+====================================================================== */
+
+.nihilo .dijitTitlePane .dijitTitlePaneTitle {
+    color: #ABABAB;
+    border-bottom: 1px solid #ABABAB;
+}
+
+.nihilo .dijitTitlePaneFocused .dijitTitlePaneTextNode,
+.nihilo .dijitOpen .dijitTitlePaneTextNode,
+.nihilo .dijitTitlePaneTextNode {
+    color: #ABABAB;
+}
+
+
+form fieldset {
+    border: 1px solid #ABABAB;
+}
+
+.dijitTooltipContainer form fieldset {
+    border-color: #ABABAB;
+}
+
+
+/* @end
+====================================================================== */

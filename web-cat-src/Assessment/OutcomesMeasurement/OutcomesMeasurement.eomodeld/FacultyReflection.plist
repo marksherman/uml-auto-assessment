@@ -1,0 +1,71 @@
+{
+    attributes = (
+        {
+            allowsNull = N;
+            columnName = courseOfferingId;
+            name = courseOfferingId;
+            prototypeName = foreignId;
+        },
+        {allowsNull = N; name = id; prototypeName = id; },
+        {columnName = lastChange; name = lastChange; prototypeName = dateTime; },
+        {columnName = modifications; name = modifications; prototypeName = longText; },
+        {
+            columnName = proposedActions;
+            name = proposedActions;
+            prototypeName = longText;
+        },
+        {columnName = reflection; name = reflection; prototypeName = longText; },
+        {
+            columnName = studentFeedback;
+            name = studentFeedback;
+            prototypeName = longText;
+        },
+        {
+            allowsNull = N;
+            columnName = userId;
+            name = userId;
+            prototypeName = foreignId;
+        }
+    );
+    attributesUsedForLocking = (
+        courseOfferingId,
+        lastChange,
+        modifications,
+        proposedActions,
+        reflection,
+        studentFeedback,
+        userId
+    );
+    className = "org.webcat.outcomesmeasurement.FacultyReflection";
+    classProperties = (
+        courseOffering,
+        lastChange,
+        modifications,
+        proposedActions,
+        reflection,
+        studentFeedback,
+        user
+    );
+    externalName = FacultyReflection;
+    fetchSpecificationDictionary = {};
+    name = FacultyReflection;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            destination = CourseOffering;
+            isMandatory = Y;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = courseOfferingId; });
+            name = courseOffering;
+        },
+        {
+            destination = User;
+            isMandatory = Y;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = userId; });
+            name = user;
+        }
+    );
+}

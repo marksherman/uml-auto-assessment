@@ -1,0 +1,105 @@
+//Repetition2: WORepetition
+
+//PubScriptLanguage
+
+
+
+AssignmentAuthor: WOString {
+    value = assignment.author.name_LF;
+}
+
+AssignmentName: WOString {
+    value = assignment.titleString;
+}
+
+ForAssignmentName: WOString {
+    value = prefs.assignmentOffering.titleString;
+}
+
+HasEarlierAssignments: WOConditional {
+    // Turn off this section
+    condition = 0; //assignmentGroup.displayedObjects.count;
+}
+
+HasPublishedScripts: WOConditional {
+    condition = publishedScriptGroup.displayedObjects.count;
+}
+
+HasPersonalScripts: WOConditional {
+    condition = scriptGroup.displayedObjects.count;
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+    title = "Add Grading Plug-in to Assignment";
+}
+
+RadioButton1: WORadioButton {
+	name      = "Group";
+	selection = selectedAssignmentIndex;
+	value     = index1;
+}
+
+RadioButton2: WORadioButton {
+    name      = "Group";
+    selection = publishedScriptIndex;
+    value     = index2;
+}
+
+RadioButton3: WORadioButton {
+	name      = "Group";
+	selection = selectedScriptIndex;
+	value     = index3;
+}
+
+Repetition1: WORepetition {
+	item  = assignment;
+	list  = assignmentGroup.displayedObjects;
+	index = index;
+}
+
+Repetition2: WORepetition {
+	item  = script;
+	list  = publishedScriptGroup.displayedObjects;
+	index = index;
+}
+
+Repetition3: WORepetition {
+	item  = script;
+	list  = scriptGroup.displayedObjects;
+	index = index;
+}
+
+ScriptAuthor: WOString {
+	value = script.author.name_LF;
+}
+
+ScriptModified: WOString {
+    formatter = session.timeFormatter;
+	value     = script.lastModified;
+}
+
+ScriptName: WOString {
+	value = script.displayableName;
+}
+
+TR: org.webcat.core.TableRow {
+	index = index;
+}
+
+WCSortOrder1: org.webcat.woextensions.WCSortOrder {
+	displayGroup = scriptGroup;
+	displayKey = "Name";
+	key = "uploadedFileName";
+}
+
+WCSortOrder2: org.webcat.woextensions.WCSortOrder {
+	displayGroup = scriptGroup;
+	displayKey = "Last Modified";
+	key = "lastModified";
+}
+
+WCSortOrder3: org.webcat.woextensions.WCSortOrder {
+	displayGroup = scriptGroup;
+	displayKey = "Author";
+	key = "author.lastName";
+}

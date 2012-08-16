@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CxxTest Extensions for Stack Tracing (MacOS X)
+Bundle-SymbolicName: net.sf.webcat.eclipse.cxxtest.macosx;singleton:=true
+Bundle-Version: 1.6.0
+Bundle-Vendor: Virginia Tech Computer Science
+Fragment-Host: net.sf.webcat.eclipse.cxxtest;bundle-version="1.6.0"
+Eclipse-PlatformFilter: (osgi.os=macosx)
+Bundle-ClassPath: cxxtest-macosx.jar
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

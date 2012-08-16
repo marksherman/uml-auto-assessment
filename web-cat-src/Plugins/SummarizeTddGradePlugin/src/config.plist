@@ -1,0 +1,50 @@
+{
+    name       = SummarizeTddGradePlugin;
+    version.major    = 1;
+    version.minor    = 0;
+    version.revision = 2;
+    version.date     = 20110226;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU General Public License v.2";
+    license.url      = "http://www.gnu.org/copyleft/gpl.html";
+    copyright        = "(c) 2006 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/SchemeTddPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/SchemeTddPlugin/ChangeHistory";
+    executable = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (edwards@cs.vt.edu)";
+    authorUid  = edwards;
+    description = "This is a generic feedback generation script for
+TDD-based grading.  It is designed to execute as the last stage, after
+any compilation and execution of student and reference implementations
+has been completed.";
+    timeoutMultiplier = 0;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+    );
+    options = (
+        {
+            property    = "SummarizeTddGradePlugin.beautify";
+            type        = boolean;
+            default     = true;
+            name        = "Generate HTML Source Printout";
+            description =
+  "Determines whether this plug-in should generate HTML pretty-printed
+  versions of source files.  Turn this option off if other plug-ins
+  already perform this function.";
+        },
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        }
+    );
+}

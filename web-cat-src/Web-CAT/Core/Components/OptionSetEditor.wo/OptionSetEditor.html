@@ -1,0 +1,39 @@
+<webobject name="HasOptions">
+<webobject name="HasCategories"><table style="width:100%"><thead><tr><th>
+Show: <wo name="CategoryList">
+    <script type="dojo/connect" event="onChange" args="evt">
+    var widget = dijit.byId('<wo:str value="$idFor.categoryList"/>');
+    var catCount = <wo:if condition="$categories"><wo:str value="$categories.count"/></wo:if><wo:else>0</wo:else>;
+    var value = widget.getValue();
+    var nodes = new dojo.NodeList();
+    if (value.match(/\d+/))
+    {
+        var selIndex = parseInt(value);
+        for (var i = 0; i < catCount; i++)
+        {
+            if (i != selIndex)
+            {
+                nodes = nodes.concat(
+                    dojo.query('.webcatOptionEditPanelCategory' + i));
+            }
+        }
+        nodes.wipeOut().play();
+
+        nodes = dojo.query('.webcatOptionEditPanelCategory' + selIndex);
+        nodes.wipeIn().play();
+    }
+    else
+    {
+        nodes = dojo.query('.webcatOptionEditPanelOption');
+        nodes.wipeIn().play();
+    }
+    </script>
+</wo>
+</th></tr></thead></table>
+</webobject>
+<webobject name="Repetition">
+<wo name="OptionContainer"><webobject name="OptionPanel"/></wo>
+</webobject>
+</webobject><webobject name="HasNoOptions">
+<p>There are no configurable options to display.</p>
+</webobject>

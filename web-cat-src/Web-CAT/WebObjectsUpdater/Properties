@@ -1,0 +1,17 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Mon Oct 03 11:01:14 EDT 2011
+WebObjectsUpdater.copyright=(c) 2007-2011 Virginia Tech Department of Computer Science
+WebObjectsUpdater.version.date=20111003
+WebObjectsUpdater.history.url=http\://web-cat.org/WCWiki/WebObjectsUpdater/ChangeHistory
+WebObjectsUpdater.info.url=http\://web-cat.org/WCWiki/WebObjectsUpdater
+WebObjectsUpdater.alsoContains=JavaDirectToWeb.framework,JavaDTWGeneration.framework,JavaEOAccess.framework,JavaEOControl.framework,JavaEOProject.framework,JavaFoundation.framework,JavaJDBCAdaptor.framework,JavaWebObjects.framework,JavaWOJSPServlet.framework
+WebObjectsUpdater.provider=Virginia Tech Computer Science
+WebObjectsUpdater.version.minor=2
+WebObjectsUpdater.description=This subsystem is a support wrapper that allows the embedded WebObjects run-time files to be managed by Web-CAT's automatic update facility.
+WebObjectsUpdater.license.url=http\://www.gnu.org/licenses/agpl.html
+WebObjectsUpdater.license=GNU Affero General Public License v.3
+subsystem.WebObjectsUpdater=
+WebObjectsUpdater.version.major=1
+WebObjectsUpdater.removeUnused=JDBCEOAdaptor.framework,JavaXML.framework
+WebObjectsUpdater.provider.url=http\://web-cat.org/updates
+WebObjectsUpdater.version.revision=3

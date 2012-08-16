@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/net.sf.webcat.eclipse.cxx_1.6.0.jar" id="net.sf.webcat.eclipse.cxx" version="1.6.0" os="linux,macosx,win32" ws="carbon,cocoa,gtk,win32,wpf" arch="ppc,x86,x86_64">
+      <category name="Web-CAT"/>
+   </feature>
+   <feature url="features/net.sf.webcat.eclipse.java_1.4.0.jar" id="net.sf.webcat.eclipse.java" version="1.4.0">
+      <category name="Web-CAT"/>
+   </feature>
+   <category-def name="Web-CAT" label="Web-CAT Eclipse Features"/>
+</site>

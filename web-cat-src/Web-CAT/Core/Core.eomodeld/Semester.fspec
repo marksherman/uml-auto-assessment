@@ -1,0 +1,32 @@
+{
+    allObjectsOrderedByStartDate = {
+        class = WCFetchSpecification;
+        entityName = Semester;
+        prefetchingRelationshipKeyPaths = ();
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = semesterStartDate;
+                selectorName = "compareDescending:";
+            }
+        );
+    };
+    forDate = {
+        class = WCFetchSpecification;
+        entityName = Semester;
+        fetchLimit = 1;
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = semesterStartDate;
+            selectorName = "isLessThanOrEqualTo:";
+            value = {"_key" = date; class = EOQualifierVariable; };
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = semesterStartDate;
+                selectorName = "compareDescending:";
+            }
+        );
+    };
+}

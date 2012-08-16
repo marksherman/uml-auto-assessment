@@ -1,0 +1,28 @@
+<wo name="Page">
+
+<wo:org.webcat.core.WCPageModule title="Select Report to Generate">
+<wo:if condition="$reportTemplatesDisplayGroup.allObjects.count">
+    <p>Click on a report template below to begin generating a report.</p>
+
+    <wo name="ReportTemplateTable">
+        <wo:WCTableHeadings>
+	        <wo name="NameColumn"/>
+	        <wo name="VersionColumn"/>
+	        <wo name="InstalledByColumn"/>
+        </wo:WCTableHeadings>
+        <wo:WCTableRows item="$reportTemplate">
+            <wo:WCTableRow>
+                <td><wo name="ChooseTemplate"/></td>
+                <td><wo:str value="$reportTemplate.version"/></td>
+                <td><wo:str value="$reportTemplate.user.name"/></td>
+            </wo:WCTableRow>
+        </wo:WCTableRows>
+    </wo>
+
+</wo:if>
+<wo:else>
+    <p>There are currently no report templates available. You can use the
+    <b>Template Library</b> to upload one.</p>
+</wo:else>
+</wo:org.webcat.core.WCPageModule>
+</wo>

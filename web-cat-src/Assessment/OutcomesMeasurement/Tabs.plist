@@ -1,0 +1,109 @@
+{
+  staff = {
+    accessLevel = 0; // make this tab visible to all
+    priority    = 100;
+    wantsStart  = YES;
+    config      = { overrideAccessLevel = true; };
+    children = {
+      Home = {
+        accessLevel = 0;
+        config      = { overrideAccessLevel = true; };
+        children   = {
+          Status = {
+            accessLevel = 0;
+            config      = { overrideAccessLevel = true; };
+          };
+          "My Profile" = {
+            accessLevel = 0;
+            config      = { overrideAccessLevel = true; };
+          };
+          Feedback = {
+            accessLevel = 0;
+            config      = { overrideAccessLevel = true; };
+          };
+        };
+      };
+      Outcomes = {
+        priority = 200;
+        accessLevel = 0;
+        children = {
+          "Dept Outcomes" = {
+            pageName   = org.webcat.outcomesmeasurement.DeptOutcomesPage;
+            priority   = 3000;
+            id         = deptoutcomes;
+          };
+          "ABET Outcomes" = {
+            pageName   = org.webcat.outcomesmeasurement.AccreditingBodyOutcomesPage;
+            priority   = 4000;
+            id         = ABEToutcomes;
+          };
+          "Measure Examples" = {
+            pageName   = org.webcat.outcomesmeasurement.MeasureExamplesPage;
+            priority   = 5000;
+            id         = measureexamples;
+          };
+          "Measure Setup" = {
+            accessLevel = 90;
+            pageName    = org.webcat.outcomesmeasurement.MeasurementSetupPage;
+            priority    = 6000;
+            id          = measuresetup;
+          };
+          "Gradebook Upload" = {
+            accessLevel = 90;
+            pageName    = org.webcat.outcomesmeasurement.GradebookPage;
+            priority    = 7000;
+            id          = gradebookpage;
+          };
+          "Assessment Reports" = {
+            accessLevel = 90;
+            pageName    = org.webcat.outcomesmeasurement.reports.ReportsPage;
+            priority    = 8000;
+            id          = reportspage;
+          };
+        };
+      };
+      Reports = {
+      	priority 	= 250;
+      	accessLevel = 90;
+      	pageName	= org.webcat.outcomesmeasurement.reports.ReportsOverviewPage;
+      	id			= reportsoverview;
+      	children = {
+          "For Departments" = {
+            pageName   = org.webcat.outcomesmeasurement.reports.DeptReportsPage;
+            priority   = 3000;
+            id         = deptreports;
+          };
+          "For ABET" = {
+          	pageName	= org.webcat.outcomesmeasurement.reports.AbetReportsPage;
+          	priority	= 4000;
+          	id			= abetreports;
+          };
+          "For Course" = {
+          	pageName	= org.webcat.outcomesmeasurement.reports.CourseReportsPage;
+          	priority	= 5000;
+          	id			= coursereports;
+          };
+          "For Semester" = {
+          	pageName	= org.webcat.outcomesmeasurement.reports.SemesterReportsPage;
+          	priority	= 5000;
+          	id			= semesterreports;
+          };
+          "For Outcome" = {
+          	pageName	= org.webcat.outcomesmeasurement.reports.OutcomeReportsPage;
+          	priority	= 6000;
+          	id			= outcomereports;
+          };
+        };
+      };
+      Overview = {
+        priority = 300;
+        accessLevel = 0;
+        pageName   = org.webcat.outcomesmeasurement.AssessmentOverviewPage;
+        id         = assessmentoverview;
+      };
+    };
+  };
+  student = {
+    accessLevel = 200; // hide this tab
+  };
+}

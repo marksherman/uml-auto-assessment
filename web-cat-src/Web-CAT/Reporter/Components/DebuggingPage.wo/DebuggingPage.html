@@ -1,0 +1,50 @@
+<wo name="Page">
+<wo:org.webcat.core.WCPageModule title="Objects to Fetch">
+<p>
+This page provides debugging and testing facilities for advanced report
+designers. Below, you can fetch a small set of objects and evaluate an OGNL
+expression on each of them, viewing the results in the table at the bottom of
+the page.
+</p>
+<wo:form>
+<p>
+    <b>Fetch</b> <wo name="EntityPicker"/>
+    <b>where</b> <wo name="QualifierString"/>
+</p>
+<p>
+    <b>OGNL expression to evaluate:</b><br/><wo name="ExpressionArea"/>
+</p>
+<p>
+    <wo name="Evaluate"/>
+</p>
+</wo:form>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule id="expressionResults" title="Results">
+<table>
+    <thead>
+        <tr>
+            <th>Object ID</th>
+            <th>Expression Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <wo:if condition="$results">
+	        <wo:loop list="$results" item="$result" index="$index">
+	        <wo:tr index="$index">
+	            <td><wo:str value="$result.id"/></td>
+	            <td><wo:str value="$result.value" escapeHTML="$false"/></td>
+	        </wo:tr>
+	        </wo:loop>
+        </wo:if><wo:else>
+	        <tr>
+	            <td colspan="2" style="text-align: center"><b>
+	            Enter an expression above and click "Submit" to see the results.
+	            </b></td>
+	        </tr>
+        </wo:else>
+    </tbody>
+</table>
+</wo:org.webcat.core.WCPageModule>
+
+</wo>

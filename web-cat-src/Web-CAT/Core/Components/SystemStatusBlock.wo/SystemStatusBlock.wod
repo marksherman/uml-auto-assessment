@@ -1,0 +1,18 @@
+SubsystemRows: org.webcat.core.SubsystemFragmentCollector {
+    index       = index;
+    fragmentKey = "systemStatusRows";
+}
+
+StartTime: WOString {
+    formatter = session.timeFormatter;
+	value     = application.startTime;
+}
+
+TR : org.webcat.core.TableRow {
+    index     = index;
+    increment = true;
+}
+
+UserCount: WOString {
+	value = userCount;
+}

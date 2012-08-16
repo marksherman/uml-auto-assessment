@@ -1,0 +1,46 @@
+{
+    attributes = (
+        {name = id; prototypeName = id; }, 
+        {
+            columnName = CGENERATEDREPORTID; 
+            name = generatedReportId; 
+            prototypeName = foreignId; 
+        }, 
+        {columnName = CDATASETID; name = dataSetId; prototypeName = foreignId; }, 
+        {
+            columnName = CREPORTQUERYID; 
+            name = objectQueryId; 
+            prototypeName = foreignId; 
+        }
+    ); 
+    attributesUsedForLocking = (generatedReportId, dataSetId, objectQueryId); 
+    className = "org.webcat.reporter.ReportDataSetQuery"; 
+    classProperties = (generatedReport, dataSet, objectQuery); 
+    externalName = TREPORTDATASETQUERY; 
+    fetchSpecificationDictionary = {}; 
+    name = ReportDataSetQuery; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = GeneratedReport; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = generatedReportId; }); 
+            name = generatedReport; 
+        }, 
+        {
+            destination = ReportDataSet; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = dataSetId; }); 
+            name = dataSet; 
+        }, 
+        {
+            destination = ObjectQuery; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = objectQueryId; }); 
+            name = objectQuery; 
+        }
+    ); 
+}

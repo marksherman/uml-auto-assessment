@@ -1,0 +1,138 @@
+AttributeName2: WOString {
+	value = displayNameForRelationshipKey;
+}
+
+AttributeName: WOString {
+	value = displayNameForRelationshipKey;
+}
+
+AttributeValue: WOBrowser {
+	item = browserItem;
+	list = relationshipDisplayGroup.allObjects;
+	multiple = YES;
+	selections = browserSelections;
+	size = 4;
+	displayString = browserStringForItem;
+}
+
+ButtonForm: WOForm {
+    multipleSubmit = true;
+    enctype="multipart/form-data";
+}
+
+DisplayList: WOConditional {
+	condition = displayList;
+}
+
+DisplayNew: WOConditional {
+	condition = displayNew;
+}
+
+DisplayQuery: WOConditional {
+	condition = displayQuery;
+}
+
+EditingForm2: WOForm {
+}
+
+EditingForm: WOForm {
+}
+
+EntityName: WOString {
+	_unroll = YES;
+	value = entity.name;
+}
+
+InspectComponent: D2WEdit {
+	action = saveAction;
+	entityName = entity.name;
+	object = newObjectInRelationship;
+}
+
+InspectTable2: WOGenericContainer {
+	_unroll = YES;
+	elementName = "table";
+}
+
+InspectTable: WOGenericContainer {
+	_unroll = YES;
+	elementName = "table";
+}
+
+InspectTableHeaderRow2: WOGenericContainer {
+	_unroll = YES;
+	elementName = "tr";
+}
+
+InspectTableHeaderRow: WOGenericContainer {
+	_unroll = YES;
+	elementName = "tr";
+}
+
+IsEntityWritable: WOConditional {
+	_unroll = YES;
+	condition = isEntityReadOnly;
+	negate = YES;
+}
+
+IsToMany: WOConditional {
+	condition = isRelationshipToMany;
+}
+
+IsToOne: WOConditional {
+	condition = isRelationshipToMany;
+	negate = YES;
+}
+
+ListComponent: D2WSelect {
+	action = selectAction;
+	dataSource = selectDataSource;
+	entityName = entity.name;
+	selectedObject = objectToAddToRelationship;
+}
+
+NewLink: WOSubmitButton {
+	action = newObjectAction;
+	value = " New ";
+}
+
+NumberOfEntities: WOString {
+	value = relationshipDisplayGroup.allObjects.count;
+}
+
+PageWrapper: WOSwitchComponent {
+	WOComponentName = pageWrapperName;
+	_componentUnroll = YES;
+	_unroll = YES;
+}
+
+QueryComponent: D2WQuery {
+	action = queryAction;
+	entityName = entity.name;
+	queryDataSource = selectDataSource;
+}
+
+QueryLink: WOSubmitButton {
+	action = displayQueryAction;
+	value = " Query ";
+}
+
+RemoveButton: WOSubmitButton {
+	action = removeFromToManyRelationshipAction;
+	value = "Remove";
+}
+
+RemoveToOneButton: WOSubmitButton {
+	action = removeFromToOneRelationshipAction;
+	value = "Remove";
+}
+
+ReturnLink: WOSubmitButton {
+	action = returnAction;
+	value = " Return ";
+}
+
+ToOneValue: WOString {
+	value = toOneDescription;
+}
+

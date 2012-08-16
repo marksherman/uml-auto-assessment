@@ -1,0 +1,5 @@
+<wo:if condition="$hasData"><wo:if condition="$useModule">
+  <wo:org.webcat.core.WCPageModule title="$title" open="$open">
+  <wo:str escapeHTML="false" value="$content"/>
+  </wo:org.webcat.core.WCPageModule>
+</wo:if><wo:else><wo:str escapeHTML="false" value="$content"/></wo:else></wo:if>

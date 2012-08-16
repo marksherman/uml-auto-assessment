@@ -1,0 +1,23 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {
+        URL = ""; 
+        driver = "com.mysql.jdbc.Driver"; 
+        password = ""; 
+        plugin = MySQL; 
+        username = ""; 
+    }; 
+    entities = (
+        {
+            className = "org.webcat.opinions.SurveyNotificationMarker"; 
+            name = SurveyNotificationMarker; 
+        }, 
+        {
+            className = "org.webcat.opinions.SurveyReminderJob"; 
+            name = SurveyReminderJob; 
+            parent = JobBase; 
+        }, 
+        {className = "org.webcat.opinions.SurveyResponse"; name = SurveyResponse; }
+    ); 
+}

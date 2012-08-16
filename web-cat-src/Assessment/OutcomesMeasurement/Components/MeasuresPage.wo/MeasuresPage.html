@@ -1,0 +1,170 @@
+<wo:SaveCancelPage title="$pageTitle">
+
+<wo:loop list="$measures" item="$aMeasure" index="$index">
+<wo:WCPageModule title="$measureTitle">
+<p style="margin-bottom: 0;"><b>Student will be able to:</b> <wo:str value="$aMeasure.measure.description"/></p>
+<wo:WCTitlePane title="Show Corresponding Program Outcomes" open="false" showsLoadingMessageOnRefresh="true">
+<wo:loop list="$aMeasure.measure.outcomePairs" item="$pair">
+<p><b>Program Outcome <wo:str value="$pair.programOutcome.microLabel"/>
+(<wo:str value="$pair.programOutcome.label"/>):</b>
+<wo:str value="$pair.programOutcome.description"/></p>
+<blockquote><b>Maps to ABET Outcome <wo:str value="$pair.externalOutcome.label"/>:</b>
+<wo:str value="$pair.externalOutcome.description"/>
+</blockquote>
+</wo:loop>
+</wo:WCTitlePane>
+
+<p>Describe the measure used for assessing this course learning
+  outcome <button dojoType="dijit.form.Button" onclick="dijit.byId('dialog3').show()">Examples</button>
+  <button dojoType="dijit.form.Button" onclick="dijit.byId('dialog1').show()">Guidance</button>:<br/>
+  <wo:WCTextArea value="$aMeasure.dataDescription" style="min-height: 2em;"/>
+</p>
+  <table><thead>
+    <tr><th>Level</th><th>No. of Students</th><th>Cutoff Used</th></tr>
+    </thead><tbody>
+    <tr><td>Excellent</td><td>
+      <wo:textfield value="$aMeasure.excellent" numberformat="#0"/></td>
+      <td><wo:WCTextBox value="$excellentCriteria"/></td></tr>
+    <tr><td>Adequate</td><td>
+      <wo:textfield value="$aMeasure.adequate" numberformat="#0"/></td>
+      <td><wo:WCTextBox value="$adequateCriteria"/></td></tr>
+    <tr><td>Unsatisfactory</td><td>
+      <wo:textfield value="$aMeasure.unsatisfactory" numberformat="#0"/></td>
+      <td><wo:WCTextBox value="$unsatisfactoryCriteria"/></td></tr>
+  </tbody></table>
+  <button dojoType="dijit.form.Button" onclick="dijit.byId('dialog2').show()">Explain Levels</button>
+
+</wo:WCPageModule>
+</wo:loop>
+
+<div dojoType="dijit.Dialog" id="dialog1" title="Examples of Measures">
+  <p>Outcomes are <b>measured</b> by collecting scores that represent
+  student performance on some task that is directly related to that
+  outcome.</p>
+  <p>Most often, these scores come from an assignment, a portion of an
+  assignment, or portions of several assignments.</p>
+  <p>Frequently, the scores on the measure are also used as part of the
+  student's grade--that is, they come from graded work, and the measure
+  is all or part of the earned grade for one or more assignments.  This
+  is not mandatory, however--there is no <b>requirement</b> that measures
+  you use for course or program objectives must come from some part of
+  a student's grade.</p>
+  <p>Frequently, measures are numeric--usually because they come from
+  all or part of some assignment's score.  However, measures need not
+  be numeric.  Categorical ratings driven by a written rubric or some
+  other repeatable mechanism are also OK.</p>
+
+  <h3>Good Examples of Measures</h3>
+  <p>Suppose one course outcome is that students will be able to
+  write programming control structures.  Homework assignments #2 and #3
+  in your course focus exclusively on practice writing if statements,
+  while loops, and for loops.  You decide to use the sum of the Homework
+  #2 and #3 scores as your measure for this outcome.</p>
+  <p>Suppose one course outcome is that students can use big-Oh analysis
+  to characterize the running time of simple algorithms.  Question 8
+  on the midterm and Questions 3 and 11 on the final exam all focus
+  on this task.  You decide to use the sum of the scores on these three
+  questions as your measure for this outcome.</p>
+  <p>Suppose one course outcome is that students can communicate in
+  writing effectively.  On a term project, you allocated 20% of the
+  student grade for the quality of the writing, and you recorded
+  how students scored for this portion of the assignment (not simply
+  their total score on the assignment).  You decide to use each student's
+  score on the writing quality portion of their term project as your
+  measure for this outcome.</p>
+
+  <h3>Bad Examples of Measures</h3>
+  <p>Suppose one course outcome is that students will be able to write
+  programming control structures.  Students were expected to use both
+  if statements and loops in completing programming assignments #2 and #3.
+  You decide to use the sum of their program #2 and #3 scores as your
+  measure for this outcome.</p>
+  <blockquote><b>Why is this a bad choice?</b> While students may have used control
+  structures to write solutions to these two assignments, the total grade
+  on the assignments is likely based on many other factors, rather than
+  just on whether or not they used control structures correctly.  If their
+  total program score also includes judgements about their overall program
+  design, the quality of their comments, their ability to produce the
+  correct output, whether they turned their work in on time, the elegance
+  of their solution, etc., then the overall scores on the assignments
+  conflates all of these dimensions into one number.  If they receive
+  a 70% on such an assignment, it isn't possible to tease apart what
+  that single number says about their design, their comments, their
+  time management, their ability to read an assignment description, ...
+  or their mastery of basic control constructs.</blockquote>
+  <p>Suppose one course outcome is that students can use big-Oh analysis
+  to characterize the running time of simple algorithms.  Question 8
+  on the midterm and Questions 3 and 11 on the final exam all focus
+  on this task.  You decide to use the sum of the scores on these two
+  tests as your measure for this outcome.</p>
+  <blockquote><b>Why is this a bad choice?</b> As with the previous
+  example, using the total test scores conflates performance on all the
+  other questions--which may be focused on completely different
+  topics--into one number.  While that number may be an aggregate indicator
+  of overall performance on many goals, it does not give much direct
+  insight into the outcome of interest here.</blockquote>
+  <p>Suppose one course outcome is that students can communicate in
+  writing effectively.  On a term project, students had to write a
+  final report and then present it orally in class.  The grade for
+  the project was based primarily on technical content, and was
+  judged on the presentation and report together.  You decide to use
+  each student's final project grade as your
+  measure for this outcome.</p>
+  <blockquote><b>Why is this a bad choice?</b> Despite the fact that
+  writing effort was involved, if student scores were not based on
+  their ability to communicate in writing effectively, those scores do
+  not relate to achievement of this outcome.  Further, the project score
+  conflates a number of dimensions of performance into a single number,
+  losing any detail about student performance regarding written
+  communication.</blockquote>
+</div>
+
+
+<div dojoType="dijit.Dialog" id="dialog2" title="Explanation of Performance Levels">
+  <p>For each outcome measured in your
+  course, student achievement is broken into three
+  categories:</p>
+  <ul>
+    <li><p><b>Excellent</b>: the student applies the knowledge or
+    skills with virtually no procedural or conceptual errors.</p></li>
+    <li><p><b>Adequate</b>: the student applies the knowledge or skills,
+    but may make minor procedural errors or occasional conceptual
+    errors.</p></li>
+    <li><p><b>Unsatisfactory</b>: the student makes significant conceptual
+    and/or procedural errors when attempting to apply the knowledge or
+    skills.</p></li>
+  </ul>
+  <p>Course learning objective measures are reported in terms of
+  <b>the number of students achieving the goal at each level</b>.</p>
+  <p><b>You are responsible</b> for defining how student performance
+  is partitioned into these three categories for your measure--it
+  depends heavily on the nature of your specifics.  Nominally, we
+  suggest that Excellent correspond to &gt;= 90% performance,
+  with Adequate corresponding to &gt;= 60% performance, and
+  Unsatsifactory corresponding to anything lower.  If your situation
+  warrants, however, you can define the cutoffs yourself.</p>
+  <p>
+  Also, note that if you use a categorical measure (say, from a
+  rubric), you will need to define your own categorical criteria
+  for partitioning student performance into these three categories.
+  </p>
+</div>
+
+
+<div dojoType="dijit.Dialog" id="dialog3" title="How to Describe Measures">
+  <p>Outcomes are <b>measured</b> by collecting scores that represent
+  student performance on some task that is directly related to that
+  outcome.</p>
+  <p>Most often, these scores come from an assignment, a portion of an
+  assignment, or portions of several assignments.</p>
+  <p>To describe which assignments you used, give a brief description of
+  what student work or scores you used for this.  For example:</p>
+  <blockquote>
+  "midterm questions 14-17", or<br/>
+  "HW#3 scores", or<br/>
+  "design scores on program 5", or<br/>
+  whatever you used ...
+  </blockquote>
+</div>
+
+</wo:SaveCancelPage>

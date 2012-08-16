@@ -1,0 +1,11 @@
+<wo:WCPageWithNavigation>
+<wo:WCPageModule title="~abet.name + ' Outcomes'">
+
+<wo:loop list="$outcomes" item="$outcome">
+<p><b><wo:str value="$outcome.label"/>.</b>
+<wo:str value="$outcome.description"/>
+</p>
+</wo:loop>
+
+</wo:WCPageModule>
+</wo:WCPageWithNavigation>

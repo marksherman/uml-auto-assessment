@@ -1,0 +1,82 @@
+AdminCourseRepetition: WORepetition {
+	item  = courseOffering;
+	list  = coursesAdmined;
+	index = index;
+}
+
+CompactName: WOString {
+	value = courseOffering.compactName;
+}
+
+CourseName: WOString {
+	value = courseOffering.course.name;
+}
+
+CourseRepetition: WORepetition {
+    item  = courseOffering;
+    list  = courseDisplayGroup.displayedObjects;
+    index = index;
+}
+
+HasAdminCourses: WOConditional {
+    condition = coursesAdmined.count;
+}
+
+HasInstructorCourses: WOConditional {
+    condition = coursesTaught.count;
+}
+
+HasTACourses: WOConditional {
+    condition = user.graderFor.count;
+}
+
+InstructorCourseRepetition: WORepetition {
+    item  = courseOffering;
+    list  = coursesTaught;
+    index = index;
+}
+
+Navigator: org.webcat.grader.GraderNavigator {
+}
+
+Page : org.webcat.core.WizardPage {
+    finishEnabled = false;
+}
+
+RadioButton1: WORadioButton {
+	name      = "Group";
+	selection = selectedCourseIndex;
+	value     = index1;
+}
+
+RadioButton2: WORadioButton {
+	name      = "Group";
+	selection = selectedTAIndex;
+	value     = index2;
+}
+
+RadioButton3: WORadioButton {
+	name      = "Group";
+	selection = selectedInstructorIndex;
+	value     = index3;
+}
+
+RadioButton4: WORadioButton {
+	name      = "Group";
+	selection = selectedAdminIndex;
+	value     = index4;
+}
+
+SemesterList: WOPopUpButton {
+	list              = semesters;
+	item              = aSemester;
+	selection         = semester;
+	noSelectionString = "All semesters";
+    onchange          = "submitForm()";
+}
+
+TACourseRepetition: WORepetition {
+	item  = courseOffering;
+	list  = coursesTAed;
+	index = index;
+}

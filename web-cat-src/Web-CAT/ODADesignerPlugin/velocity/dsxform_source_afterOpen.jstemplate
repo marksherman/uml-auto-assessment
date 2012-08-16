@@ -1,0 +1,1 @@
+${resultsVariableName} = new java.util.Hashtable();

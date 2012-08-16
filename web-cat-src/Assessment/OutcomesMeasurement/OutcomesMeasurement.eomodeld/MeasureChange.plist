@@ -1,0 +1,54 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = measureOfOfferingOid; 
+            name = measureOfOfferingOid; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; columnName = time; name = time; prototypeName = dateTime; }, 
+        {
+            columnName = changes; 
+            name = changes; 
+            prototypeName = mutableDictionary; 
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData; 
+                isMutable = true; 
+                valueClassName = "org.webcat.core.MutableDictionary"; 
+                valueFactoryMethodName = objectWithArchiveData; 
+            }; 
+        }, 
+        {
+            name = updateMutableFields; 
+            prototypeName = updateMutableFields; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {columnName = userId; name = userId; prototypeName = id; }, 
+        {allowsNull = N; name = id; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (measureOfOfferingOid, updateMutableFields, userId); 
+    className = "org.webcat.outcomesmeasurement.MeasureChange"; 
+    classProperties = (changes, measureOfOffering, time, updateMutableFields, user); 
+    externalName = MeasureChange; 
+    fetchSpecificationDictionary = {}; 
+    name = MeasureChange; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = MeasureOfOffering; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = measureOfOfferingOid; }); 
+            name = measureOfOffering; 
+        }, 
+        {
+            destination = User; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userId; }); 
+            name = user; 
+        }
+    ); 
+}

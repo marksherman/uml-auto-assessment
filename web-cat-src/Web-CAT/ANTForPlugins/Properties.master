@@ -1,0 +1,27 @@
+# ===================================================================
+# ANTForPlugins subsystem characteristics
+# ===================================================================
+subsystem.ANTForPlugins=org.webcat.antforplugins.ANTForPlugins
+
+ANTForPlugins.version.major=1
+ANTForPlugins.version.minor=1
+ANTForPlugins.version.revision=5
+ANTForPlugins.requires=Core
+ANTForPlugins.provides=env, pluginProperties
+
+ANTForPlugins.copyright=\
+	(c) 2006-2010 Virginia Tech Department of Computer Science
+ANTForPlugins.provider=Virginia Tech Computer Science
+ANTForPlugins.provider.url=http\://web-cat.org/updates
+ANTForPlugins.info.url=http\://web-cat.org/WCWiki/AntForPluginsSubsystem
+ANTForPlugins.history.url=\
+	http\://web-cat.org/WCWiki/AntForPluginsSubsystem/ChangeHistory
+ANTForPlugins.license=GNU Affero General Public License v.3
+ANTForPlugins.license.url=http\://www.gnu.org/licenses/agpl.html
+
+ANTForPlugins.description=\
+    This subsystem provides <a href\="http\://ant.apache.org/">ANT</a> \
+    to support grading plug-ins that use ANT to manage building, executing, \
+    and testing student work.
+
+ANTForPlugins.chmodx=Resources/ant/bin/ant, Resources/ant/bin/antRun

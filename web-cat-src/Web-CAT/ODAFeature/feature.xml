@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.webcat.oda"
+      label="Web-CAT Extensions for the BIRT Report Designer"
+      version="1.0.0"
+      provider-name="Virginia Tech Computer Science">
+
+   <description url="http://web-cat.org/">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.birt" version="2.2.1.v20070709-7M7M7A3OP2Mz-yAItjs64r9z0txm" match="compatible"/>
+      <import feature="org.eclipse.birt.report.designer" version="2.2.1.v20070709-7U7U7EB8R633DDSVyaZs5FacpRAm" match="compatible"/>
+      <import feature="org.eclipse.birt.report.runtime" version="2.2.1.v20070718-7U7U7EBz0-4X-6EZboQ_la" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.webcat.oda.commons"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.webcat.oda.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.webcat.oda.designer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

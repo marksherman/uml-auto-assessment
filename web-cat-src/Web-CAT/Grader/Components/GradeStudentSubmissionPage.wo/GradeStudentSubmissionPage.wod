@@ -1,0 +1,196 @@
+CommentFormat: WCFilteringSelect {
+    list	          = formats;
+    item   	          = aFormat;
+    selection         = commentFormat;
+    displayString     = formatLabel;
+//	noSelectionString = "Select from your files ...";
+}
+
+Comments: WCSimpleTextArea {
+    rows  = 15;
+    cols  = 80;
+    value = result.comments;
+    name  = "source";
+    id    = "source";
+    class = "fixed";
+//	style = "width:100%;";
+}
+
+Coverage: WOString {
+    numberformat = "0.0";
+    value        = stats.gradedElementsCoveragePercent;
+}
+
+CoverageMeter: WOString {
+    escapeHTML = false;
+    value      = coverageMeter;
+}
+
+Done: WCCheckBox {
+    checked = gradingDone;
+    alt = "Show grade to student and send e-mail";
+}
+
+FileBrowser: org.webcat.core.FileBrowser {
+    file                  = submission.file.getParentFile;
+    initialExpansionDepth = 1;
+//    alsoRefresh           = "fileBrowserModule";
+}
+
+FileDeduction: WOString {
+    numberformat = "0.0";
+    value        = stats.toolDeductions;
+}
+
+FileName: WCLink {
+    string    = stats.sourceFileName;
+    action    = fileStatsDetails;
+}
+
+FileRemarks: WOString {
+    numberformat = "0";
+    value        = stats.remarks;
+}
+
+FileStaffDeduction: WOString {
+    numberformat = "0.0";
+    value        = stats.staffDeductions;
+}
+
+FileStaffRemarks: WOString {
+    numberformat = "0";
+    value        = stats.staffRemarks;
+}
+
+HasCoverageData: WOConditional {
+    condition = stats.elementsRaw;
+}
+
+HasFileStats: WOConditional {
+    condition = hasFileStats;
+}
+
+HasNextStudent: WOConditional {
+    condition = "~availableSubmissions.count > indexOfNextSubmission";
+}
+
+HasNoCoverageData: WOConditional {
+    condition = stats.elementsRaw;
+    negate    = true;
+}
+
+NextButton: WCButton {
+    action   = saveThenList;
+    label    = "Save, then List";
+    name     = "NextButton";
+}
+
+NextStudentButton: WCButton {
+    action   = saveThenNextStudent;
+    label    = "Save, then Next Student";
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+    title = "Grade One Submission";
+}
+
+PickSubmissionDialog: PickSubmissionDialog {
+    rootUserSubmission = selectedUserSubmissionForPickerDialog;
+    allUserSubmissionsForNavigation = allUserSubmissionsForNavigationForPickerDialog;
+    nextPageForResultsPage = nextPage;
+    sendsToGradingPage = true;
+}
+
+Regrade: WCButton {
+    action = regrade;
+    label = "Regrade Submission";
+    remote = true;
+}
+
+ResultInfo: org.webcat.grader.SubmissionResultInfo {
+    allowPartnerEdit = true;
+    includeSeparator = false;
+    submission = submission;
+}
+
+ScoreSummary: org.webcat.grader.ScoreSummaryBlock {
+    allowScoreEdit = true;
+    submission = submission;
+}
+
+SelectSubmission: WCButton {
+    remote = true;
+    action = pickOtherSubmission;
+    label  = "View Other Submissions";
+}
+
+ShowCoverageData: WOConditional {
+    condition = showCoverageData;
+}
+
+StatRepetition: WORepetition {
+    item  = stats;
+    list  = statsDisplayGroup.displayedObjects;
+    index = index;
+}
+
+StatsLabel: WOString {
+    value = result.statElementsLabel;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+
+FullPrintableReport: WCButton {
+    action = fullPrintableReport;
+    label = "Full Printable Report";
+}
+
+WCSortOrder1: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "File Name";
+    key = "sourceFileName";
+}
+
+WCSortOrder2: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Deductions";
+    key = "deductions";
+}
+
+WCSortOrder3: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = result.statElementsLabel;
+    key = "gradedElementsCoverage";
+}
+
+WCSortOrder4: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Remarks";
+    key = "remarks";
+}
+
+WCSortOrder5: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Staff Feedback Comments";
+    key = "staffRemarks";
+}
+
+WCSortOrder6: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Staff Points Lost";
+    key = "taDeductions";
+}
+
+WizardForm: WCForm {
+    multipleSubmit = true;
+    action         = defaultAction;
+
+    // This works stand-alone, but not in a servlet
+    enctype        = "multipart/form-data";
+    name           = "WizardForm";
+
+    // So use this instead.
+//    otherTagString = "enctype=\"multipart/form-data\" name=\"WizardForm\"";
+}

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	This file is part of the Web-CAT Electronic Submission Package for Visual
+	Studio.NET.
+
+	Web-CAT is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	Web-CAT is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with Web-CAT; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+-->
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ChooseProjectsPrompt" xml:space="preserve">
+    <value>Click "Choose..." to select the projects to submit.</value>
+  </data>
+  <data name="CloseButtonText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="EntireSolutionMessage" xml:space="preserve">
+    <value>{0} (entire solution)</value>
+    <comment>0: name of solution</comment>
+  </data>
+  <data name="LoadingSubmissionTargetsError" xml:space="preserve">
+    <value>The submission definitions could not be loaded. The reason is as follows:
+
+{0}
+
+You may want to verify that the URL set in Visual Studio's Options is correct.</value>
+    <comment>0: exception message</comment>
+  </data>
+  <data name="LoadingSubmissionTargetsErrorTitle" xml:space="preserve">
+    <value>Error Reading Submission Definitions</value>
+  </data>
+  <data name="LoadingSubmissionTargetsProgress" xml:space="preserve">
+    <value>Loading submission targets...</value>
+  </data>
+  <data name="LoadingSubmissionTargetsUnknownError" xml:space="preserve">
+    <value>An unknown error occurred while trying to read the submission definitions.</value>
+  </data>
+  <data name="NoResponseClose" xml:space="preserve">
+    <value>Click "Close" to exit this wizard.</value>
+  </data>
+  <data name="ProtocolNotFound" xml:space="preserve">
+    <value>The selected assignment was to be submitted to a URL with the "{0}" protocol, but there is no handler currently registered to process that protocol. You may need to reinstall your copy of the Web-CAT Electronic Submission package for Visual Studio.</value>
+    <comment>0: uri scheme</comment>
+  </data>
+  <data name="ResponseClose" xml:space="preserve">
+    <value>Click "Close" to exit this wizard. The response that your submission generated will be displayed in your web browser.</value>
+  </data>
+  <data name="SendingSubmission" xml:space="preserve">
+    <value>Sending your submission...</value>
+  </data>
+  <data name="SolutionPlaceholder" xml:space="preserve">
+    <value>Solution '{0}'</value>
+    <comment>0: name of solution</comment>
+  </data>
+  <data name="SubmitProjectCommandDescription" xml:space="preserve">
+    <value>Electronically submit the selected project(s).</value>
+  </data>
+  <data name="SubmitProjectCommandText" xml:space="preserve">
+    <value>Submit Project...</value>
+  </data>
+  <data name="SubmitSolutionCommandDescription" xml:space="preserve">
+    <value>Electronically submit the current solution.</value>
+  </data>
+  <data name="SubmitSolutionCommandText" xml:space="preserve">
+    <value>Submit Solution...</value>
+  </data>
+  <data name="WizardMissingFilesListItem" xml:space="preserve">
+    <value>• {0}
+</value>
+    <comment>0: file pattern</comment>
+  </data>
+  <data name="WizardMissingFilesMessage" xml:space="preserve">
+    <value>Your submission could not be sent because it is missing some required files.</value>
+  </data>
+  <data name="WizardMissingFilesPreamble" xml:space="preserve">
+    <value>The following files could not be found in your project:
+
+</value>
+  </data>
+  <data name="WizardStartDescription" xml:space="preserve">
+    <value>Please choose the assignment that you want to submit to below, and enter the username and password that you use to connect to the electronic grader.</value>
+  </data>
+  <data name="WizardSubmissionFailed" xml:space="preserve">
+    <value>Your submission has failed. The reason for the error is shown below.</value>
+  </data>
+  <data name="WizardSubmissionSuccessful" xml:space="preserve">
+    <value>Your submission was successful. Click "Close" to exit the wizard.</value>
+  </data>
+  <data name="WizardSummaryDescription" xml:space="preserve">
+    <value>The status of your submission is shown below.</value>
+  </data>
+</root>

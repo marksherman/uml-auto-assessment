@@ -1,0 +1,64 @@
+group newsuite;
+
+// ------------------------------------------------------------------------
+/*
+ * The entry point for this template group. Generates the entire test suite
+ * stub file.
+ *
+ * @param options a dictionary of options that control the generation of
+ *     the template:
+ *     suiteName (string): the name of the suite class
+ *     headerUnderTest (string): the absolute path to the header file being
+ *         tested
+ *     superclass (string): the superclass for this test suite (usually
+ *         CxxTest::TestSuite)
+ *     createSetUp (bool): true to create a stub for the setUp function
+ *     createTearDown (bool): true to create a stub for the tearDown
+ *         function
+ * @param testCases an array of strings that represent the names of the
+ *     test case stub methods to generate
+ */
+newSuiteFile(options, testCases) ::= <<
+#ifndef <options.suiteName; format="guard">
+#define <options.suiteName; format="guard">
+	    	
+#include \<cxxtest/TestSuite.h\>
+
+<if(options.headerUnderTest)>
+#include "<options.headerUnderTest; format="suiteRelativePath">"<\n>
+<endif>
+
+class <options.suiteName> : public <options.superclass>
+{
+public:
+	<if(options.createSetUp)>
+	void setUp()
+	{
+		// TODO: Implement setUp() function.
+	}<\n>
+	<endif>
+	<if(options.createTearDown)>
+	void tearDown()
+	{
+		// TODO: Implement tearDown() function.
+	}<\n>
+	<endif>
+	<testCases:{<testCaseStub(stubName=it)>}; separator="\n\n">
+};
+
+#endif /* <options.suiteName; format="guard"> */
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Generates a single test case stub method.
+ *
+ * @param stubName the name of the stub method
+ */
+testCaseStub(stubName) ::= <<
+void <stubName>()
+{
+	// TODO: Implement <stubName>() function.
+}
+>>

@@ -1,0 +1,22 @@
+# ===================================================================
+# Admin subsystem characteristics
+# ===================================================================
+subsystem.Admin = org.webcat.admin.Admin
+
+Admin.version.major = 1
+Admin.version.minor = 3
+Admin.version.revision = 5
+Admin.requires = Core
+
+Admin.copyright = (c) 2006-2012 Virginia Tech Department of Computer Science
+Admin.provider = Virginia Tech Computer Science
+Admin.provider.url = http\://web-cat.org/updates
+Admin.info.url = http\://web-cat.org/WCWiki/AdminSubsystem
+Admin.history.url = http\://web-cat.org/WCWiki/AdminSubsystem/ChangeHistory
+Admin.license = GNU Affero General Public License v.3
+Admin.license.url = http\://www.gnu.org/licenses/agpl.html
+
+Admin.description =\
+    This subsystem provides tools for Web-CAT administrators to use, \
+    including configuration support and direct database browse and \
+    edit capabilities.

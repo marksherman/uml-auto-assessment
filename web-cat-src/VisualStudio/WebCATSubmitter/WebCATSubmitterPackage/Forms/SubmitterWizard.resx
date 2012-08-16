@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="projectsToSubmitLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="projectsToSubmitLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="projectsToSubmitLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="projectsToSubmitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 29</value>
+  </data>
+  <data name="projectsToSubmitLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="projectsToSubmitLabel.Text" xml:space="preserve">
+    <value>Projects to submit:</value>
+  </data>
+  <data name="projectsToSubmitLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLabel.Name" xml:space="preserve">
+    <value>projectsToSubmitLabel</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLabel.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="submissionTargetsTree.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="submissionTargetsTree.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 40</value>
+  </data>
+  <data name="submissionTargetsTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 191</value>
+  </data>
+  <data name="submissionTargetsTree.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;submissionTargetsTree.Name" xml:space="preserve">
+    <value>submissionTargetsTree</value>
+  </data>
+  <data name="&gt;&gt;submissionTargetsTree.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;submissionTargetsTree.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;submissionTargetsTree.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="usernameField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 245</value>
+  </data>
+  <data name="usernameField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 21</value>
+  </data>
+  <data name="usernameField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;usernameField.Name" xml:space="preserve">
+    <value>usernameField</value>
+  </data>
+  <data name="&gt;&gt;usernameField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usernameField.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;usernameField.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="passwordField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 272</value>
+  </data>
+  <data name="passwordField.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="passwordField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 21</value>
+  </data>
+  <data name="passwordField.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;passwordField.Name" xml:space="preserve">
+    <value>passwordField</value>
+  </data>
+  <data name="&gt;&gt;passwordField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;passwordField.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;passwordField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cancelButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cancelButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 3</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>wizardButtonsLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="nextButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="nextButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nextButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="nextButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="nextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="nextButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="nextButton.Text" xml:space="preserve">
+    <value>Next &gt;</value>
+  </data>
+  <data name="&gt;&gt;nextButton.Name" xml:space="preserve">
+    <value>nextButton</value>
+  </data>
+  <data name="&gt;&gt;nextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nextButton.Parent" xml:space="preserve">
+    <value>wizardButtonsLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;nextButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chooseProjectsToSubmit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chooseProjectsToSubmit.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="chooseProjectsToSubmit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>310, 3</value>
+  </data>
+  <data name="chooseProjectsToSubmit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="chooseProjectsToSubmit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="chooseProjectsToSubmit.Text" xml:space="preserve">
+    <value>Choose...</value>
+  </data>
+  <data name="&gt;&gt;chooseProjectsToSubmit.Name" xml:space="preserve">
+    <value>chooseProjectsToSubmit</value>
+  </data>
+  <data name="&gt;&gt;chooseProjectsToSubmit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chooseProjectsToSubmit.Parent" xml:space="preserve">
+    <value>projectsToSubmitLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;chooseProjectsToSubmit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="projectsToSubmitField.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="projectsToSubmitField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="projectsToSubmitField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 21</value>
+  </data>
+  <data name="projectsToSubmitField.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitField.Name" xml:space="preserve">
+    <value>projectsToSubmitField</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitField.Parent" xml:space="preserve">
+    <value>projectsToSubmitLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="passwordLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="passwordLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="passwordLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 269</value>
+  </data>
+  <data name="passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 27</value>
+  </data>
+  <data name="passwordLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="passwordLabel.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="passwordLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;passwordLabel.Name" xml:space="preserve">
+    <value>passwordLabel</value>
+  </data>
+  <data name="&gt;&gt;passwordLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;passwordLabel.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;passwordLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="usernameLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="usernameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 242</value>
+  </data>
+  <data name="usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 27</value>
+  </data>
+  <data name="usernameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="usernameLabel.Text" xml:space="preserve">
+    <value>User name:</value>
+  </data>
+  <data name="usernameLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.Name" xml:space="preserve">
+    <value>usernameLabel</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="assignmentsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="assignmentsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="assignmentsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 37</value>
+  </data>
+  <data name="assignmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 197</value>
+  </data>
+  <data name="assignmentsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="assignmentsLabel.Text" xml:space="preserve">
+    <value>Assignments:</value>
+  </data>
+  <data name="&gt;&gt;assignmentsLabel.Name" xml:space="preserve">
+    <value>assignmentsLabel</value>
+  </data>
+  <data name="&gt;&gt;assignmentsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;assignmentsLabel.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;assignmentsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="sepStartPage2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="sepStartPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 237</value>
+  </data>
+  <data name="sepStartPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="sepStartPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 2</value>
+  </data>
+  <data name="sepStartPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage2.Name" xml:space="preserve">
+    <value>sepStartPage2</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage2.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="sepStartPage1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="sepStartPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 32</value>
+  </data>
+  <data name="sepStartPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="sepStartPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 2</value>
+  </data>
+  <data name="sepStartPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage1.Name" xml:space="preserve">
+    <value>sepStartPage1</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage1.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;sepStartPage1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="sepWizardBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 383</value>
+  </data>
+  <data name="sepWizardBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>562, 2</value>
+  </data>
+  <data name="sepWizardBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;sepWizardBottom.Name" xml:space="preserve">
+    <value>sepWizardBottom</value>
+  </data>
+  <data name="&gt;&gt;sepWizardBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sepWizardBottom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;sepWizardBottom.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="wizardDescriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 28</value>
+  </data>
+  <data name="wizardDescriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>533, 39</value>
+  </data>
+  <data name="wizardDescriptionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;wizardDescriptionLabel.Name" xml:space="preserve">
+    <value>wizardDescriptionLabel</value>
+  </data>
+  <data name="&gt;&gt;wizardDescriptionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardDescriptionLabel.Parent" xml:space="preserve">
+    <value>wizardTitlePanel</value>
+  </data>
+  <data name="&gt;&gt;wizardDescriptionLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="wizardTitleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="wizardTitleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="wizardTitleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
+  </data>
+  <data name="wizardTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 13</value>
+  </data>
+  <data name="wizardTitleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="wizardTitleLabel.Text" xml:space="preserve">
+    <value>Electronic Submission Wizard</value>
+  </data>
+  <data name="&gt;&gt;wizardTitleLabel.Name" xml:space="preserve">
+    <value>wizardTitleLabel</value>
+  </data>
+  <data name="&gt;&gt;wizardTitleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardTitleLabel.Parent" xml:space="preserve">
+    <value>wizardTitlePanel</value>
+  </data>
+  <data name="&gt;&gt;wizardTitleLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="wizardTitlePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="wizardTitlePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>562, 73</value>
+  </data>
+  <data name="wizardTitlePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;wizardTitlePanel.Name" xml:space="preserve">
+    <value>wizardTitlePanel</value>
+  </data>
+  <data name="&gt;&gt;wizardTitlePanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardTitlePanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wizardTitlePanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="sepWizardTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 72</value>
+  </data>
+  <data name="sepWizardTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>562, 2</value>
+  </data>
+  <data name="sepWizardTop.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;sepWizardTop.Name" xml:space="preserve">
+    <value>sepWizardTop</value>
+  </data>
+  <data name="&gt;&gt;sepWizardTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sepWizardTop.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;sepWizardTop.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="summaryDetailsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="summaryDetailsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>464, 16</value>
+  </data>
+  <data name="summaryDetailsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="summaryDetailsLabel.Text" xml:space="preserve">
+    <value>Details:</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsLabel.Name" xml:space="preserve">
+    <value>summaryDetailsLabel</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsLabel.Parent" xml:space="preserve">
+    <value>summaryPage</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="summaryDetailsField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 80</value>
+  </data>
+  <data name="summaryDetailsField.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="summaryDetailsField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>464, 200</value>
+  </data>
+  <data name="summaryDetailsField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsField.Name" xml:space="preserve">
+    <value>summaryDetailsField</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsField.Parent" xml:space="preserve">
+    <value>summaryPage</value>
+  </data>
+  <data name="&gt;&gt;summaryDetailsField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="summaryLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="summaryLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 16</value>
+  </data>
+  <data name="summaryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>464, 32</value>
+  </data>
+  <data name="summaryLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;summaryLabel.Name" xml:space="preserve">
+    <value>summaryLabel</value>
+  </data>
+  <data name="&gt;&gt;summaryLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;summaryLabel.Parent" xml:space="preserve">
+    <value>summaryPage</value>
+  </data>
+  <data name="&gt;&gt;summaryLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="summaryImageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="summaryImageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="summaryImageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;summaryImageLabel.Name" xml:space="preserve">
+    <value>summaryImageLabel</value>
+  </data>
+  <data name="&gt;&gt;summaryImageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;summaryImageLabel.Parent" xml:space="preserve">
+    <value>summaryPage</value>
+  </data>
+  <data name="&gt;&gt;summaryImageLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="summaryPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 80</value>
+  </data>
+  <data name="summaryPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>544, 296</value>
+  </data>
+  <data name="summaryPage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;summaryPage.Name" xml:space="preserve">
+    <value>summaryPage</value>
+  </data>
+  <data name="&gt;&gt;summaryPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;summaryPage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;summaryPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="startPage.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 0</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>388, 29</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLayoutPanel.Name" xml:space="preserve">
+    <value>projectsToSubmitLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLayoutPanel.Parent" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;projectsToSubmitLayoutPanel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="projectsToSubmitLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="chooseProjectsToSubmit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="projectsToSubmitField" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="startPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 80</value>
+  </data>
+  <data name="startPage.RowCount" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="startPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>544, 296</value>
+  </data>
+  <data name="startPage.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;startPage.Name" xml:space="preserve">
+    <value>startPage</value>
+  </data>
+  <data name="&gt;&gt;startPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;startPage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;startPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="startPage.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="projectsToSubmitLabel" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="submissionTargetsTree" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="sepStartPage1" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="assignmentsLabel" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="passwordField" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="usernameField" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="passwordLabel" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="sepStartPage2" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="usernameLabel" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="projectsToSubmitLayoutPanel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Percent,100,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 392</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 29</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;wizardButtonsLayoutPanel.Name" xml:space="preserve">
+    <value>wizardButtonsLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;wizardButtonsLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardButtonsLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wizardButtonsLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="wizardButtonsLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="nextButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cancelButton" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>560, 431</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Electronic Submission Wizard</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SubmitterWizard</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

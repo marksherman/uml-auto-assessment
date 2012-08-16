@@ -1,0 +1,7 @@
+BacktrackingLimit: WOString {
+    value = application.pageCacheSize;
+}
+
+Page : org.webcat.core.WCPageWithNavigation {
+    title = "You Backtracked Too Far";
+}

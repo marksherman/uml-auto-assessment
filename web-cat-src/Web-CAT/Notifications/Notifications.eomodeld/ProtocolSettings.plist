@@ -1,0 +1,53 @@
+{
+    attributes = (
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = parentId; name = parentId; prototypeName = foreignId; }, 
+        {
+            columnName = settings; 
+            name = settings; 
+            prototypeName = mutableDictionary; 
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData; 
+                isMutable = true; 
+                valueClassName = "org.webcat.core.MutableDictionary"; 
+                valueFactoryMethodName = objectWithArchiveData; 
+            }; 
+        }, 
+        {
+            name = updateMutableFields; 
+            prototypeName = updateMutableFields; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {columnName = userId; name = userId; prototypeName = foreignId; }
+    ); 
+    attributesUsedForLocking = (parentId, settings, updateMutableFields, userId); 
+    className = "org.webcat.notifications.ProtocolSettings"; 
+    classProperties = (children, parent, settings, updateMutableFields, user); 
+    externalName = ProtocolSettings; 
+    fetchSpecificationDictionary = {}; 
+    name = ProtocolSettings; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = ProtocolSettings; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = parentId; sourceAttribute = id; }); 
+            name = children; 
+        }, 
+        {
+            destination = ProtocolSettings; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = parentId; }); 
+            name = parent; 
+        }, 
+        {
+            destination = User; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userId; }); 
+            name = user; 
+        }
+    ); 
+}

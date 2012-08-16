@@ -1,0 +1,11 @@
+Properties
+**/*.eomodeld/
+**/*.d2wmodel
+**/*.wo/
+**/*.api
+**/*.strings
+Tabs.plist
+config.plist
+QueryAssistants.plist
+BatchHandlers.plist
+SubsystemFragments.plist

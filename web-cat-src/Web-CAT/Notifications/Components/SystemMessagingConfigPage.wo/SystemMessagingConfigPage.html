@@ -1,0 +1,19 @@
+<wo name="Page">
+<wo:WCPageModule title="Message Subscriptions">
+    <wo name="ConfigPanel"/>
+</wo:WCPageModule>
+<wo:WCPageModule title="Global Protocol Settings">
+    <wo name="ProtocolRepetition">
+        <wo:if condition="$protocol.globalOptions">
+        <div>
+            <wo name="GlobalEditLink">
+            Edit global settings for <b><wo:str value="$protocol.name"/></b>
+            </wo>
+            <wo name="GlobalEditDialog">
+                <wo name="OptionSetEditor"/>
+            </wo>
+        </div>
+        </wo:if>
+    </wo>
+</wo:WCPageModule>
+</wo>

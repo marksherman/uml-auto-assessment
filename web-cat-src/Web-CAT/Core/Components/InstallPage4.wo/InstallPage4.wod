@@ -1,0 +1,39 @@
+BaseURL: WOTextField {
+    value = application.properties.base.url;
+    name  = "base.url";
+    size  = 70;
+}
+
+coreApplicationIdentifier: WOTextField {
+    value = application.properties.coreApplicationIdentifier;
+    name  = "coreApplicationIdentifier";
+}
+
+LoginURL: WOTextField {
+    value = application.properties.login.url;
+    name  = "login.url";
+    size  = 70;
+}
+
+Page : org.webcat.core.install.InstallPageWrapper {
+    title  = "Set Site Parameters";
+    stepNo = stepNo;
+    errors = messages;
+}
+
+SubmissionDir: WOTextField {
+    value = application.properties.grader.submissiondir;
+    name  = "grader.submissiondir";
+    size  = 70;
+}
+
+WOSMTPHost: WOTextField {
+    value = application.properties.WOSMTPHost;
+    name  = "mail.smtp.host";
+}
+
+WorkDir: WOTextField {
+    value = application.properties.grader.workarea;
+    name  = "grader.workarea";
+    size  = 70;
+}

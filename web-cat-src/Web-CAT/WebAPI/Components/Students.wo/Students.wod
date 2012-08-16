@@ -1,0 +1,27 @@
+AssignmentOffering: WOGenericContainer {
+    elementName = "assignment-offering";
+    id = assignmentOffering.id;
+    name = assignmentOffering.assignment.name;
+    title = assignmentOffering.assignment.shortDescription;
+    due = assignmentOffering.dueDate.getTime;
+    published = assignmentOffering.publish;
+	highScore = highScore;
+	lowScore = lowScore;
+	avgScore = avgScore;
+}
+
+Student: WOGenericContainer {
+    elementName = "student";
+    userName = aSubmission.user.userName;
+    id = aSubmission.user.id;
+    firstName = aSubmission.user.firstName;
+    lastName = aSubmission.user.lastName;
+    fullName = aSubmission.user.name_LF;
+}
+
+Submission: WOGenericContainer {
+    elementName = "submission";
+    number = aSubmission.submitNumberRaw;
+    id = aSubmission.id;
+    timestamp = aSubmission.submitTime;
+}

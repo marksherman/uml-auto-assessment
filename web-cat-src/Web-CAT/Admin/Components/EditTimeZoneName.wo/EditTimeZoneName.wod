@@ -1,0 +1,6 @@
+TimeZone: WOPopUpButton {
+    list		  = session.user.authenticationDomain.timeZones;
+    item   		  = zone;
+    selection     = selectedZone;
+    displayString = zone.printableName;
+}

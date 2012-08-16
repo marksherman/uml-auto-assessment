@@ -1,0 +1,12 @@
+<wo:XmlResponseWrapper>
+  <semesters><wo:loop list="$semesters" item="$aSemester">
+    <wo name="Semester"/>
+  </wo:loop></semesters>
+  <courses><wo:loop list="$courseOfferings" item="$aCourseOffering">
+    <wo name="CourseOffering">
+      <assignments><wo:loop list="$assignmentOfferings" item="$anAssignmentOffering">
+        <wo name="AssignmentOffering"/>
+      </wo:loop></assignments>
+    </wo>
+  </wo:loop></courses>
+</wo:XmlResponseWrapper>

@@ -1,0 +1,8 @@
+{
+    FetchAll =
+    {
+        class = WCFetchSpecification;
+        entityName = Language;
+        fetchLimit = 0;
+    };
+}

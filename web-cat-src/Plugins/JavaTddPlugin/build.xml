@@ -1,0 +1,168 @@
+<project name="JavaTddPlugin" default="export.jar" basedir=".">
+
+  <!-- Read property overrides/definitions from user's home -->
+  <property file="${user.home}/build.properties"/>
+  <property name="webcat.plugin.export.dir" value="."/>
+
+
+  <target name="check.properties"
+    description="Determine if the Properties file should be updated from config.plist">
+    <condition property="should.regenerate.properties">
+      <and>
+        <isset property="webcat.plugin.tools.dir"/>
+        <not>
+          <uptodate
+            srcfile="src/config.plist"
+            targetfile="${basedir}/Properties"/>
+        </not>
+      </and>
+    </condition>
+  </target>
+
+
+  <target name="regenerate.properties" if="should.regenerate.properties"
+    depends="check.properties"
+    description="Extract metadata from plug-in's config.plist file and place
+      it into Properties file.  This step is optional, and is only executed
+      if you have the appropriate perl support installed, as indicated
+      in your ~/build.properties file.  If you don't have this support, you
+      can update your Properties file manually instead.">
+    <exec executable="perl" failonerror="true">
+        <arg file="${webcat.plugin.tools.dir}/PlistToProperties.pl"/>
+        <arg value="src/config.plist"/>
+        <arg value="${basedir}/Properties"/>
+        <env key="PERLLIB" path="${webcat.perl.lib.dir}"/>
+    </exec>
+  </target>
+
+
+  <target name="init"
+    depends="regenerate.properties"
+    description="Set the build date in the Properties file">
+    <tstamp/>
+    <propertyfile file="Properties"
+      comment="This file is automatically rewritten by ANT.  Hand-edits may be lost.">
+      <entry key="version.date" value="${DSTAMP}"/>
+    </propertyfile>
+    <property file="Properties"/>
+    <property name="full.version"
+      value="${version.major}.${version.minor}.${version.revision}"/>
+    <property name="generated.jar"
+      value="${webcat.plugin.export.dir}/${ant.project.name}_${full.version}.jar"/>
+  </target>
+
+
+  <target name="export.jar"
+    depends="init,build.java.jars,javadoc"
+    description="Build a distributable jar file for this plug-in">
+    <delete file="${generated.jar}"/>
+    <jar destfile="${generated.jar}">
+      <manifest>
+        <attribute name="Specification-Title"
+          value="Web-CAT/JavaTddPlugin"/>
+        <attribute name="Specification-Version"
+          value="${full.version}"/>
+        <attribute name="Specification-Vendor"
+          value="http://web-cat.org/"/>
+      </manifest>
+      <fileset dir="src"/>
+      <fileset dir="." includes="${ant.project.name}Support.jar"/>
+    </jar>
+  </target>
+
+
+  <target name="check.local.student.jar" if="local.student.jar.path">
+    <condition property="need.local.student.jar">
+      <or>
+        <not>
+          <available file="src/defaultJars/student.jar" />
+        </not>
+      	<not>
+      	  <uptodate srcfile="${local.student.jar.path}"
+      		targetfile="src/defaultJars/student.jar"/>
+        </not>
+      </or>
+    </condition>
+  </target>
+  <target name="get.local.student.jar"
+  	depends="check.local.student.jar" if="need.local.student.jar">
+    <copy overwrite="true" todir="src/defaultJars"
+      file="${local.student.jar.path}"/>
+  </target>
+
+
+  <target name="build.java.jars"
+    depends="init, get.local.student.jar"
+    description="Build a distributable jar file for this plug-in">
+  	<delete file="src/${ant.project.name}Support.jar"/>
+    <jar destfile="src/${ant.project.name}Support.jar">
+      <manifest>
+        <attribute name="Specification-Title"
+          value="Web-CAT/JavaTddPlugin/Support/Internal"/>
+        <attribute name="Specification-Version"
+          value="${version.major}.${version.minor}.${version.revision}"/>
+        <attribute name="Specification-Vendor"
+          value="http://web-cat.sourceforge.net/"/>
+      </manifest>
+      <fileset dir="bin"/>
+      <zipfileset src="src/defaultJars/student.jar">
+        <include name="student/*Test*.class"/>
+        <include name="student/testingsupport/"/>
+      </zipfileset>
+    </jar>
+    <delete file="webcat-support-${full.version}.jar"/>
+    <jar destfile="webcat-support-${full.version}.jar">
+      <manifest>
+        <attribute name="Specification-Title"
+          value="Web-CAT/JavaTddPlugin/Support"/>
+        <attribute name="Specification-Version"
+          value="${version.major}.${version.minor}"/>
+        <attribute name="Specification-Vendor"
+          value="http://web-cat.sourceforge.net/"/>
+      </manifest>
+      <zipfileset src="src/${ant.project.name}Support.jar">
+        <include name="**/*.class"/>
+        <exclude name="net/sf/webcat/plugins/"/>
+      </zipfileset>
+    </jar>
+  </target>
+
+
+  <target name="javadoc">
+    <tstamp>
+      <format property="updated.date" pattern="EEE, MMM d, yyyy"/>
+      <format property="updated.time" pattern="hh:mm aa z"/>
+    </tstamp>
+    <mkdir dir="api"/>
+    <javadoc
+        packagenames="net.sf.webcat,net.sf.webcat.annotations"
+        destdir="api"
+        author="true"
+        version="true"
+        use="true"
+        verbose="false"
+        useexternalfile="true"
+        source="1.5"
+        stylesheetfile="../../Web-CAT/javadoc.css"
+        windowtitle="JavaTddPlugin Documentation">
+      <classpath>
+        <fileset dir="/Users/edwards/eclipse/plugins/org.junit4_4.3.1">
+          <include name="*.jar"/>
+        </fileset>
+      	<pathelement location="src/defaultJars/student.jar"/>
+      </classpath>
+      <sourcepath>
+        <dirset dir="." includes="java-src/"/>
+      </sourcepath>
+      <doctitle><![CDATA[<h2>JavaTddPlugin Documentation</h2>]]></doctitle>
+      <header><![CDATA[<em>Web-CAT Library: JavaTddPlugin Support</em>]]></header>
+      <bottom><![CDATA[Copyright &#169; 2007  Virginia Tech.]]></bottom>
+      <footer><![CDATA[Last updated: ${updated.date} &#149; ${updated.time}]]></footer>
+      <link href="http://java.sun.com/j2se/1.5.0/docs/api/"/>
+      <link href="http://www.junit.org/junit/javadoc/3.8.1/"/>
+      <link href="http://courses.cs.vt.edu/~cs1114/api/"/>
+    </javadoc>
+    <zip destfile="webcat-support-api.zip" basedir="api"/>
+  </target>
+
+</project>

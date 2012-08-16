@@ -1,0 +1,7 @@
+<project name="PMDForPlugins" default="install" basedir=".">
+
+  <property name="external.resource.includes" value="pmd/lib/**"/>
+
+  <import file="../Core/framework.xml"/>
+
+</project>

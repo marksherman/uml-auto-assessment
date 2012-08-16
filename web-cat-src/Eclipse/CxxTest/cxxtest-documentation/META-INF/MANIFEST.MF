@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-Name: CxxTest Documentation
+Bundle-SymbolicName: net.sf.webcat.eclipse.cxxtest.documentation;singleton:=true
+Bundle-Version: 1.6.0
+Bundle-Vendor: Virginia Tech Computer Science
+Require-Bundle: org.eclipse.help
+Bundle-ManifestVersion: 2

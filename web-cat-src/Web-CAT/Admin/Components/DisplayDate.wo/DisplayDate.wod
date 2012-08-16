@@ -1,0 +1,14 @@
+IsNonNull: ERXNonNullConditional {
+	condition = objectPropertyValue;
+}
+
+IsNull: ERXNonNullConditional {
+	negate = true;
+	condition = objectPropertyValue;
+}
+
+Date: WOString {
+    valueWhenEmpty = "&nbsp;";
+    formatter      = session.timeFormatter;
+    value          = objectPropertyValue;
+}

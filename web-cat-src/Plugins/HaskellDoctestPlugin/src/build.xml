@@ -1,0 +1,322 @@
+<project name="HaskellDoctestPlugin" default="run">
+  <property environment="env"/>
+
+  <!-- default property values.  Many should be overridden by script -->
+  <property name="instructorSolutionPattern"  value="**/*.hs"/>
+
+  <condition property="is.win">
+    <os family="windows"/>
+  </condition>
+
+  <condition property="isDebugging">
+    <and>
+      <isset property="debug"/>
+      <matches string="${debug}" pattern="[3-9]"/>
+    </and>
+  </condition>
+
+
+  <!-- ============================================================
+       Individual target
+       ============================================================ -->
+
+  <target name="debug.output" if="isDebugging">
+    <condition property="printable.path"
+               value="${env.Path}"
+               else="${env.PATH}">
+      <isset property="env.Path"/>
+    </condition>
+    <echo>
+basedir              = ${basedir}
+ANT_HOME             = ${ant.home}
+PATH                 = ${printable.path}
+timeout              = ${exec.timeout} (for each of two test runs)
+is.win               = ${is.win}
+.exe                 = ${.exe}
+instructor solution  = ${instructorSolutionPath}
+instructor soln pat  = ${instructorSolutionPattern}
+    </echo>
+  </target>
+
+
+  <target name="win.properties" if="is.win">
+    <property name=".exe" value=".exe"/>
+  </target>
+
+
+  <target name="non.win.properties" unless="is.win">
+    <property name=".exe" value=""/>
+  </target>
+
+
+  <target name="init"
+          depends="win.properties, non.win.properties, debug.output">
+    <property name="student.bin" value="${resultDir}/sbin"/>
+    <property name="student.driver"
+      value="${student.bin}/driver${.exe}"/>
+    <property name="instructor.bin" value="${resultDir}/ibin"/>
+    <property name="instructor.driver"
+      value="${instructor.bin}/driver${.exe}"/>
+  </target>
+
+
+  <target name="clean"
+          description="removes compiled classes">
+    <delete failonerror="false">
+      <fileset dir="${basedir}" casesensitive="false">
+        <include name="**/*.hi"/>
+        <include name="**/*.o"/>
+        <include name="**/.hpc/"/>
+        <include name="**/*.tix"/>
+        <include name="**/*.mix"/>
+        <include name="dist/"/>
+        <include name=".dist-scion/"/>
+      </fileset>
+      <fileset dir="${student.bin}"/>
+      <fileset dir="${instructor.bin}"/>
+    </delete>
+  </target>
+
+
+  <target name="post.clean">
+    <delete failonerror="false">
+      <fileset dir="${student.bin}">
+        <include name="**/*.hi"/>
+        <include name="**/*.o"/>
+        <include name="**/.hpc/"/>
+        <include name="**/*.tix"/>
+        <include name="**/*.mix"/>
+        <include name="**/driver*"/>
+      </fileset>
+      <fileset dir="${instructor.bin}">
+        <include name="**/*.hi"/>
+        <include name="**/*.o"/>
+        <include name="**/.hpc/"/>
+        <include name="**/*.tix"/>
+        <include name="**/*.mix"/>
+        <include name="**/driver*"/>
+      </fileset>
+    </delete>
+  </target>
+
+
+  <target name="generate.drivers" depends="init">
+    <mkdir dir="${student.bin}"/>
+    <mkdir dir="${instructor.bin}"/>
+    <apply executable="doctestx"
+           dir="${basedir}"
+           output="${student.bin}/__driver.hs"
+           inputstring=""
+           parallel="true"
+           verbose="true">
+      <arg value="--dump-driver"/>
+      <fileset dir="${basedir}" casesensitive="false">
+        <include name="**/*.hs"/>
+        <exclude name="**/Main.hs"/>
+        <exclude name="Setup.hs"/>
+        <exclude name="Results/"/>
+      </fileset>
+    </apply>
+    <copy file="${student.bin}/__driver.hs"
+          tofile="${instructor.bin}/__driver.hs"/>
+  </target>
+
+
+  <target name="compile.student.driver" depends="generate.drivers">
+    <apply executable="perl"
+           dir="${basedir}"
+           parallel="true"
+           verbose="true"
+           failonerror="true">
+      <arg value="${scriptHome}/adjustDriver.pl"/>
+      <arg value="${student.bin}/__driver.hs"/>
+      <arg value="${student.bin}/compiler.log"/>
+      <arg value="${student.bin}/bad-tests.log"/>
+      <arg value="-fhpc"/>
+      <arg value="-Wall"/>
+      <arg value="-fwarn-tabs"/>
+      <arg value="-outputdir"/>
+      <arg value="${student.bin}"/>
+      <arg value="-hpcdir"/>
+      <arg value="${student.bin}/.hpc"/>
+      <arg value="-o"/>
+      <arg value="${student.driver}"/>
+      <fileset dir="${basedir}" casesensitive="false">
+        <include name="**/*.hs"/>
+        <exclude name="**/Main.hs"/>
+        <exclude name="Setup.hs"/>
+        <exclude name="Results/"/>
+      </fileset>
+    </apply>
+    <copy file="${student.bin}/__driver.hs"
+          tofile="${instructor.bin}/__driver.hs"/>
+
+    <loadfile property="student.bad-tests.log"
+              srcfile="${student.bin}/bad-tests.log"
+              failonerror="false"/>
+    <echo message="Student Bad Tests"/>
+    <echo message="----------"/>
+    <echo message="${student.bad-tests.log}"/>
+
+    <loadfile property="student.compiler.log"
+              srcfile="${student.bin}/compiler.log"
+              failonerror="false"/>
+    <echo message="Compiler Output"/>
+    <echo message="----------"/>
+    <echo message="${student.compiler.log}"/>
+  </target>
+
+
+  <target name="execute.student.driver" depends="compile.student.driver">
+    <delete file="driver${.exe}.tix"/>
+    <exec executable="${student.driver}"
+          dir="${basedir}"
+          output="${resultDir}/student-out.txt"
+          inputstring=""
+          failonerror="false"/>
+    <loadfile property="student-out.txt"
+              srcfile="${resultDir}/student-out.txt"
+              failonerror="false"/>
+    <echo message="Student Tests"/>
+    <echo message="----------"/>
+    <echo message="${student-out.txt}"/>
+  </target>
+
+
+  <target name="student.coverage" depends="execute.student.driver">
+    <delete failonerror="false" dir=".hpc"/>
+    <mkdir dir=".hpc"/>
+    <copy failonerror="false" todir=".hpc">
+      <fileset dir="${student.bin}/.hpc" includes="**"/>
+    </copy>
+    <exec executable="hpc"
+          dir="${basedir}"
+          output="${resultDir}/student-cvg.xml"
+          inputstring=""
+          failonerror="false">
+      <arg value="report"/>
+      <arg value="--xml-output"/>
+      <arg value="--per-module"/>
+      <arg value="--exclude=Main"/>
+      <arg value="driver${.exe}.tix"/>
+    </exec>
+    <loadfile property="student-cvg.xml"
+              srcfile="${resultDir}/student-cvg.xml"
+              failonerror="false"/>
+    <echo message="Student Coverage"/>
+    <echo message="----------"/>
+    <echo message="${student-cvg.xml}"/>
+    <exec executable="hpc"
+          dir="${basedir}"
+          inputstring=""
+          failonerror="false">
+      <arg value="markup"/>
+      <arg value="--exclude=Main"/>
+      <arg value="--destdir=${resultDir}/scvghtml"/>
+      <arg value="driver${.exe}.tix"/>
+    </exec>
+    <delete failonerror="false" dir=".hpc"/>
+   </target>
+
+
+  <target name="force.instructor.driver.imports"
+    depends="compile.student.driver"
+    if="forceImports">
+    <exec executable="perl"
+           dir="${basedir}"
+           failonerror="true">
+      <arg value="${scriptHome}/forceImports.pl"/>
+      <arg value="${instructor.bin}/__driver.hs"/>
+      <arg value="${forceImports}"/>
+    </exec>
+  </target>
+
+
+  <target name="compile.instructor.driver"
+    depends="compile.student.driver,force.instructor.driver.imports">
+    <apply executable="perl"
+           dir="${basedir}"
+           parallel="true"
+           verbose="true"
+           failonerror="true">
+      <arg value="${scriptHome}/adjustDriver.pl"/>
+      <arg value="${instructor.bin}/__driver.hs"/>
+      <arg value="${instructor.bin}/compiler.log"/>
+      <arg value="${instructor.bin}/bad-tests.log"/>
+      <arg value="-fhpc"/>
+      <arg value="-w"/>
+      <arg value="-fwarn-tabs"/>
+      <arg value="-outputdir"/>
+      <arg value="${instructor.bin}"/>
+      <arg value="-hpcdir"/>
+      <arg value="${instructor.bin}/.hpc"/>
+      <arg value="-o"/>
+      <arg value="${instructor.driver}"/>
+      <fileset dir="${instructorSolutionPath}" casesensitive="false">
+        <include name="${instructorSolutionPattern}"/>
+      </fileset>
+    </apply>
+
+    <loadfile property="instructor.bad-tests.log"
+              srcfile="${instructor.bin}/bad-tests.log"
+              failonerror="false"/>
+    <echo message="Instructor Bad Tests"/>
+    <echo message="----------"/>
+    <echo message="${instructor.bad-tests.log}"/>
+
+    <loadfile property="instructor.compiler.log"
+              srcfile="${instructor.bin}/compiler.log"
+              failonerror="false"/>
+    <echo message="Compiler Output"/>
+    <echo message="----------"/>
+    <echo message="${instructor.compiler.log}"/>
+  </target>
+
+
+  <target name="execute.instructor.driver" depends="compile.instructor.driver">
+    <delete file="driver${.exe}.tix"/>
+    <exec executable="${instructor.driver}"
+          dir="${basedir}"
+          output="${resultDir}/instructor-out.txt"
+          inputstring=""
+          failonerror="false"/>
+    <loadfile property="instructor-out.txt"
+              srcfile="${resultDir}/instructor-out.txt"
+              failonerror="false"/>
+    <echo message="Instructor Tests"/>
+    <echo message="----------"/>
+    <echo message="${instructor-out.txt}"/>
+  </target>
+
+
+  <target name="instructor.coverage" depends="execute.instructor.driver">
+  	<delete failonerror="false" dir=".hpc"/>
+  	<mkdir dir=".hpc"/>
+  	<copy failonerror="false" todir=".hpc">
+      <fileset dir="${instructor.bin}/.hpc" includes="**"/>
+  	</copy>
+    <exec executable="hpc"
+          dir="${basedir}"
+          output="${resultDir}/instructor-cvg.xml"
+          inputstring=""
+          failonerror="false">
+      <arg value="report"/>
+      <arg value="--xml-output"/>
+      <arg value="--per-module"/>
+      <arg value="--exclude=Main"/>
+      <arg value="driver${.exe}.tix"/>
+    </exec>
+    <loadfile property="instructor-cvg.xml"
+              srcfile="${resultDir}/instructor-cvg.xml"
+              failonerror="false"/>
+    <echo message="Instructor Coverage"/>
+    <echo message="----------"/>
+    <echo message="${instructor-cvg.xml}"/>
+    <delete failonerror="false" dir=".hpc"/>
+    </target>
+
+
+  <target name="run"
+          depends="init,clean,student.coverage,instructor.coverage,post.clean"/>
+
+</project>

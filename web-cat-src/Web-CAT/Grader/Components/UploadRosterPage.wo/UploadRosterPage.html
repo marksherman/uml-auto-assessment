@@ -1,0 +1,57 @@
+<wo name="Page">
+
+<wo:org.webcat.core.WCPageModule title="CSV File Preview">
+ <table class="layout"><tbody><tr><td>
+For: <span class="hl"><wo:str value="$courseOffering.deptNumberAndName"/></span>
+</td><td>
+<wo:WCContentPane id="fileInfo">
+Uploaded file: <span class="hl"><wo:str value="$filePath"/>
+(<wo:str value="$numberOfRecords"/> records, <wo:str value="$data.length" formatter="$application.fileSizeFormatter"/>)</span>
+</wo:WCContentPane></td></tr><tr><td>
+<label for="delim" style="width:auto;">Delimiter:</label> <wo name="Delimiter">
+  <wo:WCConnectAction event="onChange" remote="true" action="$refresh"/>
+</wo> <wo name="DelimiterInfo"/>
+</td><td>
+<wo:WOCheckBox checked="$firstLineColumnHeadings" id="firstLineCols">
+  <wo:WCConnectAction event="onChange" action="$refresh" remote="true"/>
+</wo:WOCheckBox>
+<label for="firstLineCols" style="width:auto;text-align:left;padding:0;">First line
+contains column names</label> <wo name="FirstLineInfo"/></td></tr>
+<wo name="MultipleInstitutions">
+<tr><td colspan="2">
+  Institution: <wo name="AuthList">
+  <wo:WCConnectAction event="onChange" action="$refresh" remote="true"/>
+</wo>  (for new accounts)</td></tr></wo name="MultipleInstitutions">
+ </tbody></table>
+
+<wo:WCContentPane id="preview">
+<wo:if condition="$previewLines.count">
+<table class="colborder"><thead>
+<tr><wo name="ColHeaderRepetition"><th><wo name="ColHeading">
+  <wo:WCConnectAction event="onChange" action="$refresh" remote="true"/>
+</wo></th></wo></tr></thead><tbody>
+<wo name="LineRepetition"><wo name="TR">
+<wo name="ColRepetition"><td><wo:str value="$cell"/></td></wo>
+</wo name="TR"></wo name="LineRepetition">
+<wo:if condition="$gapBeforeLongLine"><wo name="TRInc"><wo:WOGenericContainer elementName="td"
+colspan="$maxRecordLength">
+. . .</wo></wo></wo:if>
+<wo:if condition="$longPreviewLine"><wo name="TRInc">
+<wo name="LPLColRepetition"><td><wo:str value="$cell"/></td></wo>
+</wo></wo:if>
+<wo:if condition="$gapAfterLongLine"><wo name="TRInc"><wo:WOGenericContainer elementName="td"
+style="text-align:center" colspan="$maxRecordLength">
+. . .</wo></wo></wo:if>
+</tbody></table>
+Use the drop-down lists above each column to select the interpretation
+of the data in your CSV file.  Either a user name column or an e-mail
+column must be identified in order for the CSV file to be processed.  If
+no user name column is given, user names will be extracted from e-mail
+addresses instead.
+</wo:if><wo:else>
+<p>No data available to preview.</p>
+</wo:else>
+</wo:WCContentPane>
+
+</wo:org.webcat.core.WCPageModule>
+</wo>

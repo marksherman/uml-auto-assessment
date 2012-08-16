@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="net.sf.webcat.eclipse.submitter.submissionListeners">
+      <submissionListener class="net.sf.webcat.eclipse.cxxtest.submitterExtensions.TestResultsSubmissionListener"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,51 @@
+CourseName: WOString {
+    value = coreSelections.courseOffering.deptNumberAndName;
+}
+
+Repetition1: WORepetition {
+	item = student;
+	list = studentDisplayGroup.displayedObjects;
+	index = studentIndex;
+}
+
+BatchNavigator1: org.webcat.core.WCBatchNavigator {
+    displayGroup = studentDisplayGroup;
+    persistentKey = "PickEnrolledStudentPage.batchSize";
+}
+
+String4: WOString {
+	value = student.userName;
+}
+
+String5: WOString {
+	value = student.name_LF;
+}
+
+String6: WOString {
+	value = student.email;
+}
+
+StudentRadioButton: WORadioButton {
+    name = "Group";
+    selection = localUser;
+    value = student;
+}
+
+TR1: org.webcat.core.TableRow {
+	index = studentIndex;
+}
+
+WCSortOrder1: org.webcat.woextensions.WCSortOrder {
+	displayGroup = studentDisplayGroup;
+	displayKey = "Name";
+	key = "name_LF";
+}
+
+WCSortOrder2: org.webcat.woextensions.WCSortOrder {
+	displayGroup = studentDisplayGroup;
+	displayKey = "User Name";
+	key = "userName";
+}
+
+Page: org.webcat.core.WizardPage {
+}

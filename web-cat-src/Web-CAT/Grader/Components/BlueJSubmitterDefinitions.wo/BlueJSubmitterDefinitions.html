@@ -1,0 +1,29 @@
+.file.jar = sub.zip;
+.file.exclude = __SHELL*.java;
+.file.exclude = *.class;
+.file.exclude = *.jar;
+.file.exclude = *.zip
+.file.exclude = *.dat*;
+.file.exclude = *.log;
+.file.exclude = *.bin*;
+.file.exclude = *.ctxt;
+.file.exclude = Thumbs.db;
+.file.exclude = inherit.gif,*.html,*.css,package-list,logfile.txt;
+
+<webobject name="HasAssignments"><webobject name="AssignmentRepetition">
+<webobject name="GroupByInstitution"><webobject name="StartNewInstitution"><webobject name="IsNotFirst">  }
+}
+</webobject><webobject name="InstitutionName"/> {</webobject></webobject>
+<webobject name="StartNewCourse"><webobject name="IsNotFirstInInstitution">  }
+
+</webobject>  <webobject name="CourseName"/> {
+
+</webobject>    <webobject name="Name"/> {<webobject name="InclusionRep">
+      .file.include   = <webobject name="ThisPattern"/>;</webobject><webobject name="ExclusionRep">
+      .file.exclude   = <webobject name="ThisPattern"/>;</webobject><webobject name="RequireRep">
+      .file.essential = <webobject name="ThisPattern"/>;</webobject>
+      .transport = <webobject name="WebCATURL"/>?u=<webobject name="PID"/>&p=<webobject name="Password"/>&a=<webobject name="EscapedName"/>&d=<webobject name="Authenticator"/>&<wo:if condition="$groupByCRN">crn=<wo:str value="$anAssignmentOffering.courseOffering.crn"/></wo:if><wo:else>course=<wo:str value="$anAssignmentOffering.courseOffering.course.number"/></wo:else>;
+    }</webobject>
+
+  }
+<webobject name="GroupByInstitution">}</webobject></webobject>

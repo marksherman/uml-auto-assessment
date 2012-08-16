@@ -1,0 +1,19 @@
+<wo:loop list="$errors" item="$error">
+    <wo:WOGenericContainer elementName="div" class="$errorCssClass">
+        <b><wo:str value="$errorSeverity"/>:</b>
+        <wo:loop list="$error.chain" item="$chainEntry">
+            <wo:if condition="$isChainEntryFirst">
+                <b><wo:str value="$chainEntry.type"/>:</b>
+                <wo:str value="$chainEntry.message"/><br/>
+                <pre><wo:str value="$chainEntry.stackTrace"/></pre>
+            </wo:if><wo:else>
+                <span style="font-size: 85%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;caused by
+                    <b><wo:str value="$chainEntry.type"/>:</b>
+                    <wo:str value="$chainEntry.message"/><br/>
+                    <pre><wo:str value="$chainEntry.stackTrace"/></pre>
+                </span>
+            </wo:else>
+        </wo:loop>
+    </wo:WOGenericContainer>
+</wo:loop>

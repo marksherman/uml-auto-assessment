@@ -1,0 +1,19 @@
+Graph : WOImage {
+    filename  = "icons/graph.gif";
+    framework = "Grader";
+}
+
+Marker9 : WOImage {
+    filename  = "images/marker9.gif";
+    framework = "Grader";
+}
+
+Report : WOImage {
+    filename  = "icons/report.gif";
+    framework = "Core";
+}
+
+Upload : WOImage {
+    filename  = "icons/upload.gif";
+    framework = "Core";
+}

@@ -1,0 +1,34 @@
+{
+    "WebObjects Release" = "WebObjects 5.1";
+    encoding = NSUTF8StringEncoding;
+    variables = {
+        studentDisplayGroup = {
+            class = ERXDisplayGroup;
+            fetchesOnLoad = NO;
+            formatForLikeQualifier = "%@*";
+            localKeys = ();
+            numberOfObjectsPerBatch = 30;
+            selectsFirstObjectAfterFetch = YES;
+            sortOrdering = ({class = EOSortOrdering; key = lastName; selectorName = "compareCaseInsensitiveAscending:"; }, {class = EOSortOrdering; key = firstName; selectorName = "compareCaseInsensitiveAscending:"; }, {class = EOSortOrdering; key = userName; selectorName = "compareCaseInsensitiveAscending:"; });
+        };
+        notStudentDisplayGroup = {
+            class = ERXDisplayGroup;
+            dataSource = {
+                class = EODatabaseDataSource;
+                editingContext = localContext;
+                fetchSpecification = {
+                    class = EOFetchSpecification;
+                    entityName = User;
+                    fetchLimit = 0;
+                    isDeep = YES;
+                };
+            };
+            fetchesOnLoad = NO;
+            formatForLikeQualifier = "%@*";
+            localKeys = ();
+            numberOfObjectsPerBatch = 20;
+            selectsFirstObjectAfterFetch = YES;
+            sortOrdering = ({class = EOSortOrdering; key = lastName; selectorName = "compareCaseInsensitiveAscending:"; }, {class = EOSortOrdering; key = firstName; selectorName = "compareCaseInsensitiveAscending:"; }, {class = EOSortOrdering; key = userName; selectorName = "compareCaseInsensitiveAscending:"; });
+        };
+    };
+}

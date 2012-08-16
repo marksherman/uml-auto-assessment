@@ -1,0 +1,64 @@
+<project name="Bootstrap" default="install" basedir=".">
+
+  <echo
+    message="----------------- project ${ant.project.name} -----------------"/>
+
+  <property file="build.properties"/>
+  <property file="${user.home}/Library/wobuild.properties"/>
+
+
+  <!-- ==============================================================  -->
+  <!-- main targets                                                    -->
+  <!-- ==============================================================  -->
+
+  <!-- jar ..........................................................
+    Build the jar file only.  Presumes all the Java files have
+    already been compiled by Eclipse.  Adds a manifest containing
+    the project version information from the build.properties file.
+  -->
+  <target name="jar"
+    description="Create a jar file containing this project's class files.">
+    <property file="build.properties"/>
+    <tstamp/>
+    <jar jarfile="${jar.name}.jar">
+      <manifest>
+        <attribute name="Specification-Version" value="${project.version}"/>
+        <attribute name="Implementation-Version"
+          value="${project.version} ${DSTAMP}"/>
+      </manifest>
+      <fileset dir="${classes.dir}">
+        <include name="**/*.class" />
+        <include name="**/*.properties" />
+      </fileset>
+    </jar>
+  </target>
+
+
+  <!-- install ...................................................... -->
+  <target name="install"
+    depends="jar, dir.check"
+    description="Build the jar and install it in an active servlet dir."
+  	if="servlet.install.dir.exists">
+    <copy todir="${servlet.install.dir}/${project.name}/WEB-INF/lib/"
+      preservelastmodified="true"
+      overwrite="true"
+      verbose="true"
+      failonerror="false">
+      <fileset dir=".">
+        <include name="${jar.name}.jar"/>
+      </fileset>
+    </copy>
+  </target>
+
+
+  <!-- dir.check .................................................... -->
+  <target name="dir.check"
+    description="Check that servlet dir exists, prior to installation."
+    if="servlet.install.dir">
+  	<condition property="servlet.install.dir.exists">
+  	  <available file="${servlet.install.dir}/${project.name/WEB-INF/lib/}"
+  	  	type="dir"/>
+  	</condition>
+  </target>
+
+</project>

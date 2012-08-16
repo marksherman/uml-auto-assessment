@@ -1,0 +1,18 @@
+The Student-Library is licensed under the GNU Lesser General Public
+License (LGPL).  Please read the files COPYING and COPYING.LESSER for
+details.
+
+Source code for the Student-Library is available from <http://web-cat.org>
+or from SourceForge <http://web-cat.sf.net/>.
+
+The student.jar file also includes the compiled class files for abbot,
+a separate open-source project <http://abbot.sourceforge.net>.  Abbot
+is available separately under the Common Public License
+<http://abbot.sourceforge.net/doc/CPL.html>.
+
+The Student-Library includes a couple of minor patches to abbot.  As a
+result, the student.jar file includes the abbot class files so that only
+student.jar needs be on the class path and classpath ordering conflicts
+can be avoided.  If you are using student.jar, there is no need to include
+abbot.jar on the classpath.  If abbot.jar is included, it should be later
+on the classpath, so that the patches in student.jar will take precedence.

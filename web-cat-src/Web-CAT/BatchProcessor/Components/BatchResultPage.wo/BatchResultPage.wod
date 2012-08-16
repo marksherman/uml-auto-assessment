@@ -1,0 +1,7 @@
+Page: WCPageWithJobMonitoring {
+    job           = result.batchJob;
+    title         = "Your Batch Results";
+    extraRequires = "dojox.layout.ContentPane";
+    delegate      = self;
+//    permalink = submission.permalink;
+}

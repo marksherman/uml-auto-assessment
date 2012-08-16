@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Web-CAT Submission Plug-In Preferences</title>
+<link rel="stylesheet" type="text/css" href="book.css"/>
+</head>
+<body>
+
+<h1>Submission Plug-In Preferences</h1>
+
+<p>
+Before you can begin using the Eclipse plug-in to submit projects through the
+IDE, you need to enter some information into the Eclipse preferences. To
+access the plug-in settings, choose <em>Window/Preferences...</em> from the
+Eclipse main menu and select <em>Electronic Submission</em> from the tree.
+The preferences page will look something like the following:
+</p>
+<img src="images/preferences.gif"
+  alt="preferences dialog"
+  title="preferences dialog"/>
+
+<h1>Settings</h1>
+
+<p>
+The Web-CAT plug-in preferences page has four fields that the user can specify.
+The first field is required--the other three are optional.
+</p>
+
+<ul>
+<li>
+<strong>Assignment definition URL:</strong> This is the URL to the XML file
+that contains the assignment definitions. This URL can use any protocol to
+which Java can open a connection and read data--<tt>http</tt> and
+<tt>file</tt> are likely to be the most common. Note that if a local file is
+to be used, you must use the <tt>file</tt> protocol--entering only the path
+to the file is not sufficient.
+</li>
+
+<li>
+<strong>Default username:</strong> This property is a convenience for the
+user--the username specified here will be automatically entered in the
+submission wizard when it is opened. The user can still enter a different
+username at that point, if he or she wishes to do so.
+</li>
+
+<li>
+<strong>Outgoing (SMTP) mail server:</strong> The outgoing mail server that
+should be used to submit assignments that use the <tt>mailto</tt> protocol
+in their transports. If you do not intend to use <tt>mailto</tt> transports,
+then you may leave this field blank.
+</li>
+
+<li>
+<strong>E-mail address:</strong> The e-mail address from which mail should be
+sent when submitting to assignments that use the <tt>mailto</tt> protocol.
+This will typically be the student's e-mail address. As with the previous
+field, if no <tt>mailto</tt> transports are being used, this field can be
+left blank.
+</li>
+</ul>
+
+</body>
+</html>

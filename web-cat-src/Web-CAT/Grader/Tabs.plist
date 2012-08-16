@@ -1,0 +1,203 @@
+{
+  staff = {
+    children = {
+      Grading = {
+        accessLevel = 40;
+        priority = 200;
+        children = {
+          "View Submissions" = {
+            accessLevel = 40;
+            priority = 2;
+            children = {
+              "Pick the Student" = {
+                pageName = org.webcat.grader.StudentsForAssignmentPage;
+                accessLevel = 40;
+                priority = 3;
+                id = EnterGrades;
+              };
+              "Grade Student's Submission" = {
+                pageName = org.webcat.grader.GradeStudentSubmissionPage;
+                accessLevel = 40;
+                priority = 4;
+              };
+            };
+          };
+          "View Student Summary" = {
+            pageName = org.webcat.grader.StudentCourseSummaryPage;
+            accessLevel = 40;
+            priority = 3;
+          };
+          "Submit for Student" = {
+            accessLevel = 40;
+            priority = 4;
+            children = {
+              "Upload Student's File(s)" = {
+                pageName  = org.webcat.grader.UploadSubmissionPage;
+                accessLevel = 40;
+                priority  = 4;
+                config    = { showStudentSelector = true; };
+              };
+              "Confirm Student's Submission" = {
+                pageName  = org.webcat.grader.ConfirmSubmissionPage;
+                accessLevel = 40;
+                priority  = 5;
+                config    = { resetPrimeUser = true; };
+              };
+              "View Student's Results" = {
+                pageName  = org.webcat.grader.FinalReportPage;
+                accessLevel = 40;
+                priority  = 6;
+              };
+            };
+          };
+          "Regrade Everyone" = {
+            accessLevel = 50;
+            priority = 5;
+            pageName = org.webcat.grader.MassRegraderPage;
+          };
+        };
+      };
+      Assignments = {
+        accessLevel = 50;
+        priority = 300;
+        children = {
+          Properties = {
+            accessLevel = 50;
+            priority = 2;
+            pageName = org.webcat.grader.EditAssignmentPage;
+            id = AssignmentProperties;
+          };
+          New = {
+            accessLevel = 50;
+            priority = 100;
+            children = {
+                "Create an Assignment" = {
+                    pageName = org.webcat.grader.NewAssignmentPage;
+                    accessLevel = 50;
+                    priority = 1;
+                };
+                "Edit Assignment Properties" = {
+                    accessLevel = 50;
+                    priority = 2;
+                    config = { jumpTo = AssignmentProperties; };
+                };
+            };
+          };
+          "Plug-ins" = {
+            pageName = org.webcat.grader.PluginManagerPage;
+            accessLevel = 50;
+            priority = 150;
+          };
+        };
+      };
+      Courses = {
+        accessLevel = 50;
+        priority = 400;
+        children = {
+          Properties = {
+            accessLevel = 50;
+            priority = 2;
+            children = {
+                "Edit Course Properties" = {
+                    pageName    = org.webcat.grader.EditCoursePage;
+                    accessLevel = 50;
+                    priority    = 2;
+                    id          = EditCourseProperties;
+                    wantsStart  = YES;
+                };
+                "Edit Student Roster" = {
+                    pageName    = org.webcat.grader.CourseRosterPage;
+                    accessLevel = 50;
+                    priority    = 3;
+                };
+            };
+          };
+          Activity = {
+            accessLevel = 50;
+            priority = 3;
+            children = {
+                "Activity by Course Participants" = {
+                    pageName    = org.webcat.grader.CourseActivityPage;
+                    accessLevel = 50;
+                    priority    = 1;
+                    wantsStart  = YES;
+                    id          = CourseActivity;
+                };
+            };
+          };
+          New = {
+            accessLevel = 50;
+            priority = 4;
+            children = {
+                "Pick the Course" = {
+                    pageName = org.webcat.grader.NewCourseOfferingPage;
+                    accessLevel = 50;
+                    priority = 1;
+                    wantsStart = YES;
+                };
+                "Edit Course Properties" = {
+                    accessLevel = 50;
+                    priority = 2;
+                    config = { jumpTo = EditCourseProperties; };
+                };
+            };
+          };
+        };
+      };
+    };
+  };
+  student = {
+    children = {
+      Submit = {
+        priority = 100;
+        children = {
+          "New Submission" = {
+            priority   = 1;
+            wantsStart = YES;
+            children = {
+              "Upload Your File(s)" = {
+                pageName = org.webcat.grader.UploadSubmissionPage;
+                priority = 3;
+                id     = UploadSubmission;
+              };
+              "Confirm Your Submission" = {
+                pageName = org.webcat.grader.ConfirmSubmissionPage;
+                priority = 4;
+              };
+              "View Your Results" = {
+                config = { jumpTo = MostRecent; };
+                priority = 5;
+              };
+            };
+          };
+        };
+      };
+      Results = {
+        priority = 110;
+        children = {
+          "Most Recent" = {
+            pageName   = org.webcat.grader.FinalReportPage;
+            priority   = 1;
+            id         = MostRecent;
+            wantsStart = YES;
+          };
+          "Past Results" = {
+            pageName = org.webcat.grader.StudentCourseSummaryPage;
+            id       = PastResults;
+            priority = 2;
+          };
+          "Graphs" = {
+            priority = 3;
+            children = {
+              "Graphical Performance Summary" = {
+                pageName = org.webcat.grader.graphs.AssignmentGraphPage;
+                id     = GraphResults;
+                priority = 3;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}

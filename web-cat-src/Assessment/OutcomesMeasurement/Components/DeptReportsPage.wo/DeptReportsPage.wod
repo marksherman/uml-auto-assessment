@@ -1,0 +1,4 @@
+OutcomeRepetition: WORepetition {
+	list = outcomePairStats;
+	item = anOutcomeStat;
+}
