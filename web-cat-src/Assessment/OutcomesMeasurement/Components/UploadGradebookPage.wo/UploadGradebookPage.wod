@@ -1,0 +1,39 @@
+TableRepetition: WORepetition {
+	list = allSheets;
+	item = aSheet;
+	index = sheetIndex;
+}
+
+HeaderRepetition: WORepetition {
+	list = aSheet.headerRow;
+	item = cell;
+	index = headerIndex;
+}
+
+MappingRepetition: WORepetition {
+	list = aSheet.mappingRow;
+	item = cell;
+	index = mappingIndex;
+}
+
+DataRowsRepetition: WORepetition {
+	list = aSheet.dataRows;
+	item = aRow;
+	index = index;
+}
+
+ColRepetition: WORepetition {
+    list  = aRow.dataCells;
+    item  = cell;
+    index = cellIndex;
+}
+
+ColHeading: WCFilteringSelect {
+    list = "~@org.webcat.outcomesmeasurement.UploadGradebookPage@COLUMNS";
+    selection = "~columns[colIndex]";
+    style = "width: 10.5em;";
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}

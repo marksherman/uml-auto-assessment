@@ -1,0 +1,23 @@
+{
+    /* optionCategories = ( ... ); */
+    options = (
+    {
+        property    = "PMDForPlugins.pmd.lib";
+        type        = shortText;
+        size        = 70;
+        name        = "PMD Library Directory";
+        description =
+  "The library directory containing the
+  <a href=\"http://pmd.sourceforge.net/\">PMD</a> version
+  that will be used when running plug-ins.  Leave this
+  setting blank to use the built-in PMD distribution contained within
+  this subsystem.  Only enter a value if you wish to <b>override</b> the
+  subsystem's version of PMD and use your own system-installed version
+  instead.  Your value should point to the <code>lib</code> directory of
+  your chosen installation of PMD, which should include the necessary
+  PMD JAR files.  Associated rulesets should appear in its sibling
+  <code>rulesets</code> directory.  If you specify a value here, it will
+  be provided to plug-ins as the <code>pmd.lib</code> property.";
+    }
+    );
+}

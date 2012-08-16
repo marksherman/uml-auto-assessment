@@ -1,0 +1,36 @@
+<project name="PerlForPlugins" default="install" basedir=".">
+
+  <property name="external.resource.includes"
+    value="lib/auto/XML/Parser/**
+           lib/CLOC/**
+           lib/Config/**
+           lib/Data/Dump.pm
+           lib/File/Which.pm
+           lib/File/HomeDir.pm
+           lib/File/HomeDir/**
+           lib/HTML/SimpleParse.pm
+  	       lib/IPC/**
+  	       lib/IPC/System/**
+           lib/Object/**
+           lib/XML/**
+           lib/Proc/**
+           lib/Lisp/**"/>
+  <property name="external.resource.excludes"
+    value="lib/XML/Simple/**
+           lib/XML/Simple.pm
+  	       lib/Win32.pm
+           **/*~"/>
+
+  <import file="../Core/framework.xml"/>
+
+  <target name="local.copy" depends="setProps" if="PerlForPlugins.Resources">
+    <copy todir="${PerlForPlugins.Resources}">
+      <fileset dir="Resources">
+      	<excludes name="lib/Win32.pm"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="export.jar" depends="common.export.jar,local.copy"/>
+
+</project>

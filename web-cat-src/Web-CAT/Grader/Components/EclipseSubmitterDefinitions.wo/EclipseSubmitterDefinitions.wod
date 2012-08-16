@@ -1,0 +1,123 @@
+Assignment: WOGenericContainer {
+    elementName = "assignment";
+    name = assignmentName;
+}
+
+AssignmentRepetition: WORepetition {
+    item  = anAssignmentOffering;
+    list  = assignmentsToDisplay;
+    index = index;
+}
+
+Authenticator: WOGenericContainer {
+    elementName = "param";
+    name = "d";
+    value = authenticator;
+}
+
+LB: WOString {
+    value = "<";
+    escapeHTML = false;
+}
+
+RB: WOString {
+    value = ">";
+    escapeHTML = false;
+}
+
+BeginCourseGroup: WOString {
+    value = "~\"<assignment-group name=\\\"\" + courseName + \"\\\">";
+    escapeHTML = false;
+}
+
+BeginInstitutionGroup: WOString {
+    value = "~\"<assignment-group name=\\\"\" + anAssignmentOffering.courseOffering.course.department.institution.displayableName + \"\\\">";
+    escapeHTML = false;
+}
+
+CourseNumber: WOGenericContainer {
+    elementName = "param";
+    name = "course";
+    value = anAssignmentOffering.courseOffering.course.number;
+}
+
+CRN: WOGenericContainer {
+    elementName = "param";
+    name = "crn";
+    value = anAssignmentOffering.courseOffering.crn;
+}
+
+EndCourseGroup: WOString {
+    value = "</assignment-group>";
+    escapeHTML = false;
+}
+
+EndInstitutionGroup: WOString {
+    value = "</assignment-group>";
+    escapeHTML = false;
+}
+
+ExcludePattern: WOGenericContainer {
+    elementName = "exclude";
+    pattern = thisPattern;
+}
+
+ExclusionRep: WORepetition {
+    list = excludePatterns;
+    item = thisPattern;
+}
+
+GroupByInstitution: WOConditional {
+    condition = groupByInstitution;
+}
+
+HasAssignments: WOConditional {
+    condition = assignmentsToDisplay.count;
+}
+
+IncludePattern: WOGenericContainer {
+    elementName = "include";
+    pattern = thisPattern;
+}
+
+InclusionRep: WORepetition {
+    list = includePatterns;
+    item = thisPattern;
+}
+
+IsNotFirst: WOConditional {
+    condition = index;
+}
+
+IsNotFirstInInstitution: WOConditional {
+    condition = isNotFirstInInstitution;
+}
+
+Name: WOGenericContainer {
+    elementName = "param";
+    name = "a";
+    value = assignmentNameParameter;
+}
+
+RequirePattern: WOGenericContainer {
+    elementName = "required";
+    pattern = thisPattern;
+}
+
+RequireRep: WORepetition {
+    list = requirePatterns;
+    item = thisPattern;
+}
+
+StartNewInstitution: WOConditional {
+    condition = startNewInstitution;
+}
+
+StartNewCourse: WOConditional {
+    condition = startNewCourse;
+}
+
+Transport: WOGenericContainer {
+    elementName = "transport";
+    uri = url;
+}

@@ -1,0 +1,11 @@
+<project name="CloverForPlugins" default="install" basedir=".">
+
+  <!-- Define necessary properties for including external resources -->
+  <property name="external.resource.includes"
+    value="clover/etc/**
+           clover/lib/**
+           clover/clover.license"/>
+
+  <import file="../Core/framework.xml"/>
+
+</project>

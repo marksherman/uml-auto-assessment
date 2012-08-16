@@ -1,0 +1,114 @@
+AssignmentName: WOString {
+    value = prefs.assignmentOffering.titleString;
+}
+
+DifferentStudent: WOConditional {
+    condition = session.impersonatingAnotherUser;
+}
+
+PartnerSelector: FilteringUserSelector {
+    actionTitle = "Choose Partners";
+    dialogMessage = "Please choose the students below who also worked on this submission.";
+    hidesTableOnEmptySelection = true;
+    selectedListTitle = "Current Partners on This Submission";
+    availableListTitle = "Students Enrolled in Your Course";
+    selectedUsers = partnersForEditing;
+    qualifier = qualifierForStudentsInCourse;
+}
+
+HasPreviousSubmissions: WOConditional {
+    condition = hasPreviousSubmissions;
+}
+
+HasNoPreviousSubmissions: WOConditional {
+    condition = hasPreviousSubmissions;
+    negate    = true;
+}
+
+HasInstructions: WOConditional {
+    condition = hasInstructions;
+}
+
+OkayToSubmit: WOConditional {
+    condition = okayToSubmit;
+}
+
+HasValidFileUpload: WOConditional {
+    condition = submissionInProcess.hasValidFileUpload;
+}
+
+FileUpload1: WOFileUpload {
+    data     = submissionInProcess.uploadedFile;
+    filePath = submissionInProcess.uploadedFileName;
+    size     = 60;
+    dojoType = "dojox.form.FileInput";
+}
+
+Repetition1: WORepetition {
+    item = aSubmission;
+    list = submissionDisplayGroup.displayedObjects;
+    index = index;
+}
+
+Instructions: WOString {
+    value      = prefs.assignmentOffering.assignment.fileUploadMessage;
+    escapeHTML = false;
+}
+
+String1: WOString {
+    value = aSubmission.submitNumber;
+}
+
+String2: WOString {
+    value     = aSubmission.submitTime;
+    formatter = session.timeFormatter;
+}
+
+FinalScore: WOString {
+    numberformat = "0.0";
+    value        = aSubmission.result.finalScore;
+}
+
+StudentList: WCFilteringSelect {
+    list = studentDisplayGroup.displayedObjects;
+    item = student;
+    selection = submitAsStudent;
+    autoComplete = true;
+    invalidMessage = "Invalid student selection";
+}
+
+StudentName: WOString {
+    value = user.nameAndUid;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+
+WCSortOrder1: org.webcat.woextensions.WCSortOrder {
+    displayGroup = submissionDisplayGroup;
+    displayKey = "Time";
+    key = "submitTime";
+}
+
+WCSortOrder2: org.webcat.woextensions.WCSortOrder {
+    displayGroup = submissionDisplayGroup;
+    displayKey = "Score";
+    key = "result.finalScore";
+}
+
+WCSortOrder3: org.webcat.woextensions.WCSortOrder {
+    displayGroup = submissionDisplayGroup;
+    displayKey = "Submission No.";
+    key = "submitNumber";
+}
+
+Page: PageWithAssignmentNavigation {
+    permalink = permalink;
+    hideClosedAssignmentsFromStudents = true;
+}
+
+BatchNavigator: org.webcat.core.WCBatchNavigator {
+    displayGroup = submissionDisplayGroup;
+    persistentKey = "UploadSubmissionPage.batchSize";
+}

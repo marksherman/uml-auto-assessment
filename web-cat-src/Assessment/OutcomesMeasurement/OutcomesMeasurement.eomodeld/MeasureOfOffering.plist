@@ -1,0 +1,88 @@
+{
+    attributes = (
+        {columnName = adequate; name = adequate; prototypeName = integer; }, 
+        {
+            columnName = adequateCriteria; 
+            name = adequateCriteria; 
+            prototypeName = mediumText; 
+        }, 
+        {
+            columnName = courseOfferingId; 
+            name = courseOfferingId; 
+            prototypeName = foreignId; 
+        }, 
+        {
+            columnName = dataDescription; 
+            name = dataDescription; 
+            prototypeName = mediumText; 
+        }, 
+        {columnName = excellent; name = excellent; prototypeName = integer; }, 
+        {
+            columnName = excellentCriteria; 
+            name = excellentCriteria; 
+            prototypeName = mediumText; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = measureId; name = measureId; prototypeName = foreignId; }, 
+        {columnName = unsatisfactory; name = unsatisfactory; prototypeName = integer; }, 
+        {
+            columnName = unsatisfactoryCriteria; 
+            name = unsatisfactoryCriteria; 
+            prototypeName = mediumText; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        adequate, 
+        adequateCriteria, 
+        courseOfferingId, 
+        dataDescription, 
+        excellent, 
+        excellentCriteria, 
+        measureId, 
+        unsatisfactory, 
+        unsatisfactoryCriteria
+    ); 
+    className = "org.webcat.outcomesmeasurement.MeasureOfOffering"; 
+    classProperties = (
+        adequate, 
+        adequateCriteria, 
+        courseOffering, 
+        dataDescription, 
+        excellent, 
+        excellentCriteria, 
+        measure, 
+        measureChanges, 
+        unsatisfactory, 
+        unsatisfactoryCriteria, 
+        users
+    ); 
+    externalName = MeasureOfOffering; 
+    fetchSpecificationDictionary = {}; 
+    name = MeasureOfOffering; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Measure; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = measureId; }); 
+            name = measure; 
+        }, 
+        {
+            destination = CourseOffering; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = courseOfferingId; }); 
+            name = courseOffering; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = MeasureChange; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = measureOfOfferingOid; sourceAttribute = id; }); 
+            name = measureChanges; 
+        }, 
+        {definition = "measureChanges.user"; name = users; }
+    ); 
+}

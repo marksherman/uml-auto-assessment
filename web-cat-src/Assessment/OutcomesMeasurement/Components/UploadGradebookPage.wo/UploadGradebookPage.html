@@ -1,0 +1,68 @@
+<wo:WCPageWithNavigation>
+	<wo:WCPageModule title="Determine Gradebook Columns and Rows">
+		<wo:WCContentPane id="fileInfo">
+			<div>Uploaded file: <span class="hl"><wo:str value="$filePath"/></span></div>
+			<div>Total Sheets: <span class="hl"><wo:str value="$sheetCount"/></span></div>
+			<div>
+			<wo:WCForm>
+				<p>
+				<wo:WCButton action="$saveAllSheets" label="Finalize Gradebook & Mappings"/>
+				</p>
+			</wo:WCForm>
+			</div>
+		</wo:WCContentPane>
+
+		<wo:WCContentPane id="content">
+		<wo:if condition="$sheetCount">
+		<wo:WCForm>
+			<wo name="TableRepetition">
+				<br/>
+				<table class="colborder">
+				<thead>
+					<wo:if condition="$aSheet.headerRow.count">
+						<wo name="TR">
+							<wo name="HeaderRepetition">
+								<th><wo:str value="$cell"/></th>
+							</wo>
+						</wo>
+					</wo:if>
+					<wo:if condition = "$aSheet.mappingRow.count">
+						<wo name="TR">
+							<th>Mapping</th>
+							<wo name="MappingRepetition">
+								<th>
+									<wo:WCTextBox value="$cell" style="width: 4em;">
+										<wo:WCConnectAction event="onChange" action="$refresh" remote="true"/>
+									</wo:WCTextBox>
+								</th>
+							</wo name="MappingRepetition">
+						</wo>
+					</wo:if>
+				</thead>
+				<tbody>
+					
+					<wo name="DataRowsRepetition">
+						<wo name="TR">
+							<td><wo:str value="$aRow.studentId" /></td>
+							<td><wo:str value="$aRow.crn" /></td>
+							<wo name="ColRepetition">
+								<td><wo:str value="$cell"/></td>
+							</wo>
+						</wo>
+					</wo>
+				</tbody>
+				</table>
+			</wo>
+			Use the drop-down lists above each column to select the interpretation
+			of the data in your XLS file.  Either a user name column or an e-mail
+			column must be identified in order for the XLS file to be processed.  If
+			no user name column is given, user names will be extracted from e-mail
+			addresses instead.
+		</wo:WCForm>
+		</wo:if>
+		<wo:else>
+			<p>No data available to preview.</p>
+		</wo:else>
+	</wo:WCContentPane>
+	</wo:WCPageModule>
+</wo:WCPageWithNavigation>

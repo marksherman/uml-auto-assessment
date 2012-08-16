@@ -1,0 +1,76 @@
+BannerConditional: WOConditional {
+	_unroll = YES;
+	condition = showBanner;
+}
+
+EntityName: WOString {
+	_unroll = YES;
+	value = d2wContext.entity.name;
+}
+
+EntitySelectedConditional: WOConditional {
+	_unroll = YES;
+	condition = hasEntity;
+}
+
+FetchLimit: WOString {
+	_unroll = YES;
+	value = fetchLimit;
+}
+
+FetchLimitConditional: WOConditional {
+	_unroll = YES;
+	condition = fetchLimit;
+}
+
+PageWrapper: WOSwitchComponent {
+	WOComponentName = pageWrapperName;
+	_componentUnroll = YES;
+	_unroll = YES;
+}
+
+QueryForm: WOForm {
+	action = queryAction;
+}
+
+QuerySubmitButton: WCButton {
+	action = queryAction;
+	label  = "Query DB";
+}
+
+QueryTable: WOGenericContainer {
+	_unroll = YES;
+	border = d2wContext.border;
+	cellpadding = 3;
+	cellspacing = 0;
+	elementName = "table";
+}
+
+QueryTableHeaderRow: WOGenericContainer {
+	_unroll = YES;
+	elementName = "tr";
+}
+
+ResourceInputRepresentation: WOSwitchComponent {
+	WOComponentName = d2wContext.componentName;
+	_componentUnroll = YES;
+	_unroll = YES;
+	displayGroup = displayGroup;
+	localContext = localContext;
+}
+
+ResourceLabel: WOString {
+	_unroll = YES;
+	value = d2wContext.displayNameForProperty;
+}
+
+ResourceRepetition: WORepetition {
+	_unroll = YES;
+	item = d2wContext.propertyKey;
+	list = d2wContext.displayPropertyKeys;
+}
+
+RowContainer: WOGenericContainer {
+	class = cssClassForRow;
+	elementName = "tr";
+}

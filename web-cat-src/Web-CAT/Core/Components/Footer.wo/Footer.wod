@@ -1,0 +1,4 @@
+AdminEmail: WOHyperlink {
+	href   = "~\"mailto:\" + application.properties.coreAdminEmail";
+	string = application.properties.coreAdminEmail;
+}

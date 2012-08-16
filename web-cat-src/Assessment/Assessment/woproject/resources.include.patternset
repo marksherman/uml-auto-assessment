@@ -1,0 +1,5 @@
+Components/**/*.wo/**/*
+Components/**/*.api
+Resources/**/*
+Properties
+*.d2wmodel

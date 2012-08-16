@@ -1,0 +1,9 @@
+TR: WOGenericContainer {
+    elementName = "tr";
+    class       = cssClass;
+    id          = id;
+    handle      = dragHandle;
+    dndType     = dndType;
+    dndData     = dndData;
+    style       = style;
+}

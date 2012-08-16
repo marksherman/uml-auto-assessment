@@ -1,0 +1,14 @@
+if (iterator.hasNext())
+{
+    var entry = iterator.next();
+    var columnBundle = entry.getValue();
+
+    for (var column in columnBundle)
+        row[column] = columnBundle[column];
+
+    return true;
+}
+else
+{
+    return false;
+}

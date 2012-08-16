@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<submission-targets xmlns="http://web-cat.cs.vt.edu/submissionTargets">
+    <assignment-group name="Test Group">
+        <assignment name="Test Assignment">
+            <packager id="org.webcat.submitter.packagers.zip"/>
+            <transport uri="mock:mock"/>
+        </assignment>
+        <assignment name="Test Requires">
+            <required pattern="*.java"/>
+            <packager id="org.webcat.submitter.packagers.zip"/>
+            <transport uri="mock:mock"/>
+        </assignment>
+    </assignment-group>
+</submission-targets>

@@ -1,0 +1,16 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Mon Oct 11 15:03:55 EDT 2010
+WonderUpdater.provider=Virginia Tech Computer Science
+WonderUpdater.provider.url=http\://web-cat.cs.vt.edu/updates
+WonderUpdater.version.revision=1
+WonderUpdater.version.minor=2
+WonderUpdater.alsoContains=Ajax.framework,ERJars.framework,ERExtensions.framework,ERDirectToWeb.framework,JavaWOExtensions.framework,WOOgnl.framework,WOUnitTest.framework
+WonderUpdater.copyright=(c) 2007-2010 Virginia Tech Department of Computer Science
+WonderUpdater.version.date=20101011
+WonderUpdater.version.major=1
+WonderUpdater.history.url=http\://web-cat.org/WCWiki/WonderUpdater/ChangeHistory
+WonderUpdater.license.url=http\://www.gnu.org/licenses/agpl.html
+subsystem.WonderUpdater=
+WonderUpdater.description=This subsystem is a support wrapper that allows the embedded <a href\="http\://wonder.sourceforge.net/">Project WONDER</a> run-time files to be managed by Web-CAT's automatic update facility.
+WonderUpdater.license=GNU Affero General Public License v.3
+WonderUpdater.info.url=http\://web-cat.org/WCWiki/WonderUpdater

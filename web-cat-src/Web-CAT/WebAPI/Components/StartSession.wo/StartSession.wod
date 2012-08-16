@@ -1,0 +1,8 @@
+SessionId: WOGenericContainer {
+    elementName = "session";
+    wosid = session.sessionID;
+}
+
+HasSession: WOConditional {
+    condition = "~hasSession and session.user"; // VALID
+}

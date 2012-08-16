@@ -1,0 +1,33 @@
+var key = row["${groupingKey}"];
+var put = false;
+
+if (${resultsVariableName}.containsKey(key))
+{
+    var current = ${resultsVariableName}.get(key);
+
+    // Modify this expression to alter the decision
+    // about whether the row is included.
+#if ($aggregation eq "maximum")
+    put = (row["${aggregationKey}"] > current["${aggregationKey}"]);
+#elseif ($aggregation eq "minimum")
+    put = (row["${aggregationKey}"] < current["${aggregationKey}"]);
+#end
+}
+else
+{
+    put = true;
+}
+
+// Add the row to the table that will be carried into the
+// scripted data set.
+if (put)
+{
+    var bundle = new Object();
+    for (var i = 0; i < row.columnDefns.length; i++)
+    {
+        var name = row.columnDefns[i].name;
+        bundle[name] = row[name];
+    }
+    
+    ${resultsVariableName}.put(key, bundle);
+}

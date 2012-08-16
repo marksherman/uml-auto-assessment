@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/jes/AVIDemo.jar"/>
+	<classpathentry kind="lib" path="src/jes/customizer.jar"/>
+	<classpathentry kind="lib" path="src/jes/jl1.0.jar"/>
+	<classpathentry kind="lib" path="src/jes/jmf.jar"/>
+	<classpathentry kind="lib" path="src/jes/junit.jar"/>
+	<classpathentry kind="lib" path="src/jes/jython.jar"/>
+	<classpathentry kind="lib" path="src/jes/mediaplayer.jar"/>
+	<classpathentry kind="lib" path="src/jes/multiplayer.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

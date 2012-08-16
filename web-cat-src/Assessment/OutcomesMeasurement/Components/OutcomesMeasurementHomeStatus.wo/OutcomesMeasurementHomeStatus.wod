@@ -1,0 +1,7 @@
+SelectUser: WCFilteringSelect {
+    list          = allUsers;
+    selection     = thisUser;
+    item          = aUser;
+    autoComplete   = true;
+    invalidMessage = "Invalid user selection";
+}

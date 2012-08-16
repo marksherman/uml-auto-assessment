@@ -1,0 +1,4 @@
+ProgressBar: org.webcat.core.ProgressBar {
+    value = task.stepsCompletedSoFar;	// VALID
+    valueMax = task.totalNumberOfSteps; // VALID
+}

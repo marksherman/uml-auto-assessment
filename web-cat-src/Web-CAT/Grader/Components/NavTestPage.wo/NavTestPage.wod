@@ -1,0 +1,5 @@
+Page : org.webcat.core.WCPageWithNavigation {
+}
+
+Navigator: org.webcat.grader.GraderNavigator {
+}

@@ -1,0 +1,28 @@
+<webobject name="Page"><wo:if condition="$semesters.count">
+<script language="JavaScript">
+<!--
+function submitForm() { document.WizardForm.submit(); }
+//-->
+</script>
+Show courses for: <wo name="SemesterList"/>
+</wo:if><webobject name="TeachingCourses"><p>You are an
+<b>instructor</b> or <b>TA</b> for these courses:</p>
+<div class="shadow"><table><thead><tr><th>&nbsp;</th><th>Course</th><th>Name</th></tr></thead><tbody>
+<webobject name="TeachingRepetition">
+<webobject name="TR">
+<td><webobject name="RadioButton1"/></td>
+<td><webobject name="CompactName"/></td>
+<td><webobject name="CourseName"/></td>
+</webobject></webobject></tbody></table></div><div class="spacer">&nbsp;</div>
+</webobject><webobject name="NotTeachingCourses">
+<p>You are not currently registered as the <b>instructor</b> or <b>TA</b> for any courses<wo:if condition="$semester"> in the selected semester</wo:if>.</p>
+</webobject><webobject name="HasAdminCourses">You have
+<b>administrative access</b> to these courses:<p>
+<div class="shadow"><table><thead><tr><th>&nbsp;</th><th>Course</th><th>Name</th></tr></thead><tbody>
+<webobject name="AdminRepetition">
+<webobject name="TR">
+<td><webobject name="RadioButton2"/></td>
+<td><webobject name="CompactName"/></td>
+<td><webobject name="CourseName"/></td>
+</webobject></webobject></tbody></table></div></p>
+</webobject></webobject>

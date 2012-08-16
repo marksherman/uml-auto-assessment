@@ -1,0 +1,33 @@
+Page : WCPageWithNavigation {
+    title = "Mass Regrader";
+}
+
+Navigator: org.webcat.grader.GraderNavigator {
+}
+
+AssignmentName: WOString {
+    value = prefs.assignmentOffering.titleString;
+}
+
+SubmissionQualifier : WCSimpleTextArea {
+    cols = 60;
+    rows = 4;
+    value = qualifierString;
+}
+
+QualifierErrors: org.webcat.core.ErrorDictionaryPanel {
+    errorMessages          = qualifierErrors;
+    shouldShowNewlineAbove = true;
+    shouldShowNewlineBelow = true;
+}
+
+Regrade : WCButton {
+    label = "Add to Grading Queue";
+    remote = true;
+    action = massRegrade;
+}
+
+EnqueueProgressBar: WCDiv {
+    dojoType = "dijit.ProgressBar";
+    progress = enqueueProgress;
+}

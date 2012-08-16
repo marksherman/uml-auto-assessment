@@ -1,0 +1,45 @@
+{
+    attributes = (
+        {
+            allowsNull = N;
+            columnName = departmentId;
+            name = departmentId;
+            prototypeName = foreignId;
+        },
+        {allowsNull = N; name = id; prototypeName = id; },
+        {columnName = name; name = name; prototypeName = tinyText; }
+    );
+    attributesUsedForLocking = (departmentId, name);
+    className = "org.webcat.outcomesmeasurement.Program";
+    classProperties = (department, name, outcomeSets, programOutcomes);
+    externalName = Program;
+    fetchSpecificationDictionary = {};
+    name = Program;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            destination = Department;
+            isMandatory = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = departmentId; });
+            name = department;
+        },
+        {definition = "programOutcomeSets.outcomeSet"; name = outcomeSets; },
+        {
+            destination = ProgramOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = programId; sourceAttribute = id; });
+            name = programOutcomes;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = ProgramOutcomeSet;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = programOid; sourceAttribute = id; });
+            name = programOutcomeSets;
+            propagatesPrimaryKey = Y;
+        }
+    );
+}

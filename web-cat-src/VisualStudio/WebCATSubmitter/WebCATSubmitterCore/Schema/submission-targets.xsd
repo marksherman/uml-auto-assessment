@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	This file is part of the Web-CAT Electronic Submission engine for the
+  .NET Framework.
+
+	Web-CAT is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	Web-CAT is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with Web-CAT; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+-->
+<xs:schema id="submission-targets"
+           targetNamespace="http://web-cat.cs.vt.edu/submissionTargets"
+           elementFormDefault="qualified"
+           xmlns="http://web-cat.cs.vt.edu/submissionTargets"
+           xmlns:st="http://web-cat.cs.vt.edu/submissionTargets"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- ATTRIBUTE GROUP DECLARATIONS -->
+  
+  <!--
+	Attribute group: fileElement
+	Used by: <include>, <exclude>, <required>
+	===
+	Contains a single required "pattern" attribute that specifies the
+	DOS- or Unix-style file pattern used to match a file or files in the
+	submission.
+  -->
+  <xs:attributeGroup name="fileElement">
+    <xs:attribute name="pattern" type="xs:string" use="required" />
+  </xs:attributeGroup>
+
+  <!--
+
+  -->
+  <xs:attributeGroup name="paramElement">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:attributeGroup>
+
+  <!--
+	Attribute group: filterAmbiguityElement
+	Used by: <filter-ambiguity>
+	===
+	Contains a single required "choice" attribute that is one of the following
+	two values: "include" or "exclude".  
+  -->
+  <xs:attributeGroup name="filterAmbiguityElement">
+    <xs:attribute name="choice" type="filterAmbiguityChoice" use="required" />
+  </xs:attributeGroup>
+
+  
+  <!-- SIMPLE TYPE DECLARATIONS -->
+
+  <!--
+
+  -->
+  <xs:simpleType name="filterAmbiguityChoice">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="include" />
+      <xs:enumeration value="exclude" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- GROUP DECLARATIONS -->
+
+  <!--
+	Group: assignmentContainer
+	Used by: <submission-targets>, <assignment-group>
+	===
+	Contains all the elements used to define an assignment group.
+  -->
+  <xs:group name="assignmentContainer">
+    <xs:sequence>
+      <xs:element ref="filter-ambiguity" minOccurs="0" maxOccurs="1" />
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="include" minOccurs="0" />
+        <xs:element ref="exclude" minOccurs="0" />
+        <xs:element ref="required" minOccurs="0" />
+      </xs:choice>
+      <xs:element ref="packager" minOccurs="0" maxOccurs="1" />
+      <xs:element ref="transport" minOccurs="0" maxOccurs="1" />
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="assignment"/>
+        <xs:element ref="assignment-group"/>
+        <xs:element ref="import-group"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
+  
+  <!-- ELEMENTS -->
+
+  <!--
+	<submission-targets>
+	===
+	The root element.  For now, it is identical to an <assignment-group>, but
+	the distinction is kept for future possible revisions, so that global
+	information may be added to the root element, if desired.  
+  -->
+  <xs:element name="submission-targets">
+    <xs:complexType>
+      <xs:group ref="assignmentContainer" />
+    </xs:complexType>
+  </xs:element>
+  
+  <!--
+	<include>, <exclude>, <required>
+	===
+	Specify file patterns for particular types of files.  They all share a
+	common attribute group - a single required "pattern" attribute, of type
+	"string".
+  -->
+  <xs:element name="include">
+    <xs:complexType>
+      <xs:attributeGroup ref="fileElement" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="exclude">
+    <xs:complexType>
+      <xs:attributeGroup ref="fileElement" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="required">
+    <xs:complexType>
+      <xs:attributeGroup ref="fileElement" />
+    </xs:complexType>
+  </xs:element>
+
+  <!--
+	<filter-ambiguity>
+	===
+	Specifies which filter (include or exclude) should be preferred if a
+	file in the project being packaged satisfies both an inclusion and an
+	exclusion filter at the same level of the tree, or if there is no match
+	for a file when the root of the tree is reached. If this tag is omitted,
+	the default behavior depends on whether the ambiguity is at the root or
+	not:
+	
+	* If a file matches both an <include> and an <exclude> tag at a non-root
+	  node, exclusion takes preference over inclusion in the absence of the
+	  <filter-ambiguity> tag. If a file matches neither an <include> nor an
+	  <exclude> tag at a non-root node, then control passes to the parent
+	  node to determine the inclusion/exclusion of the file.
+
+	* If a file matches both an <include> and an <exclude> tag at the root
+	  node, exclusion takes preference over inclusion in the absence of the
+	  <filter-ambiguity> tag. If a file matches neither an <include> nor an
+	  <exclude> tag at the root node, then the file is included, UNLESS there
+	  are ANY <include> tags at the root; in this case, the file is excluded.
+	  
+	  This means that essentially, by default everything is included at the
+	  root, unless the user specifies explicit inclusions, in which case
+	  everything but those patterns is excluded. These root settings can be
+	  overridden by specifying inclusions and exclusions at lower levels in
+	  the tree.  
+  -->
+  <xs:element name="filter-ambiguity">
+    <xs:complexType>
+      <xs:attributeGroup ref="filterAmbiguityElement" />
+    </xs:complexType>
+  </xs:element>
+
+  
+  <!--
+	<assignment-group>
+	===
+	An <assignment-group> can contain other assignment groups and assignments.
+	The user-interface should display these as a "folder" or other container
+	in a hierarchical structure.
+	
+	An assignment group has an optional name, a "hidden" attribute for
+	user-interface purposes, and it can contain <include>, <exclude>,
+	<required>, <packager>, and <transport> elements that override or
+	supplement the settings in the parent node.
+  -->
+  <xs:element name="assignment-group">
+    <xs:complexType>
+      <xs:group ref="assignmentContainer" />
+      <xs:attribute name="name" use="optional" />
+      <xs:attribute name="hidden" use="optional" default="false" />
+    </xs:complexType>
+  </xs:element>
+
+  
+  <!--
+	<import-group>
+	===
+	An <import-group> is an assignment group that is contained in another
+	XML file.  This other file is a full-fledged submission targets file
+	with its own <submission-targets> root element - the definitions in
+	that file are folded into a new group at the position of this
+	element.
+	
+	Imported groups are delay-loaded - that is, the submission engine will
+	not load the definitions at the specified URL until information about
+	this group is queried, if at all.
+	
+	An imported group has a required name, a "hidden" attribute for
+	user-interface purposes, and a "ref" attribute that contains the URL
+	from with the definitions will be loaded.  An imported group element
+	has no children of its own.  
+  -->
+  <xs:element name="import-group">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" />
+      <xs:attribute name="hidden" use="optional" default="false" />
+      <xs:attribute name="href" use="required" type="xs:anyURI" />
+    </xs:complexType>
+  </xs:element>
+
+
+  <!--
+	<assignment>
+	===
+	Refers to a single assignment.  This element is similar to an assignment
+	group, but it cannot contain other assignment groups or assignments.
+	Additionally, the "name" attribute in an assignment is required.
+  -->
+  <xs:element name="assignment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="filter-ambiguity" minOccurs="0" maxOccurs="1" />
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="include" minOccurs="0" />
+          <xs:element ref="exclude" minOccurs="0" />
+          <xs:element ref="required" minOccurs="0" />
+        </xs:choice>
+        <xs:element ref="packager" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="transport" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="hidden" use="optional" default="false"/>
+    </xs:complexType>
+  </xs:element>
+
+  
+  <!--
+	<transport>
+	===
+	Contains a required "uri" attribute which identifies the transport
+	mechanism for the submission, as well as an optional sequence of
+	<param> and <file-param> elements that are used to pass information to
+	the transport mechanism.  
+  -->
+  <xs:element name="transport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="param" />
+          <xs:element ref="file-param" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="uri" type="xs:anyURI" />
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <!--
+	<packager>
+	===
+	Contains a required attribute "id" which identifies the packager to use
+	(should be registered as an extension in Eclipse), and also contains an
+	optional sequence of <param> elements that are used to pass information
+	to the packager.
+  -->
+  <xs:element name="packager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="param" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!--
+
+  -->
+  <xs:element name="param">
+    <xs:complexType>
+      <xs:attributeGroup ref="paramElement" />
+    </xs:complexType>
+  </xs:element>
+
+  <!--
+  
+  -->
+  <xs:element name="file-param">
+    <xs:complexType>
+      <xs:attributeGroup ref="paramElement" />
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

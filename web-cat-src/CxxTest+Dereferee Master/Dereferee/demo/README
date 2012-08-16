@@ -1,0 +1,21 @@
+Dereferee interactive demo
+==========================
+This demo application is provided to give users a quick look at the enhanced
+diagnostics that Dereferee offers.
+
+The application displays a list of memory errors that you can choose to
+induce. After making a selection, the lines of code that will be executed
+will be displayed, and then they will be executed. Any errors or warnings
+that are generated will be displayed, along with a stack trace that shows
+the context of the error.
+
+Some of the choices in the demo induce unrecoverable errors. After Dereferee
+prints the error diagnostic, in some cases it has no alternative but to
+attempt the operation (for example, the dereferencing of a pointer inside
+an expression). Any raised signal that you may see during the demo as a
+result of this is normal and does not represent a bug in the demo. If the
+error was not fatal, you will see a memory usage report before the demo
+application exits.
+
+The source code for this demo can be found in pretty-printed interactive
+form at <http://www.web-cat.org/>.

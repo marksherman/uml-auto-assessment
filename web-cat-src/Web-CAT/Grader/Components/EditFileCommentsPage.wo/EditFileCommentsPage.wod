@@ -1,0 +1,64 @@
+Code: WOText {
+    rows  = 40;
+    cols  = 80;
+    value = codeWithComments;
+    name  = "source";
+    id    = "source";
+    style = "width:100%;";
+}
+
+CommentFormat: WCFilteringSelect {
+    list              = formats;
+    item              = aFormat;
+    selection         = commentFormat;
+    displayString     = formatLabel;
+//  noSelectionString = "Select from your files ...";
+}
+
+Comments: WCSimpleTextArea {
+    rows  = 15;
+    cols  = 80;
+    value = fileStats.submissionResult.comments;
+}
+
+DiscardAndGo: WCButton {
+    action = goToSelectedDestination;
+    label = "Discard Changes and Go";
+    class = "neg";
+}
+
+FileList: WCFilteringSelect {
+    list = filesDisplayGroup.displayedObjects;
+    item = file;
+    selection = selectedFile;
+    displayString = file.sourceFileName;
+    noSelectionString = "Overall summary of results";
+    style = "width: 15em;";
+}
+
+Form: WCForm {
+    multipleSubmit = true;
+    enctype="multipart/form-data";
+}
+
+History: WOHiddenField {
+    name = "history";
+    value = prefs.commentHistory;
+}
+
+SaveAndGo: WCButton {
+    action = saveChanges;
+    label = "Go";
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+    // /wc-code.css is added to the text box in the java class
+    extraCssFiles        = "Grader.framework/WebServerResources/htmlarea/htmlarea.css";
+    inlineHeaderContents = javascriptText;
+}
+
+ResultInfo: org.webcat.grader.SubmissionResultInfo {
+    showFileInfo = true;
+    submission = fileStats.submissionResult.submission;
+    submissionFileStats = fileStats;
+}

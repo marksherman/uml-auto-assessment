@@ -1,0 +1,57 @@
+JSONRPCJs: WOGenericContainer {
+    elementName = "script";
+    type = "text/javascript";
+    src = "~resourceUrl(\"Ajax.framework/WebServerResources/jsonrpc.js\")";
+}
+
+DojoCss: WOGenericElement {
+    elementName = "link";
+    rel         = "stylesheet";
+    type        = "text/css";
+    href        = "~resourceUrl(\"Core.framework/WebServerResources/dojo/resources/dojo.css\")";
+}
+
+DojoBaseUrl: WOString {
+    value = dojoBaseUrl;
+}
+
+DojoJs: WOGenericContainer {
+    elementName = "script";
+    type        = "text/javascript";
+    src         = "~resourceUrl(\"Core.framework/WebServerResources/dojo/\" + dojoScriptName)";
+}
+
+DojoThemeCss: WOGenericElement {
+    elementName = "link";
+    rel         = "stylesheet";
+    type        = "text/css";
+    href        = "~resourceUrl(\"Core.framework/WebServerResources/dijit/themes/\" + theme.dojoTheme + \"/\" + theme.dojoTheme + \".css\")";
+}
+
+DojoxFileInputCss: WOGenericElement {
+    elementName = "link";
+    rel         = "stylesheet";
+    type        = "text/css";
+    href        = "~resourceUrl(\"Core.framework/WebServerResources/dojox/form/resources/FileInput.css\")";
+}
+
+WebcatDojoCss: WOGenericElement {
+    elementName = "link";
+    rel         = "stylesheet";
+    type        = "text/css";
+    href        = "~resourceUrl(\"Core.framework/WebServerResources/webcat/themes/webcat.css\")";
+}
+
+PageSpecificCss: WOGenericElement {
+    elementName = "link";
+    rel         = "stylesheet";
+    type        = "text/css";
+    href        = "~resourceUrl(pageFramework + \".framework/WebServerResources/\" + pageSpecificStylesheetPath)";
+}
+
+PageSpecificJs: WOGenericContainer {
+    elementName = "script";
+    type        = "text/javascript";
+    src         = "~resourceUrl(pageFramework + \".framework/WebServerResources/\" + pageSpecificJavascriptPath)";
+}
+

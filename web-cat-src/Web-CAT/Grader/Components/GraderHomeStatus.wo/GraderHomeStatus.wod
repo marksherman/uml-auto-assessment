@@ -1,0 +1,78 @@
+AssignmentHasSuspendedSubs: WOConditional {
+    condition = assignmentOfferingHasSuspendedSubs;
+}
+
+AssignmentIsUnpublished: WOConditional {
+    condition = assignmentOffering.publish;
+    negate = true;
+}
+
+AssignmentLink: WOHyperlink {
+    string = "~assignmentOffering.titleString(coreSelections.semester)";
+    href   = assignmentOffering.assignment.url;
+}
+
+AssignmentName: WOString {
+    value = "~assignmentOffering.titleString(coreSelections.semester)";
+}
+
+DueDate: WOString {
+    formatter = session.timeFormatter;
+    value     = assignmentOffering.dueDate;
+}
+
+HasAssignments: WOConditional {
+    condition = courses.displayedObjects.count;
+}
+
+HasEnqueuedJobs: WOConditional {
+    condition = enqueuedJobGroup.displayedObjects.count;
+}
+
+IsFacultyUser: WOConditional {
+    condition = session.user.hasFacultyPrivileges;
+}
+
+HasNoAssignments: WOConditional {
+    condition = courses.displayedObjects.count;
+    negate    = true;
+}
+
+IsAdminUser: WOConditional {
+    condition = session.user.hasAdminPrivileges;
+}
+
+JobAssignmentName: WOHyperlink {
+    string = "~job.submission.assignmentOffering.titleString(coreSelections.semester)";
+    href   = job.submission.assignmentOffering.assignment.url;
+    target = "_new";
+}
+
+JobSubmissionTime: WOString {
+    formatter = session.timeFormatter;
+    value     = job.submission.submitTime;
+}
+
+SubmitNumber: WOString {
+    value = job.submission.submitNumber;
+}
+
+SuspendedCount: WOString {
+    value = assignmentOffering.suspendedSubmissionsInQueue.count;
+}
+
+TR : org.webcat.core.TableRow {
+    index       = index;
+}
+
+TR2 : org.webcat.core.TableRow {
+    index       = index;
+    showCaution = assignmentOffering.isLate;
+    showError   = assignmentOffering.gradingSuspended;
+}
+
+UpcomingAssignmentRepetition: WORepetition {
+    item  = assignmentOffering;
+    list  = upcomingAssignmentsGroup.displayedObjects;
+    index = index;
+}

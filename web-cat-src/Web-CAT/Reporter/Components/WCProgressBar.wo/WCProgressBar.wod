@@ -1,0 +1,4 @@
+Bar: WCDiv {
+    dojoType = "dijit.ProgressBar";
+    progress = percentLabel;
+}

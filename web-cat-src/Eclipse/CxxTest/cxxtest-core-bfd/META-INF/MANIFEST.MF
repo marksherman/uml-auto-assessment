@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CxxTest Extensions for Stack Tracing (BFD)
+Bundle-SymbolicName: net.sf.webcat.eclipse.cxxtest.bfd;singleton:=true
+Bundle-Version: 1.6.0
+Fragment-Host: net.sf.webcat.eclipse.cxxtest;bundle-version="1.6.0"
+Require-Bundle: net.sf.webcat.eclipse.cxxtest.framework,
+ org.eclipse.core.resources,
+ org.eclipse.cdt.managedbuilder.core,
+ org.eclipse.ui,
+ org.eclipse.cdt.managedbuilder.gnu.ui;bundle-version="5.0.100"
+Bundle-Vendor: Virginia Tech Computer Science
+Eclipse-PlatformFilter: (!(osgi.os=macosx))
+Bundle-ClassPath: cxxtest-bfd.jar
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

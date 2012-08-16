@@ -1,0 +1,60 @@
+RPC: WCJSONRPC {
+    name = idFor.JSONRPC;
+    proxyName = "page";
+}
+
+CourseTree: WCTree {
+    id = idFor.courseTree;
+    treeModel = courseModel;
+    settingsKey = "Reporter_CourseAndAssignmentSubmissionsAssistant";
+    canSelectItems = true;
+    multipleSelection = true;
+    initialExpandDepth = 1;
+    onSelectionChanged = onCourseTreeSelectionChangedScript;
+}
+
+CourseTreeSelectionChanged: WCActionFunction {
+    jsId = idFor.courseTreeSelectionChanged;
+    action = courseTreeSelectionChanged;
+    remote = true;
+}
+
+AssignmentPane: WCContentPane {
+    id = idFor.assignmentPane;
+    style = "border: 1px solid gray; overflow: auto; max-height: 250px; height: 250px";
+}
+
+AssignmentTree: WCTree {
+    id = idFor.assignmentTree;
+    treeModel = assignmentModel;
+    canSelectItems = true;
+    multipleSelection = true;
+    initialExpandDepth = 1;
+}
+
+AssignmentInfo: org.webcat.core.PopUpInfo {
+    title   = "Assignments";
+    message = "The assignments listed here are those that belong to <b>any</b> of the courses chosen to the left.";
+}
+
+SubmissionForGradingInfo: org.webcat.core.PopUpInfo {
+    title   = "Submission For Grading";
+    message = "The <b>submission for grading</b> for a student is the one that has been manually graded by the instructor or TA, if any. If none have yet been manually graded, the most recent submission by that student is used.";
+}
+
+IncludeAllSubmissions: WCRadioButton {
+    name = "includeWhichSubmissions";
+    value = false;
+    selection = model.includeOnlySubmissionsForGrading;
+}
+
+IncludeGradedSubmissions: WCRadioButton {
+    name = "includeWhichSubmissions";
+    value = true;
+    selection = model.includeOnlySubmissionsForGrading;
+}
+
+IncludeCourseStaff: WCCheckBox {
+    name = "includeCourseStaff";
+    checked = model.includeCourseStaff;
+}

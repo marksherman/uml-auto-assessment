@@ -1,0 +1,51 @@
+<wo name="Page">
+<style>
+.changeSelectionBox
+{
+    padding: 8px;
+    font-size: 100%;
+    line-height: 120%;
+    border: 1px solid #AAA;
+    background-color: white;
+    width: 12em;
+}
+</style>
+
+<wo:WCForm multipleSubmit="$true">
+
+<wo:WCPageModule title="Identification and Rendering">
+<div class="floatLeft">Generating report template <span class="hl"><wo:str value="$localReportTemplate.name"/> (v<wo:str value="$localReportTemplate.version" />)</span></div>
+<div class="floatRight">
+    <div class="changeSelectionBox">
+        To choose a different template, <wo name="ChangeReportTemplate">click here.</wo>
+    </div>
+</div>
+<div class="clear">&nbsp;</div>
+<p>
+You can enter a title for the generated report here, which will be used to identify the
+report when viewing it later. If you leave this blank, the name of the report template
+will be used.<br/>
+<wo:WCTextBox size="60" value="$reportDescription"/>
+</p>
+</wo:WCPageModule>
+
+<!-- data sets -->
+<wo:loop list="$localReportTemplate.dataSets" item="$dataSet" index="$dataSetIndex">
+<wo:WCPageModule title="$titleForDataSetPageModule">
+<wo name="QueryBuilder"/>
+</wo:WCPageModule>
+</wo:loop>
+
+<!-- parameters -->
+<wo:if condition="$localReportTemplate.parameters.count">
+<wo:WCPageModule title="Report Parameters">
+<wo:loop list="$localReportTemplate.parameters" item="$parameter">
+<wo name="ReportParameter" />
+</wo:loop>
+</wo:WCPageModule>
+</wo:if>
+
+<wo name="GenerateReport"/>
+
+</wo:WCForm>
+</wo>

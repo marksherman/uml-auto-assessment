@@ -1,0 +1,14 @@
+{
+    allObjectsOrderedByDisplayableName = {
+        class = WCFetchSpecification;
+        entityName = AuthenticationDomain;
+        prefetchingRelationshipKeyPaths = ();
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = displayableName;
+                selectorName = compareCaseInsensitiveAscending;
+            }
+        );
+    };
+}

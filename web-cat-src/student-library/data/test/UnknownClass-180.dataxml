@@ -1,0 +1,13 @@
+<student.web.internal.tests.support.UnknownClassInside fieldset="true" id="739b5b63-41e7-4e10-ad0e-402186523d22">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+  <string>addedOther</string>
+  <NOT_REAL fieldset="true" id="739b5b63-41e7-4e10-ad0e-402186523d23">
+  <no-comparator/>
+            <java.util.Map_-Entry>
+            <string>notreallyhere</string>
+            <string>Mike Woods</string>
+          </java.util.Map_-Entry>
+  </NOT_REAL>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.UnknownClassInside>

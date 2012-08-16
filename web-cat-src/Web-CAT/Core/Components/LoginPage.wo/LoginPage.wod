@@ -1,0 +1,85 @@
+AuthList:  WOPopUpButton {
+    list              = domainDisplayGroup.allObjects;
+    selection         = domain;
+    item              = domainItem;
+    displayString     = domainItem.displayableName;
+    noSelectionString = "Choose your institution";
+    name              = "AuthenticationDomain";
+    id                = "AuthenticationDomain";
+}
+
+BarePage : org.webcat.ui.WCBasePage {
+    title = "Login";
+}
+
+Errors: org.webcat.core.ErrorDictionaryPanel {
+    errorMessages          = errors;
+    shouldShowNewlineAbove = true;
+    shouldShowNewlineBelow = true;
+}
+
+ExtraKey: WOHiddenField {
+    name  = aKey;
+    value = aKeyValue;
+}
+
+ExtraKeys: WORepetition {
+    list = extraKeys.allKeys;
+    item = aKey;
+}
+
+Footer: org.webcat.core.Footer {}
+
+HasSpecificAuthDomain: WOConditional {
+    condition = hasSpecificAuthDomain;
+}
+
+HasMOTD: WOConditional {
+    condition = application.properties.coreMotd;
+}
+
+HiddenAuthDomain: WOHiddenField {
+    name  = "d";
+    value = specificAuthDomainName;
+}
+
+LoginForm: WOForm {
+    href = application.properties.base.url; // VALID // loginDirectAction;
+}
+
+MOTD: WOString {
+    value = application.properties.coreMotd;
+    escapeHTML = false;
+}
+
+PoweredByWO: WOImage {
+    alt       = "Powered By WebObjects";
+    title     = "Powered By WebObjects";
+    border    = "0";
+    filename  = "PoweredByWebObjects.gif";
+    framework = "JavaWOExtensions";
+    height    = "34";
+    name      = "Powered By WebObjects";
+    width     = "125";
+}
+
+NeedsAuthList: WOConditional {
+    condition = multipleAuthDomains;
+}
+
+UserName: WOTextField {
+    value = userName;
+//    dojoType = "dijit.form.TextBox";
+    name  = "UserName";
+    id    = "UserName";
+    class = "dijit dijitReset dijitLeft dijitTextBox fakeControl";
+    widgetid = "UserName";
+}
+
+UserPassword: WOPasswordField {
+    value = password;
+//    dojoType = "dijit.form.TextBox";
+    name  = "UserPassword";
+    id    = "UserPassword";
+    class = "dijit dijitReset dijitLeft dijitTextBox fakeControl";
+}

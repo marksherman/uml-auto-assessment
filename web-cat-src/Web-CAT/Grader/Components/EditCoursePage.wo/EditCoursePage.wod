@@ -1,0 +1,182 @@
+AddInstructor: WOImageButton {
+    filename = "images/add-sm-btn.gif";
+    action   = addInstructor;
+    border   = "0";
+    width    = "46";
+    height   = "17";
+    alt      = "Add another instructor";
+    title    = "Add another instructor";
+    class    = "icon";
+}
+
+AddTA: WOImageButton {
+    filename = "images/add-sm-btn.gif";
+    action   = addTA;
+    border   = "0";
+    width    = "46";
+    height   = "17";
+    alt      = "Add another grader/TA";
+    title    = "Add another grader/TA";
+    class    = "icon";
+}
+
+CanDelete: WOConditional {
+    condition = "~!courseOffering.isNewObject && courseOffering.canDelete";
+}
+
+CourseList: WCFilteringSelect {
+    list          = courseDisplayGroup.allObjects;
+    selection     = courseOffering.course;
+    item          = course;
+    displayString = course.deptNumberAndName;
+    style         = "width:25em;";
+    id            = "course";
+}
+
+CourseInfo: org.webcat.core.PopUpInfo {
+    title   = "Course";
+    message = "Use the Course drop-down list to change the course with which this offering is associated.";
+}
+
+CRN: WCTextBox {
+    value = courseOffering.crn;
+    id    = "CRN";
+}
+
+CRNInfo: org.webcat.core.PopUpInfo {
+    title   = "CRN";
+    message = "The CRN is a unique identifier for your course offering, distinguishing it from all others. CRN stands for <b>course request number</b>, and many universities have such numbers, although they may use a different name for them. If your university timetable has a unique ID number for course sections, we suggest you use that as the CRN value. Some universities use alphanumeric codes instead of numbers: the CRN can be alphanumeric, but it <b>must not be blank</b> and it <b>must be unique</b>.";
+}
+
+Email: WOHyperlink {
+    href = aUser.emailHref;
+    string = aUser.email;
+}
+
+InstructorRepetition: WORepetition {
+    item  = aUser;
+    list  = instructorDisplayGroup.displayedObjects;
+    index = index;
+}
+
+IsThisUser: WOConditional {
+    condition = matchesUser;
+}
+
+Label: WCTextBox {
+    value = courseOffering.label;
+    id    = "Label";
+}
+
+LabelInfo: org.webcat.core.PopUpInfo {
+    title   = "Label";
+    message = "Use this optional field to provide a brief (3-10 character) alternative label to use instead of the CRN when identifying this course offering to users.  Example labels: &quot;MWF&quot;, &quot;Thu lab&quot;, or &quot;M11:00&quot;.";
+}
+
+LastInstrTR: org.webcat.core.TableRow {
+    index = instructorDisplayGroup.displayedObjects.count;
+}
+
+LastTATR: org.webcat.core.TableRow {
+    index = TADisplayGroup.displayedObjects.count;
+}
+
+//MoodleGroupId: WOTextField {
+//	size = 8;
+//	numberformat = "0";
+//	value = courseOffering.moodleGroupId;
+//}
+
+MoodleGroupIdInfo: org.webcat.core.PopUpInfo {
+    title   = "Moodle Group Id";
+    message = "Offers experimental support for instructors testing out the Moodle-to-Web-CAT gateway.  Otherwise, leave it blank.";
+}
+
+MoodleId: WCTextBox {
+    numberformat = "0";
+    value        = courseOffering.moodleId;
+    id           = "moodleid";
+    style        = "width: 6em;";
+}
+
+MoodleIdInfo: org.webcat.core.PopUpInfo {
+    title   = "Moodle Id";
+    message = "Offers experimental support for instructors testing out the Moodle-to-Web-CAT gateway.  Otherwise, leave it blank.";
+}
+
+Name: WOHyperlink {
+    href = aUser.url;
+    string = aUser.name;
+}
+
+NotThisUser: WOConditional {
+    condition = matchesUser;
+    negate    = true;
+}
+
+Page : PageWithCourseNavigation {
+    title = "Edit Course Properties";
+    allowsAllOfferingsForCourse = false;
+}
+
+RemoveInstructor: WOImageButton {
+    filename  = "icons/trash.gif";
+    framework = "Core";
+    action    = removeInstructor;
+    border    = "0";
+    width     = "14";
+    height    = "17";
+    title     = "Remove this instructor";
+    alt       = "Remove this instructor";
+    class     = "icon";
+}
+
+RemoveTA: WOImageButton {
+    filename  = "icons/trash.gif";
+    framework = "Core";
+    action    = removeTA;
+    border    = "0";
+    width     = "14";
+    height    = "17";
+    title     = "Remove this grader/TA";
+    alt       = "Remove this grader/TA";
+    class     = "icon";
+}
+
+SemesterInfo: org.webcat.core.PopUpInfo {
+    title   = "Semester";
+    message = "Use the Semester drop-down list to change the semester with which this offering is associated.";
+}
+
+SemesterList: WCFilteringSelect {
+    list      = semesters;
+    item      = aSemester;
+    selection = courseOffering.semester;
+    style     = "width:25em;";
+    id        = "semester";
+}
+
+TARepetition: WORepetition {
+    item  = aUser;
+    list  = TADisplayGroup.displayedObjects;
+    index = index;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+
+URL: WCTextBox {
+    value = courseOffering.url;
+    style = "width: 40em;";
+    id    = "URL";
+}
+
+URLInfo: org.webcat.core.PopUpInfo {
+    title   = "URL";
+    message = "Optionally, fill in the URL field with your course offering\'s home site on the web. If you enter a value in this field, then references to the course offering on other pages will be hyperlinks to this destination. If you leave it blank, those references will just be plain text, not hyperlinks.";
+}
+
+UserID: WOString {
+    value = aUser.userName;
+}

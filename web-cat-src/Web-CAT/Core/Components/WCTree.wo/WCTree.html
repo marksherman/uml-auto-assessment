@@ -1,0 +1,11 @@
+<wo name="ContentPane"><wo name="TableElement">
+<wo:content/>
+</wo>
+<wo:if condition="~canSelectItems and !multipleSelection">
+    <wo name="ShadowSelectionContainer"><wo name="ShadowSelection"/></wo>
+</wo:if>
+</wo>
+<wo:if condition="~canSelectItems and !multipleSelection">
+    <wo name="SingleSelectionChangedAction"/>
+    <wo name="ItemDoubleClickedAction"/>
+</wo:if>

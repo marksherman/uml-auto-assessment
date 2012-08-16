@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- $Id: plugin.xml,v 1.7 2010/09/20 14:17:35 aallowat Exp $ -->
+
+<plugin>
+   <extension-point id="emptyAppContextHandlers" name="Empty App Context Handlers" schema="schema/emptyAppContextHandlers.exsd"/>
+
+   <extension
+         point="org.eclipse.datatools.connectivity.oda.dataSource">
+      <dataSource
+            driverClass="org.webcat.oda.core.impl.Driver"
+            defaultDisplayName="%data.source.name"
+            setThreadContextClassLoader="false"
+            odaVersion="3.1"
+            id="net.sf.webcat.oda.core.dataSource">
+      </dataSource>
+      <dataSet
+            defaultDisplayName="%data.set.name"
+            id="net.sf.webcat.oda.core.dataSet">
+         <properties>
+            <propertyGroup
+                  defaultDisplayName="Data Set Properties"
+                  name="dataSetProperties">
+               <property
+                     canInherit="true"
+                     defaultDisplayName="Data Set ID"
+                     name="dataSetId"
+                     type="string">
+               </property>
+               <property
+                     canInherit="true"
+                     defaultDisplayName="Entity Type"
+                     name="entityType"
+                     type="string">
+               </property>
+               <property
+                     canInherit="true"
+                     defaultDisplayName="Maximum Rows"
+                     name="maxRows"
+                     type="string">
+               </property>
+            </propertyGroup>
+            <propertyVisibility
+                  name="queryText"
+                  visibility="hide">
+            </propertyVisibility>
+            <propertyVisibility
+                  name="dataSetId"
+                  visibility="hide">
+            </propertyVisibility>
+            <propertyVisibility
+                  name="entityType"
+                  visibility="hide">
+            </propertyVisibility>
+            <propertyVisibility
+                  name="maxRows"
+                  visibility="hide">
+            </propertyVisibility>
+         </properties>
+         <dataTypeMapping
+               nativeDataTypeCode="12"
+               odaScalarDataType="String"
+               nativeDataType="STRING">
+         </dataTypeMapping>
+         <dataTypeMapping
+               nativeDataTypeCode="4"
+               odaScalarDataType="Integer"
+               nativeDataType="INTEGER">
+         </dataTypeMapping>
+         <dataTypeMapping
+               nativeDataTypeCode="8"
+               odaScalarDataType="Double"
+               nativeDataType="FLOAT">
+         </dataTypeMapping>
+         <dataTypeMapping
+               nativeDataTypeCode="3"
+               odaScalarDataType="Decimal"
+               nativeDataType="DECIMAL">
+         </dataTypeMapping>
+         <dataTypeMapping
+               nativeDataTypeCode="93"
+               odaScalarDataType="Timestamp"
+               nativeDataType="TIMESTAMP">
+         </dataTypeMapping>
+         <dataTypeMapping
+               nativeDataTypeCode="16"
+               odaScalarDataType="Boolean"
+               nativeDataType="BOOLEAN">
+         </dataTypeMapping>
+      </dataSet>
+   </extension>
+
+</plugin>

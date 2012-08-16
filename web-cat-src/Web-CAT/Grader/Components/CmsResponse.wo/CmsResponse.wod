@@ -1,0 +1,10 @@
+KeyRepetition: WORepetition {
+    item = key;
+    list = paramDisplayGroup.displayedObjects;
+}
+
+Param: WOGenericContainer {
+    elementName = "param";
+    name        = key;
+    value       = keyValue;
+}

@@ -1,0 +1,392 @@
+.srcView {
+    font-size: 12px;
+    line-height: 130%;
+    color: black;
+    background-color: white;
+    border: 1px #dcdcdc solid;
+}
+.srcView table { margin: 0; }
+.srcView pre { padding-left: 10px; }
+
+.srcView a[id],
+.srcView a[id]:link,
+.srcView a[id]:visited,
+.srcView a[id]:hover,
+.srcView a[id]:active {
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    border: none;
+}
+
+
+/* To remove line-height spacing around vertical spacing images surrounding
+   message boxes in code listings.  */
+.srcView > tbody > tr > td > img { display: block; margin: 1px; }
+
+.srcView td {
+	margin: 0;
+	padding: 0;
+}
+
+td.reportHeader {
+    background:  #eff7ff;
+    padding:     5px;
+    font-weight: bold;
+    font-size:   12px;
+    border:      #dcdcdc 1px solid;
+}
+
+td.messageBox {
+    background: #eff7ff;
+    font-size:  12px;
+    padding:    5px;
+    border:     #dcdcdc 1px solid;
+}
+
+td.newMessageBox {
+    background: #eff7ff;
+    padding:    5px;
+    font-size:  12px;
+    border:     #dcdcdc 5px solid;
+}
+
+.titleText {
+    font-weight: bold;
+    font-size:   12px;
+}
+
+.srcView td.titleText {
+    background:   #eff7ff;
+    padding-left: 5px;
+}
+
+td.headerStats {
+    border-left: #dcdcdc 1px solid;
+}
+
+td.graphHeaderLeft {
+    background: #eff7ff;
+    border:     #dcdcdc 1px solid;
+}
+
+td.graphHeader {
+    background:    #eff7ff;
+    border-bottom: #dcdcdc 1px solid;
+    border-top:    #dcdcdc 1px solid;
+    border-right:  #dcdcdc 1px solid;
+}
+
+td.graphItem {
+    background: #ffffff;
+    border-bottom: #dcdcdc 1px solid;
+    border-left:   #dcdcdc 1px solid;
+    border-right:  #dcdcdc 1px solid;
+    padding-left:  15px;
+    padding-right: 15px;
+    font-weight:   bold;
+    font-size:     12px;
+}
+
+td.graphPercent {
+    background:    #ffffff;
+    border-bottom: #dcdcdc 1px solid;
+    border-right:  #dcdcdc 1px solid;
+}
+
+td.graphBarLeft {
+    background:    #ffffff;
+    border-bottom: #dcdcdc 1px solid;
+}
+
+td.graphBar {
+    background:    #ffffff;
+    border-bottom: #dcdcdc 1px solid;
+    border-right:  #dcdcdc 1px solid;
+    width:         100%;
+}
+
+td.hspacer {
+    border-bottom: #dcdcdc 1px solid;
+    border-top:    #dcdcdc 1px solid;
+}
+
+table.barGraph {
+    width: 100%;
+}
+
+td.empty {
+    font-size:  2px;
+    background: #c0c0c0;
+    border:     #9c9c9c 1px solid;
+}
+
+td.fullcover {
+    font-size:  2px;
+    background: #00df00;
+    border:     #9c9c9c 1px solid;
+}
+
+td.covered {
+    font-size:     2px;
+    background:    #00df00;
+    border-left:   #9c9c9c 1px solid;
+    border-top:    #9c9c9c 1px solid;
+    border-bottom: #9c9c9c 1px solid;
+}
+
+td.uncovered {
+    font-size:  2px;
+    background: #df0000;
+    border:     #9c9c9c 1px solid;
+}
+
+.srcView td.tabText {
+    padding-right: 12px;
+}
+
+div.timestamp {
+    font-size:    9px;
+    font-weight:  normal;
+    padding-left: 1px;
+}
+
+span.srcFile {
+    font-size: 9px;
+}
+
+.srcView td.lineCount {
+    background:    #F0F0F0;
+    border-right:  #dcdcdc 1px solid;
+    padding-right: 3px;
+}
+
+.srcView td.lineCountHilight {
+    background:    #C8C8F0;
+    border-right:  #dcdcdc 1px solid;
+    padding-right: 3px;
+}
+
+span.Hilight {
+    background: #C8C8F0;
+}
+
+.srcView td.srcCell, .srcView td.srcLine
+{
+    padding-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Inconsolata', fixed, monospace;
+}
+
+span.srcLine
+{
+    display: inline;
+    white-space: pre;
+    padding-left: 10px;
+}
+
+span.srcLineHilight
+{
+    display: inline;
+    white-space: pre;
+    padding-left: 10px;
+    background: #F0C8C8;
+}
+
+td.srcHilight {
+    background: #F0C8C8;
+}
+
+tr.Error {
+    background: #ff2222;
+}
+
+tr.Error td.srcLine,
+tr.Error td.srcCell {
+    color: white;
+}
+
+tr.Error span.srcLineHilight,
+tr.Error td.srcHilight {
+    color:      white;
+    background: #ff2222;
+}
+
+tr.Error td.srcLineClassStart {
+    color: white;
+    font-weight: normal;
+}
+
+tr.Warning {
+    background: #FFCC66;
+}
+
+tr.Warning span.srcLineHilight,
+tr.Warning td.srcHilight {
+    background: #FFCC66;
+}
+
+tr.Question {
+    background: #FF33FF;
+}
+
+tr.Question span.srcLineHilight,
+tr.Question td.srcHilight {
+    background: #FF33FF;
+}
+
+tr.Question td.srcLine,
+tr.Question td.srcCell {
+    color: white;
+}
+
+tr.Question td.srcLineClassStart {
+    color: white;
+    font-weight: normal;
+}
+
+tr.Suggestion {
+    background: #eeff44;
+}
+
+tr.Suggestion span.srcLineHilight,
+tr.Suggestion td.srcHilight {
+    background: #eeff44;
+}
+
+tr.Answer {
+    background: #CCCCFF;
+}
+
+tr.Answer span.srcLineHilight,
+tr.Answer td.srcHilight {
+    background: #CCCCFF;
+}
+
+tr.Good {
+    background: #33ff00;
+}
+
+tr.Good span.srcLineHilight,
+tr.Good td.srcHilight {
+    background: #33ff00;
+}
+
+tr.Extra_Credit {
+    background: #33ff00;
+}
+
+tr.Extra_Credit span.srcLineHilight,
+tr.Extra_Credit td.srcHilight {
+    background: #33ff00;
+}
+
+td.coverageCount {
+    background:    #F0F0F0;
+    border-right:  #dcdcdc 1px solid;
+    padding-right: 3px;
+}
+
+td.wholeLine {
+    background: #F0C8C8;
+}
+
+.srcView td.coverageCountHilight {
+    background:    #F0C8C8;
+    border-right:  #dcdcdc 1px solid;
+    padding-right: 3px;
+}
+
+td.srcLine,
+td.srcCell {
+    width: 100%;
+}
+
+td.srcLineClassStart {
+    width:       100%;
+    border-top:  #dcdcdc 1px solid;
+    font-weight: bold;
+}
+
+pre.srcLine {
+    margin-top:    0px;
+    margin-bottom: 0px;
+}
+
+td.footer {
+    border-top: #dcdcdc 1px solid;
+    font-size:  9px;
+}
+
+span.keyword {
+    color:       #0000ff;
+    font-weight: bold;
+}
+
+span.string {
+    color:       #aa22ff;
+    font-weight: bold;
+}
+
+span.comment {
+    color:      #00bb00;
+    font-style: italic;
+}
+
+td.srcLineClassStart span.keyword {
+    color:       #0088ff;
+    font-weight: bold;
+}
+
+tr.Error span.keyword {
+    color:       white;
+    font-weight: bold;
+}
+
+tr.Error span.string {
+    color:       white;
+}
+
+tr.Error span.comment {
+    color:      white;
+    font-style: italic;
+}
+
+tr.Question span.keyword {
+    color:       white;
+    font-weight: bold;
+}
+
+tr.Question span.string {
+    color:       white;
+}
+
+tr.Question span.comment {
+    color:      white;
+    font-style: italic;
+}
+
+tr.Error td.srcLineClassStart span.keyword {
+    color:       white;
+    font-weight: bold;
+}
+
+tr.Error td.srcLineClassStart span.string {
+    color:       white;
+}
+
+tr.Error td.srcLineClassStart span.comment {
+    color:      white;
+    font-style: italic;
+}
+
+tr.Question td.srcLineClassStart span.keyword {
+    color:       white;
+    font-weight: bold;
+}
+
+tr.Question td.srcLineClassStart span.comment {
+    color:      white;
+    font-style: italic;
+}

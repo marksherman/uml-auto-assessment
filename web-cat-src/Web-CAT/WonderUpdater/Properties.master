@@ -1,0 +1,33 @@
+# ===================================================================
+# WonderUpdater subsystem characteristics
+# ===================================================================
+subsystem.WonderUpdater=
+
+WonderUpdater.version.major=1
+WonderUpdater.version.minor=2
+WonderUpdater.version.revision=1
+
+WonderUpdater.copyright=\
+	(c) 2007-2010 Virginia Tech Department of Computer Science
+WonderUpdater.provider=Virginia Tech Computer Science
+WonderUpdater.provider.url=http\://web-cat.org/updates
+WonderUpdater.info.url=\
+	http\://web-cat.org/WCWiki/WonderUpdater
+WonderUpdater.history.url=\
+	http\://web-cat.org/WCWiki/WonderUpdater/ChangeHistory
+WonderUpdater.license=GNU Affero General Public License v.3
+WonderUpdater.license.url=http\://www.gnu.org/licenses/agpl.html
+
+WonderUpdater.alsoContains=\
+    Ajax.framework,\
+    ERJars.framework,\
+    ERExtensions.framework,\
+    ERDirectToWeb.framework,\
+    JavaWOExtensions.framework,\
+    WOOgnl.framework,\
+    WOUnitTest.framework
+
+WonderUpdater.description=\
+	This subsystem is a support wrapper that allows the embedded \
+	<a href="http://wonder.sourceforge.net/">Project WONDER</a> \
+	run-time files to be managed by Web-CAT's automatic update facility.

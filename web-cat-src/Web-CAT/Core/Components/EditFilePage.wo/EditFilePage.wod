@@ -1,0 +1,48 @@
+Cancel: WCButton {
+    label  = "Cancel";
+    action = cancelEdit;
+    class  = "neg";
+}
+
+FileContents: CodeEditor {
+    value = fileContents;
+    mimeType = fileMimeType;
+    //rows  = "30";
+    //cols  = "80";
+}
+
+Filename: WOString {
+    value = fileName;
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+    sideStepTitle = sideStepTitle;
+}
+
+SaveAndContinue: WCButton {
+    label  = "Save and Keep Editing";
+    action = saveAndContinue;
+}
+
+SaveAndDone: WCButton {
+    label  = "Save and Close File";
+    action = saveAndDone;
+    class  = "pos";
+}
+
+Time: WOString {
+    value     = lastModified;
+    formatter = session.timeFormatter;
+}
+
+WizardForm: WCForm {
+    multipleSubmit = true;
+    action         = saveAndDone;
+
+    // This works stand-alone, but not in a servlet
+    enctype        = "multipart/form-data";
+    name           = "WizardForm";
+
+    // So use this instead.
+//    otherTagString = "enctype=\"multipart/form-data\" name=\"WizardForm\"";
+}

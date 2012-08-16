@@ -1,0 +1,22 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Fri Mar 06 09:15:41 EST 2009
+timeoutMultiplier=2
+version.minor=6
+copyright="(c) 2006 Virginia Tech Department of Computer Science"
+requires=( PerlForPlugins )
+license.url="http\://www.gnu.org/copyleft/gpl.html"
+author="Stephen Edwards (edwards@cs.vt.edu)"
+executable=execute.pl
+license="GNU General Public License v.2"
+info.url="http\://web-cat.cs.vt.edu/WCWiki/PrologTddPlugin"
+interpreter.prefix="${PerlForPlugins.perl.exe}"
+languages=( { name \= "Prolog"; version \= "SWI-Prolog 5.x"; } )
+version.major=1
+version.date=20090306
+history.url="http\://web-cat.cs.vt.edu/WCWiki/PrologTddPlugin/ChangeHistory"
+timeoutInternalPadding=400
+provider="Virginia Tech Computer Science"
+authorUid=edwards
+provider.url="http\://web-cat.cs.vt.edu/updates"
+version.revision=1
+name=PrologTddPlugin

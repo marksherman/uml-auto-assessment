@@ -1,0 +1,15 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Fri Jan 06 22:09:52 EST 2012
+ExternalJars.version.major=1
+ExternalJars.provider.url=http\://web-cat.org/updates
+ExternalJars.history.url=http\://web-cat.org/WCWiki/ExternalJarsSubsystem/ChangeHistory
+ExternalJars.license.url=http\://www.gnu.org/licenses/agpl.html
+ExternalJars.description=This subsystem contains all of the external support jars used by Web-CAT ands its subsystems.  It provides for automatic update control over these jars.
+ExternalJars.license=GNU Affero General Public License v.3
+ExternalJars.info.url=http\://web-cat.org/WCWiki/ExternalJarsSubsystem
+subsystem.ExternalJars=
+ExternalJars.copyright=(c) 2007-2012 Virginia Tech Department of Computer Science
+ExternalJars.version.date=20120106
+ExternalJars.provider=Virginia Tech Computer Science
+ExternalJars.version.minor=1
+ExternalJars.version.revision=3

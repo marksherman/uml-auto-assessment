@@ -1,0 +1,4 @@
+**/*.eomodeld~/
+**/*.woa/**
+**/*.framework/**
+Resources/lib/Win32.pm

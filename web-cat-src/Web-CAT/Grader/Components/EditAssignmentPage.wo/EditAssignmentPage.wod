@@ -1,0 +1,295 @@
+AddStep: WCButton {
+    action = addStep;
+    label  = "Add";
+    remote = true;
+}
+
+CanDelete: WOConditional {
+    condition = "~!thisOffering.isNewObject && !thisOffering.hasStudentSubmissions";
+}
+
+CancelSubs: WCLink {
+    action = cancelSuspendedSubs;
+    remote = true;
+}
+
+ClearGraph: WCButton {
+    action = clearGraph;
+    label  = "Refresh";
+    remote = true;
+    style  = "margin-top:0;";
+}
+
+CourseOfferingSection: WCPageModule {
+    title = "~ \"Properties for \" + thisOffering.courseOffering.deptNumberAndName";
+}
+
+DeleteOffering: WCImageButton {
+    filename  = "icons/delete.png";
+    framework = "Core";
+    remote    = true;
+    action    = deleteOffering;
+    alt       = "Delete this assignment offering";
+    title     = "Delete this assignment offering";
+    class     = "icon";
+}
+
+DeletePopupInfo: PopUpInfo {
+    message = "An assignment offering cannot be deleted once students (not staff) begin making submissions.";
+}
+
+Description: WCTextBox {
+    style = "width: 40em;";
+    value = assignment.shortDescription;
+    id    = "title";
+}
+
+DescriptionInfo: org.webcat.core.PopUpInfo {
+    title   = "Title";
+    message = "Place the title of your assignment here, like &quot;Word Ladder Finder&quot;.  This value is used as a supplementary description when there is space to display more than just the name.";
+}
+
+DragHandle: WCDragHandle {
+    id = "dragHandle";
+}
+
+DueDate: WCDateTimePicker {
+     value      = dueDate;
+     dateformat = user.dateFormat;
+     timeformat = user.timeFormat;
+     timeZone   = timeZone;
+}
+
+EditStep: WCImageButton {
+    filename  = "icons/settings.png";
+    framework = "Core";
+    action    = editStep;
+    alt       = "Configure options for this step";
+    title     = "Configure options for this step";
+    class     = "icon";
+}
+
+EditSubmissionProfile: WOImageButton {
+    filename  = "icons/settings.png";
+    framework = "Core";
+    action    = editSubmissionProfile;
+    alt       = "Edit selected submission rules";
+    title     = "Edit selected submission rules";
+    class     = "icon";
+}
+
+GradingPluginsToAdd: WCDropDownList {
+    title         = "Select a plug-in to add...";
+    list          = gradingPluginsToAdd;
+    item          = gradingPluginToAdd;
+}
+
+GradingPluginMenuItem: WCDropDownItem {
+    action = addStep;
+    remote = true;
+}
+
+GradingStepsTable: WCStyledTable {
+    id           = "gradingStepsTable";
+    onDropMethod = "gradingStepsWereDropped";
+    moveOnly     = true;
+    accept       = "gradingStep";
+}
+
+Graph: org.webcat.grader.graphs.MiniBarGraph {
+    graphSummary = thisOffering.graphSummary;
+}
+
+LastTR: org.webcat.core.TableRow {
+    index = index;
+}
+
+LockDueDates: WCImageButton {
+    filename  = "icons/lock-unlock.png";
+    framework = "Core";
+    action    = lockDueDates;
+    remote    = true;
+    title     = "Force all due dates to be the same";
+    alt       = "Force all due dates to be the same";
+}
+
+Name: WCTextBox {
+    value = assignment.name;
+    id    = "name";
+}
+
+NameInfo: org.webcat.core.PopUpInfo {
+    title   = "Name";
+    message = "Use a short 1-3 word assignment name, like &quot;Program 1&quot; or &quot;Lab 04&quot;.  The name cannot be blank.  This name is used to construct human-readable directory names for the assignment, and is also used as a shorthand for referring to the assignment in student feedback.";
+}
+
+Navigator: org.webcat.grader.GraderNavigator {
+}
+
+NewSubmissionProfile: WCButton {
+    action = newSubmissionProfile;
+    label  = "New";
+}
+
+NumSuspended: WOString {
+    value = numSuspendedSubs;
+}
+
+Page: org.webcat.grader.PageWithAssignmentNavigation {
+    title = "Edit Assignment Properties";
+}
+
+RefreshScoreSummaries: WCImageButton {
+    filename  = "icons/refresh.png";
+    framework = "Core";
+    remote    = true;
+    action    = clearGraph;
+    alt       = "Refresh cached score summaries";
+    title     = "Refresh cached score summaries";
+    class     = "icon";
+}
+
+ReleaseSubs: WCLink {
+    action = releaseSuspendedSubs;
+    remote = true;
+}
+
+RemoveStep: WCImageButton {
+    filename  = "icons/delete.png";
+    framework = "Core";
+    action    = removeStep;
+    remote    = true;
+    alt       = "Remove this step";
+    title     = "Remove this step";
+    class     = "icon";
+}
+
+ScriptName: WOString {
+    value = thisStep.script.displayableName;
+}
+
+StepAllowsTimeout: WOConditional {
+    condition = stepAllowsTimeout;
+}
+
+StepRepetition: WORepetition {
+    item  = thisStep;
+    list  = scriptDisplayGroup.displayedObjects;
+    index = index;
+}
+
+SubmissionProfileInfo: org.webcat.core.PopUpInfo {
+    title   = "Submission Rules";
+    message = "The <b>submission rules</b> define the policy that governs acceptance of student submissions, including the points available, limits on the number or size of submissions, the applicable late policy, and any penalties for late submissions, etc.  Click the edit icon to edit the selected rules, or click the New button to create a new rule set.";
+}
+
+SubmissionProfileList: WCFilteringSelect {
+    list          = submissionProfileDisplayGroup.displayedObjects;
+    item          = submissionProfile;
+    displayString = submissionProfile.name;
+    selection     = assignment.submissionProfile;
+    id            = "policy";
+}
+
+SuspendInfo: org.webcat.core.PopUpInfo {
+    title   = "Suspend All Grading";
+    message = "When grading for an assignment is suspended, processing of any further submissions for an assignment is disabled. Any submissions made will be accepted and queued up, but will not be processed. If grading is suspended, when you click &quot;Resume Grading&quot;, all submissions that have been queued up will be processed.";
+}
+
+Timeout: WCTextBox {
+    numberformat = "0";
+    style        = "text-align: center; width: 4em";
+    value        = stepTimeout;
+}
+
+TogglePublished: WCLink {
+    action = togglePublished;
+    remote = true;
+}
+
+TogglePublishedIcon: WCImageButton {
+    action = togglePublished;
+    remote = true;
+    framework = "Core";
+    filename = iconForPublishedListItem;
+    class = "icon";
+}
+
+ToggleSuspended: WCLink {
+    action = toggleSuspended;
+    remote = true;
+}
+
+ToggleSuspendedIcon: WCImageButton {
+    action = toggleSuspended;
+    remote = true;
+    framework = "Grader";
+    filename = iconForSuspendedListItem;
+    class = "icon";
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+    dragHandle = "dragHandle";
+    dndType = "gradingStep";
+}
+
+TR2: org.webcat.core.TableRow {
+    index = index;
+    showCaution = upcomingOfferingIsLate;
+    showError   = upcomingOffering.gradingSuspended;
+}
+
+UnlockDueDates: WCImageButton {
+    filename  = "icons/lock.png";
+    framework = "Core";
+    action    = unlockDueDates;
+    remote    = true;
+    title     = "Allow offerings to have different due dates";
+    alt       = "Allow offerings to have different due dates";
+}
+
+UpcomingAssignmentName: WOHyperlink {
+    string = upcomingOffering.titleString;
+    href   = upcomingOffering.assignment.url;
+}
+
+UpcomingAssignmentRepetition: WORepetition {
+    item  = upcomingOffering;
+    list  = upcomingOfferings;
+    index = index;
+}
+
+UpcomingDueDate: WOString {
+    formatter = session.timeFormatter;
+    value     = upcomingOffering.dueDate;
+}
+
+UpcomingIsUnpublished: WOConditional {
+    condition = upcomingOffering.publish;
+    negate = true;
+}
+
+UploadInstructions: WCSimpleTextArea {
+    rows  = 8;
+    cols  = 60;
+    value = assignment.fileUploadMessage;
+    style = "width: 40em;";
+    id    = "instructions";
+}
+
+UploadInstructionsInfo: org.webcat.core.PopUpInfo {
+    title   = "Upload Instructions";
+    message = "Optionally, enter any assignment-specific instructions that you want students to see when they upload submissions through Web-CAT\'s web interface. Any content you insert here will be included in the HTML page where users select files to upload and submit. You can use full HTML markup in your instructions, which will be inserted unfiltered in the page students see. Note that these instructions will only be available to students who submit using their web browser--they will not be seen by students who submit from an IDE, such as BlueJ or Eclipse.";
+}
+
+URL: WCTextBox {
+    style = "width: 40em;";
+    value = assignment.url;
+    id    = "URL";
+}
+
+URLInfo: org.webcat.core.PopUpInfo {
+    title   = "URL";
+    message = "Place a URL to use for the assignment writeup.  If this optional value is set, the assignment name will be shown to students as an active hyperlink that targets this URL.";
+}

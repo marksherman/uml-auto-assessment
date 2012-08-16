@@ -1,0 +1,5 @@
+Navigator: org.webcat.core.CoreNavigator {
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+}

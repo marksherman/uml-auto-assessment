@@ -1,0 +1,82 @@
+{
+    attributes = (
+        {name = id; prototypeName = id; }, 
+        {columnName = CUSERID; name = userId; prototypeName = foreignId; }, 
+        {columnName = CDESCRIPTION; name = description; prototypeName = mediumText; }, 
+        {
+            columnName = CREPORTTEMPLATEID; 
+            name = reportTemplateId; 
+            prototypeName = foreignId; 
+        }, 
+        {
+            columnName = CCOMPLETE; 
+            name = isComplete; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {columnName = CGENERATEDTIME; name = generatedTime; prototypeName = dateTime; }, 
+        {
+            columnName = CERRORS; 
+            name = errors; 
+            prototypeName = mutableArray; 
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData; 
+                isMutable = true; 
+                valueClassName = "org.webcat.core.MutableArray"; 
+                valueFactoryMethodName = objectWithArchiveData; 
+            }; 
+        }, 
+        {
+            name = updateMutableFields; 
+            prototypeName = updateMutableFields; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }
+    ); 
+    attributesUsedForLocking = (userId, reportTemplateId, description, isComplete, updateMutableFields); 
+    className = "org.webcat.reporter.GeneratedReport"; 
+    classProperties = (
+        description, 
+        user, 
+        reportTemplate, 
+        isComplete, 
+        generatedTime, 
+        errors, 
+        updateMutableFields, 
+        dataSetQueries, 
+        reportGenerationJobs
+    ); 
+    externalName = TGENERATEDREPORT; 
+    name = GeneratedReport; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = User; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userId; }); 
+            name = user; 
+        }, 
+        {
+            destination = ReportTemplate; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = reportTemplateId; }); 
+            name = reportTemplate; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = ReportDataSetQuery; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = generatedReportId; sourceAttribute = id; }); 
+            name = dataSetQueries; 
+        }, 
+        {
+            destination = ReportGenerationJob; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = generatedReportId; sourceAttribute = id; }); 
+            name = reportGenerationJobs; 
+        }
+    ); 
+}

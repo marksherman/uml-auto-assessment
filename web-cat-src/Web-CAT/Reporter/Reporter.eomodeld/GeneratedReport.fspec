@@ -1,0 +1,60 @@
+{
+    completedReportsForUser = {
+        class = WCFetchSpecification;
+        entityName = GeneratedReport;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = user;
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = user; class = EOQualifierVariable; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = isComplete;
+                    selectorName = "isEqualTo:";
+                    value = {class = NSNumber; value = 1; };
+                }
+            );
+        };
+    };
+    incompleteReportsForUser = {
+        class = WCFetchSpecification;
+        entityName = GeneratedReport;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = user;
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = user; class = EOQualifierVariable; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = isComplete;
+                    selectorName = "isEqualTo:";
+                    value = {class = NSNumber; value = 0; };
+                }
+            );
+        };
+    };
+    user = {
+        class = WCFetchSpecification;
+        entityName = GeneratedReport;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = user;
+            selectorName = "isEqualTo:";
+            value = {"_key" = user; class = EOQualifierVariable; };
+        };
+    };
+}

@@ -1,0 +1,58 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = currentJobId; 
+            name = currentJobId; 
+            prototypeName = foreignId; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = longValue; 
+                scalarDefault = 0L; 
+                type = long; 
+                valueClassName = Long; 
+            }; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = hostId; 
+            name = hostId; 
+            prototypeName = foreignId; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            allowsNull = N; 
+            columnName = isAlive; 
+            name = isAlive; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = queueId; 
+            name = queueId; 
+            prototypeName = foreignId; 
+        }
+    ); 
+    attributesUsedForLocking = (currentJobId, hostId, isAlive, queueId); 
+    className = "org.webcat.jobqueue.WorkerDescriptor"; 
+    classProperties = (currentJobId, host, isAlive, queue); 
+    externalName = TWorkerDescriptor; 
+    name = WorkerDescriptor; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = HostDescriptor; 
+            isMandatory = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = hostId; }); 
+            name = host; 
+        }, 
+        {
+            destination = QueueDescriptor; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = queueId; }); 
+            name = queue; 
+        }
+    ); 
+}

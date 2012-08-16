@@ -1,0 +1,27 @@
+{
+    profilesForCourse = {
+        class = WCFetchSpecification;
+        entityName = SubmissionProfile;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = "courseOfferings.course";
+            selectorName = "doesContain:";
+            value = {"_key" = course; class = EOQualifierVariable; };
+        };
+        usesDistinct = YES;
+    };
+    profilesForUser = {
+        class = WCFetchSpecification;
+        entityName = SubmissionProfile;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = author;
+            selectorName = "doesContain:";
+            value = {"_key" = user; class = EOQualifierVariable; };
+        };
+    };
+}

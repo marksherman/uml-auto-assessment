@@ -1,0 +1,39 @@
+Container: WOGenericContainer {
+    elementName = "span";
+    id = idFor.searchContainer;
+}
+
+ClearImage: WCImageButton {
+    framework = "Core";
+    filename = "icons/cross-white.png";
+    alt = "Clear search field";
+    title = "Clear search field";
+    class = "icon";
+    onClick = onClearClickScript;
+}
+
+Field: WCTextBox {
+    id = id;
+    value = searchText;
+    style = style;
+    placeholder = "Search";
+}
+
+Label: WOGenericContainer {
+    elementName = "label";
+    for = id;
+    style = "vertical-align: middle;";
+}
+
+SearchAction: WCActionFunction {
+    jsId = idFor.searchAction;
+    remote = true;
+    remote.submit = idFor.searchContainer;
+    action = action;
+    remote.onRemoteEnd = "~'dijit.byId(\'' + idFor.spinner + '\').stop();'";
+}
+
+Spinner: WCSpinner {
+    id = idFor.spinner;
+    size = "small";
+}

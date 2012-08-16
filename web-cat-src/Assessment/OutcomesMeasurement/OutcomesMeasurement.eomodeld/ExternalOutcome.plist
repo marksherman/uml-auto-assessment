@@ -1,0 +1,60 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = accreditingBodyId; 
+            name = accreditingBodyId; 
+            prototypeName = id; 
+        }, 
+        {
+            definition = "outcome.description"; 
+            name = description; 
+            prototypeName = mediumText; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            definition = "outcome.keyPhrase"; 
+            name = keyPhrase; 
+            prototypeName = tinyText; 
+        }, 
+        {definition = "outcome.label"; name = label; prototypeName = tinyText; }, 
+        {
+            definition = "outcome.microLabel"; 
+            name = microLabel; 
+            prototypeName = tinyText; 
+        }
+    ); 
+    attributesUsedForLocking = (accreditingBodyId, description, keyPhrase, label, microLabel); 
+    className = "org.webcat.outcomesmeasurement.ExternalOutcome"; 
+    classProperties = (accreditingBody, description, keyPhrase, label, microLabel, outcomePairs); 
+    externalName = ExternalOutcome; 
+    fetchSpecificationDictionary = {}; 
+    name = ExternalOutcome; 
+    parent = Outcome; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = AccreditingBody; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = accreditingBodyId; }); 
+            name = accreditingBody; 
+        }, 
+        {
+            destination = Outcome; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = id; }); 
+            name = outcome; 
+        }, 
+        {
+            destination = OutcomePair; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = externalOutcomeId; sourceAttribute = id; }); 
+            name = outcomePairs; 
+        }
+    ); 
+}

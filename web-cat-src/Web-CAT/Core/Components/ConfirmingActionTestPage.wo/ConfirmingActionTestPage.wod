@@ -1,0 +1,34 @@
+Page : org.webcat.core.WCPageWithNavigation {
+    title = "Confirming Action Test Page";
+}
+
+Checkbox : WCCheckBox {
+    checked = checkBoxChecked;
+}
+
+Textbox : WCTextBox {
+    value = textBoxValue;
+}
+
+Submit : WCButton {
+    label = "Ask for Confirmation and Reload Page";
+    remote = true;
+    action = processThings;
+}
+
+SubmitRemote : WCButton {
+    label = "Ask for Confirmation and Refresh Content Pane";
+    remote = true;
+    action = processThingsRemotely;
+}
+
+SubmitLink : WCLink {
+    remote = true;
+    action = processThings;
+}
+
+SubmitMenuItem : WCMenuItem {
+    label = "Ask for Confirmation (should synchronize bindings)";
+    remote = true;
+    action = processThings;
+}

@@ -1,0 +1,61 @@
+Browser1: WOBrowser {
+	displayString = testNameForDisplay;
+	item = testName;
+	list = testCenter.testNames;
+	multiple = true;
+	selections = selectedTestNames;
+	size = "15";
+}
+
+CheckBox1: WOCheckBox {
+	checked = continueAfterFailureOrError;
+}
+
+CheckBox2: WOCheckBox {
+	checked = shouldLog;
+}
+
+CheckBox3: WOCheckBox {
+	checked = filterStack;
+}
+
+CheckBox4: WOCheckBox {
+	checked = isEOAdaptorDebugEnabled;
+}
+
+CheckBox5: WOCheckBox {
+	checked = hidePackageNames;
+}
+
+Conditional1: WOConditional {
+	condition = runner;
+	negate = false;
+}
+
+Conditional2: WOConditional {
+	condition = testCenter.hasTests;
+}
+
+Conditional3: WOConditional {
+	condition = testCenter.hasTests;
+}
+
+Form1: WOForm {
+	multipleSubmit = true;
+}
+
+SubmitButton1: WCButton {
+	action = runSelectedTests;
+}
+
+SubmitButton2: WCButton {
+	action = runAllTests;
+}
+
+SubmitButton3: WCButton {
+	action = saveSettings;
+}
+
+UTTestResultDisplay1: WOUTTestResultDisplay {
+	runner = runner;
+}

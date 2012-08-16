@@ -1,0 +1,39 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = outcomeOid; 
+            name = outcomeOid; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = outcomeSetId; 
+            name = outcomeSetId; 
+            prototypeName = id; 
+        }
+    ); 
+    className = EOGenericRecord; 
+    externalName = OutcomeSetOutcome; 
+    fetchSpecificationDictionary = {}; 
+    name = OutcomeSetOutcome; 
+    primaryKeyAttributes = (outcomeOid, outcomeSetId); 
+    relationships = (
+        {
+            destination = Outcome; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = outcomeOid; }); 
+            name = outcome; 
+        }, 
+        {
+            destination = OutcomeSet; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = outcomeSetId; }); 
+            name = outcomeSet; 
+        }
+    ); 
+}

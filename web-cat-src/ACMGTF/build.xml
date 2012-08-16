@@ -1,0 +1,27 @@
+<project name="ACMGTF" basedir="." default="jar">
+
+    <property name="src.dir"     value="src"/>
+
+    <property name="build.dir"   value="bin"/>
+    <property name="classes.dir" value="${build.dir}"/>
+    <property name="jar.dir"     value="${basedir}/jar"/>
+
+	<target name="clean">
+		<delete dir="${jar.dir}"/>
+	</target>
+			
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+    </target>
+
+    <target name="jar" depends="clean">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}/" excludes="*.class">
+        	<fileset dir="${src.dir}/acm"/>
+        	<zipfileset src="${basedir}/acm.jar" includes="**/*.class" 
+        		excludes="acm/program/GraphicsProgram.class">	
+        	</zipfileset>
+        </jar>
+    </target>
+</project>

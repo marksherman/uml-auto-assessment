@@ -1,0 +1,55 @@
+<webobject name="PageWrapper">
+   <webobject name="EditingForm">
+      <webobject name="ErrorPanel">
+         <ul class="NoticePanel error">
+            <li class="error"><webobject name="ErrorMessage"/></li>
+         </ul>
+      </webobject>
+      <webobject name="InspectTable">
+         <webobject name="BannerConditional"><thead>
+            <webobject name="InspectTableHeaderRow">
+               <th colspan="2"><webobject name="EntityName"/></th>
+            </webobject>
+         </thead></webobject>
+         <tbody>
+         <webobject name="AttributeRepetition">
+            <webobject name="RowContainer">
+               <td align="right"><strong><webobject name="AttributeName"/>:</strong></td>
+               <td><webobject name="AttributeValue"/></td>
+            </webobject>
+         </webobject>
+         <webobject name="RowContainer">
+            <td align="center" colspan="2">
+               <table class="layout" style="margin:0;">
+                  <tr>
+                     <webobject name="IsEntityWritable">
+                        <td align="right">
+                           <wo name="DeleteButton"/>
+                        </td>
+                     </webobject>
+                     <td align="center">
+                        <webobject name="IsEditingConditional">
+                           <wo name="CancelButton"/>
+                        </webobject>
+                        <webobject name="IsNotEditingConditional">
+                           <webobject name="ShowCancel"><wo name="ReturnButton"/></webobject>
+                        </webobject>
+                     </td>
+                     <td align="left">
+                        <webobject name="IsEntityWritable2">
+                           <webobject name="IsNotEditingConditional2">
+                              <wo name="EditButton"/>
+                           </webobject>
+                        </webobject>
+                        <webobject name="IsEditingConditional2">
+                           <webobject name="SubmitChanges"/>
+                        </webobject>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </webobject>
+         </tbody>
+      </webobject>
+   </webobject>
+</webobject>

@@ -1,0 +1,23 @@
+<student.web.internal.tests.support.AliasClass fieldset="true" id="5b8b21e3-157c-4920-a5e8-df054d0baf58">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>alias</string>
+    <student.web.internal.tests.support.AliasClass>
+      <student.web.internal.converters.Alias fieldset="true" id="851d8c8a-5ba1-48ab-a109-b94cce95e9c3">
+        <no-comparator/>
+        <java.util.Map_-Entry>
+          <string>contextMap</string>
+          <string>context-object</string>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>key</string>
+          <string>testAlias</string>
+        </java.util.Map_-Entry>
+      </student.web.internal.converters.Alias>
+    </student.web.internal.tests.support.AliasClass>
+  </java.util.Map_-Entry>
+  <java.util.Map_-Entry>
+    <string>key</string>
+    <string>alias2</string>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.AliasClass>

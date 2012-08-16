@@ -1,0 +1,8 @@
+Date: WCDateTimePicker {
+     value      = objectPropertyValue;
+     dateformat = session.user.dateFormat;
+     timeformat = session.user.timeFormat;
+     dateWidth  = "8em";
+     timeWidth  = "6em";
+     timeZone   = timeZone;
+}

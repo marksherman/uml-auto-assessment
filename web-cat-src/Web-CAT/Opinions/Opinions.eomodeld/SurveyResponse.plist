@@ -1,0 +1,74 @@
+{
+    attributes = (
+        {columnName = assignmentOfferingId; name = assignmentOfferingId; prototypeName = foreignId; },
+        {allowsNull = N; name = id; prototypeName = id; },
+        {
+            allowsNull = Y;
+            columnName = isStaff;
+            name = isStaff;
+            prototypeName = boolean;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {columnName = q1; name = q1; prototypeName = tinyInteger; },
+        {columnName = q2; name = q2; prototypeName = tinyInteger; },
+        {columnName = q3; name = q3; prototypeName = tinyInteger; },
+        {columnName = q4; name = q4; prototypeName = tinyInteger; },
+        {columnName = q5; name = q5; prototypeName = tinyInteger; },
+        {columnName = q6; name = q6; prototypeName = tinyInteger; },
+        {columnName = submitTime; name = submitTime; prototypeName = dateTime; },
+        {columnName = text1; name = text1; prototypeName = text; },
+        {columnName = text2; name = text2; prototypeName = text; },
+        {columnName = text3; name = text3; prototypeName = text; },
+        {columnName = text4; name = text4; prototypeName = text; },
+        {columnName = userId; name = userId; prototypeName = foreignId; }
+    );
+    attributesUsedForLocking = (
+        assignmentOfferingId,
+        isStaff,
+        q1,
+        q2,
+        q3,
+        q4,
+        q5,
+        q6,
+        text1,
+        text2,
+        text3,
+        text4,
+        userId
+    );
+    className = "org.webcat.opinions.SurveyResponse";
+    classProperties = (
+        assignmentOffering,
+        isStaff,
+        q1,
+        q2,
+        q3,
+        q4,
+        q5,
+        q6,
+        submitTime,
+        text1,
+        text2,
+        text3,
+        text4,
+        user
+    );
+    externalName = TSurveyResponse;
+    name = SurveyResponse;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            destination = AssignmentOffering;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = assignmentOfferingId; });
+            name = assignmentOffering;
+        },
+        {
+            destination = User;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = userId; });
+            name = user;
+        }
+    );
+}

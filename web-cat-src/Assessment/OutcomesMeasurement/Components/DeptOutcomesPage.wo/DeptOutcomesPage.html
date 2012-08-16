@@ -1,0 +1,11 @@
+<wo:WCPageWithNavigation>
+<wo:WCPageModule title="$program.name">
+
+<wo:loop list="$outcomes" item="$outcome">
+<p><b>PO-<wo:str value="$outcome.microLabel"/> (<wo:str value="$outcome.label"/>).</b>
+<wo:str value="$outcome.description"/>
+</p>
+</wo:loop>
+
+</wo:WCPageModule>
+</wo:WCPageWithNavigation>

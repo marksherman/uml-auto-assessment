@@ -1,0 +1,15 @@
+{
+    "WebObjects Release" = "WebObjects 5.0";
+    encoding = NSUTF8StringEncoding;
+    variables = {
+        courseDisplayGroup = {
+            class = ERXDisplayGroup;
+            fetchesOnLoad = NO;
+            formatForLikeQualifier = "%@*";
+            localKeys = ();
+            numberOfObjectsPerBatch = 0;
+            selectsFirstObjectAfterFetch = YES;
+            sortOrdering = ({class = EOSortOrdering; key = deptNumber; selectorName = "compareAscending:"; });
+        };
+    };
+}

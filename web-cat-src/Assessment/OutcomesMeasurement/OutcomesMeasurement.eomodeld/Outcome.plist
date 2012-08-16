@@ -1,0 +1,57 @@
+{
+    attributes = (
+        {columnName = description; name = description; prototypeName = mediumText; },
+        {allowsNull = N; name = id; prototypeName = id; },
+        {columnName = keyPhrase; name = keyPhrase; prototypeName = tinyText; },
+        {columnName = label; name = label; prototypeName = tinyText; },
+        {columnName = microLabel; name = microLabel; prototypeName = tinyText; }
+    );
+    attributesUsedForLocking = (description, keyPhrase, label, microLabel);
+    className = "org.webcat.outcomesmeasurement.Outcome";
+    classProperties = (
+        description,
+        isSupportedBy,
+        keyPhrase,
+        label,
+        microLabel,
+        outcomeSets,
+        supports
+    );
+    externalName = Outcome;
+    fetchSpecificationDictionary = {};
+    isAbstractEntity = Y;
+    name = Outcome;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {definition = "outcomeToOutcomes1.outcome"; name = isSupportedBy; },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = OutcomeSetOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = outcomeOid; sourceAttribute = id; });
+            name = outcomeSetOutcomes;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "outcomeSetOutcomes.outcomeSet"; name = outcomeSets; },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = OutcomeToOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = outcomeOid; sourceAttribute = id; });
+            name = outcomeToOutcomes;
+            propagatesPrimaryKey = Y;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = OutcomeToOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = outcomeOid1; sourceAttribute = id; });
+            name = outcomeToOutcomes1;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "outcomeToOutcomes.outcome1"; name = supports; }
+    );
+}

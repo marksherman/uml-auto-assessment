@@ -1,0 +1,32 @@
+<project name="WonderUpdater" default="install" basedir=".">
+
+  <import file="../Core/framework.xml"/>
+
+  <!-- ...............................................................
+    Jars up the framework that was built in a form that can be used
+    for Web-CAT server updates.
+  -->
+  <target name="export.jar" depends="build.woframework">
+    <property name="export.jar.name"
+      value="../${framework.name}_${project.version}.jar"/>
+    <jar destfile="${export.jar.name}"
+      basedir="${install.dir}"
+      includes="${framework.name}.framework/**">
+      <!-- The list in the fileset below should be taken from this
+           project's woproject/ant.frameworks.wo.wolocalroot file instead
+           of being explicitly listed here.
+      -->
+      <fileset dir="${wo.wolocalroot}/Library/Frameworks">
+        <include name="Ajax.framework/**"/>
+        <include name="ERJars.framework/**"/>
+        <include name="ERExtensions.framework/**"/>
+        <include name="ERDirectToWeb.framework/**"/>
+        <include name="JavaWOExtensions.framework/**"/>
+        <include name="WOOgnl.framework/**"/>
+          <exclude name="WOOgnl.framework/Resources/Java/ognl*.jar"/>
+        <include name="WOUnitTest.framework/**"/>
+      </fileset>
+    </jar>
+  </target>
+
+</project>

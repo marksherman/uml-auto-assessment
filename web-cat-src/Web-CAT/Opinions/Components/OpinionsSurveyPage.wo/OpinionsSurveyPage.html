@@ -1,0 +1,116 @@
+<wo:SaveCancelPage title="Programming Assignment Engagement Survey">
+<wo:WCPageModule title="~'Survey for ' + assignmentOffering.assignment.titleString">
+
+<wo:if condition="$assignmentOffering.assignment.url">
+<p>Original assignment: <wo:link href="$assignmentOffering.assignment.url"><wo:str value="$assignmentOffering.assignment.titleString"/></wo:link></p>
+</wo:if>
+
+<p>Thank you for providing feedback about this assignment.  Your individual
+responses will be kept confidential and <b>WILL NOT</b> affect your grade
+in this course.</p>
+
+<table><thead>
+  <th>Question</th><th colspan="10" style="text-align:right"><div style="float:left">Not at all</div> A lot</th>
+</thead><tbody>
+  <tr class="o c kn"><td class="L" rowspan="2">How engaging (fun/challenging) was this assignment?</td>
+    <td><label for="q1-1">1</label></td>
+    <td><label for="q1-2">2</label></td>
+    <td><label for="q1-3">3</label></td>
+    <td><label for="q1-4">4</label></td>
+    <td><label for="q1-5">5</label></td>
+    <td><label for="q1-6">6</label></td>
+    <td><label for="q1-7">7</label></td>
+    <td><label for="q1-8">8</label></td>
+    <td><label for="q1-9">9</label></td>
+    <td><label for="q1-10">10</label></td></tr>
+  <tr class="o c kp">
+  <td><wo:radio name="q1" value="1" id="q1-1" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="2" id="q1-2" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="3" id="q1-3" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="4" id="q1-4" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="5" id="q1-5" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="6" id="q1-6" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="7" id="q1-7" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="8" id="q1-8" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="9" id="q1-9" selection="$response.q1"/></td>
+  <td><wo:radio name="q1" value="10" id="q1-10" selection="$response.q1"/></td>
+  </tr>
+  <tr class="e"><td colspan="11">
+  What was engaging about it?<br/>
+  <wo:text value="$response.text1" rows="6" cols="80"/>
+  </td></tr>
+  <tr class="o"><td colspan="11">
+  How could it be re-worked to make it even more engaging?<br/>
+  <wo:text value="$response.text2" rows="6" cols="80"/>
+  </td></tr>
+  <tr class="e c kn"><td class="L" rowspan="2">How frustrating was this assignment?</td>
+    <td><label for="q2-1">1</label></td>
+    <td><label for="q2-2">2</label></td>
+    <td><label for="q2-3">3</label></td>
+    <td><label for="q2-4">4</label></td>
+    <td><label for="q2-5">5</label></td>
+    <td><label for="q2-6">6</label></td>
+    <td><label for="q2-7">7</label></td>
+    <td><label for="q2-8">8</label></td>
+    <td><label for="q2-9">9</label></td>
+    <td><label for="q2-10">10</label></td></tr>
+  <tr class="e c kp">
+  <td><wo:radio name="q2" value="1" id="q2-1" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="2" id="q2-2" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="3" id="q2-3" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="4" id="q2-4" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="5" id="q2-5" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="6" id="q2-6" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="7" id="q2-7" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="8" id="q2-8" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="9" id="q2-9" selection="$response.q2"/></td>
+  <td><wo:radio name="q2" value="10" id="q2-10" selection="$response.q2"/></td>
+  </tr>
+  <tr class="o c kn"><td class="L" rowspan="2">How much did you learn by doing this assignment?</td>
+    <td><label for="q3-1">1</label></td>
+    <td><label for="q3-2">2</label></td>
+    <td><label for="q3-3">3</label></td>
+    <td><label for="q3-4">4</label></td>
+    <td><label for="q3-5">5</label></td>
+    <td><label for="q3-6">6</label></td>
+    <td><label for="q3-7">7</label></td>
+    <td><label for="q3-8">8</label></td>
+    <td><label for="q3-9">9</label></td>
+    <td><label for="q3-10">10</label></td></tr>
+  <tr class="o c kp">
+  <td><wo:radio name="q3" value="1" id="q3-1" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="2" id="q3-2" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="3" id="q3-3" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="4" id="q3-4" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="5" id="q3-5" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="6" id="q3-6" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="7" id="q3-7" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="8" id="q3-8" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="9" id="q3-9" selection="$response.q3"/></td>
+  <td><wo:radio name="q3" value="10" id="q3-10" selection="$response.q3"/></td>
+  </tr>
+  <tr class="e"><td colspan="11">What did you find most frustrating about the
+    assignment (choose one answer):<br/>
+    <p style="margin-left:4em">
+      <wo:radio name="q4" value="1" id="q4-1" selection="$response.q4"/>
+      <label for="q4-1">Understanding what was required by the assignment</label><br/>
+      <wo:radio name="q4" value="2" id="q4-2" selection="$response.q4"/>
+      <label for="q4-2">Java language syntax and semantics</label><br/>
+      <wo:radio name="q4" value="3" id="q4-3" selection="$response.q4"/>
+      <label for="q4-3">Required knowledge not yet covered in class</label><br/>
+      <wo:radio name="q4" value="4" id="q4-4" selection="$response.q4"/>
+      <label for="q4-4">Designing the classes and methods</label><br/>
+      <wo:radio name="q4" value="5" id="q4-5" selection="$response.q4"/>
+      <label for="q4-5">Working with the program development tools</label><br/>
+      <wo:radio name="q4" value="6" id="q4-6" selection="$response.q4"/>
+      <label for="q4-6">Testing your solution</label><br/>
+      <wo:radio name="q4" value="7" id="q4-7" selection="$response.q4"/>
+      <label for="q4-7">Quality of reference tests and/or hints on Web-CAT</label><br/>
+      <wo:radio name="q4" value="8" id="q4-8" selection="$response.q4"/>
+      <label for="q4-8">Other (please describe):</label><br/>
+      <wo:text value="$response.text3" rows="6" cols="80"/>
+  </p></td></tr>
+</tbody></table>
+
+</wo:WCPageModule>
+</wo:SaveCancelPage>

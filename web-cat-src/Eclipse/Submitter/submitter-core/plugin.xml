@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.webcat.eclipse.submitter.internal.core.preferences.SubmissionPreferencePage"
+            name="Electronic Submission"
+            id="net.sf.webcat.eclipse.submitter.preferences.submission"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="org.webcat.eclipse.submitter.core.OpenWebCATEnablementUpdater">
+      </startup>
+   </extension>
+
+</plugin>

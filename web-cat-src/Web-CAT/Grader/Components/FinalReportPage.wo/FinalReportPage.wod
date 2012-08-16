@@ -1,0 +1,146 @@
+Coverage: WOString {
+    numberformat = "0.0";
+    value        = stats.gradedElementsCoveragePercent;
+}
+
+CoverageMeter: WOString {
+    escapeHTML = false;
+    value      = coverageMeter;
+}
+
+EstimatedWait: WOString {
+    value      = estimatedWait;
+    dateformat = estimatedWaitFormat;
+}
+
+FileDeduction: WOString {
+    numberformat = "0.0";
+    value        = stats.toolDeductions;
+}
+
+FileRemarks: WOString {
+    numberformat = "0";
+    value        = stats.remarks;
+}
+
+FileStaffDeduction: WOString {
+    numberformat = "0.0";
+    value        = stats.staffDeductions;
+}
+
+FileStaffRemarks: WOString {
+    numberformat = "0";
+    value        = stats.staffRemarks;
+}
+
+FullPrintableReport: WCButton {
+    action = fullPrintableReport;
+    label  = "Full Printable Report";
+}
+
+GradingHalted: WOConditional {
+    condition = submission.assignmentOffering.gradingSuspended;
+}
+
+GradingNotHalted: WOConditional {
+    condition = submission.assignmentOffering.gradingSuspended;
+    negate    = true;
+}
+
+Image: WOImage {
+    filename = "images/evaluating.gif";
+    width    = 64;
+    height   = 64;
+    alt      = "Still Grading";
+}
+
+MetaRefresh1: WOMetaRefresh {
+    action = refreshAction;
+    seconds = refreshTimeout;
+}
+
+MostRecentJobWait: WOString {
+    value      = mostRecentJobWait;
+    dateformat = mostRecentJobWaitFormat;
+}
+
+Page: PageWithAssignmentNavigation {
+    title     = "Your Assignment Submission Results";
+    permalink = submission.permalink;
+    allowsAllOfferingsForCourse = false;
+}
+
+PastResults: WOHyperlink {
+    action = pastResults;
+    string = "Past Results";
+}
+
+ReturnToGrading: WCButton {
+    label  = "< Return to Grading";
+    action = next;
+}
+
+ScoreSummary: org.webcat.grader.ScoreSummaryBlock {
+    allowScoreEdit = false;
+    submission = submission;
+}
+
+StatsLabel: WOString {
+    value = result.statElementsLabel;
+}
+
+StatRepetition: WORepetition {
+    item  = stats;
+    list  = statsDisplayGroup.displayedObjects;
+    index = index;
+}
+
+SubmitAgain: WCButton {
+    label  = "Submit Again";
+    action = submitAgain;
+}
+
+TAComments: org.webcat.core.FormattedString {
+    value  = result.comments;
+    format = result.commentFormat;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+
+WCSortOrder1: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "File Name";
+    key = "sourceFileName";
+}
+
+WCSortOrder2: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Automatically Graded Points Lost";
+    key = "deductions";
+}
+
+WCSortOrder3: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = result.statElementsLabel;
+    key = "gradedElementsCoverage";
+}
+
+WCSortOrder4: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Automatically Graded Feedback Comments";
+    key = "remarks";
+}
+
+WCSortOrder5: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Staff Feedback Comments";
+    key = "staffRemarks";
+}
+
+WCSortOrder6: org.webcat.woextensions.WCSortOrder {
+    displayGroup = statsDisplayGroup;
+    displayKey = "Staff Points Lost";
+    key = "staffDeductions";
+}

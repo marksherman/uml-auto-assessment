@@ -1,0 +1,62 @@
+DEREFEREE: Checked Pointer Usage in C++
+=======================================
+
+Version: 1.1.2 (10/10/2009)
+
+* gcc_macosx_platform has been updated to support 64-bit architectures.
+
+----
+Version: 1.1.1 (9/9/2008)
+
+* gcc_bfd_platform has been updated to support 64-bit architectures.
+
+----
+Version: 1.1.0 (8/24/2008)
+
+* The demo application has been overhauled to be a more substantial
+  demonstration of Dereferee's features. It is now an interactive console
+  application. See the demo/README file for more information.
+
+* Listeners have been refactored to separate platform-specific functionality
+  for backtracing from the error reporting. Backtrace-related functions are
+  now found in the Dereferee::platform abstract class, and removed from
+  Dereferee::listener. See the README file for updated instructions on
+  building the library, specifically the LISTENER and PLATFORM makefile
+  variables.
+
+* Checked pointers to classes without any parameterless constructor could
+  not be properly instantiated by the compiler in some cases, due to how
+  arrays and pointer arithmetic must be handled. This has been fixed.
+
+* const_cast support had been accidentally left out of the unchecked variant
+  of the checked_ptr<> template.
+
+* Added methods to the platform interface that allow external libraries to
+  save and restore the backtrace context (useful for crash recovery and unit
+  testing frameworks), for those platforms (such as gcc_*) that keep track
+  of the backtrace in real time.
+
+* Added helper functions Dereferee::current_platform and
+  Dereferee::current_listener that allow external libraries to interact with
+  these objects directly.
+
+* Fixed the line number comments in tests/wont_compile_tests.h.
+
+* Two more unit test suites have been added to ensure the correct behavior
+  when checked pointers are used with abstract classes and classes that do
+  not implement a parameterless constructor.
+
+KNOWN ISSUES:
+* The new_operator_tests/new_throw_overflow test case may fail on Mac OS X
+  systems if the malloc debugging features are enabled. This is acceptable and
+  does not represent a failure of Dereferee or the testing suite.
+
+----
+Version: 1.0.1 (11/7/2007)
+
+* Added support for const_cast.
+
+----
+Version: 1.0.0 (10/26/2007)
+
+* First stable release.

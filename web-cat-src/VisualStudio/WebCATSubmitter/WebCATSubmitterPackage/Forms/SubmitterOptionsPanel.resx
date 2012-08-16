@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="submissionDefsUrlField.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="submissionDefsUrlField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 3</value>
+  </data>
+  <data name="submissionDefsUrlField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 21</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="submissionDefsUrlField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlField.Name" xml:space="preserve">
+    <value>submissionDefsUrlField</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlField.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlField.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="mailServerField.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="mailServerField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 120</value>
+  </data>
+  <data name="mailServerField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 21</value>
+  </data>
+  <data name="mailServerField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;mailServerField.Name" xml:space="preserve">
+    <value>mailServerField</value>
+  </data>
+  <data name="&gt;&gt;mailServerField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mailServerField.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;mailServerField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="mailServerLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="mailServerLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="mailServerLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 117</value>
+  </data>
+  <data name="mailServerLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 27</value>
+  </data>
+  <data name="mailServerLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="mailServerLabel.Text" xml:space="preserve">
+    <value>Outgoing mail server:</value>
+  </data>
+  <data name="mailServerLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;mailServerLabel.Name" xml:space="preserve">
+    <value>mailServerLabel</value>
+  </data>
+  <data name="&gt;&gt;mailServerLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mailServerLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;mailServerLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="defaultUsernameField.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="defaultUsernameField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 30</value>
+  </data>
+  <data name="defaultUsernameField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 21</value>
+  </data>
+  <data name="defaultUsernameField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameField.Name" xml:space="preserve">
+    <value>defaultUsernameField</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameField.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameField.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="defaultUsernameLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="defaultUsernameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="defaultUsernameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 27</value>
+  </data>
+  <data name="defaultUsernameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 27</value>
+  </data>
+  <data name="defaultUsernameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="defaultUsernameLabel.Text" xml:space="preserve">
+    <value>Default username:</value>
+  </data>
+  <data name="defaultUsernameLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameLabel.Name" xml:space="preserve">
+    <value>defaultUsernameLabel</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;defaultUsernameLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="submissionDefsUrlLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="submissionDefsUrlLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="submissionDefsUrlLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="submissionDefsUrlLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 27</value>
+  </data>
+  <data name="submissionDefsUrlLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="submissionDefsUrlLabel.Text" xml:space="preserve">
+    <value>Submission definitions URL:</value>
+  </data>
+  <data name="submissionDefsUrlLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlLabel.Name" xml:space="preserve">
+    <value>submissionDefsUrlLabel</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;submissionDefsUrlLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tableLayoutPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="emailAddressField.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="emailAddressField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 147</value>
+  </data>
+  <data name="emailAddressField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 21</value>
+  </data>
+  <data name="emailAddressField.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;emailAddressField.Name" xml:space="preserve">
+    <value>emailAddressField</value>
+  </data>
+  <data name="&gt;&gt;emailAddressField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;emailAddressField.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;emailAddressField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="emailDescriptionLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="emailDescriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 65</value>
+  </data>
+  <data name="emailDescriptionLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 12</value>
+  </data>
+  <data name="emailDescriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>392, 40</value>
+  </data>
+  <data name="emailDescriptionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="emailDescriptionLabel.Text" xml:space="preserve">
+    <value>If you will be submitting assignments via e-mail, enter your outgoing (SMTP) e-mail server and personal e-mail address below. If you will not be using e-mail, you may leave these fields blank. (Ask your instructor if you need assistance.)</value>
+  </data>
+  <data name="&gt;&gt;emailDescriptionLabel.Name" xml:space="preserve">
+    <value>emailDescriptionLabel</value>
+  </data>
+  <data name="&gt;&gt;emailDescriptionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;emailDescriptionLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;emailDescriptionLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="emailAddressLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="emailAddressLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="emailAddressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 144</value>
+  </data>
+  <data name="emailAddressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 27</value>
+  </data>
+  <data name="emailAddressLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="emailAddressLabel.Text" xml:space="preserve">
+    <value>E-mail address:</value>
+  </data>
+  <data name="emailAddressLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;emailAddressLabel.Name" xml:space="preserve">
+    <value>emailAddressLabel</value>
+  </data>
+  <data name="&gt;&gt;emailAddressLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;emailAddressLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;emailAddressLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>398, 171</value>
+  </data>
+  <data name="tableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.Name" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="submissionDefsUrlLabel" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="emailAddressField" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="emailDescriptionLabel" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="mailServerField" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="emailAddressLabel" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="submissionDefsUrlField" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="defaultUsernameLabel" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="mailServerLabel" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="defaultUsernameField" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="separator1" Row="2" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="separator1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 57</value>
+  </data>
+  <data name="separator1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="separator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>392, 2</value>
+  </data>
+  <data name="separator1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;separator1.Name" xml:space="preserve">
+    <value>separator1</value>
+  </data>
+  <data name="&gt;&gt;separator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;separator1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;separator1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 176</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SubmitterOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

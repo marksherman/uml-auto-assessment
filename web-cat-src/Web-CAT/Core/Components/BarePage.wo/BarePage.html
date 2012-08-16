@@ -1,0 +1,18 @@
+<wo:if condition="$includePageWrapping"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title><webobject name="PageTitle"/></title>
+<webobject name="IncludeStdStyleSheet"><style media="all" type="text/css">@import "<webobject name="WCStyleSheet"/>";</style>
+<webobject name="BeforeIE5"/>
+<style media="all" type="text/css">@import "<webobject name="WCIE5StyleSheet"/>";</style>
+<webobject name="BeforeIE6"/>
+<style media="all" type="text/css">@import "<webobject name="WCIE6StyleSheet"/>";</style>
+<webobject name="AfterIE6"/>
+<webobject name="Overlib"/></webobject>
+<webobject name="StyleSheet"/>
+<webobject name="JavaScript"/><webobject name="InlineHeaderContents"/>
+</head><wo name="Body">
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+<webobject name="PageContent"/>
+</wo></html></wo:if><wo:else><webobject name="PageContent"/></wo:else>

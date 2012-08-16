@@ -1,0 +1,59 @@
+<wo name="Dialog"><wo name="Form">
+<div>
+    <p>Submissions by <span class="hl"><wo:str value="$rootUserSubmission.user.nameAndUid"/></span>:</p>
+    <wo name="SubmissionTable">
+        <wo:WCTableHeadings>
+            <wo:WCTableHeading title="No."/>
+            <wo:WCTableHeading title="Time"/>
+            <wo:WCTableHeading title="Score"/>
+    <wo:if condition="~extraColumnCount gt 1">
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesTestingScore"><th class="sm">Correctness/<br/>Testing</th></wo:if>
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesToolCheckScore"><th class="sm">Style/<br/>Coding</th></wo:if>
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesTAScore"><th class="sm">Design/<br/>Readability</th></wo:if>
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesBonusesOrPenalties"><th class="sm">Early/<br/>Late</th></wo:if>
+    </wo:if>
+            <wo:WCTableHeading title="Student and Partners"/>
+        </wo:WCTableHeadings>
+        <wo:WCTableRows item="$aSubmission">
+            <wo:WCTableRow>
+                <td class="n"><wo:str value="$aSubmission.submitNumber"/></td>
+                <td class="sm"><wo name="SubmitTimeSpan"><wo name="SubmitTime"/></wo></td>
+              <wo:if condition="$aSubmission.result">
+    <wo:if condition="~extraColumnCount gt 1">
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesTestingScore"><td class="n"><wo:str value="$aSubmission.result.correctnessScoreRaw" numberformat="0.0"/></td></wo:if>
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesToolCheckScore"><td class="n"><wo:str value="$aSubmission.result.toolScoreRaw" numberformat="0.0"/></td></wo:if>
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesTAScore"><td class="n">
+        <wo:if condition="$aSubmission.isSubmissionForGrading">
+          <wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@CHECK || !aSubmission.assignmentOffering.assignment.usesTAScore || aSubmission.assignmentOffering.courseOffering.isStaff(user)">
+            <wo:if condition="$aSubmission.result.taScoreRaw">
+              <wo:str value="$aSubmission.result.taScore" numberformat="0.0"/>
+            </wo:if>
+            <wo:else>
+              &lt;Awaiting Staff&gt;
+            </wo:else>
+          </wo:if><wo:else>&lt;Awaiting Staff&gt;</wo:else>
+        </wo:if></td></wo:if>
+      <wo:if condition="$rootUserSubmission.submission.assignmentOffering.assignment.usesBonusesOrPenalties"><td class="n"><wo:str value="$aSubmission.result.scoreAdjustment" numberformat="0.0"/></td></wo:if>
+    </wo:if>
+                <td class="n"><wo:if condition="$aSubmission.isSubmissionForGrading"><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@CHECK || !aSubmission.assignmentOffering.assignment.usesTAScore || aSubmission.assignmentOffering.courseOffering.isStaff(user)"><wo name="FinalScore"/></wo:if><wo:else>&lt;Awaiting Staff&gt;</wo:else></wo:if></td>
+              </wo:if><wo:else>
+                <wo:WOGenericContainer elementName="td" colspan="~(extraColumnCount gt 1) ? (extraColumnCount + 1) : 1" style="color: red">&lt;<wo:str value="$aSubmission.status"/>&gt;</wo:WOGenericContainer>
+              </wo:else>
+              <td><wo:str value="$aSubmission.result.submission.namesOfAllUsers"/></td>
+            </wo:WCTableRow>
+        </wo:WCTableRows>
+    </wo>
+</div>
+<div style="text-align: center">
+    <wo name="OK">
+        <script type="dojo/connect" event="onClick">
+        dijit.byId('pickSubmissionDialog').hide();
+        </script>
+    </wo>
+    <wo name="Cancel">
+        <script type="dojo/connect" event="onClick">
+        dijit.byId('pickSubmissionDialog').hide();
+        </script>
+    </wo>
+</div>
+</wo></wo>

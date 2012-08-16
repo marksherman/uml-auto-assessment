@@ -1,0 +1,566 @@
+{
+    name             = "JavaTddPlugin";
+    version.major    = 3;
+    version.minor    = 4;
+    version.revision = 6;
+    version.date     = 20120217;
+    autoPublish      = true;
+    requires         = ( ANTForPlugins, PerlForPlugins, CloverForPlugins,
+                         PMDForPlugins, CheckstyleForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU Affero General Public License v.3";
+    license.url      = "http://www.gnu.org/licenses/agpl.html";
+    copyright        =
+        "(c) 2006-2012 Virginia Tech Department of Computer Science";
+    info.url         = "http://wiki.web-cat.org/WCWiki/JavaTddPlugin";
+    history.url      =
+        "http://wiki.web-cat.org/WCWiki/JavaTddPlugin/ChangeHistory";
+    executable = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (edwards@cs.vt.edu)";
+    authorUid  = edwards;
+    languages  = ( { name = Java; version = 1.4; },
+                   { name = Java; version = 1.5; },
+                   { name = Java; version = 1.6; } );
+    description = "This \"all-in-one\" plug-in is designed to provide full
+        processing and feedback generation for Java assignments where
+        students write their own JUnit test cases.
+        It includes ANT-based compilation, JUnit processing of student-written
+        tests, support for instructor-written reference tests, PMD and
+        Checkstyle analysis, and Clover-based tracking of code coverage
+        during student testing.";
+    timeoutMultiplier = 2;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+        {
+            property    = testCases;
+            type        = fileOrDir;
+            fileTypes   = ( java );
+            name        = "JUnit Reference Test Class(es)";
+            description =
+  "A Java source file (or directory of source files) containing JUnit tests
+  to run against student code to assess completeness of problem coverage.
+  If you select a single Java file, it must contain a JUnit test class
+  declared in the default package.  If you select a directory, it should
+  contain JUnit test classes arranged in subdirectories according to their
+  Java package declarations.  If you make no selection, an empty set of
+  instructor reference tests will be used instead.";
+        },
+        {
+            property    = assignmentJar;
+            type        = fileOrDir;
+            fileTypes   = ( jar );
+            name        = "Supplemental Classes for Assignment";
+            description =
+  "A jar file (or a directory of class files in subdirs reflecting their
+  package structure, or a directory of multiple jar files) containing
+  precompiled classes to add to the classpath when compiling and running
+  submissions <b>for this assignment</b>.  If you want to apply the same
+  jar settings to many assignments, use the \"Supplemental Classes\" setting
+  in the \"Reusable Configuration Options\" section instead.  If you have
+  multiple jars to provide, place them all in the same directory in your
+  Web-CAT file space and then select the whole directory.";
+        },
+        {
+            property    = localFiles;
+            type        = fileOrDir;
+            name        = "Data Files for Student";
+            description =
+  "A file (or a directory of files) to place in the student's current working
+  directory when running his/her tests and when running reference tests.  The
+  file you select (or the entire contents of the directory you select) will be
+  copied into the current working directory during grading so that
+  student-written and instructor-written test cases can read and/or write to
+  the file(s).  The default is to copy no files.";
+        }
+    );
+    optionCategories = (
+        "Java Settings",
+        "Test Case Settings",
+        "Static Analysis",
+        "Feedback Settings",
+        "Script Developer"
+    );
+    options = (
+        {
+            property    = useAssertions;
+            type        = boolean;
+            default     = true;
+            name        = "Use Java Assertions";
+            category    = "Java Settings";
+            description =
+  "Enable Java assertions during execution.  When set to false, assertions
+  in student or instructor-provided code will be treated as non-executable
+  (no-op's).";
+        },
+        {
+            property    = useDefaultJar;
+            type        = boolean;
+            default     = true;
+            name        = "Use Built-in Jar";
+            category    = "Java Settings";
+            description =
+  "Set to true to have a set of built-in jars containing Virginia Tech
+  cs1705/cs1706 classes placed on the classpath for assignments.  Set to
+  false to omit these jars from the classpath.";
+        },
+        {
+            property    = classpathJar;
+            type        = fileOrDir;
+            fileTypes   = ( jar );
+            name        = "Predefined Classes";
+            category    = "Java Settings";
+            description =
+  "A jar file (or a directory of class files in subdirs reflecting their
+  package structure, or a directory of multiple jar files) containing
+  precompiled classes to add to the classpath when compiling and running
+  submissions.  Use this setting if you'd like to share the same jar(s)
+  across several assignments.  If you have multiple jars to provide,
+  place them all in the same directory in your Web-CAT file space and
+  then select the whole directory.";
+        },
+        {
+            property    = policyFile;
+            advanced    = true;
+            type        = file;
+            fileTypes   = ( policy );
+            name        = "Java Security Policy";
+            category    = "Java Settings";
+            description =
+  "A Java security policy file used to limit actions on student programs at
+  run-time.  Leave unset to use the built-in default, which plugs most
+  security holes and prevents any file system access outside the subtree
+  rooted at the program's working directory.";
+        },
+        {
+            property    = "grader.partnerExcludePatterns";
+            advanced    = true;
+            type        = shortText;
+            size        = 40;
+            name        = "Partner Name Exclude Patterns";
+            category    = "Java Settings";
+            description =
+  "The plug-in will automatically scan <b>@author</b> tags in source code
+  to try to identify the user names of partners when partners are allowed
+  on an assignment.  Here, you can provide a comma-separated list of names
+  to exclude from consideration (e.g., the names of instructors, if some
+  instructor names are listed in @author lines in pre-provided code).
+  Full Perl-style regular expressions can be used if desired.";
+        },
+        {
+            property    = allStudentTestsMustPass;
+            type        = boolean;
+            default     = false;
+            name        = "All Student Tests Must Pass";
+            category    = "Test Case Settings";
+            description =
+  "If you are truly following test-driven development practices, then no code
+  is ever released until all of its unit tests pass.  If this option is set to
+  true, students will not receive a non-zero score or receive further
+  assessment feedback unless all student tests pass.  If this option is not
+  set, then students may continue to proceed even if some student-written
+  tests fail  The student's correctness/testing score is multiplied by the
+  proportion of their tests that pass.";
+        },
+        {
+            property    = studentsMustSubmitTests;
+            type        = boolean;
+            default     = true;
+            name        = "Students Must Submit Tests";
+            category    = "Test Case Settings";
+            description =
+  "When set, this option requires all students to submit test cases for their
+  own code.  Submissions without test cases will received feedback to that
+  effect (and no more), as well as a zero score.  If you unset this option,
+  then student submissions will <b>not</b> be required to include
+  student-written test cases, and <b>only</b> the reference test pass rate
+  will be used for scoring (i.e., student code coverage and student test pass
+  rate will not be included in scoring).";
+        },
+        {
+            property    = coverageMetric;
+            advanced    = true;
+            type        = radioChoice;
+            name        = "Test Coverage Metric";
+            category    = "Test Case Settings";
+            default     = 0;
+            description = "Choose the criterion used to measure how thoroughly
+                           a student's tests cover the corresponding code.";
+            choices     = ( { label = "Methods executed"; value = 0; },
+                            { label = "Statements executed"; value = 1; },
+                            { label = "Methods + decisions executed";
+                              value = 2; },
+                            { label = "Statements + decisions executed";
+                              value = 3; },
+                         { label = "Methods + statements + decisions executed";
+                              value = 4; }
+                          );
+        },
+        {
+            property    = requireSimpleExceptionCoverage;
+            type        = boolean;
+            default     = false;
+            name        = "Require Coverage of Simple Catch Blocks";
+            category    = "Test Case Settings";
+            description =
+  "When set, this option requires students to test all catch blocks, including
+  simple try/catch statements that are provided purely for compiler compliance
+  and that simply print a stack trace or re-throw the exception.  If unchecked,
+  catch blocks that contain only a statement to print the stack trace or
+  re-throw a wrapped version of the exception are not counted in
+  coverage measurements, and do not result in point deductions.";
+        },
+        {
+            property    = requireSimpleGetterSetterCoverage;
+            type        = boolean;
+            default     = false;
+            name        = "Require Coverage of Simple Getters and Setters";
+            category    = "Test Case Settings";
+            description =
+  "When set, this option requires students to test all simple getter and
+  setter methods.  A simple getter is a method whose name starts with
+  \"get\", and whose body simply returns a field value.  A simple setter is
+  a void method whose name starts with \"set\" accepting one parameter, and
+  whose body simply assigns that parameter to a field.  If unchecked,
+  simple getters and setters are not counted in coverage measurements, and
+  do not result in point deductions.";
+        },
+        {
+            property    = "clover.includes";
+            type        = shortText;
+            size        = 40;
+            default     = "**";
+            name        = "Classes to Include in Coverage Measures";
+            category    = "Test Case Settings";
+            description =
+  "Specify the Java file names that should be included in Clover coverage
+  analysis.  Only student class files with names that match the patterns you
+  list here will be processed by Clover.  Patterns are
+  case-insensitive.  Use * as a wildcard character (ANT-style pattern
+  matching is used).";
+        },
+        {
+            property    = "clover.excludes";
+            type        = shortText;
+            size        = 40;
+            default     = "none";
+            name        = "Classes to Exclude from Coverage Measures";
+            category    = "Test Case Settings";
+            description =
+  "Specify Java file names that should <b>not</b> be processed by
+  Clover.  Any classes that match the \"Classes to Include in Coverage
+  Measures\" above and <em>also</em> match the patterns you list here
+  will not be processed by Clover.    Patterns are
+  case-insensitive.  Use * as a wildcard character (ANT-style pattern
+  matching is used).  Use \"none\" if you do not wish to use any
+  exclusion patterns.";
+        },
+        {
+            property    = studentTestInclude;
+            type        = shortText;
+            size        = 40;
+            default     = "*test *tests";
+            name        = "Students Test Class Patterns";
+            category    = "Test Case Settings";
+            description =
+  "Specify the Java class names that should be treated as JUnit-style
+  test cases.  Only student classes with names that match the patterns you
+  list here will be executed as test cases.  Patterns are case-insensitive.
+  Use * as a wildcard character (ANT-style pattern matching is used).";
+        },
+        {
+            property    = studentTestExclude;
+            type        = shortText;
+            size        = 40;
+            default     = "abstract* *$*";
+            name        = "Students Test Class Exclusion Patterns";
+            category    = "Test Case Settings";
+            description =
+  "Specify Java class names that should <b>not</b> be treated as JUnit-style
+  test cases.  Any classes that match the \"Student Test Class Patterns\"
+  above and <em>also</em> match the patterns you list here
+  will not be treated as executable test cases.    Patterns are
+  case-insensitive.  Use * as a wildcard character (ANT-style pattern matching
+  is used).  Use \"none\" if you do not wish to use any exclusion patterns.";
+        },
+        {
+            property    = refTestInclude;
+            type        = shortText;
+            size        = 40;
+            default     = "*";
+            name        = "Reference Test Class Patterns";
+            category    = "Test Case Settings";
+            description =
+  "Specify the Java class names that should be treated as JUnit-style
+  test cases when selected as reference tests by an instructor.  This
+  setting is only relevant when an instructor selects an entire directory
+  or folder of Java classes.  In that case, only instructor reference classes
+  with names that match the patterns you list here will be executed as test
+  cases.  Patterns are case-insensitive.  Use * as a wildcard character
+  (ANT-style pattern matching is used).";
+        },
+        {
+            property    = refTestExclude;
+            type        = shortText;
+            size        = 40;
+            default     = "abstract* *$*";
+            name        = "Reference Test Class Exclusion Patterns";
+            category    = "Test Case Settings";
+            description =
+  "Specify Java class names that should <b>not</b> be treated as JUnit-style
+  test cases when selected as reference tests by an instructor.  This
+  setting is only relevant when an instructor selects an entire directory or
+  folder of Java classes.  In that case, any classes that match the
+  \"Reference Test Class Patterns\" above and <em>also</em> match the
+  patterns you list here will not be treated as executable test cases.
+  Patterns are case-insensitive.  Use * as a wildcard character (ANT-style
+  pattern matching is used).";
+        },
+        {
+            property    = checkstyleConfig;
+            advanced    = true;
+            type        = file;
+            fileTypes   = ( xml );
+            name        = "Checkstyle Configuration";
+            category    = "Static Analysis";
+            description =
+  "An XML file containing a Checkstyle rule configuration (see the
+  <a href=\"http://checkstyle.sourceforge.net/\" target=\"_new\">Checksyle
+  documentation</a>).";
+        },
+        {
+            property    = pmdConfig;
+            advanced    = true;
+            type        = file;
+            fileTypes   = ( xml );
+            name        = "PMD Configuration";
+            category    = "Static Analysis";
+            description =
+  "An XML file containing a set of PMD rules (see the
+  <a href=\"http://pmd.sourceforge.net/\" target=\"_new\">PMD
+  documentation</a>).";
+        },
+        {
+            property    = staticAnalysisInclude;
+            type        = shortText;
+            size        = 40;
+            default     = "*";
+            name        = "Classes to Analyze";
+            category    = "Static Analysis";
+            description =
+  "Specify the Java class names that should be included in Checkstyle and
+  PMD analysis.  Only student classes with names that match the patterns you
+  list here will be processed by Checkstyle and PMD.  Patterns are
+  case-insensitive.  Use * as a wildcard character (ANT-style pattern
+  matching is used).";
+        },
+        {
+            property    = staticAnalysisExclude;
+            type        = shortText;
+            size        = 40;
+            default     = "none";
+            name        = "Classes to Exclude from Analysis";
+            category    = "Static Analysis";
+            description =
+  "Specify Java class names that should <b>not</b> be processed by
+  Checkstyle or PMD.  Any classes that match the \"Classes to Analyze\"
+  above and <em>also</em> match the patterns you list here
+  will not be processed by Checkstyle or PMD.    Patterns are
+  case-insensitive.  Use * as a wildcard character (ANT-style pattern
+  matching is used).  Use \"none\" if you do not wish to use any
+  exclusion patterns.";
+        },
+        {
+            property    = markupProperties;
+            advanced    = true;
+            type        = file;
+            fileTypes   = ( properties );
+            name        = "Static Analysis Scoring Scheme";
+            category    = "Static Analysis";
+            description =
+  "A Java properties file containing the point deductions and limits to
+  use for messages generated by Checkstyle or PMD.  The point deductions
+  are specified in a fairly generic way so they can be used for many
+  assignments.  Deductions in the default scheme are typically 1, 2, or 5
+  'points', which are really simply relative weights.  Specify a scaling
+  factor below to adjust how these weights are translated into point
+  deductions for a student.";
+        },
+        {
+            property    = toolDeductionScaleFactor;
+            advanced    = true;
+            type        = double;
+            name        = "Static Analysis Deduction Scaling Factor";
+            category    = "Static Analysis";
+            description =
+  "The <b>Static Analysis Scoring Scheme</b> above defines the point deductions
+  and limits to use for messages generated by Checkstyle or PMD in a generic
+  way, with most deductions in the default scheme being 1, 2, or 5 points.
+  Deductions in the static analysis scoring scheme are multiplied by this
+  factor to translate them into actual 'point deductions' shown to the
+  student.";
+        },
+        {
+            property    = hintsLimit;
+            type        = integer;
+            default     = 3;
+            name        = "Hints Limit";
+            category    = "Feedback Settings";
+            description =
+  "Maximum number of hints the student will receive from failed reference
+  tests.";
+        },
+        {
+            property    = minCoverageLevel;
+            type        = double;
+            name        = "Minimum Test Coverage for Hints";
+            category    = "Feedback Settings";
+            description =
+  "If students are required to submit tests, this value is a minimum test
+  coverage threshold that must be achieved in order for any hints to be
+  given.  It should be a number between 0.0-100.0 representing the minimum
+  percent coverage required to see hints.";
+        },
+        {
+            property    = junitErrorsHideHints;
+            type        = boolean;
+            default     = false;
+            name        = "Clean JUnit Tests Required for Hints";
+            category    = "Feedback Settings";
+            description =
+  "If students are required to submit tests, this option requires all test
+  case classes to be free of PMD-based JUnit style errors, such as failing
+  to include at least one test method in each test case class, failing
+  to include assert*() calls in each test case method, or using \"bogus\"
+  assertions such as assertEquals(1, 1).";
+        },
+        {
+            property    = hideHintsWithin;
+            advanced    = true;
+            type        = integer;
+            default     = 0;
+            name        = "Hide Hints X Days Before Deadline";
+            category    = "Feedback Settings";
+            description =
+  "Suppress all hints from failed reference tests for submissions within this
+  many days of the deadline (set to zero for hints to always be visible).
+  This setting allows the instructor to \"hide\" hints close to the assignment
+  deadline in an attempt to encourage students to start working earlier.";
+        },
+        {
+            property    = showHintsWithin;
+            advanced    = true;
+            type        = integer;
+            default     = 0;
+            name        = "Show Hints X Days Before Deadline";
+            category    = "Feedback Settings";
+            description =
+  "Show hints (up to the <i>Hints Limit</i>) from failed reference tests for
+  submissions within this many days of the deadline (only useful when <i>Hide
+  Hints X Days Before Deadline</i> is non-zero, to restore hints as the
+  deadline approaches).";
+        },
+    {
+            property    = wantPDF;
+            type        = boolean;
+            default     = false;
+            name        = "Generate PDF Printouts";
+            category    = "Feedback Settings";
+            description =
+  "Set to true if you wish for a single PDF file containing a pretty-printed
+  source code printout to be generated from the student's code.  The printout
+  will be downloadable by students, and accessible by TAs during grading.
+  <b>Note:</b>  This option uses both <code>enscript</code> and
+  <code>ps2pdf</code> as external commands, and requires these programs to
+  be correctly installed and configured.";
+        },
+    {
+            property    = enscriptStyle;
+            type        = shortText;
+            size        = 15;
+            default     = "msvc";
+            name        = "PDF Formatting Style (for Enscript)";
+            category    = "Feedback Settings";
+            description =
+  "If you are generating PDF printouts, you can specify the formatting style
+  used by <code>enscript</code>.  This name will be passed to
+  <code>enscript</code> using its <code>--style=</code> parameter.  See your
+  enscript documentation for more information about the styles that are
+  supported.  Many enscript installations support the following styles:
+  <code>a2ps</code>, <code>emacs</code>, <code>emacs-verbose</code>,
+  <code>ifh</code>, and <code>msvc</code>.  It is possible to add your
+  own custom formatting definitions to your enscript installation and then
+  use your own style name here as well.";
+        },
+        {
+            property    = wantClassDiagrams;
+            type        = boolean;
+            default     = true;
+            name        = "Generate Class Diagrams";
+            category    = "Feedback Settings";
+            description =
+  "Set to true if you wish to generate class diagrams from students' code.
+  The diagrams will be viewable by students, and accessible by TAs during
+  grading.  <b>Note:</b>  This option uses both <code>doxygen</code> and
+  <code>dot</code> as external commands, and requires these programs to
+  be correctly installed and configured in the JavaTddPlugin's global
+  configuration options.";
+        },
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            category    = "Script Developer";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        },
+        {
+            property    = doNotDelete;
+            type        = antBoolean;
+            advanced    = true;
+            name        = "Preserve Derived Files";
+            category    = "Script Developer";
+            description =
+  "Set to true to prevent the plug-in from deleting the derived files it
+  creates during the build/test process for each submission.  Normally, these
+  files are deleted when a given submission has been completely processed.
+  This setting is provided for debugging purposes, when one wishes to
+  inspect the intermediate test driver source code or other derived files.";
+        }
+    );
+    globalOptions = (
+        {
+            property    = doxygenDir;
+            type        = shortText;
+            size        = 40;
+            name        = "Doxygen Directory";
+            description =
+  "The directory on the local server that contains the Doxygen executable.
+  Doxygen (and Dot, below) are used to generate class diagrams for the code
+  that students submit; if you do not have a copy of Doxygen or wish to
+  disable diagram generation across all assignments, you can leave this
+  field blank. If you are not the user administering this Web-CAT server,
+  you will need to have your system administrator install this tool and set
+  this path if you wish to use it.";
+        },
+        {
+            property    = dotDir;
+            type        = shortText;
+            size        = 40;
+            name        = "Dot Directory";
+            description =
+  "The directory on the local server that contains the Dot executable (from
+  the <b>Graphviz</b> package). Dot (and Doxygen, above) are used to generate
+  class diagrams for the code that students submit; if you do not have a copy
+  of Dot or wish to disable diagram generation across all assignments, you can
+  leave this field blank. If you are not the user administering this Web-CAT
+  server, you will need to have your system administrator install this tool
+  and set this path if you wish to use it.";
+        }
+    );
+}

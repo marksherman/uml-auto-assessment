@@ -1,0 +1,305 @@
+group runner;
+
+// ------------------------------------------------------------------------
+/*
+ * The root template for the runAllTests.cpp generated file.
+ */
+ 
+runAllTestsFile(options, suites, possibleTestFiles) ::= <<
+/* Generated file, do not edit */
+
+<preamble(options=options)>
+<world(options=options, suites=suites)>
+<main(options=options)>
+
+<!
+	Possible test files -- these included cxxtest/TestSuite.h, so they're
+	probably intended to be test cases, but the classes forgot to derive
+	from CxxTest::TestSuite. By including them in the compilation process,
+	the user will still be notified if they contain any warnings or errors.
+!>
+<if(possibleTestFiles)>
+<possibleTestFiles:{ #include "<it>" }>
+<endif>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * The preamble contains the bulk of the header inclusions and preprocessor
+ * symbol definitions.
+ */
+
+preamble(options) ::= <<
+
+<if(options.platformIsMSVC)>
+#pragma warning(push)
+#pragma warning(disable: 4073)
+#pragma init_seg(lib)
+#pragma warning(pop)
+<endif>
+
+<options.additionalDefines:{#define <it><\n>}>
+
+#ifndef CXXTEST_RUNNING
+#define CXXTEST_RUNNING
+#endif
+
+#define _CXXTEST_HAVE_STD
+#define _CXXTEST_HAVE_EH
+
+<if(options.trapSignals)>#define CXXTEST_TRAP_SIGNALS<endif>
+<if(options.traceStack)>#define CXXTEST_TRACE_STACK<endif>
+<if(options.abortOnFail)>#define _CXXTEST_ABORT_TEST_ON_FAIL<endif>
+<if(options.longLongType)>#define _CXXTEST_LONGLONG <options.longLongType><endif>
+<if(options.xmlOutput)>#define CXXTEST_XML_OUTPUT<endif>
+
+#include \<cxxtest/TestListener.h\>
+#include \<cxxtest/TestTracker.h\>
+#include \<cxxtest/TestRunner.h\>
+#include \<cxxtest/RealDescriptions.h\>
+#include \<cxxtest/ListenerList.h\>
+<options.listeners:{#include \<cxxtest/<it>.h\><\n>}>
+
+typedef const CxxTest::SuiteDescription *SuiteDescriptionPtr;
+typedef const CxxTest::TestDescription *TestDescriptionPtr;
+
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * The world contains all of the test suite descriptions.
+ */
+
+world(options, suites) ::= <<
+// BEGIN: Test world (declarations of all test suites)
+
+<suites:{<suite(options=options, suite=it)>}>
+
+// END: Test world
+
+<globalInitAndCleanup(options=options, suites=suites)>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Global initialization and cleanup functions used to manage the test suites
+ * if static initialization is not used.
+ */
+
+globalInitAndCleanup(options, suites) ::= <<
+namespace CxxTest
+{
+	void initialize()
+	{
+		<if(options.noStaticInit)>
+		<suites:{<suiteInitialization(suite=it)>}>
+		<endif>
+	}
+	
+	void cleanup()
+	{
+		<if(options.noStaticInit)>
+		<suites:{<if(!it.dynamic)>delete <it.objectName>;<\n><endif>}>
+		<endif>
+	}
+}
+
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Initialization code for a single test suite.
+ */
+
+suiteInitialization(suite) ::= <<
+// Initialize test suite: <suite.name>
+<suite.testListName>.initialize();
+
+<if(suite.dynamic)>
+<suite.objectName> = 0;
+<suite.descriptionObjectName>.initialize(
+	<suite.fullPath; format="runnerRelativePathAsCString">, <suite.lineNumber>,
+	<suite.name; format="asCString">, <suite.testListName>, <suite.objectName>,
+	<suite.createLineNumber>, <suite.destroyLineNumber>);
+<else>
+_TS_TRY_WITH_SIGNAL_PROTECTION {
+	_TS_TRY { <suite.objectName> = new <suite.name>; } _TS_PROPAGATE_SIGNAL _TS_CATCH_ABORT( {} )
+	_TS_LAST_CATCH( { CxxTest::__cxxtest_failed_init_suites.addSuite(<suite.name; format="asCString">, "Exception thrown when initializing " <suite.name; format="asCString">); } )
+} _TS_CATCH_SIGNAL( { CxxTest::__cxxtest_failed_init_suites.addSuite(<suite.name; format="asCString">, CxxTest::__cxxtest_sigmsg.c_str()); } );
+
+<suite.descriptionObjectName>.initialize(
+	<suite.fullPath; format="runnerRelativePathAsCString">, <suite.lineNumber>,
+	<suite.name; format="asCString">, *<suite.objectName>, <suite.testListName>);
+<endif>
+
+<suite.testCases:{<testCaseInitialization(suite=suite, testCase=it)>}>
+
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Initialization code for a single test case.
+ */
+
+testCaseInitialization(suite, testCase) ::= <<
+<if(options.testsToRun.(suite.name+"::"+testCase.name))>
+testDescription_<suite.name>_<testCase.name>.initialize(<suite.testListName>, <suite.descriptionObjectName>, <testCase.lineNumber>, <testCase.name; format="asCString">);
+<endif>
+<\n>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * The main part of the test runner, which includes Root.cpp, Dereferee
+ * source components (if necessary), and generates the code that runs the
+ * tests.
+ */
+
+main(options) ::= <<
+<if(options.root)><if(!options.part)>
+#include \<cxxtest/Root.cpp\>
+<if(options.includeDereferee)>
+#include \<dereferee/allocation_info_impl.cpp\>
+#include \<dereferee/manager.cpp\>
+#include \<dereferee/memtab.cpp\>
+#include \<dereferee/usage_stats_impl.cpp\>
+<endif>
+
+<if(options.derefereeListener)>#include \<dereferee/<options.derefereeListener>.cpp\><endif>
+<if(options.derefereePlatform)>#include \<dereferee/<options.derefereePlatform>.cpp\><endif>
+<endif><endif>
+
+<if(options.platformIsMSVC)>
+// Get rid of annoying STDC deprecation warnings in MSVC++.
+#pragma warning(push)
+#pragma warning(disable: 4996)
+<endif>
+
+<if(!options.mainProvided)>
+<mainRunner(options=options)>
+<else>
+<staticObjectRunner(options=options)>
+<endif>
+
+<if(options.platformIsMSVC)>
+#pragma warning(pop)
+<endif>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Declarations of the suite description objects.
+ */
+
+suite(options, suite) ::= <<
+// Test suite: <suite.name>
+
+#include "<suite.fullPath; format="runnerRelativePath">"
+static <suite.name> *<suite.objectName><if(!options.noStaticInit)> = 0<endif>;
+static CxxTest::List <suite.testListName><if(!options.noStaticInit)> = { 0, 0 }<endif>;
+
+<if(suite.dynamic)>
+<dynamicSuiteDescription(options=options, suite=suite)>
+<else>
+<staticSuiteDescription(options=options, suite=suite)>
+<endif>
+
+<suite.testCases:{<testCaseDescription(options=options, suite=suite, testCase=it)>}>
+
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Declaration of a dynamic test suite description.
+ */
+
+dynamicSuiteDescription(options, suite) ::= <<
+CxxTest::DynamicSuiteDescription\<<suite.name>\> <suite.descriptionObjectName><if(options.noStaticInit)>(<suite.fullPath; format="runnerRelativePathAsCString">, <suite.lineNumber>, <suite.name; format="asCString">, <suite.testListName>, <suite.objectName>, <suite.createLineNumber>, <suite.destroyLineNumber>)<endif>;
+<\n>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Declaration of a static test suite description.
+ */
+
+staticSuiteDescription(options, suite) ::= <<
+CxxTest::StaticSuiteDescription <suite.descriptionObjectName><if(!options.noStaticInit)>(<suite.fullPath; format="runnerRelativePathAsCString">, <suite.lineNumber>, <suite.name; format="asCString">, <suite.objectName>, <suite.testListName>)<endif>;
+<\n>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Declaration of a test case description.
+ */
+
+testCaseDescription(options, suite, testCase) ::= <<
+<if(options.testsToRun.(suite.name+"::"+testCase.name))>
+static class TestDescription_<suite.name>_<testCase.name> : public CxxTest::RealTestDescription {
+public:
+<if(!options.noStaticInit)>
+	TestDescription_<suite.name>_<testCase.name>() : CxxTest::RealTestDescription(<suite.testListName>, <suite.descriptionObjectName>, <testCase.lineNumber>, <testCase.name; format="asCString">) { }
+<endif>
+	void runTest() { if(<suite.objectName>) <suite.objectName>-\><testCase.name>(); }
+} testDescription_<suite.name>_<testCase.name>;
+<endif>
+<\n>
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Generates a main() function that will run the tests.
+ */
+
+mainRunner(options) ::= <<
+int main()
+{
+	<if(options.noStaticInit)>CxxTest::initialize();<endif>
+
+	CxxTest::ListenerList listeners;
+	<options.listeners:{CxxTest::<it> listener_<i>; listeners.addListener(listener_<i>);<\n>}>
+	CxxTest::TestRunner::runAllTests(listeners);
+	int exitCode = CxxTest::tracker().failedTests();
+	CxxTest::__cxxtest_runCompleted = true;
+	CxxTest::cleanup();
+	return exitCode;
+}
+>>
+
+
+// ------------------------------------------------------------------------
+/*
+ * Generates a statically initialized object that will run the tests inside
+ * its constructor (if a main() function already exists in the project).
+ */
+
+staticObjectRunner(options) ::= <<
+class CxxTestMain
+{
+public:
+	CxxTestMain()
+	{
+		<if(options.noStaticInit)>CxxTest::initialize();<endif>
+
+		CxxTest::ListenerList listeners;
+		<options.listeners:{CxxTest::<it> listener_<i>; listeners.addListener(listener_<i>);<\n>}>
+		CxxTest::TestRunner::runAllTests(listeners);
+		CxxTest::__cxxtest_runCompleted = true;
+		CxxTest::cleanup();
+	}
+};
+
+CxxTestMain cxxTestMain;
+
+>>

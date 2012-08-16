@@ -1,0 +1,21 @@
+<wo name="Page">
+
+<wo:WCPageModule title="This Configuration of Reusable Options">
+<p>Configuration name: <webobject name="Name"/></p>
+<p>This named configuration profile contains common
+option settings that are shared by the following assignment(s):</p>
+<table><thead><tr><th>Assignment</th><th>Description</th><th>Instances</th></tr></thead><tbody>
+<webobject name="Repetition3">
+<webobject name="TR">
+<td><wo:if condition="$otherAssignmentStep.assignment.url"><webobject name="AssignmentName"/></wo:if><wo:else><wo:str value="$otherAssignmentStep.assignment.name"/></wo:else></td>
+<td><webobject name="AssignmentDescription"/></td>
+<td><webobject name="AssignmentInstanceCount"/></td>
+</webobject></webobject>
+</tbody></table>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Options Stored in this Configuration">
+<wo name="OptionEditor"/>
+</wo:WCPageModule>
+
+</wo>

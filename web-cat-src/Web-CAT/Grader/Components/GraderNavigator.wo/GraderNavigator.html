@@ -1,0 +1,47 @@
+<wo:WCForm><b>Viewing:</b>&nbsp;&nbsp;<div class="inlined"><wo name="SemesterMenu">
+<wo name="SemesterMenuItem">
+    <wo:str value="$semesterInRepetition"/>
+</wo>
+</wo></div>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<wo name="CoursePane"><wo name="CourseMenu">
+    <wo:if condition="$isCourseOfferingFilterPlaceholder">
+        <wo name="CourseOfferingControls">
+            <div><wo name="ToggleIncludeAdminAccess">
+                <wo:if condition="$includeAdminAccess">Hide admin access
+                </wo:if><wo:else>Show admin access</wo:else>
+            </wo></div>
+        </wo>
+    </wo:if><wo:else>
+        <wo name="CourseMenuItem">
+            <wo:str value="$courseOfferingInRepetition"/>
+        </wo>
+    </wo:else>
+</wo></wo>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<wo name="AssignmentPane"><wo name="AssignmentMenu">
+<wo:if condition="$isAssignmentNoCoursePlaceholder">
+    <wo:WCDropDownItem isSelectable="false">
+        Please make a course selection first.
+    </wo:WCDropDownItem>
+</wo:if><wo:else>
+<wo:if condition="$isAssignmentFilterPlaceholder">
+    <wo name="AssignmentControls">
+        <wo:if condition="$userIsStaffForSelectedCourse">
+        <div><wo name="ToggleUnpublishedAssignments">
+            <wo:if condition="$showUnpublishedAssignments">Hide unpublished assignments
+            </wo:if><wo:else>Show unpublished assignments</wo:else>
+        </wo></div>
+        </wo:if>
+        <wo:if negate="true" condition="$hideClosedAssignmentsFromStudents">
+        <div><wo name="ToggleClosedAssignments">
+            <wo:if condition="$showClosedAssignments">Hide closed assignments
+            </wo:if><wo:else>Show closed assignments</wo:else>
+        </wo></div>
+        </wo:if>
+    </wo>
+</wo:if><wo:else>
+    <wo name="AssignmentMenuItem">
+        <wo name="IsUnpublished"><wo name="UnpublishedIcon"/></wo>
+        <wo name="IsPublished"><wo name="IsClosed"><wo name="ClosedIcon"/></wo>
+        <wo name="IsOpen"><wo name="OpenIcon"/></wo></wo>
+        <wo:str value="$assignmentInRepetition"/>
+    </wo>
+</wo:else></wo:else>
+</wo></wo></wo:WCForm>

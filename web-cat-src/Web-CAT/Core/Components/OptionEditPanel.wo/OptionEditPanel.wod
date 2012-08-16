@@ -1,0 +1,114 @@
+Browse: WCButton {
+    label = "Browse...";
+    id = idFor.optionWidget;
+    action = showFileDialog;
+    remote = true;
+}
+
+CheckBox: WCCheckBox {
+    id = idFor.optionWidget;
+    checked = value;
+}
+
+ChoiceLabel: WOString {
+    value = choiceLabel;
+}
+
+DescriptionPopup: org.webcat.core.PopUpInfo {
+    message = option.description;
+}
+
+DoubleBox: WCTextBox {
+    id = idFor.optionWidget;
+    numberformat = "0.0";
+    style  = "~'width: ' + fieldSize * 0.8 + 'em'";
+    value = value;
+}
+
+Download: WOHyperlink {
+    action   = downloadFile;
+}
+
+DownloadIcon: WOImage {
+    filename = "icons/download.gif";
+    framework = "Core";
+    alt      = "[Download]";
+    title    = "Download";
+    width    = "18";
+    height   = "18";
+    class    = "icon";
+    border   = "0";
+}
+
+File: RepositoryFileLabel {
+    value = value;
+    noFilePlaceholder = "<plug-in default>";
+}
+
+FilePickerDialog: FilePickerDialog {
+    id = idFor.filePickerDialog;
+    title = "Choose a File";
+    delegate = self;
+    initialSelection = initialSelectionForFilePicker;
+}
+
+IntegerBox: WCTextBox {
+    id = idFor.optionWidget;
+    numberformat = "0";
+    style  = "~'width: ' + fieldSize * 0.8 + 'em'";
+    value = value;
+}
+
+ListChoice: WCFilteringSelect {
+    id            = idFor.optionWidget;
+    list          = option.choices;
+    item          = choice;
+    displayString = choiceLabel;
+//    value         = choiceValue;
+    selection     = selectedChoice;
+}
+
+OptionName: WOString {
+    value = option.name;
+}
+
+PasswordBox: WCTextBox {
+    id = idFor.optionWidget;
+    style  = "~'width: ' + fieldSize * 0.8 + 'em'";
+    value = value;
+    type  = "password";
+}
+
+RadioButton: WCRadioButton {
+    name      = property;
+    value     = choice;
+    selection = selectedChoice;
+}
+
+RadioRepetition: WORepetition {
+    list = option.choices;
+    item = choice;
+}
+
+TextArea: WCSimpleTextArea {
+    id = idFor.optionWidget;
+    rows  = 8;
+    cols  = 60;
+    value = value;
+}
+
+TextBox: WCTextBox {
+    id = idFor.optionWidget;
+    style  = "~'width: ' + fieldSize * 0.55 + 'em'";
+    value = value;
+}
+
+UseDefault: WCButton {
+    label = "Use Default";
+    remote = true;
+    action = clearValue;
+}
+
+ValueContainer : WCContentSpan {
+    id = idFor.valueContainer;
+}

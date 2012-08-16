@@ -1,0 +1,42 @@
+<wo:WCPageModule title="Course Reflections and Assessment">
+
+<wo:if condition="~user.accessLevel gte 90">
+<wo:WCForm multipleSubmit="true">
+<wo name="SelectUser"/> <wo:WCButton label="Switch User" action="$switchUser"/>
+</wo:WCForm>
+</wo:if>
+
+<wo:if condition="$offerings.count">
+<table><thead>
+<tr><th>Course Offering</th><th>Semester</th>
+<th>Outcome Measures</th><th>Reflections</th></tr>
+</thead><tbody>
+<wo:loop list="$offerings" item="$offering" index="$index">
+<wo:tr index="$index">
+  <td><wo:str value="$offering.compactName"/>:
+    <wo:str value="$offering.course.name"/></td>
+  <td><wo:str value="$offering.semester"/></td>
+  <td><wo:if condition="$hasMeasures"><wo:if condition="$measuresEntered">
+      <wo:WOImage border="0" class="icon" filename="icons/check.png" framework="Core" height="16" width="16"/>
+      <wo:link action="$measures">your measures</wo:link>
+      </wo:if><wo:else>
+      <wo:link action="$measures">enter measures</wo:link>
+      </wo:else></wo:if><wo:else>
+      &lt;none to collect&gt;
+      </wo:else></td>
+  <td><wo:if condition="$reflectionsEntered">
+      <wo:WOImage border="0" class="icon" filename="icons/check.png" framework="Core" height="16" width="16"/>
+      <wo:link action="$reflections">your reflections</wo:link>
+      </wo:if><wo:else>
+      <wo:link action="$reflections">enter reflections</wo:link>
+      </wo:else></td>
+</wo:tr>
+</wo:loop>
+</tbody></table>
+</wo:if><wo:else>
+<p>You are not currently listed as teaching any undergraduate courses
+for <wo:str value="$semester"/>.  If this is incorrect, please contact
+<a href="mailto:edwards@cs.vt.edu">Stephen Edwards</a> for assistance.</p>
+</wo:else>
+
+</wo:WCPageModule>

@@ -1,0 +1,319 @@
+
+{
+    attributes = 
+    (
+       
+       {
+           columnName = "";
+           externalType = BIT;
+           name = boolean;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarDefault = false;
+               type = boolean;
+           };
+           valueClassName = NSNumber;
+           valueType = i;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CDATA;
+           externalType = BLOB;
+           name = data;
+           valueClassName = NSData;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CDATETIME;
+           externalType = DATETIME;
+           name = dateTime;
+           valueClassName = NSCalendarDate;
+       }, 
+       
+       {
+           columnName = "";
+           externalType = DECIMAL;
+           name = decimal;
+           valueClassName = NSDecimalNumber;
+           valueType = B;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = DOUBLE;
+           name = double;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarConversionMethodName = doubleValue;
+               scalarDefault = 0.0;
+               type = double;
+               valueClassName = Double;
+           };
+           valueClassName = NSNumber;
+           valueType = d;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CPATHNAME;
+           externalType = TINYTEXT;
+           name = filePath;
+           valueClassName = NSString;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = FLOAT;
+           name = float;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarConversionMethodName = floatValue;
+               scalarDefault = 0.0;
+               type = float;
+               valueClassName = Float;
+           };
+           valueClassName = NSNumber;
+           valueType = d;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = INTEGER;
+           name = foreignId;
+           valueClassName = NSNumber;
+           valueType = l;
+       }, 
+       
+       {
+           columnName = OID;
+           externalType = INTEGER;
+           name = id;
+           valueClassName = NSNumber;
+           valueType = l;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = INTEGER;
+           name = integer;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarConversionMethodName = intValue;
+               scalarDefault = 0;
+               type = int;
+               valueClassName = Integer;
+           };
+           valueClassName = NSNumber;
+           valueType = i;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = BIGINT;
+           name = long;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarConversionMethodName = longValue;
+               scalarDefault = 0L;
+               type = long;
+               valueClassName = Long;
+           };
+           valueClassName = NSNumber;
+           valueType = l;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CLONGDATA;
+           externalType = LONGBLOB;
+           name = longData;
+           valueClassName = NSData;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CLONGTEXT;
+           externalType = LONGTEXT;
+           name = longText;
+           valueClassName = NSString;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CMEDIUMDATA;
+           externalType = MEDIUMBLOB;
+           name = mediumData;
+           valueClassName = NSData;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CMEDIUMTEXT;
+           externalType = MEDIUMTEXT;
+           name = mediumText;
+           valueClassName = NSString;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = BLOB;
+           name = mutableArray;
+           userInfo = 
+           {
+               adaptorValueConversionMethodName = archiveData;
+               isMutable = true;
+               valueClassName = org.webcat.core.MutableArray;
+               valueFactoryMethodName = objectWithArchiveData;
+           };
+           valueClassName = NSData;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = BLOB;
+           name = mutableDictionary;
+           userInfo = 
+           {
+               adaptorValueConversionMethodName = archiveData;
+               isMutable = true;
+               valueClassName = org.webcat.core.MutableDictionary;
+               valueFactoryMethodName = objectWithArchiveData;
+           };
+           valueClassName = NSData;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = PASSWORD;
+           externalType = TINYTEXT;
+           name = password;
+           valueClassName = NSString;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CTEXT;
+           externalType = TEXT;
+           name = text;
+           valueClassName = NSString;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CTINYDATA;
+           externalType = TINYBLOB;
+           name = tinyData;
+           valueClassName = NSData;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = "";
+           externalType = TINYINT;
+           name = tinyInteger;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarConversionMethodName = byteValue;
+               scalarDefault = 0;
+               type = byte;
+               valueClassName = Byte;
+           };
+           valueClassName = NSNumber;
+           valueType = i;
+       }, 
+       
+       {
+           allowsNull = Y;
+           columnName = CTINYTEXT;
+           externalType = TINYTEXT;
+           name = tinyText;
+           valueClassName = NSString;
+       }, 
+       
+       {
+           columnName = CUPDATEMUTABLEFIELDS;
+           externalType = BIT;
+           name = updateMutableFields;
+           userInfo = 
+           {
+               isScalar = true;
+               scalarDefault = false;
+               type = boolean;
+           };
+           valueClassName = NSNumber;
+           valueType = i;
+       }, 
+       
+       {
+           columnName = CUSERNAME;
+           externalType = TINYTEXT;
+           name = userName;
+           valueClassName = NSString;
+       }
+    );
+    attributesUsedForLocking = 
+    (
+       boolean, 
+       decimal, 
+       double, 
+       filePath, 
+       foreignId, 
+       id, 
+       integer, 
+       mutableArray, 
+       mutableDictionary, 
+       password, 
+       tinyData, 
+       tinyInteger, 
+       tinyText, 
+       updateMutableFields, 
+       userName
+    );
+    className = EOGenericRecord;
+    classProperties = 
+    (
+       boolean, 
+       data, 
+       dateTime, 
+       decimal, 
+       double, 
+       filePath, 
+       integer, 
+       longData, 
+       longText, 
+       mediumData, 
+       mediumText, 
+       mutableArray, 
+       mutableDictionary, 
+       password, 
+       text, 
+       tinyData, 
+       tinyInteger, 
+       tinyText, 
+       updateMutableFields, 
+       userName
+    );
+    internalInfo = 
+    {};
+    isAbstractEntity = Y;
+    name = EOJDBCPrototypes;
+    primaryKeyAttributes = 
+    (
+       id
+    );
+}

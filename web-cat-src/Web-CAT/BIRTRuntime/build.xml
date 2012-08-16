@@ -1,0 +1,5 @@
+<project name="BIRTRuntime" default="install" basedir=".">
+
+  <import file="../Core/framework.xml"/>
+
+</project>

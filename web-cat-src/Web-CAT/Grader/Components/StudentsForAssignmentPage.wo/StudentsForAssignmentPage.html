@@ -1,0 +1,135 @@
+<wo:PageWithAssignmentNavigation>
+<div class="module">
+<wo name="PickSubmissionDialog"/>
+<wo name="DownloadScoresDialog"/>
+<wo:WCForm><table class="actionlist"><tbody><tr>
+    <td><wo name="DownloadScoresIcon"/></td>
+    <td><wo name="DownloadScores">Download scores for these submissions.</wo></td>
+</tr><tr>
+    <td><wo name="RegradeSubmissionsIcon"/></td>
+    <td><wo name="RegradeSubmissions">Regrade all of the most recent submissions.</wo></td>
+</tr></tbody></table></wo:WCForm>
+</div>
+
+<wo:loop list="$offerings.displayedObjects" item="$assignmentOffering">
+<wo:org.webcat.core.WCPageModule title="~ 'Submissions for ' + assignmentOffering.titleString"
+    open="$assignmentOffering.courseOffering.generateKey.user.preferences.StudentsForAssignmentPage_open">
+
+<wo:if condition="$userGroup.allObjects.count">
+    <p><b>Score Summary:</b>
+    High:   <span class="hl"><wo name="HighScore"/></span>
+    Mean:   <span class="hl"><wo name="MeanScore"/></span>
+    Median: <span class="hl"><wo name="MedianScore"/></span>
+    Low:    <span class="hl"><wo name="LowScore"/></span>
+    Box plot: <wo name="BoxAndWhiskerChart"/>
+    </p>
+    <wo:WCForm multipleSubmit="true">
+    <wo name="UserSubmissionsTable">
+        <wo:WCTableHeadings>
+            <wo:WCTableHeading title="Done?" class="sm" sortOnKeyPaths="submission.result.status"/>
+            <wo:WCTableHeading title="Name" sortOnKeyPaths="user.name_LF,user.userName"/>
+            <wo:WCTableHeading title="Sub #" class="sm"/>
+            <wo:WCTableHeading title="Time" sortOnKeyPaths="submission.submitTime"/>
+            <wo name="UsesTestingScore"><wo:WCTableHeading title="Testing" class="sm"/></wo>
+            <wo name="UsesToolCheckScore"><wo:WCTableHeading title="Tool Checks" class="sm"/></wo>
+            <wo:WCTableHeading title="TA"/>
+            <wo name="UsesBonusesOrPenalties"><wo:WCTableHeading title="Early/Late" class="sm"/></wo>
+            <wo:WCTableHeading title="Score" class="sm" sortOnKeyPaths="submission.result.finalScore"/>
+        </wo:WCTableHeadings>
+        <wo:WCTableRows item="$aUserSubmission" noRowsMessage="No submissions matching your criteria have been found.">
+            <wo:WCTableRow>
+                <wo:if condition="$aUserSubmission.userHasSubmission">
+                    <td><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@TO_DO"><wo name="StatusToDo"/></wo:if><wo:else><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@UNFINISHED"><wo name="StatusUnfinished"/></wo:if><wo:else><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@CHECK"><wo name="StatusDone"/></wo:if><wo:else><webobject name="Status"/></wo:else></wo:else></wo:else></td>
+                    <td><wo:tstr value="$aSubmission.result.submission.namesOfAllUsers_LF"/>
+                      <wo:not condition="$isMostRecentSubmission">
+                        <wo:loop list="$studentNewerSubmissions.filteredObjects" item="$aNewerSubmission">
+                          <br/>&nbsp;&nbsp;&nbsp;&nbsp;<wo:if condition="$aNewerSubmission.result"><wo:link action="$editNewerSubmissionScore">try #<wo:str value="$aNewerSubmission.submitNumber"/>,
+                          <wo name="NewerSubmitTimeSpan"><wo name="NewerSubmitTime"/></wo></wo:link></wo:if><wo:else>try #<wo:str value="$aNewerSubmission.submitNumber"/>,
+                          <wo name="NewerSubmitTimeSpan"><wo name="NewerSubmitTime"/></wo></wo:else>:&nbsp;<span class="caution"><wo:str value="$newerSubmissionStatus"/></span>
+                        </wo:loop>
+                      </wo:not></td>
+                    <td class="n"><wo name="PickSubmissionLink"><wo name="SubmitNumber"/><wo:not condition="$isMostRecentSubmission">
+                    (of <wo name="MostRecentSubmitNumber"/>)</wo:not></wo></td>
+                    <td class="sm"><wo name="SubmitTimeSpan"><wo name="SubmitTime"/></wo></td>
+                    <wo name="UsesTestingScore"><td class="n"><wo name="TestingScore"/></td></wo>
+                    <wo name="UsesToolCheckScore"><td class="n"><wo name="ToolScore"/></td></wo>
+                    <td class="n"><wo name="EditScore"><wo name="HasTAScore"><wo name="TAScore"/></wo><wo name="NoTAScore">&lt;edit&gt;</wo></wo></td>
+                    <wo name="UsesBonusesOrPenalties"><td class="n"><wo name="ScoreAdjustment"/></td></wo>
+                    <td class="n"><wo name="FinalScore"/></td>
+                </wo:if><wo:else>
+                    <td><wo name="StatusBlank"/></td>
+                    <td><wo:tstr value="$aUserSubmission.user.name_LF"/></td>
+                    <wo name="NoSubmissionsPlaceholder">No submissions</wo>
+                </wo:else>
+            </wo:WCTableRow>
+        </wo:WCTableRows>
+    </wo>
+    <wo name="MarkAsComplete"/><wo name="MarkAsCompleteStatus"></wo>
+    </wo:WCForm>
+</wo:if><wo:else>
+    <p>No submissions matching your criteria have been found.</p>
+</wo:else>
+
+</wo:org.webcat.core.WCPageModule>
+</wo:loop>
+
+<wo:if condition="$staffSubmissionGroup.allObjects.count">
+<wo:org.webcat.core.WCPageModule title="Staff Submissions">
+
+    <table><thead>
+    <tr class="batchnav"><td colspan="7"><wo name="BatchNavigatorStaff"/></td>
+        <wo name="UsesToolCheckScore"><td></td></wo>
+        <wo name="UsesBonusesOrPenalties"><td></td></wo>
+    </tr>
+    <tr><th class="sm">Done?<wo name="SortOrderStaffStatus"/></th>
+        <th>Name<wo name="SortOrderStaffUserNameLF"/></th>
+        <th class="sm">Sub No.</th>
+        <th>Time<wo name="SortOrderStaffSubmitTime"/></th>
+        <th class="sm">Testing</th>
+        <wo name="UsesToolCheckScore"><th class="sm">Tool Checks</th></wo>
+        <th>TA</th>
+        <wo name="UsesBonusesOrPenalties"><th class="sm">Early/Late</th></wo>
+        <th class="sm">Score<wo name="SortOrderStaffFinalScore"/></th>
+    </tr></thead><tbody class="top">
+    <wo name="Repetition2"><wo name="TR2">
+        <td><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@TO_DO"><wo name="StatusToDo"/></wo:if><wo:else><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@UNFINISHED"><wo name="StatusUnfinished"/></wo:if><wo:else><wo:if condition="~aSubmission.result.status == @org.webcat.core.Status@CHECK"><wo name="StatusDone"/></wo:if><wo:else><webobject name="Status"/></wo:else></wo:else></wo:else></td>
+        <td><wo:str value="$aSubmission.result.submission.namesOfAllUsers_LF"/>
+              <wo:not condition="$isMostRecentSubmission">
+                <wo:loop list="$studentNewerSubmissions.filteredObjects" item="$aNewerSubmission">
+                  <br/>&nbsp;&nbsp;&nbsp;&nbsp;<wo:if condition="$aNewerSubmission.result"><wo:link action="$editNewerSubmissionScore">try #<wo:str value="$aNewerSubmission.submitNumber"/>,
+                  <wo name="NewerSubmitTimeSpan"><wo name="NewerSubmitTime"/></wo></wo:link></wo:if><wo:else>try #<wo:str value="$aNewerSubmission.submitNumber"/>,
+                  <wo name="NewerSubmitTimeSpan"><wo name="NewerSubmitTime"/></wo></wo:else>:
+                  <span class="caution"><wo:str value="$newerSubmissionStatus"/></span>
+                </wo:loop>
+              </wo:not></td>
+        <td class="n"><wo name="SubmitNumber"/><wo:not condition="$isMostRecentSubmission">
+        (of <wo name="MostRecentSubmitNumber"/>)</wo:not></td>
+        <td class="sm"><wo name="SubmitTime"/></td>
+        <td class="n"><wo name="TestingScore"/></td>
+        <wo name="UsesToolCheckScore"><td class="n"><wo name="ToolScore"/></td></wo>
+        <td class="n"><wo name="EditScore"><wo name="HasTAScore"><wo name="TAScore"/></wo><wo name="NoTAScore">&lt;edit&gt;</wo></wo></td>
+        <wo name="UsesBonusesOrPenalties"><td class="n"><wo name="ScoreAdjustment"/></td></wo>
+        <td class="n"><wo name="FinalScore"/></td>
+    </wo></wo>
+    </tbody></table>
+
+</wo:org.webcat.core.WCPageModule>
+</wo:if>
+
+<wo:if condition="$user.hasAdminPrivileges">
+<wo:org.webcat.core.WCPageModule title="Text/HTML Comments" open="false">
+
+  <wo:link action="$repartner">Recalculate partner assignment offerings</wo:link>
+  <table><thead>
+    <tr><th>Have Text Comments</th></tr>
+  </thead><tbody>
+  </tbody></table>
+
+  <table><thead>
+    <tr><th>Have HTML Comments</th></tr>
+  </thead><tbody>
+  </tbody></table>
+
+</wo:org.webcat.core.WCPageModule>
+</wo:if>
+</wo:PageWithAssignmentNavigation>

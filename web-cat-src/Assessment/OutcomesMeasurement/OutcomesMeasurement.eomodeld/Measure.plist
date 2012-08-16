@@ -1,0 +1,57 @@
+{
+    attributes = (
+        {columnName = description; name = description; prototypeName = mediumText; },
+        {allowsNull = N; name = id; prototypeName = id; },
+        {columnName = keyPhrase; name = keyPhrase; prototypeName = tinyText; },
+        {columnName = label; name = label; prototypeName = tinyText; }
+    );
+    attributesUsedForLocking = (description, keyPhrase, label);
+    className = "org.webcat.outcomesmeasurement.Measure";
+    classProperties = (courses, description, keyPhrase, label, measureOfOfferings, outcomePairs);
+    externalName = Measure;
+    fetchSpecificationDictionary = {};
+    name = Measure;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = MeasureProgramOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = measureOid; sourceAttribute = id; });
+            name = measureProgramOutcomes;
+            propagatesPrimaryKey = Y;
+        },
+        {
+            definition = "measureProgramOutcomes.programOutcome";
+            name = programOutcomes;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = MeasureCourse;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = measureOid; sourceAttribute = id; });
+            name = measureCourses;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "measureCourses.course"; name = courses; },
+        {
+            destination = MeasureOfOffering;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = measureId; sourceAttribute = id; });
+            name = measureOfOfferings;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = MeasureOutcomePair;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = measureOid; sourceAttribute = id; });
+            name = measureOutcomePairs;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "measureOutcomePairs.outcomePair"; name = outcomePairs; }
+    );
+}

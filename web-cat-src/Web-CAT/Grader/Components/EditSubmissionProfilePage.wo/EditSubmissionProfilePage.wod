@@ -1,0 +1,170 @@
+AllowPartnersCheckbox: WOCheckBox {
+    checked = submissionProfile.allowPartners;
+}
+
+CheckBox1: WOCheckBox {
+    checked = submissionProfile.awardEarlyBonus;
+}
+
+CheckBox2: WOCheckBox {
+    checked = submissionProfile.deductLatePenalty;
+}
+
+ExcludedFilePatterns: WOTextField {
+    size = 40;
+    value = submissionProfile.excludedFilePatterns;
+}
+
+IncludedFilePatterns: WOTextField {
+    size = 40;
+    value = submissionProfile.includedFilePatterns;
+}
+
+PopUpButton1: WOPopUpButton {
+    list = submissionProfile.timeUnits;
+    selection = availableTimeDeltaUnit;
+    displayString = unit.name;
+    item = unit;
+}
+
+PopUpButton2: WOPopUpButton {
+    list = submissionProfile.timeUnits;
+    selection = deadTimeDeltaUnit;
+    displayString = unit.name;
+    item = unit;
+}
+
+PopUpButton3: WOPopUpButton {
+    list = submissionProfile.timeUnits;
+    selection = earlyUnitTimeUnit;
+    displayString = unit.name;
+    item = unit;
+}
+
+PopUpButton4: WOPopUpButton {
+    list = submissionProfile.timeUnits;
+    selection = lateUnitTimeUnit;
+    displayString = unit.name;
+    item = unit;
+}
+
+RequiredFilePatterns: WOTextField {
+    size = 40;
+    value = submissionProfile.requiredFilePatterns;
+}
+
+Submitter: WOPopUpButton {
+    list = submissionProfile.submitters;
+    selection = submissionProfile.submissionMethodAsString;
+    item = submissionMethod;
+}
+
+TextField1: WOTextField {
+    size = 40;
+    value = submissionProfile.name;
+}
+
+TextField2: WOTextField {
+    formatter    = doubleFormatter;
+    size         = 7;
+    value        = submissionProfile.availablePointsRaw;
+    disabled     = true;
+    style        = "color:black";
+    name         = "total";
+}
+
+TextField14: WOTextField {
+    formatter    = doubleFormatter;
+    size         = 7;
+    value        = submissionProfile.taPointsRaw;
+    name         = "taPoints";
+    onFocus      = "startCalc();";
+    onBlur       = "stopCalc();";
+}
+
+TextField15: WOTextField {
+    formatter    = doubleFormatter;
+    size         = 7;
+    value        = submissionProfile.toolPointsRaw;
+    name         = "toolPoints";
+    onFocus      = "startCalc();";
+    onBlur       = "stopCalc();";
+}
+
+TextField16: WOTextField {
+    formatter    = doubleFormatter;
+    size         = 7;
+    value        = correctnessPoints;
+    name         = "correctnessPoints";
+    onFocus      = "startCalc();";
+    onBlur       = "stopCalc();";
+}
+
+TextField3: WOTextField {
+    numberformat = "0";
+    size = 7;
+    value = availableTimeDelta;
+}
+
+TextField4: WOTextField {
+    numberformat = "0";
+    size = 7;
+    value = deadTimeDelta;
+}
+
+TextField5: WOTextField {
+    formatter = doubleFormatter;
+    size      = 3;
+    value     = submissionProfile.earlyBonusMaxPtsRaw;
+}
+
+TextField6: WOTextField {
+    formatter = doubleFormatter;
+    size      = 3;
+    value     = submissionProfile.earlyBonusUnitPtsRaw;
+}
+
+TextField7: WOTextField {
+    numberformat = "0";
+    size = 3;
+    value = earlyBonusUnitTime;
+}
+
+TextField8: WOTextField {
+    formatter = doubleFormatter;
+    size      = 3;
+    value     = submissionProfile.latePenaltyMaxPtsRaw;
+}
+
+TextField9: WOTextField {
+    formatter = doubleFormatter;
+    size      = 3;
+    value     = submissionProfile.latePenaltyUnitPtsRaw;
+}
+
+TextField10: WOTextField {
+    numberformat = "0";
+    size = 3;
+    value = latePenaltyUnitTime;
+}
+
+TextField12: WOTextField {
+    numberformat = "0";
+    size = 7;
+    value = submissionProfile.maxSubmissionsRaw;
+}
+
+TextField13: WOTextField {
+    size = 7;
+    value = maxFileUploadSize;
+}
+
+MaxFileUploadSizeInfo: org.webcat.core.PopUpInfo {
+    title   = "Max Upload Size";
+    message = "~\"Specify the maximum size allowed for student uploads to this assignment.  Leave blank for the system default of \" + defaultMaxFileUploadSize + \".  You may use &quot;k&quot; or &quot;K&quot; as suffixes to indicate kilobytes, or use &quot;m&quot; or &quot;M&quot; to indicate megabytes.  The limit may not exceed the system maximum of \" + maxMaxFileUploadSize + \".  Contact your administrator if you need to go even larger.\"";
+}
+
+Page: SaveCancelPage {
+    title = "Edit Submission Profile";
+    inlineHeaderContents = inlineJavaScript;
+}

@@ -1,0 +1,7 @@
+<student.web.internal.tests.support.ComplexClass fieldset="true" id="db100f36-fde3-4fb6-9894-1e7107f36bb4">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>complexStuff</string>
+    <string>This isnt complex :-(</string>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.ComplexClass>
