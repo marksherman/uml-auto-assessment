@@ -1,0 +1,51 @@
+static char * test1() { 
+       int x; 
+       tests_run++;
+       x = sum( 5432 ); 
+       mu_assert("Function returns incorrect value.", x == 14); 
+       tests_passed++;
+       return 0; 
+} 
+
+static char * test2() { 
+       int x; 
+       tests_run++;
+       x = sum( 9 ); 
+       mu_assert("Function returns incorrect value.", x == 9); 
+       tests_passed++;
+       return 0; 
+} 
+
+static char * run_test1() {
+    mu_run_test(test1);
+    return 0;
+}
+
+static char * run_test2() { 
+    mu_run_test(test2); 
+    return 0; 
+}
+ 
+int main(){
+    FILE * fin; 
+    run_test1();
+    run_test2();
+    printf("You passed %d out of %d tests run.\n", tests_passed, tests_run);
+    fin = fopen("log.txt", "r+");
+    fprintf(fin, "[section]\ncount_pass = %d\ncount = %d", tests_passed, tests_run);
+    fclose(fin);
+    return 0; 
+ }
+
+int main(){
+    char *result = all_tests();
+    if (result != 0) {
+        printf("%s\n", result);
+    }
+    else {
+        printf("ALL TESTS PASSED\n");
+    }
+    printf("Tests run: %d\n", tests_run);
+    
+    return result != 0;
+ }
