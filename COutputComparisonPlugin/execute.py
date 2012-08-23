@@ -8,21 +8,25 @@
 # as part of a project under the supervision of Mark Sherman, Professor Fred Martin, and Professor Sarita Bassil 
 #---------------------------------
 
+
+ 
+
 import os
-import sys 
-from subprocess import call 
+import sys
+from subprocess import call
 import StringIO 
 import ConfigParser
 import glob
 import shutil 
 import re
-from decimal import * 
+from subprocess import check_call 
+from decimal import *
 
+DEBUG = 1
 
-DEBUG = 0
-DEBUG_ADDITIONAL = 1
 
 stdout_output = " " 
+error_msg = []
 
 # Assignments come in the form 'px' where x is some number. The function extracts x from the compound expression.
 def get_assignment_Number ( assignment ): 
@@ -98,12 +102,12 @@ def compare_numeric(reference_file, student_file, substring):
 
     #  Compare the two ordered lists of elements.
     if reference_output_sanitized == student_output_sanitized :
-        if DEBUG_ADDITIONAL > 0 :            
-            print "Success!" 
+        #if DEBUG > 0 :            
+        print "Success!" 
         return 1
     else:
-        if DEBUG_ADDITIONAL > 0:                       
-            print "Failure!"
+        #if DEBUG > 0:                       
+        print "Failure!"
         return 0
 
 # A sectionless configuration file is passed to WebCAT as the second argument to the command line. ConfigParser can only read configuration files with section headers. To get aroudn this problem, the configuration is read in as a string with an arbitrary section header prepended to it.
@@ -111,7 +115,7 @@ initial_string = '[section]\n' + open(sys.argv[1], 'r').read()
 # The string is transformed into a string buffer which serves as a file-like object.
 initial_filepointer = StringIO.StringIO(initial_string) 
 # A raw config parser object of class ConfigParser is initialized under the name of config. 
-config = ConfigParser.RawConfigParser()
+config = ConfigParser.ConfigParser()
 # The config parser object is fed the string-buffer. 
 config.readfp(initial_filepointer)
 
@@ -127,28 +131,145 @@ max_score_correctness = config.get('section', 'max.score.correctness')
 assignment_Number = get_assignment_Number ( assignment )
 
 # Jump to assignment directory and extract relevant files from that directory to the working directory.
-
-#os.chdir(script_Home)
-#shutil.copy('substring.py', working_Dir)
-
 os.chdir(script_Home + "/" + assignment) 
 for each_file in glob.glob('*reference.out'): 
+    # os.system("ln -fs -T " + each_file + " " + working_Dir + "/" + each_file) 
     shutil.copy(each_file, working_Dir)
 for each_file in glob.glob('*casedata'): 
     shutil.copy(each_file, working_Dir)
+    # os.system("ln -fs -T " + each_file + " " + working_Dir + "/" each_file) 
 for each_file in glob.glob('*testdata*'):
     shutil.copy(each_file, working_Dir)
+# This is unnecessary?? 
 for each_file in glob.glob('*testdata'): 
     shutil.copy(each_file, working_Dir)
 for each_file in glob.glob('*arguments'): 
     shutil.copy(each_file, working_Dir)
+    # os.system("ln -fs -T " + each_file + " " + working_Dir + "/" each_file)
 for each_file in glob.glob('*.h'): 
     shutil.copy(each_file, working_Dir)
-#shutil.copy('substring.py', working_Dir)
+shutil.copy('substring.py', working_Dir)
 shutil.copy('substring.py', script_Home)
 # Jump back to working_dir to continue compilation.
 os.chdir(working_Dir)      
+# #TODO add compile_command specs
 import substring
+
+
+
+
+
+
+score_correctness = 0
+
+#Definition of function that runs tests #TODO messy-ass on-the-fly function definition
+def run_tests():
+    # All references to stdout_output in the function refere to the variable defined at the beginning of the script. 
+    global stdout_output 
+    count = 0
+    count_pass = 0
+    temp = 0
+
+    # The number of reference.out exclusively determines the number of test cases.
+    for each_file in glob.glob('*reference.out'):
+        if each_file.endswith("reference.out"): 
+               # Increment count for each instance of *reference.out. Convert the numeric object into string for later use in filenames. 
+               count = count + 1
+               count_str = str(count) 
+               # For each reference test file, create a student test file.
+               if os.path.exists( count_str + user_Name + ".out" ):
+                   student_file = open(count_str + user_Name + ".out", 'r+')
+               else: 
+                   student_file = open(count_str + user_Name + ".out", 'w')
+                   student_file = open(count_str + user_Name + ".out", 'r+')
+               instructor_file = open( count_str + "reference.out", 'r')  
+               # There are four possibilities. Each problem has a CaseData file. Not every problem, however, has arguments or testdata. 
+               if ((os.path.exists( count_str + "testdata" + assignment_Number )) and (os.path.exists( count_str + "arguments" ))): 
+                   if DEBUG > 0: 
+                       print "Signal1!"
+                   # Open the casedata file and read its contents into a string.
+                   case_temp = open(count_str + "casedata", "r") 
+                   case_temp_string = case_temp.read() 
+                   # The file likely has an command to open "testdata28." But all testdata files are enumerated by their relation to their respective reference.out. So we must create a symbolic link to testdata28. 
+                   os.system("ln -fs -T " + count_str + "testdata" + assignment_Number + " testdata" + assignment_Number)
+                   # Open the arguments file and reads its contents into a string.
+                   arguments_temp = open(count_str + "arguments", "r")
+                   arguments_temp_string = arguments_temp.read()
+                   # Echo any input values to the executable file generated by compilation, applying any arguments and piping all output of program executation to the student file.
+                   os.system("echo \"" + case_temp_string + "\" | ./a.out " + arguments_temp_string + ">>" + count_str + user_Name + ".out")
+               elif ((os.path.exists( count_str + "testdata" + assignment_Number )) and (not (os.path.exists( count_str + "arguments" )))): 
+                   if DEBUG > 0: 
+                       print "Signal2!"
+                   # Open the casedata file and read its contents into a string.
+                   case_temp = open( count_str + "casedata", "r")
+                   case_temp_string = case_temp.read() 
+                   os.system("ln -fs -T " + count_str + "testdata" + assignment_Number + " testdata" + assignment_Number)
+                   # Echo any input values to the executable file generated by compilation, applying any arguments and piping all output of program executation to the student file.
+                   os.system("echo \"" + case_temp_string + "\" | ./a.out >> " + count_str + user_Name + ".out")
+               elif ((not (os.path.exists( count_str + "testdata" + assignment_Number ))) and (os.path.exists( count_str + "arguments" ))): 
+                   if DEBUG > 0: 
+                       print "Signal3!"
+                   # Open the casedata file and read its contents into a string.
+                   case_temp = open( count_str + "casedata", "r")
+                   case_temp_string = case_temp.read()    
+                   # Open the arguments file and reads its contents into a string.
+                   arguments_temp = open(count_str + "arguments", "r")
+                   arguments_temp_string = arguments_temp.read()    
+                   os.system("echo " + case_temp_string + " | ./a.out " + arguments_temp_string + " >> " + count_str + user_Name + ".out")
+               else:
+                   if DEBUG > 0: 
+                       print "Signal4!"
+                   # Open the casedata file and read its contents into a string.
+                   case_temp = open( count_str + "casedata", "r") 
+                   case_temp_string = case_temp.read()
+                   print case_temp_string
+                   #os.system("echo \"" + case_temp_string + "\" | ./a.out >> " + count_str + user_Name + ".out")
+                   os.system("echo " + case_temp_string + " | ./a.out >> " + count_str + user_Name + ".out")
+               temp = compare_numeric(instructor_file, student_file, substring)
+               # temp will return 1 if the the two files generate equivalent substring lists, otherwise zero. count_pass is incremented in the case of a successful match.
+               if temp == 0: 
+                   # THERE HAS TO BE A REGULAR EXPRESSION SOLUTION FOR THIS THAT WILL NOT REQUIRE HARD-CODING. AT THE VERY LEAST, WE SHOULD WRITE A TRY-CATCH EXCEPTION HANDLER FOR THE EXISTENCE OF THE VARIABLE IN QUESTION.
+                   if count == 1: 
+                       temp_error = substring.error1
+                       error_msg.append(temp_error)
+                   elif count == 2:
+                       temp_error = substring.error2
+                       error_msg.append(temp_error)
+                   elif count == 3: 
+                       temp_error = substring.error3
+                       error_msg.append(temp_error)
+                   elif count == 4: 
+                       temp_error = substring.error4
+                       error_msg.append(temp_error)
+                   elif count == 5: 
+                       temp_error = substring.error5
+                       error_msg.append(temp_error)
+                   elif count == 6: 
+                       temp_error = substring.error6
+                       error_msg.append(temp_error)
+                   else: 
+                       pass
+               print error_msg
+               count_pass = count_pass + temp
+               student_file.close()
+               instructor_file.close() 
+
+    if count_pass != count: 
+        stdout_output = "Your submission succeeded for " + str(count_pass) + " of " + str(count) + " test cases." 
+        for x in error_msg: 
+            stdout_output = stdout_output + "\n" + x
+    if count_pass == count: 
+        stdout_output = "Congrats! Your submission succeeded for all " + str(count) + " test cases."
+
+    if DEBUG > 0: 
+        print stdout_output
+
+    if (count == 0): 
+        print "No tests were performed." 
+        score_correctness = 0
+    else: 
+        # Convert to Decimal form to prevent truncation.
+        score_correctness = ( Decimal(count_pass) / Decimal(count) ) * Decimal(max_score_correctness)
 
 
 # Math flag is contained in the substring module just imported. Options need to be altered to request compilation.
@@ -156,84 +277,12 @@ if (substring.math_flag == 1):
         compile_command = ["gcc", "-Wall", "-lm", assignment + ".c"]
 else: 
         compile_command = ["gcc", "-ansi", "-Wall", assignment + ".c"] 
-call(compile_command) 
 
-count = 0
-count_pass = 0
-temp = 0
+if call(compile_command) == 0:
+    run_tests()
+else:
+    stdout_output = 'Compile errors found. Tests not executed.'
 
-
-# The number of reference.out exclusively determines the number of test cases.
-for each_file in glob.glob('*reference.out'):
-    if each_file.endswith("reference.out"): 
-           # Increment count for each instance of *reference.out. Convert the numeric object into string for later use in filenames. 
-           count = count + 1
-           count_str = str(count) 
-           # For each reference test file, create a student test file.
-           if os.path.exists( count_str + user_Name + ".out" ):
-               student_file = open(count_str + user_Name + ".out", 'r+')
-           else: 
-               student_file = open(count_str + user_Name + ".out", 'w')
-               student_file = open(count_str + user_Name + ".out", 'r+')
-           instructor_file = open( count_str + "reference.out", 'r')  
-           # There are four possibilities. Each problem has a CaseData file. Not every problem, however, has arguments or testdata. 
-           if ((os.path.exists( count_str + "testdata" + assignment_Number )) and (os.path.exists( count_str + "arguments" ))): 
-               print "Signal1!"
-               # Open the casedata file and read its contents into a string.
-               case_temp = open(count_str + "casedata", "r") 
-               case_temp_string = case_temp.read() 
-               # The file likely has an command to open "testdata28." But all testdata files are enumerated by their relation to their respective reference.out. So we must create a symbolic link to testdata28. 
-               os.system("ln -fs -T " + count_str + "testdata" + assignment_Number + " testdata" + assignment_Number)
-               # Open the arguments file and reads its contents into a string.
-               arguments_temp = open(count_str + "arguments", "r")
-               arguments_temp_string = arguments_temp.read()
-               # Echo any input values to the executable file generated by compilation, applying any arguments and piping all output of program executation to the student file.
-               os.system("echo \"" + case_temp_string + "\" | ./a.out " + arguments_temp_string + ">>" + count_str + user_Name + ".out")
-           elif ((os.path.exists( count_str + "testdata" + assignment_Number )) and (not (os.path.exists( count_str + "arguments" )))): 
-               print "Signal2!"
-               # Open the casedata file and read its contents into a string.
-               case_temp = open( count_str + "casedata", "r")
-               case_temp_string = case_temp.read() 
-               os.system("ln -fs -T " + count_str + "testdata" + assignment_Number + " testdata" + assignment_Number)
-               # Echo any input values to the executable file generated by compilation, applying any arguments and piping all output of program executation to the student file.
-               os.system("echo \"" + case_temp_string + "\" | ./a.out >> " + count_str + user_Name + ".out")
-           elif ((not (os.path.exists( count_str + "testdata" + assignment_Number ))) and (os.path.exists( count_str + "arguments" ))): 
-               print "Signal3!"
-               # Open the casedata file and read its contents into a string.
-               case_temp = open( count_str + "casedata", "r")
-               case_temp_string = case_temp.read()    
-               # Open the arguments file and reads its contents into a string.
-               arguments_temp = open(count_str + "arguments", "r")
-               arguments_temp_string = arguments_temp.read()    
-               os.system("echo " + case_temp_string + " | ./a.out " + arguments_temp_string + " >> " + count_str + user_Name + ".out")
-           else:
-               print "Signal4!"
-               # Open the casedata file and read its contents into a string.
-               case_temp = open( count_str + "casedata", "r") 
-               case_temp_string = case_temp.read()
-               print case_temp_string
-               #os.system("echo \"" + case_temp_string + "\" | ./a.out >> " + count_str + user_Name + ".out")
-               os.system("echo " + case_temp_string + " | ./a.out >> " + count_str + user_Name + ".out")
-           temp = compare_numeric(instructor_file, student_file, substring)
-           # temp will return 1 if the the two files generate equivalent substring lists, otherwise zero. count_pass is incremented in the case of a successful match.
-           count_pass = count_pass + temp
-           student_file.close()
-           instructor_file.close() 
-
-if count_pass != count: 
-    stdout_output = "Your submission succeeded for " + str(count_pass) + " of " + str(count) + " test cases."
-if count_pass == count: 
-    stdout_output = "Congrats! Your submission succeeded for all " + str(count) + " test cases."
-
-if DEBUG > 0: 
-    print stdout_output
-
-if (count == 0): 
-    print "No tests were performed." 
-    score_correctness = 0
-else: 
-    # Convert to Decimal form to prevent truncation.
-    score_correctness = ( Decimal(count_pass) / Decimal(count) ) * Decimal(max_score_correctness)
 
 # Create a compile.log which contains arbitrarary XML as part of a feedback. If it does not exist, touch the file and then open it with read-write permissions.
 compile_log = result_Dir + "/" + "compile.log"

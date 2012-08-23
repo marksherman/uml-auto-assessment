@@ -1,0 +1,20 @@
+static char * test1() { 
+       int x; 
+       u_test = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+       v_test = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+       x = inner( u_test, v_test );
+       mu_assert("Function inner returns incorrect value.", x == 204); 
+       tests_passed++;
+       return 0; 
+} 
+       
+
+  
+
+
+
+
+
+  
+
+
