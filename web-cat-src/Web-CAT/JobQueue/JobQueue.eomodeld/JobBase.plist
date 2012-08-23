@@ -1,0 +1,100 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = enqueueTime; 
+            name = enqueueTime; 
+            prototypeName = dateTime; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; valueType = i; }, 
+        {
+            columnName = isCancelled; 
+            name = isCancelled; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            columnName = isReady; 
+            name = isReady; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            columnName = priority; 
+            name = priority; 
+            prototypeName = integer; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = intValue; 
+                scalarDefault = 0; 
+                type = int; 
+                valueClassName = Integer; 
+            }; 
+        }, 
+        {
+            columnName = progress; 
+            name = progress; 
+            prototypeName = double; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = doubleValue; 
+                scalarDefault = "0.0"; 
+                type = double; 
+                valueClassName = Double; 
+            }; 
+        }, 
+        {
+            columnName = progressMessage; 
+            name = progressMessage; 
+            prototypeName = mediumText; 
+        }, 
+        {columnName = scheduledTime; name = scheduledTime; prototypeName = dateTime; }, 
+        {
+            columnName = suspensionReason; 
+            name = suspensionReason; 
+            prototypeName = mediumText; 
+        }, 
+        {columnName = userId; name = userId; prototypeName = foreignId; }, 
+        {columnName = workerId; name = workerId; prototypeName = foreignId; }
+    ); 
+    attributesUsedForLocking = (
+        isCancelled, 
+        isReady, 
+        priority, 
+        progressMessage, 
+        suspensionReason, 
+        userId, 
+        workerId
+    ); 
+    className = "org.webcat.jobqueue.JobBase"; 
+    classProperties = (
+        enqueueTime, 
+        isCancelled, 
+        isReady, 
+        priority, 
+        progress, 
+        progressMessage, 
+        scheduledTime, 
+        suspensionReason, 
+        user, 
+        worker
+    ); 
+    externalName = TJobBase; 
+    isAbstractEntity = Y; 
+    name = JobBase; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = User; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userId; }); 
+            name = user; 
+        }, 
+        {
+            destination = WorkerDescriptor; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = workerId; }); 
+            name = worker; 
+        }
+    ); 
+}

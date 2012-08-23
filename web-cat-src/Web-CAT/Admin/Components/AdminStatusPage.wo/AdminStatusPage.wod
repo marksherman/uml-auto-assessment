@@ -1,0 +1,37 @@
+CanRestart: WOConditional {
+    condition = canRestart;
+}
+
+CannotRestart: WOConditional {
+    condition = canRestart;
+    negate    = true;
+}
+
+DieNow: WCButton {
+    action = dieNow;
+    label  = "Die! Die! Die!";
+}
+
+Form: WOForm {
+    multipleSubmit = true;
+    enctype="multipart/form-data";
+}
+
+GracefulShutdown: WCButton {
+    action = gracefulShutdown;
+    label  = "Graceful Shutdown";
+}
+
+Page : org.webcat.core.WCPageWithNavigation {
+	title     = "Web-CAT Status";
+}
+
+SystemStatus: SystemStatusBlock {
+    includeSeparator = true;
+    startOpen        = true;
+}
+
+ThrowException: WCButton {
+    action = throwException;   // VALID
+    label = "Force Exception";
+}

@@ -1,0 +1,11 @@
+<student.web.internal.tests.support.FriendList fieldset="true" id="22f81636-6601-4a7b-8eb9-8e21435b3193">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>friends</string>
+    <list id="84dc93ae-6314-4e62-9dcc-0f292b93428c">
+      <__item id="55bb8505-092f-4801-9b44-5bb019be6672">
+        <string>Mike</string>
+      </__item>
+    </list>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.FriendList>

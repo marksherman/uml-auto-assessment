@@ -1,0 +1,16 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Mon Oct 11 15:02:27 EDT 2010
+WebAPI.version.revision=1
+WebAPI.version.minor=0
+WebAPI.info.url=http\://web-cat.cs.vt.edu/WCWiki/WebApiSubsystem
+WebAPI.version.major=1
+WebAPI.provider.url=http\://web-cat.cs.vt.edu/updates
+WebAPI.history.url=http\://web-cat.cs.vt.edu/WCWiki/WebApiSubsystem/ChangeHistory
+subsystem.WebAPI=
+WebAPI.license=GNU Affero General Public License v.3
+WebAPI.description=This subsystem provides a general-purpose HTML-base API for other tools to use in accessing Web-CAT's services.
+WebAPI.provider=Virginia Tech Computer Science
+WebAPI.copyright=(c) 2008-2010 Virginia Tech Department of Computer Science
+WebAPI.license.url=http\://www.gnu.org/licenses/agpl.html
+WebAPI.version.date=20101011
+WebAPI.requires=Core, Grader

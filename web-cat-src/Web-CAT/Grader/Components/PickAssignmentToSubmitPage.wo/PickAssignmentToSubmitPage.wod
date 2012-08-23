@@ -1,0 +1,47 @@
+AssignmentRepetition: WORepetition {
+    item  = anAssignmentOffering;
+    list  = assignmentDisplayGroup.displayedObjects;
+    index = index;
+}
+
+CourseName: WOString {
+    value = coreSelections.courseOffering.deptNumberAndName;
+}
+
+Deadline: WOString {
+    formatter = session.timeFormatter;
+    value     = anAssignmentOffering.dueDate;
+}
+
+Graph: org.webcat.grader.graphs.MiniBarGraph {
+    graphSummary = anAssignmentOffering.graphSummary;
+}
+
+Name: WOHyperlink {
+    href   = anAssignmentOffering.assignment.url;
+    target = "_new";
+    string = anAssignmentOffering.assignment.titleString;
+}
+
+Page : org.webcat.core.WizardPage {
+    finishEnabled = false;
+}
+
+RadioButton: WCRadioButton {
+    name      = "Group";
+    selection = selectedIndex;
+    value     = index;
+}
+
+SuspendedCount: WOString {
+    value = anAssignmentOffering.suspendedSubmissionsInQueue.count;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+    showError = gradingIsHalted;
+    // showError does not use the raw attribute, since we're using this
+    // method to calculate additional derived info for display via
+    // ShowHaltedMessage.
+    showCaution = anAssignmentOffering.isLate;
+}

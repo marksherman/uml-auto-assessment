@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="combined-distro" name="cxxtest-dereferee">
+
+    <!--
+        Property definitions
+    -->
+    <property name="combined" value="cxxtest-combined"/>
+
+
+	<!--
+       Cleans the build by deleting the bin directory.
+    -->
+    <target name="clean-combined">
+        <delete dir="${combined}" />
+    </target>
+
+	
+    <!--
+       Invokes the ant build file for the Java cxxtestgen project.
+    -->
+	<target name="cxxtestgen-jar">
+		<ant dir="CxxTest/cxxtestgen-src"
+		     target="create-jar" />
+	</target>
+
+	
+    <!--
+       Creates the combined distro folder, which is appropriate for
+       embedding in, for example, the Web-CAT C++ grading plugin.
+    -->
+	<target name="combined-distro"
+		    depends="cxxtestgen-jar">
+	    <mkdir dir="${combined}" />
+		<move file="CxxTest/cxxtestgen.jar"
+		      todir="${combined}"/>
+
+		<mkdir dir="${combined}/include/cxxtest"/>
+		<copy todir="${combined}/include/cxxtest">
+			<fileset dir="CxxTest/cxxtest"/>
+		</copy>
+
+        <mkdir dir="${combined}/include"/>
+        <copy todir="${combined}/include">
+            <fileset dir="Dereferee/include" includes="**/*"/>
+        </copy>
+
+		<mkdir dir="${combined}/include/dereferee"/>
+		<copy todir="${combined}/include/dereferee">
+            <fileset dir="Dereferee/listeners" includes="*.cpp"/>
+            <fileset dir="Dereferee/platforms" includes="*.cpp"/>
+            <fileset dir="Dereferee/src"
+            	     includes="*.cpp"
+                     excludes="memtab.cpp.unobfuscated.cpp"/>
+        </copy>
+	</target>
+
+</project>

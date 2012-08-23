@@ -1,0 +1,10 @@
+<wo:XmlResponseWrapper>
+  <score>
+    <wo name="HasTAScore"><wo name="TAScore"/>
+    </wo><wo:if condition="$submission.assignmentOffering.assignment.submissionProfile.toolPoints"><wo name="ToolScore"/>
+    </wo:if><wo:if condition="$submission.assignmentOffering.assignment.submissionProfile.correctnessPoints"><wo name="CorrectnessScore"/>
+  </wo:if></score><wo:if condition="$submission.result.comments">
+
+  <wo name="Comment"><wo:str value="$submission.result.comments"/></wo></wo:if><wo name="HasReports">
+  </wo>
+</wo:XmlResponseWrapper>

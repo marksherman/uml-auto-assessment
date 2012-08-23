@@ -1,0 +1,80 @@
+AssignmentOfferingRepetition : WORepetition {
+    list = assignmentOfferingsDisplayGroup.displayedObjects;
+    item = assignmentOffering;
+    index = index;
+}
+
+AssignmentTitle : WOString {
+    value = assignmentOffering.assignment.titleString;
+}
+
+ChangeStudent : WCButton {
+    label = "Go";
+    action = changeStudent;
+}
+
+DueDate : WOString {
+    value = assignmentOffering.dueDate;
+    formatter = session.timeFormatter;
+}
+
+FinalScore : WOString {
+    value = submissionForAssignmentOffering.result.finalScore;
+    numberformat = "0.0";
+}
+
+HistogramWithScore: org.webcat.grader.graphs.MiniBarGraph {
+    graphSummary = assignmentOffering.graphSummary;
+    markScore    = submissionForAssignmentOffering.result.finalScore;
+}
+
+HistogramWithoutScore: org.webcat.grader.graphs.MiniBarGraph {
+    graphSummary = assignmentOffering.graphSummary;
+}
+
+MostRecentSubmitNumber: WOString {
+    value = mostRecentSubmissionNo;
+}
+
+Page : PageWithAssignmentNavigation {
+    title = "Past Results";
+}
+
+PickSubmissionDialog: PickSubmissionDialog {
+    rootUserSubmission = selectedUserSubmissionForPickerDialog;
+    nextPageForResultsPage = self;
+}
+
+PickSubmissionLink: WCLink {
+    remote = true;
+    action = pickOtherSubmission;
+    disabled = "~mostRecentSubmissionNo eq 1";
+    title = "View a different submission";
+}
+
+StudentList : WCFilteringSelect {
+    list = studentsInCourse;
+    item = aStudent;
+    selection = selectedStudent;
+    displayString = aStudent.name_LF;
+}
+
+SubmitNumber : WOString {
+    value = submissionForAssignmentOffering.submitNumber;
+}
+
+SubmitTime: WOString {
+    value     = submissionForAssignmentOffering.submitTime;
+    formatter = session.timeFormatter;
+}
+
+SubmitTimeSpan: WOGenericContainer {
+    elementName = "span";
+    class = submitTimeSpanClass;
+    title = submissionForAssignmentOffering.earlyLateStatus;
+}
+
+ViewSubmission: WCLink {
+    action = selectAssignment;
+    title  = "View this submission";
+}

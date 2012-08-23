@@ -1,0 +1,67 @@
+CreateFolder: WCButton {
+    label  = "Create Folder";
+    action = createFolder;
+    remote = true;
+}
+
+FolderList1: WOPopUpButton {
+    list          = folderList;
+    item          = aFolder;
+    displayString = aFolder;
+    selection     = selectedParentFolderForSubFolder;
+}
+
+FolderList2: WOPopUpButton {
+    list          = folderList;
+    item          = aFolder;
+    displayString = aFolder;
+    selection     = selectedParentFolderForUpload;
+}
+
+FolderName: WCTextBox {
+    value = folderName;
+    id    = "folderName";
+    width = 25;
+}
+
+FileBrowser: org.webcat.core.FileBrowser {
+    file                  = base;
+    isEditable            = isEditable;
+    allowSelection        = allowSelection;
+    fileSelectionListener = thisPage;
+    allowSelectDir        = allowSelectDir;
+    allowSelectExtensions = allowSelectExtensions;
+    includeSeparator      = true;
+    fileEditListener      = thisPage;
+    applyChangesOnMod     = true;
+    currentSelection      = currentSelection;
+    initialExpansionDepth = 0;
+    browserId             = browserId;
+    formId                = "fileForm";
+    focusedFiles          = focusedFiles;
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+    title = sideStepTitle;
+}
+
+Section: WCPageModule {
+    title = "~ (gradingPlugin == null) ? \"Your Files\" : (\"Files for \" + gradingPlugin.name)";
+}
+
+Unzip: WOCheckBox {
+    checked = unzip;
+}
+
+Upload: WCButton {
+    label  = "Upload File";
+    action = uploadFile;
+}
+
+UploadFile: WOFileUpload {
+    data = uploadedFile2;
+    filePath = uploadedFileName2;
+    size = 60;
+    dojoType = "dojox.form.FileInput";
+    style = "display:inline-block";
+}

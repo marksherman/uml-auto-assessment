@@ -1,0 +1,118 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            definition = "jobBase.enqueueTime"; 
+            name = enqueueTime; 
+            prototypeName = dateTime; 
+        }, 
+        {
+            columnName = generatedReportId; 
+            name = generatedReportId; 
+            prototypeName = foreignId; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; valueType = i; }, 
+        {
+            definition = "jobBase.isCancelled"; 
+            name = isCancelled; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            definition = "jobBase.isReady"; 
+            name = isReady; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            definition = "jobBase.priority"; 
+            name = priority; 
+            prototypeName = integer; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = intValue; 
+                scalarDefault = 0; 
+                type = int; 
+                valueClassName = Integer; 
+            }; 
+        }, 
+        {
+            definition = "jobBase.progress"; 
+            name = progress; 
+            prototypeName = double; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = doubleValue; 
+                scalarDefault = "0.0"; 
+                type = double; 
+                valueClassName = Double; 
+            }; 
+        }, 
+        {
+            definition = "jobBase.progressMessage"; 
+            name = progressMessage; 
+            prototypeName = mediumText; 
+        }, 
+        {
+            definition = "jobBase.scheduledTime"; 
+            name = scheduledTime; 
+            prototypeName = dateTime; 
+        }, 
+        {
+            definition = "jobBase.suspensionReason"; 
+            name = suspensionReason; 
+            prototypeName = mediumText; 
+        }, 
+        {definition = "jobBase.userId"; name = userId; prototypeName = foreignId; }, 
+        {definition = "jobBase.workerId"; name = workerId; prototypeName = foreignId; }
+    ); 
+    attributesUsedForLocking = (
+        generatedReportId, 
+        id, 
+        isCancelled, 
+        isReady, 
+        priority, 
+        progressMessage, 
+        suspensionReason, 
+        userId, 
+        workerId
+    ); 
+    className = "org.webcat.reporter.ReportGenerationJob"; 
+    classProperties = (
+        enqueueTime, 
+        generatedReport, 
+        isCancelled, 
+        isReady, 
+        priority, 
+        progress, 
+        progressMessage, 
+        scheduledTime, 
+        suspensionReason, 
+        user, 
+        worker
+    ); 
+    externalName = TReportGenerationJob; 
+    fetchSpecificationDictionary = {}; 
+    name = ReportGenerationJob; 
+    parent = JobBase; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = GeneratedReport; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = generatedReportId; }); 
+            name = generatedReport; 
+        }, 
+        {
+            destination = JobBase; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = id; }); 
+            name = jobBase; 
+        }, 
+        {definition = "jobBase.user"; name = user; }, 
+        {definition = "jobBase.worker"; name = worker; }
+    ); 
+}

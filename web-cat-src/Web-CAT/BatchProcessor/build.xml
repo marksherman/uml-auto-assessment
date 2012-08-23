@@ -1,0 +1,5 @@
+<project name="BatchProcessor" default="install" basedir=".">
+
+  <import file="../Core/framework.xml"/>
+
+</project>

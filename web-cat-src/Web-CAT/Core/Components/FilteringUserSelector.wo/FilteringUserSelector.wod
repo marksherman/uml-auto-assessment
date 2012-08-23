@@ -1,0 +1,37 @@
+Proxy : WCJSONRPC {
+    name = idFor.jsonrpc;
+    proxyName = "userSelector";
+}
+
+JSInstance : WCDiv {
+    dojoType = "webcat.core.FilteringUserSelector";
+    jsId = idFor.jsId;
+    proxy = proxyReference;
+    idPrefix = idFor.ComponentIDPrefix;
+}
+
+OK: WCButton {
+    action = okPressed;
+    remote = true;
+    class = "pos";
+    label = "OK";
+}
+
+Cancel: WCButton {
+    class = "neg";
+    label = "Cancel";
+}
+
+OpenDialog: WCButton {
+    onClick = openDialogScript;
+    label  = "~actionTitle + '...'";
+}
+
+SearchBusyIndicator : WCSpinner {
+    id = idFor.searchBusyIndicator;
+}
+
+ShowMoreUsersLink : WCLink {
+    remote = true;
+    action = showMoreUsers;
+}

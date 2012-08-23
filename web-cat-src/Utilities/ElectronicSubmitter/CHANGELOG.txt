@@ -1,0 +1,44 @@
+Web-CAT Electronic Submitter Version History
+============================================
+
+1.0.4 (2010-12-06):
+
+ * Added support for Ant-style file patterns (using "**" for multiple
+   directory matches) in the file inclusions, exclusions, and requirements.
+
+
+1.0.3 (2010-11-04):
+
+ * Internal change: SubmittableFile.getFilename() now always returns a
+   relative path separated by "/" characters instead of the platform-
+   dependent path separator.
+
+ * The submitter no longer validates the submission targets with the
+   XML schema, so that new attributes can be added by grading servers
+   without breaking it for users who have older versions of the plug-in.
+
+
+1.0.2 (2010-09-14):
+
+ * Internal change: Calling `Submitter.setLongRunningTaskManager()` with a
+   `null` argument is now a shortcut that reverts that instance of the
+   submitter to the default long-running task behavior.
+
+ * Added the ability to add arbitrary parameters to a `SubmissionManifest`
+   using the `getParameter` and `setParameter` methods. These parameters can
+   be recalled in transport URLs and transport parameters using the same
+   `${x}` syntax that has previously been used for usernames, passwords, and
+   assignment names.
+
+
+1.0.1 (2010-05-14):
+
+ * Internal change: Removed a reference to a chained exception constructor so
+   that the submitter is source-compatible with Java 1.5, not just Java 1.6.
+
+
+1.0.0 (2010-03-02):
+
+ * Initial release. This library is a refactoring of the code that was
+   previously part of the Eclipse submitter plug-ins, so that it can be used in
+   other applications and environments.

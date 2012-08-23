@@ -1,0 +1,25 @@
+Page: org.webcat.core.WCPageWithNavigation {
+    title = "Report Debugging";
+}
+
+EntityPicker: WCFilteringSelect {
+    list = entities;
+    selection = entity;
+}
+
+QualifierString: WCTextBox {
+    value = qualifier;
+    size = 50;
+}
+
+ExpressionArea: WCTextArea {
+    value = expression;
+    rows = 5;
+    cols = 60;
+}
+
+Evaluate: WCButton {
+    label = "Evaluate";
+    remote = true;
+    action = executeExpression;
+}

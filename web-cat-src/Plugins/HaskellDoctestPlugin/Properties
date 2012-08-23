@@ -1,0 +1,22 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Fri Sep 16 11:23:51 EDT 2011
+timeoutMultiplier=2
+version.minor=1
+copyright="(c) 2011 Virginia Tech Department of Computer Science"
+requires=( PerlForPlugins )
+license.url="http\://www.gnu.org/copyleft/agpl.html"
+author="Stephen Edwards (sedwards@cs.vt.edu)"
+executable=execute.pl
+license="GNU Affero General Public License v.3"
+info.url="http\://web-cat.cs.vt.edu/WCWiki/HaskellDoctestPlugin"
+interpreter.prefix="${PerlForPlugins.perl.exe}"
+languages=( { name \= "Haskell"; version \= "GHC 7"; } )
+version.major=0
+version.date=20110916
+history.url="http\://web-cat.cs.vt.edu/WCWiki/HaskellDoctestPlugin/ChangeHistory"
+timeoutInternalPadding=400
+provider="Virginia Tech Computer Science"
+authorUid=edwards
+provider.url="http\://web-cat.cs.vt.edu/updates"
+version.revision=0
+name=HaskellDoctestPlugin

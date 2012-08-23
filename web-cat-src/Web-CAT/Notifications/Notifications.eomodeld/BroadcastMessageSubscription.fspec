@@ -1,0 +1,13 @@
+{
+    subscriptionsForMessageType = {
+        class = WCFetchSpecification;
+        entityName = BroadcastMessageSubscription;
+        prefetchingRelationshipKeyPaths = ();
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = messageType;
+            selectorName = "isEqualTo:";
+            value = {"_key" = messageType; class = EOQualifierVariable; };
+        };
+    };
+}

@@ -1,0 +1,55 @@
+<student.web.internal.tests.support.DataStructClass fieldset="true" id="ea02b78f-407f-42ad-8d3e-05492fbbf9f9">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>internalDataStruct</string>
+    <list id="82c1adcb-9a27-4b8e-a10c-61ac02e4003f">
+      <__item id="e2162d76-4e17-489f-8a5f-af82110f9d80">
+      <student.web.internal.tests.support.InnerClass fieldset="true" id="ebce5ef1-cf20-4720-a3a0-37e2880a4ba4">
+        <no-comparator/>
+        <java.util.Map_-Entry>
+          <string>data0</string>
+          <string>2</string>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>data1</string>
+          <int>2</int>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>data2</string>
+          <int>777</int>
+        </java.util.Map_-Entry>
+      </student.web.internal.tests.support.InnerClass>
+      </__item>
+      <__item id="e2162d76-4e17-489f-8a5f-af82110f9d80">
+      <student.web.internal.tests.support.InnerClass fieldset="true" id="b5e881b3-251f-4448-bc15-dc2bf60775a1">
+        <no-comparator/>
+        <java.util.Map_-Entry>
+          <string>data0</string>
+          <string>3</string>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>data1</string>
+          <int>3</int>
+        </java.util.Map_-Entry>
+      </student.web.internal.tests.support.InnerClass>
+            </__item>
+      <__item id="e2162d76-4e17-489f-8a5f-af82110f9d80">
+            <student.web.internal.tests.support.InnerClass fieldset="true" id="db100f36-fde3-4fb6-9894-1e7107f36bb4">
+        <no-comparator/>
+        <java.util.Map_-Entry>
+          <string>data0</string>
+          <string>First</string>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>data1</string>
+          <int>0</int>
+        </java.util.Map_-Entry>
+        <java.util.Map_-Entry>
+          <string>data2</string>
+          <int>777</int>
+        </java.util.Map_-Entry>
+      </student.web.internal.tests.support.InnerClass>
+            </__item>
+    </list>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.DataStructClass>

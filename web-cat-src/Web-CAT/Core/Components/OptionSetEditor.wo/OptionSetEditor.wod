@@ -1,0 +1,39 @@
+CategoryList: WCFilteringSelect {
+    id            = idFor.categoryList;
+    list          = categories;
+    item          = category;
+    selection     = chosenCategory;
+    noSelectionString = "All Options";
+}
+
+HasCategories: WOConditional {
+    condition = categories.count;
+}
+
+HasNoOptions: WOConditional {
+    condition = options.count;
+    negate    = true;
+}
+
+HasOptions: WOConditional {
+    condition = options.count;
+}
+
+OptionContainer: WOGenericContainer {
+   elementName = "div";
+    class = cssClassOfOptionCategory;
+    style = initialOptionStyle;
+}
+
+OptionPanel: org.webcat.core.OptionEditPanel {
+    option         = option;
+    optionValues   = optionValues;
+    terse          = terse;
+    browsePageName = browsePageName;
+    base           = base;
+}
+
+Repetition: WORepetition {
+    list = options;
+    item = option;
+}

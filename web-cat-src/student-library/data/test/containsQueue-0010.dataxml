@@ -1,0 +1,18 @@
+<student.web.internal.tests.support.ContainsQueue fieldset="true" id="a435fe8d-007c-4a1c-bd91-1c62b84373d3">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>internalQueue</string>
+    <java.util.PriorityQueue serialization="custom">
+      <unserializable-parents/>
+      <java.util.PriorityQueue>
+        <default>
+          <size>3</size>
+        </default>
+        <int>4</int>
+        <int>1</int>
+        <int>2</int>
+        <int>3</int>
+      </java.util.PriorityQueue>
+    </java.util.PriorityQueue>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.ContainsQueue>

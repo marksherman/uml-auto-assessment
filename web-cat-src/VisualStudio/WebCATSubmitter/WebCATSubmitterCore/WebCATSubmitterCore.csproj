@@ -1,0 +1,94 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{368B7817-D7A9-4E6E-9A4C-C7E31DF32F04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebCAT.Submitter</RootNamespace>
+    <AssemblyName>WebCAT.Submitter</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IHideableTarget.cs" />
+    <Compile Include="Internal\Protocols\FileProtocol.cs" />
+    <Compile Include="Internal\Protocols\FtpProtocol.cs" />
+    <Compile Include="Internal\Xml\Attributes.cs" />
+    <Compile Include="Internal\Xml\Elements.cs" />
+    <Compile Include="Internal\MultipartBuilder.cs" />
+    <Compile Include="Internal\Packagers\ZipPackager.cs" />
+    <Compile Include="Internal\Protocols\HttpProtocol.cs" />
+    <Compile Include="PackagerRegistry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Internal\AbstractTarget.cs" />
+    <Compile Include="Internal\FilePattern.cs" />
+    <Compile Include="Internal\TargetAssignment.cs" />
+    <Compile Include="Internal\TargetAssignmentGroup.cs" />
+    <Compile Include="Internal\TargetImportGroup.cs" />
+    <Compile Include="Internal\TargetRoot.cs" />
+    <Compile Include="IPackager.cs" />
+    <Compile Include="ISubmittableItem.cs" />
+    <Compile Include="ProtocolNotFoundException.cs" />
+    <Compile Include="SubmissionEngine.cs" />
+    <Compile Include="INameableTarget.cs" />
+    <Compile Include="IProtocol.cs" />
+    <Compile Include="ITarget.cs" />
+    <Compile Include="ITargetAssignment.cs" />
+    <Compile Include="ITargetAssignmentGroup.cs" />
+    <Compile Include="ITargetImportGroup.cs" />
+    <Compile Include="ITargetRoot.cs" />
+    <Compile Include="ProtocolRegistry.cs" />
+    <Compile Include="RequiredFilesMissingException.cs" />
+    <Compile Include="SubmissionManifest.cs" />
+    <Compile Include="SubmittableFileSystemEntry.cs" />
+    <Compile Include="Utility\DepthFirstTraversal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\submission-targets.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Key.snk" />
+    <None Include="Schema\submission-targets.xsx">
+      <DependentUpon>submission-targets.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ICSharpCode.SharpZipLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

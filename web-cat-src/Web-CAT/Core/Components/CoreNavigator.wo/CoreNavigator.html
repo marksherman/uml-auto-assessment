@@ -1,0 +1,18 @@
+<wo:WCForm><b>Viewing:</b>&nbsp;&nbsp;<div class="inlined"><wo name="SemesterMenu">
+<wo name="SemesterMenuItem">
+    <wo:str value="$semesterInRepetition"/>
+</wo>
+</wo></div>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<wo name="CoursePane"><wo name="CourseMenu">
+    <wo:if condition="$isCourseOfferingFilterPlaceholder">
+        <wo name="CourseOfferingControls">
+            <div><wo name="ToggleIncludeAdminAccess">
+                <wo:if condition="$includeAdminAccess">Hide admin access
+                </wo:if><wo:else>Show admin access</wo:else>
+            </wo></div>
+        </wo>
+    </wo:if><wo:else>
+        <wo name="CourseMenuItem">
+            <wo:str value="$courseOfferingInRepetition"/>
+        </wo>
+    </wo:else>
+</wo></wo></wo:WCForm>

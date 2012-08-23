@@ -1,0 +1,7 @@
+FileList: WOPopUpButton {
+    list              = filesDisplayGroup.displayedObjects;
+    item              = file;
+    displayString     = file.sourceFileName;
+    selection         = selectedFile;
+    noSelectionString = "Overall summary of results";
+}

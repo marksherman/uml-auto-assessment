@@ -1,0 +1,53 @@
+{
+    name       = "StdioTddPlugin";
+    version.major    = 1;
+    version.minor    = 3;
+    version.revision = 2;
+    version.date     = 20080917;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU General Public License v.2";
+    license.url      = "http://www.gnu.org/copyleft/gpl.html";
+    copyright        = "(c) 2008 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/StdioTddPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/StdioTddPlugin/ChangeHistory";
+    executable       = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (edwards@cs.vt.edu)";
+    authorUid  = edwards;
+    description = "This is a Pascal execution script.  It is designed
+to execute the student program and a reference implementation against
+a set of student tests.  It does not generate any feedback.";
+    assignmentOptions = (
+        {
+            property    = instructorReference;
+            type        = file;
+            fileTypes   = ( exe );
+            name        = "Instructor Reference Implementation";
+            description =
+  "An executable that serves as the instructor's model of correct behavior.";
+        }
+    );
+    options = (
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        },
+        {
+            property    = hintsLimit;
+            type        = integer;
+            default     = 3;
+            name        = "Hints Limit";
+            description = "Maximum number of hints the
+                           student will receive from failed reference tests.";
+        }
+    );
+}

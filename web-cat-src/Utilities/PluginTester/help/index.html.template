@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Web-CAT Plug-In Tester</title>
+<style>
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 80%;
+}
+
+pre {
+    padding: 8px;
+    background-color: #ddd;
+}
+
+dt {
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>Web-CAT Plug-In Tester</h1>
+<p><b>Current version:</b> @VERSION@ (@BUILD_DATE@)</p>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#ui">The User Interface</a></li>
+</ol>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<h2><a name="summary">Summary</a></h2>
+<p>
+This tool is a standalone Java Swing application that is intended to be used by
+authors of Web-CAT grading plug-ins so that they can test their plug-ins under
+similar conditions to that under which they will run on Web-CAT, without the
+hassle of having to upload the plug-in, create an assignment, and go through
+the Web-CAT submission process with test code.
+</p>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<h2><a name="usage">Usage</a></h2>
+<p>
+This application is distributed as an executable JAR; double-click it to bring
+up the main window.
+</p>
+<p>
+The application expects a directory structure like the following:
+</p>
+<pre>
+  -- testing area/
+   \__ submission/
+   \__ Results/
+   \__ ScriptData/
+   \__ test.properties
+</pre>
+
+<p>
+Each of these is described below:
+</p>
+
+<dl>
+<dt>testing area</dt>
+<dd>
+  the root directory in which all of the inputs and outputs for
+  the grading plug-ins are stored (except for the plug-ins themselves). This
+  folder can be named anything.
+</dd>
+<dt>submission</dt>
+<dd>
+  the directory that contains the expanded files that will be
+  compiled and executed with the plug-ins (think: a student's submission). This
+  is the directory that you will specify in the user interface; the other
+  directories in this tree will be determined from it.
+</dd>
+<dt>Results</dt>
+<dd>
+  contains the output of the grading plug-ins; if this directory does
+  not exist it will be automatically created.
+</dd>
+<dt>ScriptData</dt>
+<dd>
+  optional; used to contain external files that the grading script
+  may need access to, such as instructor's reference test cases or library
+  code.
+</dd>
+<dt>test.properties</dt>
+<dd>
+  optional; this file can contain properties that will be
+  copied into the grading.properties file at the beginning of the grading
+  process
+</dd>
+</dl>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<h2><a name="ui">The User Interface</a></h2>
+<dl>
+<dt>Submission</dt>
+<dd>
+  the path to the directory that contains the submission files to be graded;
+  see "submission" in the file hierarchy above
+</dd>
+<dt>Plug-ins to run</dt>
+<dd>
+  one or more directories that each contain a grading plug-in to be run on the
+  submission
+</dd>
+<dt>Properties</dt>
+<dd>
+  one or more lines each containing a "key=value" pair that will be copied into
+  the grading.properties file at the beginning of the grading process
+</dd>
+<dt>Documentation</dt>
+<dd>
+  Displays information about the properties that are available to be passed
+  into the grading process.
+</dd>
+</dl>
+
+</body>
+</html>

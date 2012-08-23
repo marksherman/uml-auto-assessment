@@ -1,0 +1,18 @@
+Form: WCForm {
+	multipleSubmit = true;
+}
+
+OKButton: WCButton {
+	action = okClicked;
+	label  = "OK";
+	class  = "pos";
+}
+
+CancelButton: WCButton {
+	action = cancelClicked;
+	label  = "Cancel";
+	class  = "neg";
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+}

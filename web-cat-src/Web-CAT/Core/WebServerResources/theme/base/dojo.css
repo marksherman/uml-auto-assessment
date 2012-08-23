@@ -1,0 +1,52 @@
+/* =================================================================== */
+/* @group Basic Overrides
+====================================================================== */
+
+.dijitContentPane { overflow: visible; }
+
+.dijitTitlePane { overflow: visible; }
+
+.dijitTitlePaneContentOuter { overflow-x: auto; }
+
+/*
+.dijitTextBox,
+.dj_safari .dijitComboBox {
+    vertical-align: baseline;
+}
+*/
+
+/* For best alignment with plain text or labels on the same line */
+.dijitCheckBox.dijitInline,
+.dijitRadio.dijitInline {
+        vertical-align: text-top;
+}
+
+.dijitDateTextBox.dijitTextBox { width: 8em; }
+.dijitTimeTextBox.dijitTextBox { width: 7em; }
+
+.dijitMenu { line-height: 125%; }
+
+/* @end
+====================================================================== */
+/* @group Collapsible Modules
+====================================================================== */
+
+.dijitTitlePaneTitle { outline: 0; }
+
+
+/* @end
+====================================================================== */
+/* @group Drag and Drop
+====================================================================== */
+
+.dojoDndHandle {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    cursor: move;
+    background-image: url(images/draghandle.png);
+}
+
+/* @end
+====================================================================== */

@@ -1,0 +1,60 @@
+{
+    attributes = (
+        {allowsNull = N; name = id; prototypeName = id; },
+        {
+            allowsNull = N;
+            columnName = semesterId;
+            name = semesterId;
+            prototypeName = foreignId;
+        }
+    );
+    attributesUsedForLocking = (semesterId);
+    className = "org.webcat.outcomesmeasurement.OutcomeSet";
+    classProperties = (accreditingBodies, outcomes, programs, semester);
+    externalName = OutcomeSet;
+    fetchSpecificationDictionary = {};
+    name = OutcomeSet;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            definition = "accreditingBodyOutcomeSets.accreditingBody";
+            name = accreditingBodies;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = AccreditingBodyOutcomeSet;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = outcomeSetId; sourceAttribute = id; });
+            name = accreditingBodyOutcomeSets;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "outcomeSetOutcomes.outcome"; name = outcomes; },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = OutcomeSetOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = outcomeSetId; sourceAttribute = id; });
+            name = outcomeSetOutcomes;
+            propagatesPrimaryKey = Y;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = ProgramOutcomeSet;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = outcomeSetId; sourceAttribute = id; });
+            name = programOutcomeSets;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "programOutcomeSets.program"; name = programs; },
+        {
+            destination = Semester;
+            isMandatory = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = semesterId; });
+            name = semester;
+        }
+    );
+}

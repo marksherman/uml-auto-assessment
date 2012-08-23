@@ -1,0 +1,383 @@
+/* =================================================================== */
+/* @group Basic Overrides
+====================================================================== */
+
+.nihilo .dijitCalendarContainer,
+.nihilo .dijitTimePicker { line-height: 100%; }
+
+.dojoxColorPicker {
+    padding: 0;
+}
+
+.nihilo .dijitMenuItem {
+    font: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif !important;
+}
+
+
+
+/* @end
+====================================================================== */
+/* @group Collapsible Modules
+====================================================================== */
+
+.nihilo .dijitTitlePane.inline .dijitTitlePaneTitle { margin-bottom: 4px; }
+
+.nihilo .dijitTitlePaneContentOuter {
+    background: none;
+    border: none;
+    padding: 2px;
+    margin: 0;
+}
+
+.nihilo .dijitTitlePaneContentOuter > .dijitReset {
+    color: inherit;
+}
+
+.nihilo .dijitTabContainerTop-dijitContentPane,
+.nihilo .dijitTabContainerLeft-dijitContentPane,
+.nihilo .dijitTabContainerRight-dijitContentPane,
+.nihilo .dijitTabContainerBottom-dijitContentPane,
+.nihilo .dijitAccordionContainer-dijitContentPane {
+    background-color: transparent;
+}
+
+.nihilo .dijitTabPaneWrapper {
+    background: none;
+    border-right-width: 2px;
+}
+
+.nihilo .dijitTitlePane .dijitTitlePaneTitle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 0 0.3em 0;
+    line-height: 100%;
+    height: auto;
+    margin: 0 0 10px 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.nihilo .dijitTitlePane .dijitTitlePane.inline .dijitTitlePaneTitle {
+    font-size: 1.1em;
+}
+
+.nihilo .dijitTitlePane .dijitTitlePane .dijitTitlePaneTitle {
+    font-size: 1.3em;
+}
+
+.nihilo .dijitTitlePane .dijitTitlePane .dijitTitlePane .dijitTitlePaneTitle {
+    font-size: 1.2em;
+}
+
+.nihilo .dijitTitlePaneContentInner { padding: 0; }
+
+
+/* @end
+====================================================================== */
+/* @group Spinner
+====================================================================== */
+
+.dijitSpinner .dijitInputLayoutContainer .dijitArrowButtonInner {
+    margin: -2px auto;
+    height: 11px;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Buttons
+====================================================================== */
+
+.dijitDropDownButton .dijitArrowButtonInner {
+    height: 11px;
+}
+
+.nihilo .dijitButton,
+.nihilo .dijitButtonNode,
+.nihilo button,
+.nihilo .dijitFileInputButton,
+.nihilo .dijitFileInputText {
+    cursor: pointer;
+}
+
+.nihilo .dijitButtonNode { padding: 1px 2px 2px 2px; }
+
+.nihilo .dijitFileInputButton,
+.nihilo .dijitFileInputText,
+.nihilo .dijitDropDownButton .dijitButtonNode,
+.nihilo .dijitButton .dijitButtonNode {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.nihilo .dijitFileInputButton,
+.nihilo .dijitFileInputText,
+.nihilo .dijitDropDownButton .dijitButtonNode button,
+.nihilo .dijitButton .dijitButtonNode button {
+    background-position: top left;
+    background-repeat: repeat-x;
+}
+
+.nihilo .dijitButtonDisabled .dijitButtonNode,
+.nihilo .dijitButtonDisabled .dijitButtonNode button {
+    opacity: 1;
+}
+
+.nihilo .dijitFileInputButton:hover,
+.nihilo .dijitFileInputText:hover,
+.nihilo .dijitDropDownButtonHover .dijitReset.dijitButtonNode,
+.nihilo .dijitButtonHover .dijitReset.dijitButtonNode {
+	border-width: 1px;
+	border-style: solid;
+}
+
+.nihilo button img {
+    vertical-align: bottom;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Checks/Radios
+====================================================================== */
+
+.nihilo .dijitCheckBox,
+.nihilo .dijitCheckBoxIcon          {
+    background-image: url(../../dijit/themes/tundra/images/checkmark.png);
+    margin: 0 2px;
+}
+
+.nihilo .dijitRadio,
+.nihilo .dijitRadioIcon {
+    background-image: url(../../dijit/themes/tundra/images/checkmark.png);
+}
+
+.nihilo .dijitRadio,
+.nihilo .dijitToggleButton .dijitRadioIcon {
+    background-position: -112px;
+}
+
+.nihilo .dijitRadio.dijitRadioDisabled {
+    background-position: -144px;
+}
+
+.nihilo .dijitRadioChecked.dijitRadioCheckedDisabled {
+    background-position: -128px;
+}
+
+.nihilo .dijitRadio.dijitRadioHover {
+    background-position: -176px;
+}
+
+.nihilo .dijitRadioChecked.dijitRadioCheckedHover {
+    background-position: -160px;
+}
+
+.nihilo .dijitRadioChecked,
+.nihilo .dijitToggleButtonChecked .dijitRadioIcon {
+    background-position: -96px;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Toolbars
+====================================================================== */
+
+.nihilo .dijitToolbar {
+    border: 1px solid #ccc;
+    background:#eaeaea url("../../dijit/themes/tundra/images/titleBar.png") repeat-x top left;
+    padding: 1px;
+    margin-bottom: 1px;
+}
+
+/* setting a min-height on ditor toolbar */
+.dj_ie6 .nihilo .dijitToolbar {
+    height: 10px;
+}
+
+.nihilo .dijitToolbar > span {
+    vertical-align: middle;
+    font-size: 90%;
+}
+
+.nihilo .dijitToolbar .dijitButtonNode,
+.nihilo .dijitToolbar .dijitComboButton .dijitButtonContents,
+.nihilo .dijitToolbar .dijitComboButton .dijitDownArrowButton {
+    background: none;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.nihilo .dijitToolbar .dijitButtonNode .dijitButtonContents {
+    background: none;
+}
+
+.nihilo .dijitToolbar .dijitButtonText {
+    color: #4b4b4b !important;
+}
+
+.nihilo .dijitToolbar .dijitButton,
+.nihilo .dijitToolbar .dijitToggleButton,
+.nihilo .dijitToolbar .dijitDropDownButton,
+.nihilo .dijitToolbar .dijitComboButton .dijitButtonContents,
+.nihilo .dijitToolbar .dijitComboButton .dijitDownArrowButton {
+    background: none;
+    padding: 1px;   /* on hover etc., margin replaced w/border */
+}
+
+.nihilo .dijitToolbar .dijitButtonChecked,
+.nihilo .dijitToolbar .dijitToggleButtonChecked {
+    background-color:#ffeeb9;
+    border:1px solid #f7c95c;
+    padding: 0;
+}
+
+.nihilo .dijitToolbar .dijitButtonCheckedHover,
+.nihilo .dijitToolbar .dijitToggleButtonCheckedHover
+ {
+    background-color:#ffe284;
+    border:1px solid #f7c95c;
+    padding: 0;
+}
+
+.nihilo .dijitToolbar .dijitButtonHover,
+.nihilo .dijitToolbar .dijitToggleButtonHover,
+.nihilo .dijitToolbar .dijitDropDownButtonHover,
+.nihilo .dijitToolbar .dijitComboButton .dijitButtonContentsHover,
+.nihilo .dijitToolbar .dijitComboButton .dijitDownArrowButtonHover {
+    /* TODO: change this from Hover to Selected so that button is still highlighted while drop down is being used */
+    border: 1px solid #f7c95c;
+    padding: 0;
+    background-color:#ffe284;
+}
+
+.nihilo .dijitToolbar .dijitButtonHover .dijitButtonContents,
+.nihilo .dijitToolbar .dijitDropDownButtonHover .dijitButtonContents {
+    background-color: #ffe284 !important;
+}
+
+.nihilo .dijitToolbar .dijitButtonHover .dijitButtonNode,
+.nihilo .dijitToolbar .dijitDropDownButtonHover .dijitButtonNode {
+    border: 0px;
+}
+
+.nihilo .dijitToolbar label {
+    padding: 3px 3px 0 6px;
+}
+
+.dj_ie .nihilo .dijitToolbar .dijitComboButton .dijitButtonContentsFocused,
+.dj_ie .nihilo .dijitToolbar .dijitComboButton .dijitDownArrowButtonFocused,
+.dj_ff2 .nihilo.dijitToolbar .dijitComboButton .dijitButtonContentsFocused,
+.dj_ff2 .nihilo .dijitToolbar .dijitComboButton .dijitDownArrowButtonFocused {
+    /* focus border doesn't appear on <td> for FF2 or IE, so need to add it manually */
+    border: 1px #555 dotted !important;
+    padding: 0px;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Sliders
+====================================================================== */
+
+.dijitRuleMarkH {
+    height: 0.5em;
+}
+
+.dijitRuleMarkV {
+    width: 0.5em;
+}
+
+.dijitRuleContainerH.dijitRuleLabelsContainerH {
+    border-width: 0;
+    height: 1.7em;
+}
+
+.dijitRuleContainerH {
+    height: 0.5em;
+}
+
+.dijitRuleContainerV.dijitRuleLabelsContainerV {
+    border-width: 0;
+    width: 2em;
+}
+
+.dijitRuleLabelsContainerV .dijitRuleLabelContainerV {
+    left: 0.4em;
+}
+
+.dijitRuleLabelsContainerV:first-child .dijitRuleLabelContainerV {
+    left: auto;
+    right: 0.4em;
+}
+
+.dijitRuleContainerV {
+    width: 0.5em;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Drag-and-Drop
+====================================================================== */
+.dojoDndHandle {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    cursor: move;
+    background-image: url(images/draghandle.png);
+}
+
+tr.o.dojoDndItemOver {
+    cursor: default;
+}
+tr.e.dojoDndItemOver {
+    cursor: default;
+}
+tr.o.dojoDndItemSelected {
+    background-image: url(images/highlight-20.png);
+}
+tr.e.dojoDndItemSelected {
+    background-image: url(images/highlight-25.png);
+}
+tr.o.dojoDndItemAnchor {
+    background-image: url(images/highlight-20.png);
+}
+tr.e.dojoDndItemAnchor {
+    background-image: url(images/highlight-25.png);
+}
+/*.dojoDndItemOver .dojoDndItemAnchor {
+    background: #ededed;
+}*/
+.dojoDndItemBefore {
+    border-top: 2px solid #369;
+    margin: 8px;
+}
+.dojoDndItemAfter {
+    border-bottom: 2px solid #369;
+}
+.dojoDndAvatar {
+    border: 2px solid #ccc;
+    font-size: 75%;
+}
+.dojoDndAvatarHeader {
+    background: #aaa;
+}
+.dojoDndAvatarItem {
+    background: #fff;
+    border-bottom: 1px solid #666;
+}
+
+
+/* @end
+====================================================================== */

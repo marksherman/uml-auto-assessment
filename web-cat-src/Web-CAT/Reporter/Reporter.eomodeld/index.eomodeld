@@ -1,0 +1,35 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {
+        URL = ""; 
+        driver = "com.mysql.jdbc.Driver"; 
+        password = ""; 
+        plugin = MySQL; 
+        username = ""; 
+    }; 
+    entities = (
+        {
+            className = "org.webcat.reporter.GeneratedReport"; 
+            name = GeneratedReport; 
+        }, 
+        {className = "org.webcat.reporter.ReportDataSet"; name = ReportDataSet; }, 
+        {
+            className = "org.webcat.reporter.ReportDataSetQuery"; 
+            name = ReportDataSetQuery; 
+        }, 
+        {
+            className = "org.webcat.reporter.ReportGenerationJob"; 
+            name = ReportGenerationJob; 
+            parent = JobBase; 
+        }, 
+        {className = "org.webcat.reporter.ReportTemplate"; name = ReportTemplate; }
+    ); 
+    internalInfo = {
+        "_schemaSynchronizationOptions" = {
+            EOSchemaSynchronizationForeignKeyConstraintsKey = YES; 
+            EOSchemaSynchronizationPrimaryKeyConstraintsKey = YES; 
+            EOSchemaSynchronizationPrimaryKeySupportKey = YES; 
+        }; 
+    }; 
+}

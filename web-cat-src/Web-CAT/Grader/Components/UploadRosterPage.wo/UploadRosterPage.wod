@@ -1,0 +1,77 @@
+AuthList: WCFilteringSelect {
+	list              = domainDisplayGroup.allObjects;
+	selection         = domain;
+	item              = domainItem;
+	displayString     = domainItem.displayableName;
+}
+
+ColHeaderRepetition: WORepetition {
+    list  = columns;
+    item  = aColumn;
+    index = colIndex;
+}
+
+ColHeading: WCFilteringSelect {
+    list = "~@org.webcat.grader.UploadRosterPage@COLUMNS";
+    selection = "~columns[colIndex]";
+    style = "width: 10.5em;";
+}
+
+ColRepetition: WORepetition {
+    list  = aPreviewLine;
+    item  = cell;
+}
+
+Delimiter: WCFilteringSelect {
+	list          = "~@org.webcat.grader.UploadRosterPage@DELIMITERS";
+	item          = aDelimiter;
+	displayString = aDelimiter.label;
+	selection     = selectedDelimiter;
+	style         = "width: 9em;";
+	id            = "delim";
+//    onchange      = "submitForm()";
+}
+
+DelimiterInfo: org.webcat.core.PopUpInfo {
+    title   = "Delimiter";
+    message = "Choose the character used as a delimiter between fields in your data file.  Web-CAT will try to guess the delimiter based on your file\'s contents, but you can specify your own choice here.";
+}
+
+FirstLineInfo: org.webcat.core.PopUpInfo {
+    title   = "First Line Column Names";
+    message = "Check this box if the first row in your data file contains column headings and should not be treated as student data.  When checked, Web-CAT will skip the first row of data when extracting information from the file.";
+}
+
+LineRepetition: WORepetition {
+    list  = previewLines;
+    item  = aPreviewLine;
+    index = index;
+}
+
+LPLColRepetition: WORepetition {
+    list  = longPreviewLine;
+    item  = cell;
+}
+
+MultipleInstitutions: WOConditional {
+    condition = "~domainDisplayGroup.allObjects.count() > 1";
+}
+
+Page: SaveCancelPage {
+    title = "Upload a Roster CSV File";
+}
+
+ReplaceInfo: org.webcat.core.PopUpInfo {
+    title   = "Replace CSV File";
+    message = "If you edit or revise your CSV file and need to upload the changed version, select the new file you want to upload and click 'Replace'.  The data preview will be updated to reflect the new file's contents.";
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+    showCaution = "~(index == 0) && firstLineColumnHeadings";
+}
+
+TRInc: org.webcat.core.TableRow {
+    index     = index;
+    increment = true;
+}

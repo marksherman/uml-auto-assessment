@@ -1,0 +1,30 @@
+<webobject name="PageWrapper">
+   <webobject name="EntitySelectedConditional">
+      <webobject name="QueryForm">
+         <webobject name="QueryTable">
+            <webobject name="BannerConditional"><thead>
+               <webobject name="QueryTableHeaderRow">
+                  <th colspan="2"><webobject name="EntityName"/> Query
+                     <webobject name="FetchLimitConditional">
+                        (<webobject name="FetchLimit"/>
+                        max)</webobject></th>
+               </webobject></thead>
+            </webobject><tbody>
+            <webobject name="ResourceRepetition">
+               <webobject name="RowContainer">
+                  <td align="right"><strong><webobject name="ResourceLabel"/>:</strong>
+                  </td>
+                  <td>
+                     <webobject name="ResourceInputRepresentation"/>
+                  </td>
+               </webobject>
+            </webobject>
+            <webobject name="RowContainer">
+               <td colspan="2" align="center">
+                  <webobject name="QuerySubmitButton"/>
+               </td>
+            </webobject></tbody>
+         </webobject>
+      </webobject>
+   </webobject>
+</webobject>

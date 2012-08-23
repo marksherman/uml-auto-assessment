@@ -1,0 +1,3 @@
+Page: org.webcat.core.PageWithNavigation {
+	title = "Manage Configuration Settings";
+}

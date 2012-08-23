@@ -1,0 +1,29 @@
+ConfigPanel : MessagingConfigPanel {
+    isShowingBroadcast = true;
+}
+
+Page : WCPageWithNavigation {
+}
+
+GlobalEditDialog : WCDialog {
+    id = "~'smc_editGlobalOptions_' + indexOfProtocol";
+    title = "~'Edit Global Options for ' + protocol.name";
+    okAction = optionsEdited;
+}
+
+GlobalEditLink : WOGenericContainer {
+    elementName = "a";
+    href = "javascript:void(0);";
+    onclick = editGlobalOptionsDialogShowCall;
+}
+
+OptionSetEditor : OptionSetEditor {
+    options = protocolOptions;
+    optionValues = optionValues;
+}
+
+ProtocolRepetition : WORepetition {
+    list = protocols;
+    item = protocol;
+    index = indexOfProtocol;
+}

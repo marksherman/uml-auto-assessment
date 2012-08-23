@@ -1,0 +1,26 @@
+# ===================================================================
+# CloverForPlugins subsystem characteristics
+# ===================================================================
+subsystem.CloverForPlugins=org.webcat.cloverforplugins.CloverForPlugins
+
+CloverForPlugins.version.major=1
+CloverForPlugins.version.minor=0
+CloverForPlugins.version.revision=2
+CloverForPlugins.requires=Core, ANTForPlugins
+CloverForPlugins.provides=pluginProperties
+
+CloverForPlugins.copyright=\
+	(c) 2006-2010 Virginia Tech Department of Computer Science
+CloverForPlugins.provider=Virginia Tech Computer Science
+CloverForPlugins.provider.url=http\://web-cat.org/updates
+CloverForPlugins.info.url=\
+	http\://web-cat.org/WCWiki/CloverForPluginsSubsystem
+CloverForPlugins.history.url=\
+	http\://web-cat.org/WCWiki/CloverForPluginsSubsystem/ChangeHistory
+CloverForPlugins.license=GNU Affero General Public License v.3
+CloverForPlugins.license.url=http\://www.gnu.org/license/agpl.html
+
+CloverForPlugins.description=\
+	This subsystem provides \
+	<a href\="http\://www.cenqua.com/clover/">clover</a> to support \
+	grading plug-ins that measure code coverage in Java code.

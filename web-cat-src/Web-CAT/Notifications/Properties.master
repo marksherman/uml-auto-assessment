@@ -1,0 +1,30 @@
+# ===================================================================
+# Notifications subsystem characteristics
+# ===================================================================
+subsystem.Notifications = org.webcat.notifications.Notifications
+
+Notifications.version.major = 1
+Notifications.version.minor = 0
+Notifications.version.revision = 2
+Notifications.requires = Core, JobQueue
+Notifications.depends = env, pluginProperties
+
+Notifications.copyright =\
+    (c) 2010-2012 Virginia Tech Department of Computer Science
+Notifications.provider = Virginia Tech Computer Science
+Notifications.provider.url = http\://web-cat.org/updates
+Notifications.info.url = http\://web-cat.org/WCWiki/NotificationsSubsystem
+Notifications.history.url =\
+    http\://web-cat.org/WCWiki/NotificationsSubsystem/ChangeHistory
+Notifications.license = GNU Affero General Public License v.3
+Notifications.license.url = http\://www.gnu.org/licenses/agpl.html
+
+Notifications.description =\
+    This subsystem provides Web-CAT's advanced notification services. Without \
+    it, notifications are only sent via e-mail.
+
+
+# -------------------------------------------------------------------
+# Notifications subsystem configuration property defaults
+# -------------------------------------------------------------------
+Notifications.resumeSuspendedJobs = true

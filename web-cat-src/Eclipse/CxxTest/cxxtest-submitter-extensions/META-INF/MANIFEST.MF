@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CxxTest Extensions for Web-CAT Submitter
+Bundle-SymbolicName: net.sf.webcat.eclipse.cxxtest.submitterExtensions;singleton:=true
+Bundle-Version: 1.3.2
+Bundle-Activator: net.sf.webcat.eclipse.cxxtest.submitterExtensions.Activator
+Bundle-Vendor: Virginia Tech Computer Science
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ net.sf.webcat.eclipse.cxxtest,
+ net.sf.webcat.eclipse.submitter
+Bundle-ActivationPolicy: lazy

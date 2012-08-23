@@ -1,0 +1,941 @@
+/* =================================================================== */
+/* @group Page Content
+====================================================================== */
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* defaults for all backgrounds */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+body.showprogress * {
+    cursor: progress !important;
+}
+
+.dijitEditor iframe body { padding: 5px; }
+
+a.bare, a:hover.bare, a:visited.bare {
+    border: 0;
+    background: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    height: 100%;
+    min-height: 100%;
+    text-align: left;
+}
+
+#content,
+#width {
+    width: expression(document.body.clientWidth > 1000 ? "1200px" : "94%");
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#content[id],
+#width[id] {
+    width: 94%;
+    height: auto;
+}
+
+#page {
+    float: left;
+    width: 100%;
+    clear: both;
+    padding-bottom: 4em;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Header/Footer
+====================================================================== */
+
+#header .title h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#header .title h2 {
+    margin: 0;
+    padding: 4px 0 0 0;
+}
+
+#header .title {
+    padding-top: 4px;
+    padding-bottom: 1em;
+    background: url(../../images/wc-logo.png) no-repeat top left;
+}
+
+.uid {
+    margin-left: 4em;
+}
+
+#utils {
+    float: right;
+    margin-top: 2px;
+}
+
+#roles {
+    float: right;
+    margin-right: 4em;
+    margin-top: 2px;
+}
+
+#roles a, #utils a {
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+#footer {
+    float: left;
+    width: 100%;
+    clear: both;
+    margin-top: -2.7em;
+    /*background: #000 url(../images/bg/footer.jpg) repeat-x top left; */
+}
+
+/* Sets the width of the footer content */
+#footer #width {
+    position: relative;
+    z-index: 3;
+    padding-top: 1em;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Main Menu
+====================================================================== */
+
+/* The following copyright notice applies to the menu CSS: */
+/* ================================================================
+This copyright notice must be untouched at all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/skeleton2.html
+Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any
+way to fit your requirements.
+=================================================================== */
+#mainMenudiv { clear: right; }
+
+#mainMenu,
+#mainMenu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    z-index: 100;
+}
+
+#mainMenu {
+    margin: 0.4em -0.4em 0.4em 0;
+/*    font-size: 95%; */
+}
+
+#mainMenu table { border-collapse: collapse; }
+#mainMenu li {
+    float: left;
+    margin: 0.4em;
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+#mainMenu li li { float: none; }
+/* a hack for IE5.x and IE6 */
+#mainMenu li a li { float: left; }
+
+#mainMenu li a {
+    display: block;
+    float: left;
+    height: 1.8em;
+    padding: 0 1em;
+    line-height: 1.8em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+#mainMenu li li a { float: none; }
+
+#mainMenu li:hover { position: relative; z-index: 100; }
+#mainMenu a:hover {
+    position: relative;
+    z-index: 100;
+}
+
+#mainMenu :hover  ul {
+    left: 0;
+    top: 1.8em;
+    z-index: 300;
+}
+#mainMenu a:hover ul { left: -1px; }
+
+#mainMenu ul {
+    position: absolute; left: -9999px; top: -9999px;
+    -webkit-box-shadow: 0px 0px 8px black;
+    -moz-box-shadow: 0px 0px 8px black;
+    box-shadow: 0px 0px 8px black;
+}
+
+/* it could have been this simple if all browsers understood */
+/* show next level */
+#mainMenu li:hover li:hover > ul { left: 0; margin-left: 100%; top: 0; }
+/* keep further levels hidden */
+#mainMenu li:hover > ul ul {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: auto;
+}
+
+/* but IE5.x and IE6 need this lot to style the flyouts*/
+/* show next level */
+#mainMenu a:hover a:hover ul,
+#mainMenu a:hover a:hover a:hover ul,
+#mainMenu a:hover a:hover a:hover a:hover ul,
+#mainMenu a:hover a:hover a:hover a:hover a:hover ul
+{ left: 100%; top: 0; }
+
+/* keep further levels hidden */
+#mainMenu a:hover ul ul,
+#mainMenu a:hover a:hover ul ul,
+#mainMenu a:hover a:hover a:hover ul ul,
+#mainMenu a:hover a:hover a:hover a:hover ul ul
+{ position: absolute; left: -9999px; top: -9999px; }
+
+
+/* @end
+====================================================================== */
+/* @group Drop Down Menus
+====================================================================== */
+
+.WCDropDownList {
+    display: inline-block;
+    padding: 0.3em 0.5em;
+    cursor: default;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.WCDropDownListMenu {
+    position: fixed;
+    z-index: 9999;
+    display: none;
+}
+
+.WCDropDownListMenu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 0;
+    overflow: auto;
+    -webkit-box-shadow: 0px 3px 8px -2px black;
+    -moz-box-shadow: 0px 3px 8px -2px black;
+    box-shadow: 0px 3px 8px -2px black;
+}
+
+.WCDropDownListMenu ul li {
+    display: block;
+    cursor: default;
+    padding: 0.1em 0.75em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    white-space: nowrap;
+}
+
+.WCDropDownListMenu ul li.WCDropDownSelectable {
+    cursor: pointer;
+}
+
+.WCDropDownListMenu ul li:last-child {
+    border-bottom: none;
+}
+
+.WCDropDownListArrow {
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 0.4em;
+    width: 8px;
+    height: 8px;
+    background-image: url(images/dropdown-arrows.png);
+    background-repeat: no-repeat;
+}
+
+
+/* @end
+====================================================================== */
+/* @group Columns
+====================================================================== */
+
+.width100 { width: 100%;  }
+.width75  { width: 74%;   }
+.width50  { width: 49.7%; }
+.width33  { width: 32.7%; }
+.width25  { width: 24.7%; }
+
+.floatLeft  { float: left;  }
+.floatRight { float: right; }
+
+.inlined { display: inline-block; }
+
+
+/* @end
+====================================================================== */
+/* @group Basic Look
+====================================================================== */
+
+h1 {
+    margin: 0 0 1.2em;
+    clear: both;
+}
+
+.module {
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.33);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.33);
+    padding: 1em 1.5em 1em 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.module.title h1 {
+    margin: -0.2em 0;
+    clear: none;
+}
+
+.module.title.login { margin-top: 1.5em; margin-bottom: 0; }
+.module.title.login h1 { display: inline; float: left; margin: 0; }
+.module.title.login h2 { display: inline; float: right; }
+
+.module.title .tools {
+    float: right;
+    margin: -0.3em 0;
+}
+
+.module.title .tools .dijitButton,
+.module.title .tools .dijitDropDownButton,
+.module.title .tools .dijitComboButton {
+    margin: -0.3em 0.2em 0 0.2em;
+}
+
+p { margin: 0 0 1.2em; }
+.batchnav p { margin: 0; }
+p.course { margin: 0  0 -1em; }
+
+blockquote {
+    margin: 1.2em 0;
+    padding: 0 2em;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+}
+
+.module.panel .NoticePanel { margin-bottom: 0; }
+
+.med-logo {
+    margin-top: 1.5em;
+    min-height: 215px;
+    background: transparent url(../../images/wc-400.png) top left no-repeat;
+}
+
+.med-logo .module { margin-left: 410px; }
+
+.large-logo {
+    min-height: 143px;
+    background: transparent url(../../images/wc-800.png) top left no-repeat;
+    padding-top: 280px;
+    margin-bottom: 1.5em;
+}
+
+.large-logo .module { margin-left: 310px; }
+
+.poweredby a {
+    display: block;
+    float: right;
+    margin: 0 0 1.5em 1.5em;
+}
+
+/* .module > h1:first-child { margin-top: 0; } */
+
+.clear  { clear:   both;  }
+.block  { display: block; }
+.hidden { display: none;  }
+.center { text-align: center; }
+.belowInput { margin-top: 0.5em; }
+
+span.selected { padding: 0 2px; }
+span.error {
+    padding: 0 2px 0 20px;
+    background-image: url("../../icons/exclaim.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 2px 0;
+}
+span.caution {
+    padding: 0 2px 0 20px;
+    background-image: url("../../icons/caution.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 2px 0;
+}
+
+img { border: 0; }
+a img { border: 0; }
+
+li, dd { margin-left: 1em; }
+
+ul.nolayout {
+    list-style: none;
+    padding-left: 0;
+}
+
+a.permalink {
+    font-size: x-small;
+    padding: 0 0 0 20px;
+    background: transparent url(../../icons/permalink.png) no-repeat center left;
+}
+a.permalink.floatRight {
+    margin-left: 1.5em;
+    display: block;
+}
+
+.left, .L,
+tr.left > td, tr.L > td,
+tr.center > td.left, tr.center > td.L,
+tr.c > td.left, tr.c > td.L,
+tr.right > td.left, tr.right > td.L,
+tr.n > td.left, tr.n > td.L,
+tr.R > td.left, tr.R > td.L { text-align: left; }
+
+.right, .n, .R,
+tr.right > td, tr.n > td, tr.R > td,
+tr.center > td.right, tr.center > td.n, tr.center > td.R,
+tr.c > td.right, tr.c > td.n, tr.c > td.R,
+tr.left > td.right, tr.left > td.n, tr.left > td.R,
+tr.L > td.right, tr.L > td.n, tr.L > td.R { text-align: right; }
+
+.center, .s, .c,
+tr.center > td, tr.c > td,
+tr.left > td.center, tr.L > td.center,
+tr.left > td.c, tr.L > td.c,
+tr.right > td.center, tr.right > td.c,
+tr.n > td.center, tr.n > td.c
+tr.R > td.center, tr.R > td.c { text-align: center; }
+
+.sm { font-size: smaller }
+.nowrap { white-space: nowrap; }
+.top { vertical-align: top; }
+.top, .top th, .top td {
+    vertical-align: text-top; padding-top: 0; padding-bottom: 0.2em; }
+.nlbefore { margin-top: 1em; }
+.nlafter  { margin-bottom: 1em; }
+.kn, tr.kn > td { margin-bottom: 0; padding-bottom: 0; }
+.kp, tr.kp > td { margin-top: 0; padding-top: 0; }
+
+pre, .code {
+    border: none;
+    padding: 0.5em 0.5em 0.5em 1em;
+    line-height: 130%;
+}
+
+table.prettytext {
+    width: 100%;
+}
+
+table.prettytext td {
+    padding: 0;
+    vertical-align: top;
+}
+
+table.prettytext td pre {
+    border: none;
+    line-height: 130%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+table.prettytext td.linenumbers pre {
+    padding-left: 1em;
+    padding-right: 1em;
+    border: none;
+    line-height: 130%;
+    text-align: right;
+}
+
+table.prettytext td.content {
+    width: 100%;
+}
+
+table.prettytext td.content pre {
+    background: none;
+    padding-left: 1em;
+    overflow-x: auto;
+}
+
+.srcView pre {
+    padding: 0;
+    background-image: none;
+    background-color: transparent;
+    border: none;
+}
+
+pre, .code, code, var, samp, kbd {
+    border: none;
+    background-color: transparent;
+    font-size: inherit;
+}
+
+img.help, img.icon, input.icon { vertical-align: text-top; }
+img.icon.so, input.icon.so { padding-bottom: -2px; padding-top: 2px; }
+
+.InlineStatusIndicator {
+    display: inline-block;
+    margin-left: 0.5em;
+    padding: 4px;
+    color: black;
+}
+
+.InlineStatusIndicator .message {
+    display: inline-block;
+    padding: 4px 8px 4px 24px;
+    color: black;
+    border: 1px solid transparent;
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
+}
+
+.InlineStatusIndicator .message.error {
+    background-color: #f7f1ef;
+    border-color: #f8a88c;
+    background-image: url(../../icons/exclaim.png);
+}
+.InlineStatusIndicator .message.warning {
+    background-color: #ffffe6;
+    border-color: #f6f086;
+    background-image: url(../../icons/caution.png);
+}
+.InlineStatusIndicator .message.success {
+    background-color: #e6ffe6;
+    border-color: #50B54D;
+    background-image: url(../../icons/check.png);
+}
+
+.NoticePanel {
+    display: block;
+    margin: 0 0 1em 0;
+    padding: 8px;
+    background: #e9eef3;
+    border-top: 4px solid #aec9ef;
+    border-bottom: 4px solid #aec9ef;
+    color: black;
+}
+
+.NoticePanel b, .NoticePanel strong { color: black; }
+.NoticePanel a { color: blue; }
+
+.NoticePanel.error {
+    background-color: #f7f1ef;
+    border-color: #f8a88c;
+}
+.NoticePanel.warning {
+    background-color: #ffffe6;
+    border-color: #f6f086;
+}
+.NoticePanel.suggestion {
+    background-color: #f7f7f7;
+    border-color: #dbdbdb;
+}
+.NoticePanel.check {
+    background-color: #e6ffe1;
+    border-color: #bbeeae;
+}
+
+ul.NoticePanel, .NoticePanel ul {
+    list-style-type: none;
+}
+
+.NoticePanel li {
+    background: url(../../icons/info.png) 0 3px no-repeat;
+    padding-left: 24px;
+    padding-bottom: 4px;
+}
+
+
+.NoticePanel li.error { background-image: url(../../icons/exclaim.png); }
+.NoticePanel li.warning { background-image: url(../../icons/caution.png); }
+.NoticePanel li.suggestion { background-image: url(../../icons/suggestion.png); }
+.NoticePanel li.check {
+    background-image: url(../../icons/check.png);
+    color: black;
+}
+
+
+/* @end
+====================================================================== */
+/* @group =Tables
+====================================================================== */
+
+table {
+    border-collapse: collapse;
+    margin: 0 0.5em 1em 0.1em;
+}
+
+.dtw table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.d2w table,
+table.layout,
+table.actionlist,
+table.course-list {
+    border: none;
+}
+
+.assignments {
+    border-width: 0 0 0 6px;
+    border-style: solid;
+    border-color: #ccc;
+    padding-left: 6px;
+    margin-bottom: 4px;
+}
+
+table.layout.minimal,
+table.layout.nomargin,
+table.actionlist,
+table.course-list {
+    margin: 0;
+}
+
+table.layout.minimal td {
+    padding: 0;
+}
+
+table.actionlist td {
+    padding: 0 4px;
+}
+
+table.actionlist td:first-child {
+    padding-left: 0;
+    padding-right: 4px;
+}
+
+table th,
+table td {
+    padding: 0.1em .6em;
+}
+
+table.course-list tr.assignment td {
+	padding-top: 1.6em;
+	padding-bottom: 0.6em;
+}
+
+table.course-list tr.assignment td:first-child {
+	padding-left: 0;
+	padding-right: 1.2em;
+}
+
+table.course-list th {
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: black;
+    color: inherit;
+    background-color: inherit;
+    font-weight: bold;
+}
+
+.theme-thumb {
+    float: left;
+    margin-right: 1.5em;
+    width: 45%;
+    border: 1px solid transparent;
+}
+
+.theme-thumb.selected {
+    border: 1px dotted red;
+}
+
+.theme-thumb td { vertical-align: top; padding: 0.5em; }
+
+
+    /*
+    ================================================================== */
+    /* @group Mini-Histogram
+    ================================================================== */
+
+    table.distchart {
+        margin: 0;
+        empty-cells: show;
+        table-layout: fixed;
+        width: 100px;
+        display: table;
+    }
+
+    table.distchart td {
+        padding: 0;
+        margin:  0;
+        width:  10px;
+        height: 10px;
+        line-height: 10px;
+    }
+
+    table.distchart td img.bar {
+        width:  10px;
+        height: 10px;
+        border: 0px;
+    }
+    table.distchart td.b0 {
+        background-image: url(../../images/bar00.gif);
+    }
+    table.distchart td.b1 {
+        background-image: url(../../images/bar01.gif);
+    }
+    table.distchart td.b2 {
+        background-image: url(../../images/bar02.gif);
+    }
+    table.distchart td.b3 {
+        background-image: url(../../images/bar03.gif);
+    }
+    table.distchart td.b4 {
+        background-image: url(../../images/bar04.gif);
+    }
+    table.distchart td.b5 {
+        background-image: url(../../images/bar05.gif);
+    }
+    table.distchart td.b6 {
+        background-image: url(../../images/bar06.gif);
+    }
+    table.distchart td.b7 {
+        background-image: url(../../images/bar07.gif);
+    }
+    table.distchart td.b8 {
+        background-image: url(../../images/bar08.gif);
+    }
+    table.distchart td.b9 {
+        background-image: url(../../images/bar09.gif);
+    }
+    table.distchart td.b10 {
+        background-image: url(../../images/bar10.gif);
+    }
+
+
+    /* @end
+    ================================================================== */
+
+
+    /*
+    ================================================================== */
+    /* @group Meter
+    ================================================================== */
+
+    table.percentbar {
+        border: none;
+        padding: 0;
+        margin: 0;
+        line-height: 100%;
+    }
+
+    table.percentbar td {
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    table tr#divider table.percentbar td { border: none; }
+
+
+    /* @end
+    ================================================================== */
+
+
+    /*
+    ================================================================== */
+    /* @group Paginated tables
+    ================================================================== */
+
+    table .pagination {
+        text-align: right;
+        white-space: nowrap;
+        padding: 5px 0px 5px 0px;
+    }
+
+    table thead .pagination {
+        text-align: right;
+        white-space: nowrap;
+        padding-bottom: 8px;
+    }
+
+    table .pagination .active {
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid gray;
+        margin: 0px 2px;
+        padding: 0px 2px;
+    }
+
+    table .pagination .current {
+        border: 1px solid gray;
+        background-color: #A0C0FF;
+        margin: 0px 2px;
+        padding: 0px 2px;
+    }
+
+    /* @end
+    ================================================================== */
+
+
+    /*
+    ================================================================== */
+    /* @group Printout
+    ================================================================== */
+
+
+    /* @end
+    ================================================================== */
+
+
+/* @end
+====================================================================== */
+/* @group Notices
+====================================================================== */
+
+
+/* @end
+====================================================================== */
+/* @group Forms
+====================================================================== */
+
+form fieldset {
+    margin-bottom: 0.8em;
+    border: 1px solid white;
+    display: table;
+}
+
+.dijitTooltipContainer form fieldset {
+    border-color: black;
+}
+
+fieldset { padding: .5em; }
+
+form fieldset legend {
+    padding: 0 0.2em;
+    font-weight: bold;
+}
+
+form fieldset label {
+    display: inline-block;
+    /* line-height: 1.8; */
+    vertical-align: top;
+    text-align: right;
+    padding-right: 0.8em;
+    width: 10em;
+}
+
+form table label {
+    padding-right: 0;
+    width: auto;
+}
+
+form label.trailing {
+    display: inline;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+form fieldset ol {
+    margin: 0;
+    padding: 0;
+}
+
+form fieldset li {
+    list-style: none;
+    padding: 0.5em;
+    margin: 0;
+}
+
+form > fieldset > ol > li:first-child {
+    padding-top: 0;
+}
+
+form fieldset fieldset {
+    border: none;
+    margin: 0.3em 0 0;
+}
+
+form fieldset fieldset legend {
+    padding: 0 0 0.5em;
+    font-weight: normal;
+}
+
+form fieldset fieldset label {
+    display: block;
+    width: auto;
+}
+
+form em {
+    font-weight: bold;
+    font-style: normal;
+    /* color: #f00; */
+}
+
+form fieldset fieldset label {
+    margin-left: 10.3em;
+}
+
+form fieldset.accountInfo label {
+    width: 5em;
+}
+form fieldset.accountInfo fieldset label {
+    margin-left: 5.3em;
+}
+
+form fieldset.course label,
+form fieldset.assignment label {
+    width: 7.7em;
+}
+
+form fieldset.course fieldset label,
+form fieldset.assignment fieldset label {
+    width: 10em;
+    margin-left: 8em;
+}
+
+form fieldset.course fieldset table.layout label {
+    float: none;
+    width: auto;
+}
+
+form fieldset.reoffer label {
+    width: 11em;
+}
+
+/* @end
+====================================================================== */
+/* @group Forms
+====================================================================== */
+
+div.WCTreeControl {
+    display: inline-block;
+    background-image: url(images/tree-controls.png);
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-top;
+}
+
+/* @end
+====================================================================== */

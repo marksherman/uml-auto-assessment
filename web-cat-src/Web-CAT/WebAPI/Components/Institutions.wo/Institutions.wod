@@ -1,0 +1,5 @@
+Institution: WOGenericContainer {
+    elementName = "institution";
+    id = anInstitution.id;
+    propName = symbolicName;
+}

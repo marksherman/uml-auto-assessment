@@ -1,0 +1,5 @@
+Page : org.webcat.core.install.InstallPageWrapper {
+    title  = "Web-CAT License";
+    stepNo = stepNo;
+    errors = messages;
+}

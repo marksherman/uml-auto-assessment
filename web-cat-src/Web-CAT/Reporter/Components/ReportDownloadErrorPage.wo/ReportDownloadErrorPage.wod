@@ -1,0 +1,16 @@
+Page : org.webcat.core.WCPageWithNavigation {
+    title = "Error Downloading Report";
+}
+
+MainBlock : org.webcat.core.WCPageModule {
+    collapsible = false;
+    title = mainBlockTitle;
+}
+
+Back : WOHyperlink {
+    action = goBack;
+}
+
+Throwable : WOString {
+    value = throwableStackTrace;
+}

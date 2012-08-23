@@ -1,0 +1,27 @@
+Form1: WCForm {
+	multipleSubmit = true;
+	_unroll = true;
+}
+
+Message: WOString {
+	escapeHTML = false;
+	value      = message;
+}
+
+NoButton: WCButton {
+	action = cancelAction;
+	label  = "No";
+	class  = "neg";
+}
+
+PageWrapper: WOSwitchComponent {
+	WOComponentName  = pageWrapperName;
+	_componentUnroll = true;
+	_unroll          = true;
+}
+
+YesButton: WCButton {
+	action = confirmAction;
+	label  = "Yes";
+	class  = "pos";
+}

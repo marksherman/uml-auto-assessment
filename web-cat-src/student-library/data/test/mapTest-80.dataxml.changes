@@ -1,0 +1,28 @@
+<student.web.internal.tests.support.MapTestClass fieldset="true" id="29027b28-2286-47a3-b5d8-8926e2d7c876">
+  <no-comparator/>
+  <java.util.Map_-Entry>
+    <string>toPersist</string>
+    <map id="d6c45204-63b2-4f52-a50d-bd4d412414c1">
+      <java.util.Map_-Entry id="a0843b64-2f4f-4371-af65-780880fdebca">
+        <int>0</int>
+        <string>0</string>
+      </java.util.Map_-Entry>
+      <java.util.Map_-Entry id="43fbd653-f389-4a39-8f03-c8fcffd649c0">
+        <int>1</int>
+        <string>1</string>
+      </java.util.Map_-Entry>
+      <java.util.Map_-Entry id="bbc02ec6-cfcf-458e-aef5-94cfc183482d">
+        <int>2</int>
+        <string>2</string>
+      </java.util.Map_-Entry>
+        <java.util.Map_-Entry id="bbc02ec6-cfcf-458e-aef5-94cf1183482d">
+        <int>3</int>
+        <string>3</string>
+      </java.util.Map_-Entry>
+        <java.util.Map_-Entry id="bbc02ec6-cfcf-458e-aef5-94cf2183482d">
+        <int>4</int>
+        <string>4</string>
+      </java.util.Map_-Entry>
+    </map>
+  </java.util.Map_-Entry>
+</student.web.internal.tests.support.MapTestClass>

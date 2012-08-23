@@ -1,0 +1,33 @@
+# ===================================================================
+# PerlForPlugins subsystem characteristics
+# ===================================================================
+subsystem.PerlForPlugins = org.webcat.perlforplugins.PerlForPlugins
+
+PerlForPlugins.version.major = 1
+PerlForPlugins.version.minor = 1
+PerlForPlugins.version.revision = 4
+PerlForPlugins.requires = Core
+PerlForPlugins.provides = env
+
+PerlForPlugins.copyright =\
+	(c) 2006-2012 Virginia Tech Department of Computer Science
+PerlForPlugins.provider = Virginia Tech Computer Science
+PerlForPlugins.provider.url = http\://web-cat.org/updates
+PerlForPlugins.info.url = http\://web-cat.org/WCWiki/AntForPluginsSubsystem
+PerlForPlugins.history.url =\
+	http\://web-cat.org/WCWiki/PerlForPluginsSubsystem/ChangeHistory
+PerlForPlugins.license = GNU Affero General Public License v.3
+PerlForPlugins.license.url = http\://www.gnu.org/licenses/agpl.html
+
+PerlForPlugins.description =\
+	This subsystem provides support for Perl-based grading plug-ins, \
+	including a number of common CPAN modules as well as some custom-written \
+	Perl modules useful by plug-ins.
+
+
+# -------------------------------------------------------------------
+# PerlForPlugins subsystem configuration property defaults
+# -------------------------------------------------------------------
+# see config.plist for docs on each property
+
+PerlForPlugins.perl.exe = perl

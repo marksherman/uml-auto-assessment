@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension
+           point="org.eclipse.ui.newWizards">
+        <wizard
+              category="org.eclipse.cdt.ui.newCCWizards"
+              finalPerspective="org.eclipse.cdt.ui.CPerspective"
+              icon="icons/new_testcase.gif"
+              id="net.sf.webcat.eclipse.cxxtest.wizards.NewCxxTestSuiteWizard"
+              name="CxxTest Suite">
+         <class class="net.sf.webcat.eclipse.cxxtest.wizards.NewCxxTestSuiteWizard">
+            <parameter
+                  name="cfile"
+                  value="true">
+            </parameter>
+         </class>
+         </wizard>
+     </extension>
+     <extension
+           point="org.eclipse.ui.perspectiveExtensions">
+        <perspectiveExtension targetID="org.eclipse.cdt.ui.CPerspective">
+           <newWizardShortcut id="net.sf.webcat.eclipse.cxxtest.wizards.NewCxxTestSuiteWizard"/>
+        </perspectiveExtension>
+     </extension>
+     <extension
+           point="org.eclipse.ui.navigator.viewer">
+        <viewerContentBinding
+              viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+           <includes>
+              <contentExtension
+                    pattern="net.sf.webcat.eclipse.cxxtest.wizards.*">
+              </contentExtension>
+           </includes>
+        </viewerContentBinding>
+     </extension>
+     <extension
+           point="org.eclipse.ui.navigator.navigatorContent">
+        <commonWizard
+              associatedExtensionId="org.eclipse.cdt.ui.navigator.content"
+              menuGroupId="org.eclipse.cdt.ui"
+              type="new"
+              wizardId="net.sf.webcat.eclipse.cxxtest.wizards.NewCxxTestSuiteWizard">
+           <enablement>
+              <or>
+                 <instanceof
+                       value="org.eclipse.cdt.core.model.ICElement">
+                 </instanceof>
+                 <adapt
+                       type="org.eclipse.core.resources.IProject">
+                    <test
+                          property="org.eclipse.core.resources.projectNature"
+                          value="org.eclipse.cdt.core.ccnature">
+                    </test>
+                 </adapt>
+              </or></enablement>
+        </commonWizard>
+     </extension>
+</plugin>

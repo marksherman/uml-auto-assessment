@@ -1,0 +1,54 @@
+/* Javadoc style sheet */
+
+/* Define colors, fonts and other style attributes here to override the defaults */
+
+/* Page background color */
+body { background-color: white }
+
+A:hover { background-color: #f2e19a; }
+
+/* Headings */
+H1 {font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    color: #1A3636;}
+
+H2 {font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    color: #1A3636;}
+
+H3 {font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: medium;
+    color: #1A3636;}
+
+H4 {font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: small;
+    color: #1A3636;}
+
+/* Table colors */
+.TableHeadingColor     { background: #1a3636; color: #f3e19a; }
+.TableSubHeadingColor  { background: #f3e19a; color: #1a3636; }
+.TableRowColor         { background: white; }
+
+/* Font used in left-hand frame lists */
+.FrameTitleFont   { font-size: 100%; font-family: Helvetica, Arial, sans-serif }
+.FrameHeadingFont { font-size:  90%; font-family: Helvetica, Arial, sans-serif;
+    background: #1a3636; color: #f3e19a; padding-left: 4px; padding-right: 4px; }
+.FrameItemFont    { font-size:  90%; font-family: Helvetica, Arial, sans-serif }
+
+/* Navigation bar fonts and colors */
+.NavBarCell1    { background-color:#f3e19a;}
+.NavBarCell1Rev { background-color:#1a3636;}
+.NavBarFont1    { font-family: Arial, Helvetica, sans-serif; color: #1a3636;}
+.NavBarFont1Rev { font-family: Arial, Helvetica, sans-serif; color: #f3e19a;}
+
+.NavBarCell2    { font-family: Arial, Helvetica, sans-serif; background-color:#FFFFFF;}
+.NavBarCell3    { font-family: Arial, Helvetica, sans-serif; background-color:#FFFFFF;}
+
+PRE     {background: #fff8e0;
+	 padding: 6px;
+         font-family: courier new, lucida sans typewriter, courier, monospace;}

@@ -1,0 +1,343 @@
+<project name="Web-CAT" default="build.redistributable.war" basedir=".">
+
+  <property name="project.name.for.version" value="webcat"/>
+  <property name="framework.name"           value="webcat"/>
+  <import file="../Core/framework.xml"/>
+
+
+  <!-- ==============================================================  -->
+  <!-- main targets                                                    -->
+  <!-- ==============================================================  -->
+
+  <!-- ............................................................... -->
+  <target name="build.redistributable.war"
+    depends="build, export.jar, install.pending.updates"
+    description="Build a publishable copy of the WAR distribution."/>
+
+
+  <!-- ............................................................... -->
+  <target name="install.subsystems.and.build"
+    depends="build.subsystems, build.redistributable.war, javadoc"
+    description="Install all subsystems and build a publishable copy of the WAR."/>
+
+
+  <!-- ............................................................... -->
+  <target name="install.redistributable.war"
+    depends="build.redistributable.war, install.war"
+    description="Build and install the WAR distribution."/>
+
+
+  <!-- ............................................................... -->
+  <target name="build"
+    depends="setProps, init.build, build.woapp, ssdd, war"
+    description="Build a local copy of the application as a WAR."/>
+
+
+  <!-- install.traditional .......................................... -->
+  <target name="install.traditional"
+    depends="setProps, init.build.traditional, build.traditional.woapp"
+    description="Build and install as a traditional WO application."/>
+
+
+  <!-- ............................................................... -->
+  <target name="clean" depends="setProps">
+    <delete dir="dist"/>
+  </target>
+
+
+  <!-- ==============================================================  -->
+  <!-- initialization/setup targets                                    -->
+  <!-- ==============================================================  -->
+
+  <!-- basic initializations  ........................................ -->
+  <target name="init.build" depends="setProps">
+    <property name="dest.dir" value="dist"/>
+  </target>
+
+
+  <!-- basic initializations  ........................................ -->
+  <target name="init.build.traditional" depends="setProps">
+    <property name="dest.dir" value="${install.dir}"/>
+  </target>
+
+
+  <!-- ==============================================================  -->
+  <!-- Lower-level targets                                             -->
+  <!-- ==============================================================  -->
+
+  <!-- ............................................................... -->
+  <target name="build.subsystems">
+    <subant target="install">
+      <filelist dir=".."
+        files="Bootstrap
+               WebObjectsUpdater
+               WonderUpdater
+               ExternalJars
+               EOJDBCPrototypes
+               DBUpdateEngine
+               Core
+               Admin
+               Grader
+               ANTForPlugins
+               CheckstyleForPlugins
+               CloverForPlugins
+               PerlForPlugins
+               PMDForPlugins
+      	       BIRTRuntime
+               Reporter
+      	       JobQueue
+      	       Notifications
+      	       Opinions"/>
+    </subant>
+  </target>
+
+
+  <!-- ............................................................... -->
+  <target name="build.woapp" depends="init.build">
+    <fail unless="dest.dir"/>
+
+    <taskdef name="woapplication"
+      classname="org.objectstyle.woproject.ant.WOApplication"/>
+
+    <!-- add webXML="true" to generate a web.xml file -->
+    <woapplication name="${project.name}"
+      destDir="${dest.dir}/${project.name}/WEB-INF"
+      customInfoPListContent="${customInfoPListContent}"
+      principalClass="${principalClass}"
+      webXML="false">
+      <classes dir="${classes.dir}"><patternset>
+        <includesfile name="woproject/classes.include.patternset"/>
+        <excludesfile name="woproject/classes.exclude.patternset"/>
+      </patternset></classes>
+      <wsresources dir="."><patternset>
+        <includesfile name="woproject/wsresources.include.patternset"/>
+        <excludesfile name="woproject/wsresources.exclude.patternset"/>
+      </patternset></wsresources>
+      <resources dir="."><patternset>
+        <includesfile name="woproject/resources.include.patternset"/>
+        <excludesfile name="woproject/resources.exclude.patternset"/>
+      </patternset></resources>
+
+      <frameworks root="ProjectLocal" embed="true" eclipse="true" />
+      <frameworks root="External"     embed="true" eclipse="true" />
+      <frameworks root="Local"        embed="true" eclipse="true">
+        <exclude name="**/WOOgnl.framework/Resources/Java/ognl*.jar"/>
+        <exclude name="**/*.java"/>
+        <exclude name="**/*.original"/>
+      	<exclude name="**/src.jar"/>
+      </frameworks>
+      <frameworks root="User"         embed="true" eclipse="true" />
+      <frameworks root="System"       embed="true" eclipse="true" />
+      <frameworks root="Network"      embed="true" eclipse="true" />
+
+      <lib dir=".">
+        <include name="**/*.jar"/>
+        <exclude name="**/*.woa/**"/>
+      </lib>
+    </woapplication>
+    <mkdir dir="${dest.dir}/${project.name}/WEB-INF/${project.name}.woa/Contents/Library"/>
+    <move file="${dest.dir}/${project.name}/WEB-INF/${project.name}.woa/Contents/Frameworks"
+      todir="${dest.dir}/${project.name}/WEB-INF/${project.name}.woa/Contents/Library"/>
+  </target>
+
+
+  <!-- ............................................................... -->
+  <target name="build.traditional.woapp" depends="init.build.traditional">
+    <fail unless="dest.dir"/>
+
+    <taskdef name="woapplication"
+      classname="org.objectstyle.woproject.ant.WOApplication"/>
+
+    <!-- add webXML="true" to generate a web.xml file -->
+    <woapplication name="${project.name}"
+      destDir="${dest.dir}"
+      customInfoPListContent="${customInfoPListContent}"
+      principalClass="${principalClass}"
+      webXML="false">
+      <classes dir="${classes.dir}"><patternset>
+        <includesfile name="woproject/classes.include.patternset"/>
+        <excludesfile name="woproject/classes.exclude.patternset"/>
+      </patternset></classes>
+      <wsresources dir="."><patternset>
+        <includesfile name="woproject/wsresources.include.patternset"/>
+        <excludesfile name="woproject/wsresources.exclude.patternset"/>
+      </patternset></wsresources>
+      <resources dir="."><patternset>
+        <includesfile name="woproject/resources.include.patternset"/>
+        <excludesfile name="woproject/resources.exclude.patternset"/>
+      </patternset></resources>
+
+      <frameworks root="ProjectLocal" embed="false" eclipse="true" />
+      <frameworks root="External"     embed="false" eclipse="true" />
+      <frameworks root="Local"        embed="false" eclipse="true">
+        <exclude name="**/WOOgnl.framework/Resources/Java/ognl*.jar"/>
+        <exclude name="**/*.java"/>
+        <exclude name="**/*.original"/>
+        <exclude name="**/src.jar"/>
+      </frameworks>
+      <frameworks root="User"         embed="false" eclipse="true" />
+      <frameworks root="System"       embed="false" eclipse="true" />
+      <frameworks root="Network"      embed="false" eclipse="true" />
+
+      <lib dir=".">
+        <include name="**/*.jar"/>
+        <exclude name="**/*.woa/**"/>
+      </lib>
+    </woapplication>
+  </target>
+
+
+  <!-- war target .................................................... -->
+  <target name="war" depends="ssdd">
+    <property name="war.file.name"
+      value="../${project.name}_${project.version}.war"/>
+    <war destfile="${war.file.name}"
+      webxml="web.xml"
+      basedir="${dest.dir}/${project.name}">
+      <lib dir="${wo.wosystemroot}/Library/Frameworks/JavaWOJSPServlet.framework/WebServerResources/Java/">
+        <include name="JavaWOJSPServlet_client.jar"/>
+      </lib>
+      <lib dir="../Bootstrap">
+        <include name="Bootstrap.jar"/>
+      </lib>
+      <exclude name="WEB-INF/${project.name}.woa/Contents/MacOS/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/Contents/Windows/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/Contents/UNIX/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/${project.name}"/>
+      <exclude name="WEB-INF/${project.name}.woa/${project.name}.cmd"/>
+    </war>
+  </target>
+
+
+  <!-- ssdd target ................................................... -->
+  <target name="ssdd">
+    <mkdir dir="${dest.dir}/${project.name}/WEB-INF/tlds"/>
+    <copy todir="${dest.dir}/${project.name}/">
+      <fileset dir=".">
+        <include name="index.html"/>
+      </fileset>
+    </copy>
+    <copy todir="${dest.dir}/${project.name}/WEB-INF/tlds">
+      <fileset dir="${wo.wosystemroot}/Library/Frameworks/JavaWOJSPServlet.framework/Resources/">
+        <include name="WOtaglib_1_0.tld"/>
+      </fileset>
+    </copy>
+  </target>
+
+
+  <!-- ...............................................................
+    Copies the generated war file to your servlet container's webapp
+    installation directory so it will be auto-installed.
+  -->
+  <target name="install.war" depends="war">
+    <fail message="Property servlet.install.dir is not defined."
+      unless="servlet.install.dir"/>
+    <copy file="${war.file.name}"
+      tofile="${servlet.install.dir}/${project.name}.war"/>
+  </target>
+
+  <!-- ...............................................................
+    Jars up the application as a pseudo-subsystem in a form that can
+    be used for Web-CAT server updates.
+  -->
+  <target name="export.jar" depends="war">
+    <!-- need to jar framework up somewhere, based on version number -->
+    <property name="export.jar.name"
+      value="../webcat_${project.version}.jar"/>
+    <war destfile="${export.jar.name}"
+      webxml="web.xml"
+      basedir="${dest.dir}/${project.name}">
+      <!--jar destfile="${export.jar.name}"
+          basedir="${dest.dir}/${project.name}"-->
+      <exclude name="WEB-INF/${project.name}.woa/Contents/Library/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/Contents/MacOS/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/Contents/Windows/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/Contents/UNIX/**"/>
+      <exclude name="WEB-INF/${project.name}.woa/${project.name}"/>
+      <exclude name="WEB-INF/${project.name}.woa/${project.name}.cmd"/>
+    </war>
+  </target>
+
+
+  <!-- javadoc ....................................................... -->
+  <target name="javadoc" depends="setProps">
+    <property file="Properties"/>
+    <property environment="env"/>
+    <tstamp>
+      <format property="updated.date" pattern="EEE, MMM d, yyyy"/>
+      <format property="updated.time" pattern="hh:mm aa z"/>
+    </tstamp>
+    <mkdir dir="api"/>
+    <javadoc
+      packagenames="org.webcat.*"
+      destdir="api"
+      author="true"
+      version="true"
+      use="true"
+      verbose="false"
+      useexternalfile="true"
+      source="1.5"
+      stylesheetfile="javadoc.css"
+      windowtitle="Web-CAT Reference Documentation">
+      <classpath>
+        <!-- these values should come from the woproject/ant.frameworks.wo.*
+             files, but that is too hard to do at the moment. -->
+        <fileset dir="${wo.wolocalroot}">
+          <include name="Library/Frameworks/Admin.framework/**/*.jar"/>
+          <include name="Library/Frameworks/ANTForPlugins.framework/**/*.jar"/>
+          <include name="Library/Frameworks/CheckstyleForPlugins.framework/**/*.jar"/>
+          <include name="Library/Frameworks/CloverForPlugins.framework/**/*.jar"/>
+          <include name="Library/Frameworks/Core.framework/**/*.jar"/>
+          <include name="Library/Frameworks/DBUpdateEngine.framework/**/*.jar"/>
+          <include name="Library/Frameworks/EOJDBCPrototypes.framework/**/*.jar"/>
+          <include name="Library/Frameworks/ERDirectToWeb.framework/**/*.jar"/>
+          <include name="Library/Frameworks/ERExtensions.framework/**/*.jar"/>
+          <include name="Library/Frameworks/ERJars.framework/**/*.jar"/>
+          <include name="Library/Frameworks/Grader.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaWOExtensions.framework/**/*.jar"/>
+          <include name="Library/Frameworks/PerlForPlugins.framework/**/*.jar"/>
+          <include name="Library/Frameworks/PMDForPlugins.framework/**/*.jar"/>
+          <include name="Library/Frameworks/ExternalJars.framework/**/*.jar"/>
+          <include name="Library/Frameworks/WebObjectsUpdater.framework/**/*.jar"/>
+          <include name="Library/Frameworks/WonderUpdater.framework/**/*.jar"/>
+          <include name="Library/Frameworks/WOUnitTest.framework/**/*.jar"/>
+        </fileset>
+        <fileset dir="${wo.wosystemroot}">
+          <include name="Library/Frameworks/JavaDirectToWeb.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaDTWGeneration.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaEOAccess.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaEOControl.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaEOProject.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaJDBCAdaptor.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaFoundation.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaWebObjects.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaWOJSPServlet.framework/**/*.jar"/>
+          <include name="Library/Frameworks/JavaXML.framework/**/*.jar"/>
+        </fileset>
+        <fileset dir="${servlet.jar.dir}">
+          <include name="servlet-api.jar"/>
+          <include name="jsp-api.jar"/>
+        </fileset>
+      </classpath>
+      <sourcepath>
+        <dirset dir="..">
+          <include name="*/src/" />
+        </dirset>
+      </sourcepath>
+      <!--fileset dir="../DBUpdateEngine/src">
+        <include name="**/*.java"/>
+      </fileset-->
+      <doctitle><![CDATA[<h2>Web-CAT Reference Documentation</h2>]]></doctitle>
+      <header><![CDATA[<em>Web-CAT ${webcat.version.major}.${webcat.version.minor}.${webcat.version.revision}</em>]]></header>
+      <bottom><![CDATA[Copyright &#169; 2006 &#8211; 2007  Virginia Tech.]]></bottom>
+      <footer><![CDATA[Last updated: ${updated.date} &#149; ${updated.time}]]></footer>
+      <link href="http://java.sun.com/j2se/1.5.0/docs/api/"/>
+      <link href="http://developer.apple.com/documentation/WebObjects/Reference/API/"/>
+      <link href="http://jakarta.apache.org/log4j/docs/api/"/>
+      <link href="http://www.junit.org/junit/javadoc/3.7/"/>
+      <link href="http://webobjects.mdimension.com/wonder/api/"/>
+    </javadoc>
+    <zip destfile="../api.zip" basedir="." includes="api/"/>
+  </target>
+
+</project>

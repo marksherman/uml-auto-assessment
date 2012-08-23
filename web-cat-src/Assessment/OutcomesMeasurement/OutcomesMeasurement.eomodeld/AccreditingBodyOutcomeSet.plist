@@ -1,0 +1,39 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = accreditingBodyOid; 
+            name = accreditingBodyOid; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = outcomeSetId; 
+            name = outcomeSetId; 
+            prototypeName = id; 
+        }
+    ); 
+    className = EOGenericRecord; 
+    externalName = AccreditingBodyOutcomeSet; 
+    fetchSpecificationDictionary = {}; 
+    name = AccreditingBodyOutcomeSet; 
+    primaryKeyAttributes = (accreditingBodyOid, outcomeSetId); 
+    relationships = (
+        {
+            destination = AccreditingBody; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = accreditingBodyOid; }); 
+            name = accreditingBody; 
+        }, 
+        {
+            destination = OutcomeSet; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = outcomeSetId; }); 
+            name = outcomeSet; 
+        }
+    ); 
+}

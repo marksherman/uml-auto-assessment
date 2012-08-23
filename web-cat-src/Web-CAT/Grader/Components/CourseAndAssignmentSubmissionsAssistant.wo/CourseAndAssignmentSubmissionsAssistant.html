@@ -1,0 +1,36 @@
+<wo name="RPC"/>
+
+<div class="floatLeft width50">
+<p>1. Choose one or more <b>course offerings.</b></p>
+<div style="border: 1px solid gray; overflow: auto; max-height: 250px; height: 250px">
+<wo name="CourseTreeSelectionChanged"/>
+<wo name="CourseTree">
+    <wo:WCTreeItems item="$courseTreeItem">
+        <wo:WCTreeItem>
+            <wo:WCTreeCell><wo:str value="$titleOfCourseTreeItem"/></wo:WCTreeCell>
+        </wo:WCTreeItem>
+    </wo:WCTreeItems>
+</wo>
+</div>
+</div>
+
+<div class="floatRight width50">
+<p>2. Choose an <b>assignment.</b> <wo name="AssignmentInfo"/></p>
+<wo name="AssignmentPane">
+<wo name="AssignmentTree">
+    <wo:WCTreeItems item="$assignmentTreeItem">
+        <wo:WCTreeItem>
+            <wo:WCTreeCell><wo:str value="$titleOfAssignmentTreeItem"/></wo:WCTreeCell>
+        </wo:WCTreeItem>
+    </wo:WCTreeItems>
+</wo>
+</wo>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<p>3. Specify <b>other options.</b></p>
+<wo name="IncludeAllSubmissions"/> Include <b>all</b> submissions from each student.<br/>
+<wo name="IncludeGradedSubmissions"/> Include only the <b>submission for grading</b> <wo name="SubmissionForGradingInfo"/> from each student.<br/>
+<hr />
+<wo name="IncludeCourseStaff"/> Include submissions made by <b>course staff</b> (instructors and TAs).<br/>

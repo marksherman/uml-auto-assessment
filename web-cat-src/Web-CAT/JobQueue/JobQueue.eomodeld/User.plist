@@ -1,0 +1,25 @@
+
+{
+    attributes = 
+    (
+       
+       {
+           allowsNull = N;
+           name = id;
+           prototypeName = id;
+       }
+    );
+    attributesUsedForLocking = 
+    (
+       id
+    );
+    className = org.webcat.jobqueue.User;
+    externalName = TUser;
+    internalInfo = 
+    {};
+    name = User;
+    primaryKeyAttributes = 
+    (
+       id
+    );
+}

@@ -1,0 +1,38 @@
+{
+    name       = "PascalCompilerPlugin";
+    version.major    = 1;
+    version.minor    = 1;
+    version.revision = 0;
+    version.date     = 20080917;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU General Public License v.2";
+    license.url      = "http://www.gnu.org/copyleft/gpl.html";
+    copyright        = "(c) 2008 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/PascalCompilerPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/PascalCompilerPlugin/ChangeHistory";
+    executable       = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (edwards@cs.vt.edu)";
+    authorUid  = edwards;
+    languages  = ( { name = "Pascal"; version = "fp 2.x"; } );
+    description = "This is a Pascal compilation script.  It does not
+perform grading in one step--other steps are needed to execute the
+compiled program and generate feedback.";
+    assignmentOptions = (
+    );
+    options = (
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        }
+    );
+}

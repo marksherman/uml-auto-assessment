@@ -1,0 +1,62 @@
+Page : org.webcat.core.WCPageWithNavigation {
+    title = "View a Report";
+}
+
+Form : WCForm {
+    multipleSubmit = true;
+}
+
+EnqueuedJobTable: WCTable {
+    displayGroup = enqueuedReportsDisplayGroup;
+    settingsKey = "PickReportToViewPage_EnqueuedJobTable";
+}
+
+ViewReportProgress: WCLink {
+    string = reportJob.generatedReport.description;
+    action = viewReportProgress;
+}
+
+JobTitleColumn: WCTableHeading {
+    title = "Report Title";
+    sortOnKeyPaths = "generatedReport.description";
+}
+
+JobQueueTimeColumn: WCTableHeading {
+    title = "Requested at";
+    sortOnKeyPaths = "enqueueTime";
+}
+
+JobProgressColumn: WCTableHeading {
+    title = "Progress";
+}
+
+GeneratedReportTable: WCTable {
+    displayGroup = generatedReportsDisplayGroup;
+    settingsKey = "PickReportToViewPage_GeneratedReportTable";
+    canSelectRows = true;
+    multipleSelection = true;
+}
+
+TitleColumn: WCTableHeading {
+    title = "Report Title";
+    sortOnKeyPaths = "description";
+}
+
+ViewReport: WCLink {
+    string = generatedReport.description;
+    action = viewReport;
+}
+
+GeneratedTimeColumn: WCTableHeading {
+    title = "Generated at";
+    sortOnKeyPaths = "generatedTime";
+}
+
+DeleteReports: WCButton {
+    label = "Delete Selected Reports";
+}
+
+DeleteReportsAction: WCActionFunction {
+    jsId = "deleteSelectedReports";
+    action = deleteSelectedReports;
+}

@@ -1,0 +1,50 @@
+<webobject name="PageWrapper">
+      <webobject name="IsToMany">
+         <webobject name="EditingForm">
+            <webobject name="InspectTable">
+               <webobject name="InspectTableHeaderRow">
+                  <th colspan="3">Current
+                     <webobject name="AttributeName"/>(s)</th>
+               </webobject>
+               <tr>
+                  <td align="right"><strong><webobject name="NumberOfEntities"/>
+                     <webobject name="EntityName"/>(s)</strong></td>
+                  <td valign="middle" align="center"><webobject name="AttributeValue"/></td>
+                  <td valign="middle" align="center"><webobject name="RemoveButton"/></td>
+               </tr>
+            </webobject>
+         </webobject>
+      </webobject>
+      <webobject name="IsToOne">
+         <webobject name="EditingForm2">
+            <webobject name="InspectTable2">
+               <webobject name="InspectTableHeaderRow2">
+                  <th colspan="3">Current
+                     <webobject name="AttributeName2"/></th>
+               </webobject>
+               <tr>
+                  <td valign="middle" align="center"><webobject name="ToOneValue"/></td>
+                  <td valign="middle" align="center"><webobject name="RemoveToOneButton"/></td>
+               </tr>
+            </webobject>
+         </webobject>
+      </webobject>
+      <table class="layout"><tr><td>
+      <webobject name="ButtonForm">
+      <webobject name="ReturnLink"/>
+      <wo:not condition="$displayQuery"><webobject name="QueryLink"/></wo:not>
+      <webobject name="IsEntityWritable"><webobject name="NewLink"/></webobject>
+      </webobject></td></tr></table>
+      <webobject name="DisplayQuery">
+      <wo:org.webcat.core.WCPageModule title="Search for More">
+      <wo name="QueryComponent"/>
+      </wo:org.webcat.core.WCPageModule></webobject>
+      <webobject name="DisplayList">
+      <wo:org.webcat.core.WCPageModule title="Select a Target">
+      <wo name="ListComponent"/>
+      </wo:org.webcat.core.WCPageModule></webobject>
+      <webobject name="DisplayNew">
+      <wo:org.webcat.core.WCPageModule title="Create a New Target">
+      <wo name="InspectComponent"/>
+      </wo:org.webcat.core.WCPageModule></webobject>
+</webobject>

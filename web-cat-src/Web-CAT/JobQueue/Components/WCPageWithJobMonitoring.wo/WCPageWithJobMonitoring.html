@@ -1,0 +1,50 @@
+<wo name="Page"><wo name="Form">
+<wo name="JobProgressWatcherScript"/>
+<wo name="RPC"/>
+<wo name="JobProgressWatcher"/>
+<wo name="Reloader"/>
+<wo:if condition="$isJobValid">
+    <wo:WCPageModule title="Job Progress">
+    <wo:if condition="$job.isReady">
+        <div style="margin-left: 25%; margin-right: 25%">
+            <p>This job is currently being processed. Partial results may be
+            viewable below.</p>
+            <wo name="ProgressBar"/>
+            <p>
+                <span style="padding-right: 1em"><wo name="Spinner"/></span>
+                <wo name="ProgressMessage"/>
+            </p>
+            <div style="text-align: right">
+                <wo name="CancelJob"/>
+            </div>
+        </div>
+        <script type="text/javascript">
+            dojo.addOnLoad(function() {
+                JobProgressPageWrapper_watcher.start();
+            });
+        </script>
+    </wo:if><wo:else>
+        <div style="margin-left: 25%; margin-right: 25%">
+        <p>This job was suspended due to an error during execution. Information
+        about the error is shown below. Click the <b>Restart Job</b> button to
+        place it back into the queue to run again, or click <b>Delete Job</b>
+        to remove it.</p>
+        <p style="text-align: right">
+            <wo name="RestartJob"/>
+            <wo name="DeleteJob"/>
+        </p>
+        </div>
+        <div class="NoticePanel error">
+           <b>Reason for suspension:</b><br/>
+           <pre><wo:str value="$job.suspensionReason"/></pre>
+        </div>
+        <script type="text/javascript">
+            dojo.addOnLoad(function() {
+                JobProgressPageWrapper_watcher.stop();
+            });
+        </script>
+    </wo:else>
+    </wo:WCPageModule>
+</wo:if>
+<wo:content />
+</wo></wo>

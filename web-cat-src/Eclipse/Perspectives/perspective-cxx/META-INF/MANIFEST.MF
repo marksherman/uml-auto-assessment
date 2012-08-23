@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-Name: VTCS C++ Perspective Plug-in
+Bundle-SymbolicName: net.sf.webcat.eclipse.perspective.cxx;singleton:=true
+Bundle-Version: 1.4.0
+Bundle-ClassPath: cxxperspective.jar
+Bundle-Activator: net.sf.webcat.eclipse.perspective.cxx.CxxPerspectivePlugin
+Bundle-Vendor: Virginia Tech Computer Science
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.cdt.ui,
+ net.sf.webcat.eclipse.cxxtest
+Bundle-ActivationPolicy: lazy
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>student.weblog Package Summary</title>
+</head>
+<body>
+<p>
+This package provides all of the course-specific classes based
+on the web log analyzer example from Chapter 4
+of <i>Objects First with Java</i> by Michael Kolling
+and David Barnes.  These classes support program assignments
+where students write their own web log analysis programs, using
+real Apache log data from a live server (in this case, typically from
+our departmental server).
+</p>
+<p>
+The primary differences between the classes in this package and those
+discussed in the <i>B&amp;K</i> text are:
+</p>
+<ol>
+<li><p>The <code>LogEntry</code> class provides access to time information
+    using the <code>java.util.Calendar</code> class, and that it also
+    provides other information about each log entry (the URL being
+    requested, the result code sent back to the requester, the browser
+    being used, and so on).</p>
+<li><p>The <code>LogReader</code> class, which corresponds to the
+    <i>B&amp;K</i> <code>LogfileReader</code> class, is designed to
+    work on a <code>BufferedReader</code> input stream.</p>
+</ol>
+</body>
+</html>

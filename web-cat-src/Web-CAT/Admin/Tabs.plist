@@ -1,0 +1,48 @@
+{
+  admin = {
+    accessLevel = 75;
+    priority    = 1000;
+    children = {
+      Home = {
+        accessLevel = 75;
+        priority   = 1;
+        wantsStart = YES;
+        children   = {
+          Status = {
+            pageName   = org.webcat.admin.AdminStatusPage;
+            accessLevel = 75;
+            priority   = 100;
+            wantsStart = YES;
+          };
+          "My Profile" = {
+            pageName = org.webcat.core.MyProfilePage;
+            accessLevel = 0;
+            priority = 1001;
+            id       = Profile;
+          };
+          Feedback = {
+            pageName = org.webcat.core.FeedbackPage;
+            accessLevel = 0;
+            priority = 1003;
+            id       = Feedback;
+          };
+        };
+      };
+      Subsystems = {
+        pageName    = org.webcat.admin.SubsystemManagerPage;
+        accessLevel = 90;
+        priority    = 2;
+      };
+      "Edit Database" = {
+        pageName    = org.webcat.admin.EntryEditPage;
+        accessLevel = 90;
+        priority    = 4;
+      };
+      "License" = {
+        pageName    = org.webcat.admin.AdminLicensePage;
+        accessLevel = 90;
+        priority    = 6;
+      };
+    };
+  };
+}

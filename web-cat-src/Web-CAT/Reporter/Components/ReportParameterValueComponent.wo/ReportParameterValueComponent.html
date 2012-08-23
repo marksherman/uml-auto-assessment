@@ -1,0 +1,34 @@
+<tr>
+<wo:if condition="$isParameterBoolean">
+    <td colspan="2">
+        <wo:checkbox checked="$value" />
+        <wo:str value="$parameter.promptText" />
+    </td>
+</wo:if>
+<wo:else>
+    <td><wo:str value="$parameter.promptText" /></td>
+    <td>
+		<wo:if condition="$isParameterDate">
+		    <i>TODO: Add date field</i>
+		</wo:if>
+		<wo:if condition="$isParameterDatetime">
+		    <i>TODO: Add date/time field</i>
+		</wo:if>
+		<wo:if condition="$isParameterDecimal">
+		    <wo:textfield value="$value" formatter="$floatFormatter" />
+		</wo:if>
+		<wo:if condition="$isParameterFloat">
+		    <wo:textfield value="$value" formatter="$floatFormatter" />
+		</wo:if>
+		<wo:if condition="$isParameterInteger">
+		    <wo:textfield value="$value" formatter="$integerFormatter" />
+		</wo:if>
+		<wo:if condition="$isParameterString">
+		    <wo:textfield value="$value" />
+		</wo:if>
+		<wo:if condition="$isParameterTime">
+		    <i>TODO: Add time field</i>
+		</wo:if>
+	</td>
+</wo:else>
+</tr>

@@ -1,0 +1,73 @@
+<webobject name="Page">
+<wo:org.webcat.core.WCPageModule title="Selected Course Offering">
+<wo:WCForm multipleSubmit="true"><table class="layout">
+<wo name="CanDelete">
+<tr><td align="right"><wo:WCButton action="$delete" label="Delete" class="neg"/></td>
+    <td>You may delete this course offering.   It cannot be deleted if
+    it has any assignments (remove them first, but only if no students have
+    made submissions yet).</td></tr>
+</wo>
+<tr><td class="R"><label for="semester">Semester:</label></td><td><wo name="SemesterList"/> <wo name="SemesterInfo"/></td></tr>
+<tr><td class="R"><label for="course">Course:</label></td><td><wo name="CourseList"/> <wo name="CourseInfo"/></td></tr>
+<tr><td class="R"><label for="CRN">CRN:</label></td><td><wo name="CRN"/> <wo name="CRNInfo"/></td></tr>
+<tr><td class="R"><label for="Label">Label:</label></td><td><wo name="Label"/> <wo name="LabelInfo"/></td></tr>
+<tr><td class="R"><label for="URL">URL:</label></td><td><wo name="URL"/> <wo name="URLInfo"/></td></tr>
+<wo:if condition="false"><tr><td class="R"><label for="moodleid">Moodle Id:</label></td><td><wo name="MoodleId"/>
+<wo name="MoodleIdInfo"/>&nbsp; Group Id:&nbsp;<wo name="MoodleId"/>
+<wo name="MoodleGroupIdInfo"/></td></tr></wo:if>
+<tr><td></td><td><wo:WCButton action="$apply" class="pos" label="Save"/>
+  <wo:WCButton action="$cancel" class="neg" label="Cancel"/></td></tr>
+</table></wo:WCForm>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Instructors" open="true">
+
+<wo:form><table><thead>
+  <tr><th>User ID</th><th>Instructor(s)</th><th>E-Mail</th><th>Action</th></tr></thead><tbody>
+  <webobject name="InstructorRepetition"><webobject name="TR">
+    <td><webobject name="UserID"/></td><td><wo:if condition="$aUser.url"><webobject name="Name"/></wo:if><wo:else><wo:str value="$aUser.name"/></wo:else></td>
+    <td><webobject name="Email"/></td>
+    <td><webobject name="NotThisUser"><webobject name="RemoveInstructor"/>
+        </webobject><webobject name="IsThisUser">&nbsp;</webobject></td>
+  </webobject></webobject>
+  <webobject name="LastInstrTR">
+    <td colspan="4"><webobject name="AddInstructor"/> Add another instructor</td>
+  </webobject>
+</tbody></table></wo:form>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Graders/Teaching Assistant(s)" open="true">
+<wo:form><table><thead>
+  <tr><th>User ID</th><th>Graders/Teaching Assistant(s)</th><th>E-Mail</th><th>Action</th></tr></thead><tbody>
+  <webobject name="TARepetition"><webobject name="TR">
+    <td><webobject name="UserID"/></td><td><wo:if condition="$aUser.url"><webobject name="Name"/></wo:if><wo:else><wo:str value="$aUser.name"/></wo:else></td>
+    <td><webobject name="Email"/></td>
+    <td><webobject name="NotThisUser"><webobject name="RemoveTA"/>
+        </webobject><webobject name="IsThisUser">&nbsp;</webobject></td>
+  </webobject></webobject>
+  <webobject name="LastTATR">
+    <td colspan="4"><webobject name="AddTA"/> Add another grader/TA</td>
+  </webobject>
+</tbody></table></wo:form>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Student Roster" open="true">
+  <wo:link action="$editRoster">Edit student roster</wo:link>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Submission Date Range" open="false">
+<wo:if condition="$earliest">
+<p>Submission date range:
+<wo:str value="$earliest" formatter="$session.timeFormatter"/>
+
+<wo:str value="$latest" formatter="$session.timeFormatter"/></p>
+</wo:if><wo:else>
+<p>No submissions found for any assignment in this course offering.</p>
+</wo:else>
+</wo:org.webcat.core.WCPageModule>
+
+<!-- wo:org.webcat.core.WCPageModule title="Test User List Browser" open="false" -->
+<!-- wo:UserListBrowser master="$courseOffering" keyPath="students"/ -->
+<!-- /wo:org.webcat.core.WCPageModule -->
+
+</webobject>

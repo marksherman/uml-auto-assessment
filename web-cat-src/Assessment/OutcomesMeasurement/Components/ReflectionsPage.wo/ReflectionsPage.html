@@ -1,0 +1,48 @@
+<wo:SaveCancelPage title="Course Reflections" extraRequires="dijit.Editor">
+<wo:WCPageModule title="~reflection.courseOffering.compactName + ': ' + reflection.courseOffering.course.name + ' in ' + semester">
+<wo:if condition="~reflection.courseOffering.instructors.count gt 1">
+<p>Instructor: <wo:str value="~reflection.courseOffering.instructors[0]"/></p>
+</wo:if><wo:else>
+<p>Instructors:
+<wo:loop list="$reflection.courseOffering.instructors" item="$anInstructor" index="$index"><wo:if condition="$index">,</wo:if> <wo:str value="$anInstructor"/></wo:loop>
+</p>
+</wo:else>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Modifications Made to the Course">
+<p>Please summarize in bullet list form any significant changes you have
+  made to the course this semester, in terms of content, teaching methods,
+  or grading strategies.  Be concise and objective.  Specifically note
+  those changes that are in response to proposed actions from an earlier
+  semester, in response to group discussions with the course coordinator
+  and other instructors of this course, or in response to student feedback
+  from an earlier semester.</p>
+  <wo:WCTextArea value="$modificationsText" style="min-height: 4em;"/>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Reflection">
+<p>Use this space to describe your own experiences teaching the course
+  this semester, along with any opinions about needed changes or future
+  directions that you wish to explore.</p>
+  <wo:WCTextArea value="$reflectionText" style="min-height: 4em;"/>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Student Feedback" open="false">
+<p>Please summarize in bullet list form any student feedback comments
+  you believe are important.  Quotes can be taken from student
+  evaluations of teaching forms, from student e-mail, from class forums,
+  etc.</p>
+  <wo:WCTextArea value="$studentFeedbackText" style="min-height: 4em;"/>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Proposed Actions for Curricular Improvement" open="false">
+<p>Please summarize in bullet list form any significant changes (if any)
+  you believe should be made the next time this course is taught.  Be
+  concise and objective.  Where possible, provide a short justification
+  (i.e., a course outcome measure is lower than expected, a program
+  outcome measure is lower than expected, suggested by student feedback,
+  etc.).</p>
+  <wo:WCTextArea value="$actionText" style="min-height: 4em;"/>
+</wo:WCPageModule>
+
+</wo:SaveCancelPage>

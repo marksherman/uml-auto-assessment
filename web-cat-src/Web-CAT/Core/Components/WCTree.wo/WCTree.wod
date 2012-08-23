@@ -1,0 +1,42 @@
+ContentPane: WCContentPane {
+    id = id;
+    style = cssStyleForContentPane;
+    class = cssClassForContentPane;
+}
+
+ShadowSelection: WOHiddenField {
+    value = shadowSelection;
+    id = idFor.shadowSelection;
+}
+
+ShadowSelectionContainer: WOGenericContainer {
+    elementName = "div";
+    id = idFor.shadowSelectionContainer;
+}
+
+SingleSelectionChangedAction: WCActionFunction {
+    jsId = idFor.singleSelectionChanged;
+    action = singleSelectionChanged;
+    remote = true;
+    remote.submit = idFor.shadowSelectionContainer;
+}
+
+ItemDoubleClickedAction: WCActionFunction {
+    jsId = idFor.itemDoubleClicked;
+    action = itemDoubleClicked;
+    remote = true;
+    remote.submit = idFor.shadowSelectionContainer;
+}
+
+TableElement: WOGenericContainer {
+    elementName = "table";
+    id = idFor.table;
+    onSelectionChanged = "~multipleSelection ? null : idFor.singleSelectionChanged + '();'";
+    onItemDoubleClicked = "~multipleSelection ? null : idFor.itemDoubleClicked + '();'";
+    dojoType = "~multipleSelection ? null : 'webcat.Selector'";
+    singular = "~!multipleSelection";
+    shadowSelectionField = "~multipleSelection ? null : idFor.shadowSelection";
+    style = cssStyleForTable;
+    class = cssClassForTable;
+    otherTagString = passthroughAttributes;
+}

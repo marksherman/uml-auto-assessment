@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = sendMessageJobId; 
+            name = sendMessageJobId; 
+            prototypeName = id; 
+            valueType = i; 
+        }, 
+        {columnName = userId; name = userId; prototypeName = id; }
+    ); 
+    className = EOGenericRecord; 
+    externalName = SendMessageJobUser; 
+    fetchSpecificationDictionary = {}; 
+    name = SendMessageJobUser; 
+    primaryKeyAttributes = (sendMessageJobId, userId); 
+    relationships = (
+        {
+            destination = SendMessageJob; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = sendMessageJobId; }); 
+            name = sendMessageJob; 
+        }, 
+        {
+            destination = User; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userId; }); 
+            name = user; 
+        }
+    ); 
+}

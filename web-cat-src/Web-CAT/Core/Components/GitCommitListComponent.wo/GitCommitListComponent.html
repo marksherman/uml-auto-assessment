@@ -1,0 +1,39 @@
+<style type="text/css">
+.commit-item {
+    position: relative;
+    border: 1px solid #999;
+    padding: 4px
+}
+
+.commit-title {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.commit-meta {
+}
+
+.commit-links {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+</style>
+<wo name="CommitRepetition">
+<wo:if condition="$shouldDisplayDate">
+    <h2><wo:str value="$commit.commitTime" formatter="$commitHeaderFormat"/></h2>
+</wo:if>
+<div class="commit-item">
+    <p class="commit-title"><wo name="CommitLink"><wo:str value="$commit.shortMessage"/></wo></p>
+    <div class="commit-meta">
+        <div class="commit-links">
+            <wo name="CommitLink"><code><wo:str value="$commitId"/></code></wo><br/>
+            <wo name="CommitTreeLink">  Browse code &gt;&gt;</wo>
+        </div>
+        <div class="commit-authorship">
+            <b><wo:str value="$commit.author.name"/></b>
+            authored <wo:str value="$commit.commitTime" formatter="$application.approximateRelativeTimestampFormatter"/>
+        </div>
+    </div>
+</div>
+</wo>

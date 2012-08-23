@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            adaptable="true"
+            id="net.sf.webcat.eclipse.submitter.submitContribution">
+         <action
+               enablesFor="1"
+               label="Submit..."
+               icon="icons/submit.gif"
+               class="org.webcat.eclipse.submitter.ui.popup.actions.ProjectSubmitAction"
+               id="net.sf.webcat.eclipse.submitter.submitAction"/>
+      </objectContribution>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Electronic Submission"
+            visible="true"
+            id="net.sf.webcat.eclipse.submitter.SubmissionActionSet">
+         <action
+               toolbarPath="submitGroup"
+               label="&amp;Submit Project..."
+               class="org.webcat.eclipse.submitter.ui.actions.ProjectSubmitAction"
+               tooltip="Submit Project"
+               icon="icons/submit.gif"
+               style="push"
+               menubarPath="project/additions"
+               state="false"
+               id="net.sf.webcat.eclipse.submitter.ui.actions.ProjectSubmitAction"/>
+      </actionSet>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            icon="icons/browser.gif"
+            class="org.webcat.eclipse.submitter.ui.editors.BrowserEditor"
+            name="Submission Results"
+            id="net.sf.webcat.eclipse.submitter.ui.editors.BrowserEditor"/>
+   </extension>
+
+</plugin>

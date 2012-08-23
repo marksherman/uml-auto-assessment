@@ -1,0 +1,108 @@
+<wo:WCPageWithNavigation>
+	<wo:WCPageModule title="View Reports on Student Learning">
+		<div style="float: right;">
+			<wo:WCForm>
+				
+			</wo:WCForm>
+		</div>
+		<wo:WCForm>
+			<div id="cutoffs">
+				<div><wo:str value="$errorMsg" /></div>
+				<div>Excellent Cutoff: <wo:WCTextBox value="$newExcellentCutoff" style="width: 4em;" /></div>
+				<div>Moderate Cutoff: <wo:WCTextBox value="$newModerateCutoff" style="width: 4em;" /></div>
+				<wo:WCButton action="$updateCutoffs" label="View Report" />
+			</div>
+			
+			<div style="margin-bottom: .5em;">
+				<div style="display: inline; margin-right: 1em;">
+					<span style="font-weight: bold; margin-right: .5em; font-size: 1.4em;">Current View:</span>
+					<span style="font-size: 1.3em; font-style: italic;"><wo:str value="$viewType" /></span>
+				</div>
+				<wo:WCButton action="$setViewToSummary" label="Summary View" />
+				<wo:WCButton action="$setViewToDetail" label="Detailed View" />
+			</div>
+		</wo:WCForm>
+
+<wo:if condition="$isSummaryView">	
+<div id="graphs">
+	<p>This is the summary report for all of the outcome pairs that professors have measured via their grade books. Each outcome pair is identified by its micro-label and shows a stacked percentage of how many grades fell within each category.</p>
+	<p>Green indicates the grades in the "Excellent" range.<br/>Yellow indicates grades in the "Moderate" range.<br/>Red indicates grades in the "Poor" range. 
+	<table width="50%">
+	<tbody>
+		<tr>
+			<th style="text-align: center;">Outcome Pair</th>
+			<th>Analysis</th>
+		</tr>
+		<wo name="OutcomeRepetition">
+			<tr width="100%">
+				<td width="25%" style="text-align: center;"><wo:str value="$anOutcomeStat.outcomePair.externalOutcome.microLabel"/>-<wo:str value="$anOutcomeStat.outcomePair.programOutcome.microLabel"/>
+				<wo:if condition="~anOutcomeStat.semester != null"> <wo:str value = "$anOutcomeStat.semester" /></wo:if>
+				</td>
+				<td width="75%">
+					<div style="margin-bottom: .5em; overflow: auto; width: 200px;">
+						<div style="float: left; width: <wo:str value="$anOutcomeStat.excellentAsPercent"/>%; background-color: green; height: 1em"></div>
+						<div style="float: left; width: <wo:str value="$anOutcomeStat.moderateAsPercent"/>%; background-color: yellow; height: 1em"></div>
+						<div style="float: left; width: <wo:str value="$anOutcomeStat.poorAsPercent"/>%; background-color: red; height: 1em"></div>
+					</div>
+				</td>
+			</tr>
+		</wo>
+	</tbody>
+	</table>
+</div>
+</wo:if>
+
+<wo:if condition="$isDetailView">
+	<p>The detailed view gives specific information about each Outcome Pair. This will include all grades measured for that pair. To view how student results for that Outcome Pair have changed over time, click the "View Outcome Over Time" button found within each Outcome Pair's breakdown.</p>
+	<wo name="OutcomeRepetition">
+		<table width="90%" style="margin-bottom: 2em; vertical-align: top;">
+			<tr>
+				<th colspan="2" style="font-size: 1.3em; padding-bottom: .3em; padding-top: .2em;"><wo:str value="$anOutcomeStat.outcomePair.externalOutcome.label"/>-<wo:str value="$anOutcomeStat.outcomePair.programOutcome.label"/>
+				<wo:if condition="~anOutcomeStat.semester != null">: <wo:str value = "$anOutcomeStat.semester" /></wo:if>
+				</th>
+			</tr>
+			<tr>
+			<td style="vertical-align: top;">
+			<table style="border: none;">
+			<tr>
+				<td colspan="2"><wo:str value="$anOutcomeStat.outcomePair.externalOutcome.label"/> - <wo:str value="$anOutcomeStat.outcomePair.externalOutcome.description"/>
+			</tr>
+			<tr>
+				<td colspan="2" style="border-bottom: 1px solid black; padding-bottom: .3em;"><wo:str value="$anOutcomeStat.outcomePair.programOutcome.label"/> - <wo:str value="$anOutcomeStat.outcomePair.programOutcome.description"/>
+			</tr>
+			<tr><td style="text-align: right; width: 35%; margin-right: 1em;">Number of Grades Measured:</td><td><wo:str value="$anOutcomeStat.totalNumber"/></td></tr>
+			<tr><td style="text-align: right; margin-right: 1em;">Number of Course Offerings Measured:</td><td><wo:str value="$anOutcomeStat.outcomePair.courseworks.courseOffering.count" /></td></tr>
+			<wo:if condition = "~!reportType.equals(\"overTime\")">
+			<tr><td>
+			<wo:WCForm>
+			
+			<wo:WCButton action="$viewOverTime" label="View Outcome Over Time" />
+			</wo:WCForm>
+			</td>
+			</tr>
+			</wo:if>
+			</table>
+			</td>
+			<td style="width: 200px;">
+				<table style="border: none;">
+					<tr>
+						<td colspan="2">
+							<div style="margin-bottom: .5em; overflow: auto; width: 100%; border: 1px solid black;">
+								<div style="float: left; width: <wo:str value="$anOutcomeStat.excellentAsPercent"/>%; background-color: green; height: 1em"></div>
+								<div style="float: left; width: <wo:str value="$anOutcomeStat.moderateAsPercent"/>%; background-color: yellow; height: 1em"></div>
+								<div style="float: left; width: <wo:str value="$anOutcomeStat.poorAsPercent"/>%; background-color: red; height: 1em"></div>
+							</div>
+						</td>
+					</tr>
+					<tr><td style="width: 70%; text-align: right; margin-right: 1em;">Excellent:</td><td><wo:str value="$anOutcomeStat.excellentAsPercent"/>%</td></tr>
+					<tr><td style="width: 70%; text-align: right; margin-right: 1em;">Moderate:</td><td><wo:str value="$anOutcomeStat.moderateAsPercent"/>%</td></tr>
+					<tr><td style="width: 70%; text-align: right; margin-right: 1em;">Poor:</td><td><wo:str value="$anOutcomeStat.poorAsPercent"/>%</td></tr>
+					
+				</table>
+			</td>
+			</tr>
+		</table>
+	</wo>
+</wo:if>
+	</wo:WCPageModule>
+</wo:WCPageWithNavigation>

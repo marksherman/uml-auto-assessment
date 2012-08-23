@@ -1,0 +1,39 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = measureOid; 
+            name = measureOid; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = programOutcomeOid; 
+            name = programOutcomeOid; 
+            prototypeName = id; 
+        }
+    ); 
+    className = EOGenericRecord; 
+    externalName = MeasureProgramOutcome; 
+    fetchSpecificationDictionary = {}; 
+    name = MeasureProgramOutcome; 
+    primaryKeyAttributes = (measureOid, programOutcomeOid); 
+    relationships = (
+        {
+            destination = Measure; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = measureOid; }); 
+            name = measure; 
+        }, 
+        {
+            destination = ProgramOutcome; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = programOutcomeOid; }); 
+            name = programOutcome; 
+        }
+    ); 
+}

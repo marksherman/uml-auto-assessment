@@ -1,0 +1,16 @@
+{
+  student = {
+    children = {
+      Results = {
+        priority = 110;
+        children = {
+          "Opinions" = {
+            pageName   = org.webcat.opinions.PendingAssignmentOpinionsPage;
+            priority   = 1000;
+            id         = opinions;
+          };
+        };
+      };
+    };
+  };
+}

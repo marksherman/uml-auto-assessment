@@ -1,0 +1,192 @@
+{
+    attributes = (
+        { name = id; prototypeName = id; },
+        {
+            columnName = CNAME;
+            name = name;
+            prototypeName = tinyText;
+        },
+        {
+            columnName = CDESCRIPTION;
+            name = description;
+            prototypeName = mediumText;
+        },
+        {
+            columnName = CUSERID;
+            name = userId;
+            prototypeName = foreignId;
+        },
+        {
+            columnName = CISPUBLISHED;
+            name = isPublished;
+            prototypeName = boolean;
+            userInfo = {
+                isScalar = true;
+                scalarDefault = false;
+                type = boolean;
+            };
+        },
+        {
+            columnName = CUPLOADEDTIME;
+            name = uploadedTime;
+            prototypeName = dateTime;
+        },
+        {
+            columnName = CVERSION;
+            name = version;
+            prototypeName = tinyText;
+        },
+        {
+            columnName = CCHANGEHISTORY;
+            name = changeHistory;
+            prototypeName = mediumText;
+        },
+        {
+            columnName = CROOTTEMPLATEID;
+            name = rootTemplateId;
+            prototypeName = foreignId;
+        },
+        {
+            columnName = CBRANCHEDFROMTEMPLATEID;
+            name = branchedFromTemplateId;
+            prototypeName = foreignId;
+        },
+        {
+            columnName = CPREDECESSORTEMPLATEID;
+            name = predecessorTemplateId;
+            prototypeName = foreignId;
+        },
+        {
+            columnName = CCHECKSUM;
+            name = checksum;
+            prototypeName = tinyText;
+        },
+        {
+            columnName = CDESIGNELEMENTS;
+            name = designElementsRaw;
+            prototypeName = mediumText;
+        },
+        {
+            columnName = CLANGUAGE;
+            name = language;
+            prototypeName = tinyText;
+        },
+        {
+            columnName = CPREFERREDRENDERER;
+            name = preferredRenderer;
+            prototypeName = tinyText;
+        },
+        {
+            columnName = CPARAMETERS;
+            name = parameters;
+            prototypeName = mutableArray;
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData;
+                valueFactoryMethodName = objectWithArchiveData;
+                isMutable = true;
+                valueClassName = org.webcat.core.MutableArray;
+            };
+        },
+        {
+            name = updateMutableFields;
+            prototypeName = updateMutableFields;
+            userInfo = {
+                isScalar = true;
+                scalarDefault = false;
+                type = boolean;
+            };
+        }
+    );
+    attributesUsedForLocking = (
+        name,
+        description,
+        userId,
+        isPublished,
+        version,
+        changeHistory,
+        rootTemplateId,
+        branchedFromTemplateId,
+        predecessorTemplateId,
+        checksum,
+        designElementsRaw,
+        preferredRenderer,
+        language,
+        updateMutableFields,
+    );
+    className = org.webcat.reporter.ReportTemplate;
+    classProperties = (
+        name,
+        description,
+        dataSets,
+        user,
+        isPublished,
+        uploadedTime,
+        version,
+        changeHistory,
+        rootTemplate,
+        branchedFromTemplate,
+        branchedTemplates,
+        predecessorTemplate,
+        checksum,
+        designElementsRaw,
+        preferredRenderer,
+        language,
+        parameters,
+        updateMutableFields,
+    );
+    externalName = TREPORTTEMPLATE;
+    name = ReportTemplate;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            destination = User;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = userId; });
+            name = user;
+        },
+        {
+             deleteRule = EODeleteRuleCascade;
+            destination = ReportDataSet;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = reportTemplateId; sourceAttribute = id; });
+            name = dataSets;
+        },
+        {
+            destination = ReportTemplate;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = rootTemplateId; });
+            name = rootTemplate;
+        },
+        {
+            destination = ReportTemplate;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = branchedFromTemplateId; });
+            name = branchedFromTemplate;
+        },
+        {
+            destination = ReportTemplate;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = branchedFromTemplateId; sourceAttribute = id; });
+            name = branchedTemplates;
+        },
+        {
+            destination = ReportTemplate;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = predecessorTemplateId; });
+            name = predecessorTemplate;
+        },
+        {
+            destination = ReportTemplate;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = predecessorTemplateId; sourceAttribute = id; });
+            name = successorTemplateArray;
+        },
+    );
+}

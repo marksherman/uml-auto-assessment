@@ -1,0 +1,38 @@
+AssignmentOptionEditor: org.webcat.core.OptionSetEditor {
+    options           = step.script.configDescription.assignmentOptions;
+    optionValues      = step.configSettings;
+    categories        = step.script.configDescription.assignmentOptionCategories;
+    verboseOptionsKey = "EditScriptPageNoVerboseOptions";
+    browsePageName    = "EditScriptFilesPage";
+    base              = baseDir;
+}
+
+EditReusableConfig: WOImageButton {
+    filename  = "icons/edit.gif";
+    framework = "Core";
+	action    = editReusableConfig;
+	border    = "0";
+	width     = "18";
+	height    = "17";
+	alt       = "Edit selected option set";
+	title     = "Edit selected option set";
+	class     = "icon";
+}
+
+NewReusableConfig: WCButton {
+    action = newReusableConfig;
+    label  = "New";
+}
+
+Page: SaveCancelPage {
+//    title = "Configure Plug-in";
+//    title = "~ \"Configure \" + step.script.displayableName";
+}
+
+ReusableList: WOPopUpButton {
+    list          = stepConfigList;
+    item          = stepConfig;
+    displayString = stepConfig.name;
+    selection     = step.config;
+    noSelectionString = "(plug-in defaults only)";
+}

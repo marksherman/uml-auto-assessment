@@ -1,0 +1,6 @@
+Components/**/*.wo/
+Components/**/*.api
+Properties
+**/*.eomodeld/
+**/*.strings
+**/*.plist

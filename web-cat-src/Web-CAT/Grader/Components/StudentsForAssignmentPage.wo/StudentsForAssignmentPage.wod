@@ -1,0 +1,260 @@
+BatchNavigatorStaff: org.webcat.core.WCBatchNavigator {
+    displayGroup = staffSubmissionGroup;
+    persistentKey = "StudentsForAssignmentPage.batchSize";
+}
+
+BoxAndWhiskerChart: BoxAndWhiskerChart {
+    assignmentOffering = assignmentOffering;
+    submissionStats = studentStats;
+    style = "vertical-align: middle;";
+}
+
+DownloadScores: WOGenericContainer {
+    elementName = "a";
+    href = "javascript:void(0);";
+    onClick = "dijit.byId('downloadScoresDialog').show();";
+}
+
+DownloadScoresDialog: DownloadScoresDialog {
+    courseOfferings = courseOfferings;
+    assignmentOfferings = offerings.displayedObjects;
+}
+
+DownloadScoresIcon: WCImageButton {
+    href = "javascript:void(0);";
+    onClick = "dijit.byId('downloadScoresDialog').show();";
+    framework = "Grader";
+    filename = "icons/table-export.png";
+    alt = "Download scores";
+    title = "Download scores";
+    class = "icon";
+}
+
+EditScore: WOHyperlink {
+    action = editSubmissionScore;
+    alt    = "View, score, or make comments on submission";
+    title  = "View, score, or make comments on submission";
+}
+
+FinalScore: WOString {
+    value = aSubmission.result.finalScore;
+    numberformat = "0.0";
+}
+
+HasTAScore: WOConditional {
+    condition = hasTAScore;
+}
+
+HighScore: WOString {
+    value = studentStats.max;
+    numberformat = "0.0";
+}
+
+LowScore: WOString {
+    value = studentStats.min;
+    numberformat = "0.0";
+}
+
+MarkAsComplete: WCButton {
+    label  = "Show All Scores to Students";
+    action = markAsComplete;
+    remote = true;
+    alt    = "Make all entered scores visible to students and send e-mail";
+    title  = "Make all entered scores visible to students and send e-mail";
+}
+
+MeanScore: WOString {
+    value = studentStats.mean;
+    numberformat = "0.0";
+}
+
+MedianScore: WOString {
+    value = studentStats.median;
+    numberformat = "0.0";
+}
+
+MostRecentSubmitNumber: WOString {
+    value = mostRecentSubmissionNo;
+}
+
+NewerSubmitTime: WOString {
+    value     = aNewerSubmission.submitTime;
+    formatter = session.timeFormatter;
+}
+
+NewerSubmitTimeSpan: WOGenericContainer {
+    elementName = "span";
+    class = newerSubmitTimeSpanClass;
+    title = aNewerSubmission.earlyLateStatus;
+}
+
+NoSubmissionsPlaceholder: WOGenericContainer {
+    elementName = "td";
+    colSpan = "~ 5 + (assignmentOffering.assignment.usesBonusesOrPenalties ? 1 : 0) + (assignmentOffering.assignment.usesToolCheckScore ? 1 : 0)";
+    class = "sm";
+}
+
+NoTAScore: WOConditional {
+    condition = hasTAScore;
+    negate    = true;
+}
+
+PickSubmissionDialog: PickSubmissionDialog {
+    rootUserSubmission = selectedUserSubmissionForPickerDialog;
+    allUserSubmissionsForNavigation = allUserSubmissionsForNavigationForPickerDialog;
+    nextPageForResultsPage = self;
+    sendsToGradingPage = true;
+}
+
+PickSubmissionLink: WCLink {
+    remote = true;
+    action = pickOtherSubmission;
+    disabled = "~mostRecentSubmissionNo eq 1";
+    title = "View a different submission";
+}
+
+RegradeSubmissions: WCLink {
+    action = regradeSubmissions;
+    remote = true;
+}
+
+RegradeSubmissionsIcon: WCImageButton {
+    action = regradeSubmissions;
+    remote = true;
+    framework = "Grader";
+    filename = "icons/regrade.png";
+    alt = "Regrade submissions";
+    title = "Regrade submissions";
+    class = "icon";
+}
+
+Repetition2: WORepetition {
+    item  = aSubmission;
+    list  = staffSubmissionGroup.displayedObjects;
+    index = staffIndex;
+}
+
+ScoreAdjustment: WOString {
+    value = aSubmission.result.scoreAdjustment;
+    numberformat = "0.0";
+}
+
+StatusBlank: WOImage {
+    border    = "0";
+    filename  = "icons/blank.png";
+    framework = "Grader";
+    height    = "16";
+    width     = "16";
+}
+
+StatusToDo: WOImage {
+    border    = "0";
+    filename  = "icons/pb-empty.png";
+    framework = "Grader";
+    height    = "16";
+    width     = "16";
+}
+
+StatusUnfinished: WOImage {
+    border    = "0";
+    filename  = "icons/pb-partial.png";
+    framework = "Grader";
+    height    = "16";
+    width     = "16";
+}
+
+StatusDone: WOImage {
+    border    = "0";
+    filename  = "icons/pb-full2.png";
+    framework = "Grader";
+    height    = "16";
+    width     = "16";
+}
+
+Status: WOImage {
+    border    = "0";
+    filename  = aSubmission.result.statusURL;
+    framework = "Core";
+    height    = "16";
+    width     = "16";
+}
+
+MarkAsCompleteStatus: InlineStatusIndicator {
+    id = markCompleteStatusIndicatorId;
+}
+
+SubmitNumber: WOString {
+    value = aSubmission.submitNumber;
+}
+
+SubmitTime: WOString {
+    value     = aSubmission.submitTime;
+    formatter = session.timeFormatter;
+}
+
+SubmitTimeSpan: WOGenericContainer {
+    elementName = "span";
+    class = submitTimeSpanClass;
+    title = aSubmission.earlyLateStatus;
+}
+
+TAScore: WOString {
+    value = aSubmission.result.taScoreRaw;
+    numberformat = "0.0";
+}
+
+TestingScore: WOString {
+    value = aSubmission.result.correctnessScoreRaw;
+    numberformat = "0.0";
+}
+
+ToolScore: WOString {
+    value = aSubmission.result.toolScoreRaw;
+    numberformat = "0.0";
+}
+
+TR2: org.webcat.core.TableRow {
+    index = staffIndex;
+}
+
+UserSubmissionsTable: WCTable {
+    id = tableId;
+    displayGroup = userGroup;
+    searchOnKeyPaths = "user.lastName,user.firstName,submission.partneredSubmissions.user.lastName,submission.partneredSubmissions.user.firstName";
+}
+
+UsesBonusesOrPenalties: WOConditional {
+    condition = assignmentOffering.assignment.usesBonusesOrPenalties;
+}
+
+UsesTestingScore: WOConditional {
+    condition = assignmentOffering.assignment.usesTestingScore;
+}
+
+UsesToolCheckScore: WOConditional {
+    condition = assignmentOffering.assignment.usesToolCheckScore;
+}
+
+SortOrderStaffUserNameLF: org.webcat.woextensions.WCSortOrder {
+    displayGroup = staffSubmissionGroup;
+    displayKey = "Name";
+    key = "user.name_LF";
+}
+
+SortOrderStaffStatus: org.webcat.woextensions.WCSortOrder {
+    displayGroup = staffSubmissionGroup;
+    displayKey = "Grading Status";
+    key = "result.status";
+}
+
+SortOrderStaffSubmitTime: org.webcat.woextensions.WCSortOrder {
+    displayGroup = staffSubmissionGroup;
+    displayKey = "Submission Time";
+    key = "submitTime";
+}
+
+SortOrderStaffFinalScore: org.webcat.woextensions.WCSortOrder {
+    displayGroup = staffSubmissionGroup;
+    displayKey = "Final Score";
+    key = "result.finalScore";
+}

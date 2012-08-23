@@ -1,0 +1,28 @@
+Footer: org.webcat.core.Footer {}
+
+IsLoggedIn: WOConditional {
+	condition = isLoggedIn;
+}
+
+LogoutButton: WOSubmitButton {
+	action = logout;
+	value = " Logout ";
+}
+
+MyForm: WCForcedForm {
+    multipleSubmit = true;
+}
+
+Page: org.webcat.ui.WCBasePage {
+    title = "Unexpected Exception";
+}
+
+ReasonRepetition: WORepetition {
+	item = errorline;
+	list = error.stackTrace;
+}
+
+SubmitButton: WOSubmitButton {
+	action = gotoMainPage;
+	value = " Back to Web-CAT Home ";
+}

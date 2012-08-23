@@ -1,0 +1,26 @@
+<wo name="GitPage">
+<div class="module">
+    <div class="floatLeft"><wo name="Breadcrumbs"/></div>
+    <div class="floatLeft" style="margin-left: 1em"><wo name="DownloadLink"><wo name="DownloadIcon"/> Download this folder</wo></div>
+    <div style="clear: both"></div>
+    <wo name="Tree"/>
+</div>
+<wo:WCPageModule title="Make Changes in this Folder">
+    <wo:WCForm enctype="multipart/form-data" multipleSubmit="true">
+    <h2>Create a New Subfolder</h2>
+    <p>New folder name: <wo name="FolderName"/> <wo name="CreateFolder"/></p>
+
+    <h2>Upload/Replace a File</h2>
+    <p>Choose the file to upload:</p>
+    <p><wo name="FileToUpload"/></p>
+    <p><wo name="ExpandIfArchive"/> If this file is an archive, expand it into this folder?</p>
+    <p><b>Description:</b> provide a short <b>commit message</b>
+        describing this change in the Git repository:<br/>
+        <wo name="CommitMessageForUpload"/></p>
+    <div><wo name="Upload"/></div>
+    </wo:WCForm>
+</wo:WCPageModule>
+<wo:if condition="$readmeName"><wo:WCPageModule title="$readmeName">
+    <pre><wo:str value="$readmeContent" escapeHTML="true"/></pre>
+</wo:WCPageModule></wo:if>
+</wo>

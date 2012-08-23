@@ -1,0 +1,20 @@
+<project name="ANTForPlugins" default="install" basedir=".">
+
+  <!-- Define necessary properties for including external resources -->
+  <property name="external.resource.includes"
+    value="ant/NOTICE
+           ant/LICENSE*
+           ant/KEYS
+           ant/ant-contrib/lib/**
+           ant/bin/**
+           ant/cpptasks*/*.jar
+           ant/etc/**
+           ant/lib/**"/>
+  <property name="external.resource.excludes"
+    value="ant/lib/clover.*
+           ant/lib/woproject.*
+           **/docs/**"/>
+
+  <import file="../Core/framework.xml"/>
+
+</project>

@@ -1,0 +1,32 @@
+{
+    attributes = (
+        {allowsNull = N; name = id; prototypeName = id; },
+        {allowsNull = N; columnName = name; name = name; prototypeName = tinyText; }
+    );
+    attributesUsedForLocking = (name);
+    className = "org.webcat.outcomesmeasurement.AccreditingBody";
+    classProperties = (name, outcomes);
+    externalName = AccreditingBody;
+    fetchSpecificationDictionary = {};
+    name = AccreditingBody;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = AccreditingBodyOutcomeSet;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = accreditingBodyOid; sourceAttribute = id; });
+            name = accreditingBodyOutcomeSets;
+            propagatesPrimaryKey = Y;
+        },
+        {
+            destination = ExternalOutcome;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = accreditingBodyId; sourceAttribute = id; });
+            name = outcomes;
+        },
+        {definition = "accreditingBodyOutcomeSets.outcomeSet"; name = outcomeSets; }
+    );
+}

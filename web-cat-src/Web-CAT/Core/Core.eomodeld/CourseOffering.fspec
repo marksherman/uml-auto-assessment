@@ -1,0 +1,201 @@
+{
+    offeringsForSemester = {
+        class = WCFetchSpecification;
+        entityName = CourseOffering;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = semester;
+            selectorName = "isEqualTo:";
+            value = {"_key" = semester; class = EOQualifierVariable; };
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "course.number";
+                selectorName = "compareAscending:";
+            },
+            {class = EOSortOrdering; key = crn; selectorName = "compareAscending:"; }
+        );
+    };
+    offeringsForSemesterAndCourse = {
+        class = WCFetchSpecification;
+        entityName = CourseOffering;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = semester;
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = semester; class = EOQualifierVariable; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = course;
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = course; class = EOQualifierVariable; };
+                }
+            );
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "course.number";
+                selectorName = "compareAscending:";
+            },
+            {class = EOSortOrdering; key = crn; selectorName = "compareAscending:"; }
+        );
+    };
+    offeringsWithoutAnyRelationshipToUser = {
+        class = WCFetchSpecification;
+        entityName = CourseOffering;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EONotQualifier;
+            qualifier = {
+                class = EOAndQualifier;
+                qualifiers = (
+                    {
+                        class = EOKeyValueQualifier;
+                        key = graders;
+                        selectorName = "doesContain:";
+                        value = {"_key" = user; class = EOQualifierVariable; };
+                    },
+                    {
+                        class = EONotQualifier;
+                        qualifier = {
+                            class = EOAndQualifier;
+                            qualifiers = (
+                                {
+                                    class = EOKeyValueQualifier;
+                                    key = students;
+                                    selectorName = "doesContain:";
+                                    value = {"_key" = user; class = EOQualifierVariable; };
+                                },
+                                {
+                                    class = EONotQualifier;
+                                    qualifier = {
+                                        class = EOKeyValueQualifier;
+                                        key = instructors;
+                                        selectorName = "doesContain:";
+                                        value = {"_key" = user; class = EOQualifierVariable; };
+                                    };
+                                }
+                            );
+                        };
+                    }
+                );
+            };
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "course.number";
+                selectorName = "compareAscending:";
+            },
+            {class = EOSortOrdering; key = crn; selectorName = "compareAscending:"; }
+        );
+    };
+    offeringsWithoutStudent = {
+        class = WCFetchSpecification;
+        entityName = CourseOffering;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EONotQualifier;
+            qualifier = {
+                class = EOKeyValueQualifier;
+                key = students;
+                selectorName = "doesContain:";
+                value = {"_key" = user; class = EOQualifierVariable; };
+            };
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "course.number";
+                selectorName = "compareAscending:";
+            },
+            {class = EOSortOrdering; key = crn; selectorName = "compareAscending:"; }
+        );
+    };
+    offeringsWithoutStudentOrGrader = {
+        class = WCFetchSpecification;
+        entityName = CourseOffering;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EONotQualifier;
+            qualifier = {
+                class = EOAndQualifier;
+                qualifiers = (
+                    {
+                        class = EOKeyValueQualifier;
+                        key = graders;
+                        selectorName = "doesContain:";
+                        value = {"_key" = user; class = EOQualifierVariable; };
+                    },
+                    {
+                        class = EONotQualifier;
+                        qualifier = {
+                            class = EOKeyValueQualifier;
+                            key = students;
+                            selectorName = "doesContain:";
+                            value = {"_key" = user; class = EOQualifierVariable; };
+                        };
+                    }
+                );
+            };
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "course.number";
+                selectorName = "compareAscending:";
+            },
+            {class = EOSortOrdering; key = crn; selectorName = "compareAscending:"; }
+        );
+    };
+    offeringsWithoutUserAsStaff = {
+        class = WCFetchSpecification;
+        entityName = CourseOffering;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EONotQualifier;
+            qualifier = {
+                class = EOAndQualifier;
+                qualifiers = (
+                    {
+                        class = EOKeyValueQualifier;
+                        key = graders;
+                        selectorName = "doesContain:";
+                        value = {"_key" = user; class = EOQualifierVariable; };
+                    },
+                    {
+                        class = EONotQualifier;
+                        qualifier = {
+                            class = EOKeyValueQualifier;
+                            key = instructors;
+                            selectorName = "doesContain:";
+                            value = {"_key" = user; class = EOQualifierVariable; };
+                        };
+                    }
+                );
+            };
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "course.number";
+                selectorName = "compareAscending:";
+            },
+            {class = EOSortOrdering; key = crn; selectorName = "compareAscending:"; }
+        );
+    };
+}

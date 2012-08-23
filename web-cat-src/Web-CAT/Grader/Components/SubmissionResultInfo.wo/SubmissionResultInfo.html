@@ -1,0 +1,46 @@
+<table class="floatLeft"><tbody>
+<wo name="TR">
+  <th class="R" valign="top">Assignment</th>
+  <td><wo name="DeptNumber"/>: <wo name="AssignmentName"/> try #<wo name="SubmitNumber"/></td>
+</wo>
+<wo name="TR">
+  <th class="R" valign="top">Name</th>
+  <td><wo name="StudentName"/></td>
+</wo>
+<wo:if condition="~submission.assignmentOffering.assignment.submissionProfile.allowPartners || partnersForEditing.count || submission.result.submissions.count">
+<wo name="TR">
+  <th class="R">Partners</th>
+  <td>
+    <wo:if condition="$allowPartnerEdit">
+      <wo name="PartnerSelector"/>
+    </wo:if><wo:else>
+      <wo:if condition="$partnersForEditing.count">
+        <wo name="PartnerRepetition">
+          <wo name="PartnerName"/><br/>
+        </wo>
+      </wo:if><wo:else>None</wo:else>
+    </wo:else>
+  </td>
+</wo>
+</wo:if>
+<wo name="TR">
+  <th class="R" valign="top">Submitted</th>
+  <td><wo name="SubmitTime"/>, <wo name="SubmitEarlyLateStatus"/></td>
+</wo>
+<wo name="TR">
+  <th class="R" valign="top">Total Score</th>
+  <td><wo name="ScoreModifiers"/><b><wo:if condition="$submission.result"><wo name="FinalScore"/></wo:if><wo:else>&lt;Queued&gt;</wo:else></b>/<wo name="AvailablePoints"/></td>
+</wo>
+
+<wo name="ShowFileInfo">
+  <wo name="TR">
+    <th class="R" valign="top">File Name</th>
+    <td><wo name="FileName"/></td>
+  </wo>
+  <wo name="TR">
+    <th class="R" valign="top">File Score</th>
+    <td><wo name="FileDeductions"/> points lost</td>
+  </wo>
+</wo>
+
+</tbody></table>

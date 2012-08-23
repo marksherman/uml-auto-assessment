@@ -1,0 +1,15 @@
+{
+    attributes = (
+        {columnName = CCOMPILER; name = compiler; prototypeName = tinyText; }, 
+        {name = id; prototypeName = id; }, 
+        {columnName = CNAME; name = name; prototypeName = tinyText; }, 
+        {columnName = CVERSION; name = version; prototypeName = tinyText; }
+    ); 
+    attributesUsedForLocking = (compiler, name, version); 
+    className = "org.webcat.core.Language"; 
+    classProperties = (compiler, name, version); 
+    externalName = TLANGUAGE; 
+    fetchSpecificationDictionary = {}; 
+    name = Language; 
+    primaryKeyAttributes = (id); 
+}

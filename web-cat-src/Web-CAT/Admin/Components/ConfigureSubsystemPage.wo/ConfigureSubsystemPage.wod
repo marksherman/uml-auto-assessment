@@ -1,0 +1,6 @@
+OptionEditor: org.webcat.core.OptionSetEditor {
+    options           = subsystem.parameterDescriptions.options;
+    optionValues      = application.properties;
+    categories        = subsystem.parameterDescriptions.optionCategories;
+    verboseOptionsKey = "ConfigureSubsystemPageNoVerboseOptions";
+}

@@ -1,0 +1,73 @@
+{
+    attributes = (
+        {name = id; prototypeName = id; }, 
+        {columnName = CNAME; name = name; prototypeName = tinyText; }, 
+        {columnName = CDESCRIPTION; name = description; prototypeName = mediumText; }, 
+        {columnName = CENTITYNAME; name = wcEntityName; prototypeName = tinyText; }, 
+        {
+            columnName = CREPORTTEMPLATEID; 
+            name = reportTemplateId; 
+            prototypeName = foreignId; 
+        }, 
+        {
+            columnName = CREFERENCECOUNT; 
+            name = referenceCount; 
+            prototypeName = integer; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = intValue; 
+                scalarDefault = 0; 
+                type = int; 
+                valueClassName = Integer; 
+            }; 
+        }, 
+        {
+            columnName = CCONSTRAINTS; 
+            name = constraints; 
+            prototypeName = mutableArray; 
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData; 
+                isMutable = true; 
+                valueClassName = "org.webcat.core.MutableArray"; 
+                valueFactoryMethodName = objectWithArchiveData; 
+            }; 
+        }, 
+        {
+            name = updateMutableFields; 
+            prototypeName = updateMutableFields; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        name, 
+        description, 
+        wcEntityName, 
+        reportTemplateId, 
+        referenceCount, 
+        constraints, 
+        updateMutableFields
+    ); 
+    className = "org.webcat.reporter.ReportDataSet"; 
+    classProperties = (
+        name, 
+        description, 
+        wcEntityName, 
+        reportTemplate, 
+        referenceCount, 
+        constraints, 
+        updateMutableFields
+    ); 
+    externalName = TREPORTDATASET; 
+    fetchSpecificationDictionary = {}; 
+    name = ReportDataSet; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = ReportTemplate; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = reportTemplateId; }); 
+            name = reportTemplate; 
+        }
+    ); 
+}

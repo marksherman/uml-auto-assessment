@@ -1,0 +1,35 @@
+Category: WOPopUpButton {
+	list = categories;
+	selection = selectedCategory;
+}
+
+Form1: WOForm {
+    multipleSubmit = true;
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+}
+
+NotSent: WOConditional {
+	condition = sent;
+	negate = true;
+}
+
+Sent: WOConditional {
+	condition = sent;
+}
+
+SubmitButton: WCButton {
+	action = sendFeedback;
+	label  = "Send Comment";
+}
+
+Text: WOText {
+	rows  = 18;
+	cols  = 80;
+	value = comments;
+}
+
+UserName: WOString {
+	value = user.nameAndUid;
+}

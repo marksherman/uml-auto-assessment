@@ -1,0 +1,17 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Mon Oct 11 14:59:32 EDT 2010
+CheckstyleForPlugins.license=GNU Affero General Public License v.3
+CheckstyleForPlugins.provides=pluginProperties
+CheckstyleForPlugins.version.revision=2
+CheckstyleForPlugins.provider=Virginia Tech Computer Science
+CheckstyleForPlugins.copyright=(c) 2006-2010 Virginia Tech Department of Computer Science
+subsystem.CheckstyleForPlugins=org.webcat.checkstyleforplugins.CheckstyleForPlugins
+CheckstyleForPlugins.requires=Core, ANTForPlugins
+CheckstyleForPlugins.history.url=http\://web-cat.cs.vt.edu/WCWiki/CheckstyleForPluginsSubsystem/ChangeHistory
+CheckstyleForPlugins.provider.url=http\://web-cat.cs.vt.edu/updates
+CheckstyleForPlugins.version.minor=1
+CheckstyleForPlugins.description=This subsystem provides <a href\="http\://checkstyle.sf.net/">Checkstyle</a> to support grading plug-ins that perform static analysis of Java code.
+CheckstyleForPlugins.info.url=http\://web-cat.cs.vt.edu/WCWiki/CheckstyleForPluginsSubsystem
+CheckstyleForPlugins.version.major=1
+CheckstyleForPlugins.license.url=http\://www.gnu.org/licenses/agpl.html
+CheckstyleForPlugins.version.date=20101011

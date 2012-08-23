@@ -1,0 +1,71 @@
+{
+    "WebObjects Release" = "WebObjects 5.1"; 
+    encoding = "UTF-8"; 
+    variables = {
+        enqueuedReportsDisplayGroup = {
+            class = ERXDisplayGroup; 
+            dataSource = {
+                class = EODatabaseDataSource; 
+                editingContext = localContext; 
+                fetchSpecification = {
+                    class = EOFetchSpecification; 
+                    entityName = ReportGenerationJob; 
+                    isDeep = YES; 
+                    prefetchingRelationshipKeyPaths = (); 
+                }; 
+            }; 
+            fetchesOnLoad = NO; 
+            formatForLikeQualifier = "%@*"; 
+            numberOfObjectsPerBatch = 10; 
+            selectsFirstObjectAfterFetch = NO; 
+            sortOrdering = (
+                {
+                    class = EOSortOrdering; 
+                    key = enqueueTime; 
+                    selectorName = "compareAscending:"; 
+                }
+            ); 
+        }; 
+        generatedReportsDisplayGroup = {
+            class = ERXDisplayGroup; 
+            dataSource = {
+                class = EODatabaseDataSource; 
+                editingContext = localContext; 
+                fetchSpecification = {
+                    class = EOFetchSpecification; 
+                    entityName = GeneratedReport; 
+                    fetchLimit = 0; 
+                    isDeep = YES; 
+                    qualifier = {
+                        class = EOAndQualifier; 
+                        qualifiers = (
+                            {
+                                class = EOKeyValueQualifier; 
+                                key = user; 
+                                selectorName = "isEqualTo:"; 
+                                value = {"_key" = user; class = EOQualifierVariable; }; 
+                            }, 
+                            {
+                                class = EOKeyValueQualifier; 
+                                key = isComplete; 
+                                selectorName = "isEqualTo:"; 
+                                value = {class = NSNumber; value = 1; }; 
+                            }
+                        ); 
+                    }; 
+                }; 
+            }; 
+            fetchesOnLoad = NO; 
+            formatForLikeQualifier = "%@*"; 
+            numberOfObjectsPerBatch = 10; 
+            selectsFirstObjectAfterFetch = NO; 
+            sortOrdering = (
+                {
+                    class = EOSortOrdering; 
+                    key = generatedTime; 
+                    selectorName = "compareDescending:"; 
+                }
+            ); 
+        }; 
+    }; 
+}
