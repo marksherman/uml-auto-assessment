@@ -1,0 +1,6 @@
+Test Case: 
+where r: 5, c: 3, numbers: -7 -6 -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7, 
+row to be summed: 1 => -18, column to be summed: 3 => 5, sum => 0
+
+Make instructions: 
+echo "5 3 -7 - 5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 1 3” | ./a.out

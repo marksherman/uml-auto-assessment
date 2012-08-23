@@ -1,0 +1,35 @@
+static char * test_run1() {
+    mu_run_test(test1);
+    return 0;
+}
+
+static char * test_run2() { 
+       mu_run_test(test2); 
+       return 0; 
+}
+ 
+int main(){
+    int test_passed = 0; 
+    char *result1 = test_run1();
+    char *result2 = test_run2(); 
+    if ((result1 != 0) && (result2 != 0)) {
+/*        printf("%s\n", result1);
+	printf("%s\n", result2); */ 
+    }
+    else if ((result1 == 0) && (result2 != 0)) { 
+/*	printf("%s\n", result2); */
+	test_passed++;
+    }
+    else if ((result1 != 0) && (result2 == 0)) { 
+/*	printf("%s\n", result1); */
+	test_passed++; 
+    }
+	 
+    else {
+        printf("All unit tests were successful.\n");
+	test_passed++; 
+	test_passed++;
+    }
+    printf("You passed %d out of %d tests run.\n", test_passed, tests_run);
+    return 0; 
+ }

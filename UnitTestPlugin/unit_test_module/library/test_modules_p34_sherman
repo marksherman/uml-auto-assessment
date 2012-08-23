@@ -1,0 +1,21 @@
+ static char * test1() { 
+    int x; 
+    x = is_palindrome("racecar", 0, 6); 
+    mu_assert("racecar is a palindrome!", x != 0); 
+    return 0; 
+  } 
+
+ static char * test2() { 
+    int x; 
+    x = is_palindrome("a", 0, 6); 
+    mu_assert("The string 'I' is a palindrome!", x != 0); 
+    return 0; 
+  }  
+
+ static char * test3() { 
+    int x; 
+    x = is_palindrome("gargantuan", 0, 6); 
+    mu_assert("pulchritude is not a palindrome!", x == 0); 
+    return 0; 
+  }
+
