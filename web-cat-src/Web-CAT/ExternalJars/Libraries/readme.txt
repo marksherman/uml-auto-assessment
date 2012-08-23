@@ -1,0 +1,30 @@
+To properly build this subsystem, download the following
+library jars from their sources on the web and place them in
+this directory:
+
+activation.jar              (http://java.sun.com/javase/technologies/desktop/javabeans/jaf/downloads/index.html)
+bcprov-jdk15-129.jar        (http://www.bouncycastle.org/latest_releases.html)
+commons-codec-1.5.jar       (http://commons.apache.org/codec/)
+commons-io-2.0.1.jar        (http://commons.apache.org/io/)
+commons-logging-1.1.jar     (http://commons.apache.org/logging/)
+eddo-1_3.jar                (only needed for VT users)
+edldap-2.0.jar              (only needed for VT users)
+httpclient-4.0.jar          (http://hc.apache.org/)
+httpcore-4.0.1.jar          (http://hc.apache.org/)
+jcommon-1.0.16.jar          (http://www.jfree.org/jcommon/index.html)
+jdom.jar                    (http://www.jdom.org/downloads/index.html)
+jfreechart-1.0.13.jar       (http://www.jfree.org/jfreechart/)
+jsch-0.1.44.jar             (http://www.jcraft.com/jsch/)
+mail.jar                    (http://java.sun.com/products/javamail/)
+milton-api-1.5.7.jar        (http://milton.ettrema.com/index.html)
+mime-util-2.1.3.jar         (http://sourceforge.net/projects/mime-util/)
+mysql-connector-java-5.1.6-bin.jar  (http://dev.mysql.com/downloads/connector/j/)
+OpenBaseJDBC.jar
+org.eclipse.jgit-1.0.0.201106090707-r.jar (http://download.eclipse.org/jgit/maven/org/eclipse/jgit/org.eclipse.jgit/1.0.0.201106090707-r/org.eclipse.jgit-1.0.0.201106090707-r.jar)
+poi-3.6-20091214.jar        (http://poi.apache.org/)
+tar.jar                     (http://www.trustice.com/java/tar/)
+twitter4j-core-2.1.2.jar    (http://twitter4j.org/en/index.html)
+utils.jar                   (http://ostermiller.org/utils/)
+vt-ldap-3.1.jar             (only needed for VT users)
+xerces.jar                  (http://xerces.apache.org/xerces-j/)
+xml-apis.jar                (http://xml.apache.org/xalan-j/downloads.html)

@@ -1,0 +1,164 @@
+<webobject name="Page">
+<p>Web-CAT uses the concept of an "institution" (usually a particular college
+or university) to help manage authentication.  All users associated with a
+given institution also share the same authentication mechanism.  A single
+Web-CAT server can support multiple institutions, each with their own
+separate authentication policies and mechanisms.</p>
+<p>On this page, set up the "default" institution you want to use on your
+Web-CAT server.  After installation, you can add more institutions if
+desired.</p>
+<table class="optionlist"><tbody>
+<tr>
+  <td class="rtn">Institution name:</td>
+  <td class="t"><webobject name="InstitutionName"/></td>
+  <td class="t">
+  This is the name of your institution, as you want it to appear on Web-CAT's
+  front page.  For example, "University of Middleville" or "Virginia Tech".
+  If blank, then the short name (below) will be used instead.
+  </td>
+</tr>
+<tr>
+  <td class="rtn">Short name:</td>
+  <td class="t"><webobject name="InstitutionShortName"/></td>
+  <td class="t">
+  This is a shorter version of your institution's name for internal
+  identification purposes and for use in certain URL parameters.  Preferably,
+  it should not have any spaces or special characters.  For example,
+  "Middleville" or "VT".
+  </td>
+</tr>
+<tr>
+  <td class="rtn">E-mail domain:</td>
+  <td class="t"><webobject name="InstitutionEmailDomain"/></td>
+  <td class="t">
+  This is the default e-mail domain for users from this institution,
+  for example, "vt.edu".  For user
+  accounts where no e-mail address has been defined, Web-CAT will use the
+  address <i>username@domain</i>, where <i>domain</i> is the value you
+  specify here.  Each user can individually define their own preferred
+  e-mail address on their <i>Home-&gt;My Profile</i> page, of course; this
+  value just provides a default mechanism for users who have not specified
+  a different e-mail address themselves.
+  </td>
+</tr>
+<tr><th colspan="3" align="left">Pick from these authentication mechanisms</th></tr>
+<tr>
+  <td class="rtn">Use:</td>
+  <td class="t" colspan="2"><wo name="AuthList"/><wo name="OldAuthStrategy"/></td>
+</tr>
+<script language="JavaScript">
+<!--
+function submitForm() { document.WizardForm.submit(); }
+//-->
+</script>
+<wo:if condition="~chosenAuthStrategy == null">
+  <tr>
+    <td class="t" colspan="3">
+      <p>Please choose your authentication strategy in the drop-down list
+      above.</p>
+    </td>
+  </tr>
+</wo:if>
+<wo:if condition="~chosenAuthStrategy == @org.webcat.core.install.InstallPage5@DATABASE_STRATEGY">
+  <tr>
+    <td class="t" colspan="3">
+      <p>Web-CAT will store its own passwords internally within its database,
+      and perform user authentication against this internal information.</p>
+    </td>
+  </tr>
+</wo:if>
+<wo:if condition="~chosenAuthStrategy == @org.webcat.core.install.InstallPage5@LDAP_STRATEGY">
+<tr>
+  <td class="rtn">LDAP host name:</td>
+  <td class="t"><webobject name="LdapHost"/></td>
+  <td class="t">
+  The DNS name of your LDAP server.
+  </td>
+</tr>
+<tr>
+  <td class="rtn">LDAP port:</td>
+  <td class="t"><webobject name="LdapPort"/></td>
+  <td class="t">
+  This is the port number on which your LDAP server listens.  Leave this entry
+  blank to use the default port.
+  </td>
+</tr>
+<tr>
+  <td class="rtn" style="padding-bottom:0">Protocol security:</td>
+  <td class="t" colspan="2" style="padding-bottom:0">
+  <select name="LdapProtocol" id="LdapProtocol">
+    <option value="0">ldaps: (using SSL)</option>
+    <option value="1">ldap: (using TLS)</option>
+    <option value="2">ldap: (without TLS, not recommended)</option>
+  </select></td>
+</tr><tr><td></td><td></td><td>
+  Choose whether to use an "ldaps:" SSL connection with the server, an "ldap:"
+  connection with TLS, or an unencrypted "ldap:" connection.
+  </td>
+</tr>
+<tr>
+  <td class="rtn">LDAP context:</td>
+  <td class="t"><webobject name="LdapContext"/></td>
+  <td class="t">
+  The LDAP context used to look up account information (for example,
+  ou=accounts,dc=public,dc=org).
+  </td>
+</tr>
+<tr>
+  <td class="rtn">User field:</td>
+  <td class="t"><webobject name="LdapUserField"/></td>
+  <td class="t">
+  The name of the account field that contains an account's user name.
+  </td>
+</tr>
+<tr>
+  <td class="t" colspan="2" align="center">
+  <input name="LdapSearchSubtrees" id="LdapSearchSubtrees" value="1" type="checkbox"/>
+  <label for="LdapSearchSubtrees">Search Subcontexts</label>
+  </td>
+  <td class="t">
+  Search for user accounts in subcontexts as well.
+  </td>
+</tr>
+<tr>
+  <td class="rtn">Authorization filter:</td>
+  <td class="t"><webobject name="LdapAuthFilter"/></td>
+  <td class="t">
+  Add an optional authorization filter to the LDAP lookup.
+  </td>
+</tr>
+<tr>
+  <td class="rtn">Bind account:</td>
+  <td class="t"><webobject name="LdapBindDN"/></td>
+  <td class="t">
+  By default, Web-CAT will bind anonymously.  To use a specific user account
+  to bind for authentication checks, specify the desired DN here (for example,
+  cn=ldapuser,ou=public,o=org).
+  </td>
+</tr>
+<tr>
+  <td class="rtn">Bind password:</td>
+  <td class="t"><webobject name="LdapBindPassword"/></td>
+  <td class="t">
+  If you specify an account name for binding above, provide the corresponding
+  password here.
+  </td>
+</tr>
+</wo:if>
+<wo:if condition="~chosenAuthStrategy == @org.webcat.core.install.InstallPage5@CUSTOM_STRATEGY">
+  <tr>
+    <td class="t" colspan="3">
+      <p>Custom authenticator class:<br/>
+      <wo name="CustomAuthClass"/></p>
+      <p><b class="warn">Caution: for advanced users only.</b>
+      Web-CAT can use a user-provided class for authentication.  This class
+      must implement the <code>org.webcat.core.UserAuthenticator</code>
+      interface.  In addition, you should have already placed this class (and
+      any support classes it requires) on the application's CLASSPATH,
+      preferably by adding your own jar(s) to the web application's
+      <code>Web-INF/lib</code> subdirectory.</p>
+    </td>
+  </tr>
+</wo:if>
+</tbody></table>
+</webobject>

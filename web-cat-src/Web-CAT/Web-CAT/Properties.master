@@ -1,0 +1,80 @@
+# ===================================================================
+# W E B - C A T   C O N F I G U R A T I O N   P R O P E R T I E S
+# ===================================================================
+# This file is designed to be part of the main Web-CAT source
+# distribution, so developers should not include any installation-
+# specific settings here.
+
+# -------------------------------------------------------------------
+# Define webcat subsystem characteristics
+# -------------------------------------------------------------------
+subsystem.webcat
+
+webcat.version.major=1
+webcat.version.minor=5
+webcat.version.revision=0
+
+webcat.copyright=(c) 2006-2010 Virginia Tech Department of Computer Science
+webcat.provider=Virginia Tech Computer Science
+webcat.provider.url=http://web-cat.org/updates
+webcat.info.url=http://web-cat.org/WCWiki/WebCatApplication
+webcat.history.url=\
+	http://web-cat.org/WCWiki/WebCatApplication/ChangeHistory
+webcat.license=GNU Affero General Public License v.3
+webcat.license.url=http://www.gnu.org/licenses/agpl.html
+
+webcat.description=\
+    This bundle is not a real subsystem. It is the main application \
+    startup configuration for the Web-CAT server. it contains very \
+    little code, since all behaviors are provided by subsystems instead.
+
+
+# -------------------------------------------------------------------
+# Configure WebObjects logging info
+# -------------------------------------------------------------------
+# The debug levels used internally by WebObjects are:
+# DebugLevelOff           = 0
+# DebugLevelCritical      = 1
+# DebugLevelInformational = 2
+# DebugLevelDetailed      = 3
+#
+# See the NSLog javadoc page for details on which debug groups
+# are available, and enable them by symbolic names as shown below.
+# -------------------------------------------------------------------
+# NSDebugGroups=(:3, com.webobjects.foundation.NSLog.DebugGroupComponents)
+log4j.logger.NSLog = WARN
+
+
+# ===================================================================
+# W E B - C A T   L O G 4 J   C O N F I G U R A T I O N
+# ===================================================================
+
+# -------------------------------------------------------------------
+# Top-level configuration
+# -------------------------------------------------------------------
+# Generally, we keep the root log level at INFO or higher, and only
+# enable DEBUG-level output in specific subsystems or classes.  Otherwise,
+# the DEBUG-level messages from all classes would be a bit too cumbersome
+# to wade through.  You can change the default rootCategory, add alternative
+# logging levels on a subsystem/package/class level, etc., in your personal
+# properties file.
+# -------------------------------------------------------------------
+log4j.rootLogger = WARN, console
+log4j.loggerFactory=er.extensions.logging.ERXLogger$Factory
+
+# -------------------------------------------------------------------
+# A few basic appender configurations
+# -------------------------------------------------------------------
+log4j.appender.console                = org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout         = er.extensions.logging.ERXPatternLayout
+log4j.appender.console.ImmediateFlush = true
+log4j.appender.console.layout.ConversionPattern = %5p %d{DATE} %c{1}: %m%n
+
+log4j.appender.logfile                = org.apache.log4j.RollingFileAppender
+log4j.appender.logfile.file           = web-cat.log
+log4j.appender.logfile.ImmediateFlush = true
+log4j.appender.logfile.MaxFileSize    = 200000
+log4j.appender.logfile.MaxBackupIndex = 2
+log4j.appender.logfile.layout         = er.extensions.logging.ERXPatternLayout
+log4j.appender.logfile.ImmediateFlush = true
+log4j.appender.logfile.layout.ConversionPattern = %5p %d{DATE} [%t] %c{1}: %m%n

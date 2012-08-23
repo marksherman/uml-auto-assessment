@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-Name: VTCS Java Perspective Plug-in
+Bundle-SymbolicName: net.sf.webcat.eclipse.perspective.java;singleton:=true
+Bundle-Version: 1.5.0.qualifier
+Bundle-ClassPath: javaperspective.jar
+Bundle-Activator: org.webcat.eclipse.perspective.java.JavaPerspectivePlugin
+Bundle-Vendor: Virginia Tech Computer Science
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.debug.ui,
+ org.eclipse.jdt.ui,
+ net.sf.webcat.eclipse.submitter.ui
+Bundle-ActivationPolicy: lazy
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

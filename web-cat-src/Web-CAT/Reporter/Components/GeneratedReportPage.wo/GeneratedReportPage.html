@@ -1,0 +1,153 @@
+<wo name="Page">
+<wo name="RPC"/>
+
+<wo name="MainBlock">
+    <wo:not condition="$isReportComplete">
+    <div id="progressArea" style="text-align: center">
+        <div style="text-align: left">
+            <div id="progressMessage">
+                <wo:if condition="$generatedReport">
+                    <p>Your report is currently being generated. As pages of the
+                    report become available, you can view them below.</p>
+                </wo:if><wo:else>
+                    <p>Your report is currently in the queue.</p>
+                </wo:else>
+            </div>
+            <p>While you are waiting for your report to finish, you may
+            navigate to other parts of Web-CAT and return here at any time
+            to check the progress of the report.</p>
+        </div>
+        <div>
+            <div style="width: 80%; float: left">
+               <wo name="ProgressBar"/>
+            </div>
+            <div style="float: right">
+                <!-- wo name="Cancel" -->
+                    <!-- span>Cancel</span -->
+                    <!-- script type="dojo/method" event="onClick" args="evt" -->
+                    <!--     reportWatcher.cancel(); -->
+                    <!-- /script -->
+                <!-- /wo -->
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+    </wo:not>
+    <div id="errorNotification" class="errorBox" style="display: none">
+    Your report caused errors that prevented it from being completely generated.
+    <wo name="ClickToSeeErrors">Click here</wo> to see them.
+    </div>
+
+    <div dojoType="dijit.Toolbar">
+        <wo name="GoToFirstPage">
+            <script type="dojo/method" event="onClick" args="evt">
+                reportWatcher.goToFirstPage();
+            </script>
+        </wo>
+        <wo name="GoToPreviousPage">
+            <script type="dojo/method" event="onClick" args="evt">
+                reportWatcher.goToPreviousPage();
+            </script>
+        </wo>
+        <wo:WCSpan dojoType="dijit.ToolbarSeparator"/>
+        <span id="pageIndicator">
+            <wo:not condition="$highestPageSoFar">
+                No pages available yet
+            </wo:not><wo:else>
+                Page
+                <span id="currentPageNumber"><wo:str value="$currentPageNumber"/></span>
+                (of
+                <span id="highestPageNumber"><wo:str value="$highestPageSoFar"/></span>
+                <wo:if condition="$isReportComplete">
+                    total)
+                </wo:if><wo:else>
+                    available so far)
+                </wo:else>
+            </wo:else>
+        </span>
+        <wo:WCSpan dojoType="dijit.ToolbarSeparator"/>
+        <wo name="GoToNextPage">
+            <script type="dojo/method" event="onClick" args="evt">
+                reportWatcher.goToNextPage();
+            </script>
+        </wo>
+        <wo name="GoToLastPage">
+            <script type="dojo/method" event="onClick" args="evt">
+                reportWatcher.goToLastPage();
+            </script>
+        </wo>
+        <wo:WCSpan dojoType="dijit.ToolbarSeparator"/>
+        <wo:WCSpan dojoType="dijit.form.DropDownButton">
+            <span>Save this report</span>
+            <wo:WCDiv dojoType="dijit.TooltipDialog" style="display: none">
+               <wo:WCContentPane id="saveDialogContainer">
+                   <wo:WCForm>
+                   <wo name="ReportIsReady">
+                       <fieldset>
+                       Save this report as:
+                       <ul>
+                           <li><wo name="SavePDF">PDF</wo></li>
+                           <li><wo name="SaveExcel">Microsoft Excel</wo></li>
+                           <li><wo name="SaveZippedHTML">Zip containing all HTML and images</wo></li>
+                       </ul>
+                       </fieldset>
+                       <fieldset>
+                       Or, extract data from the following report elements as CSV files:
+                       <ul>
+                           <li><wo name="SaveAllCSV"><emph>Self-contained zip of all data</emph></wo></li>
+                           <wo:loop list="$resultSetsToExtract" item="$resultSet" index="$resultSetIndex">
+                               <li><wo name="SaveOneCSV"><wo:str value="~resultSetIndex+1"/>. <wo:str value="$resultSet"/></wo></li>
+                           </wo:loop>
+                       </ul>
+                       </fieldset>
+                   </wo><wo:else>
+                       These options are only available when the report has
+                       been completed.
+                   </wo:else>
+                   </wo:WCForm>
+               </wo:WCContentPane>
+            </wo:WCDiv>
+        </wo:WCSpan>
+    </div>
+
+    <wo name="CurrentReportPageContainer">
+        <wo:if condition="~currentPageNumber gt 0">
+            <wo name="CurrentReportPageContent"/>
+        </wo:if>
+    </wo>
+    <script type="text/javascript">
+        dojo.addOnLoad(function() {
+            reportWatcher = new webcat.reporter.GeneratedReportWatcher(jsonrpc.page, "reportPageContainer");
+            dojo.connect(dijit.byId("reportPageContainer"), "onDownloadEnd", function() {  });
+        <wo:if condition="$isReportComplete">
+            reportWatcher.initializeFromCompleteReport(<wo:str value="$highestPageSoFar"/>, <wo:if condition="$generatedReportErrors.count">true</wo:if><wo:else>false</wo:else>);
+        </wo:if><wo:else>
+            reportWatcher.start();
+        </wo:else>
+        });
+    </script>
+</wo>
+
+<wo name="ErrorBlockContainer">
+<wo:if condition="$generatedReportErrors.count">
+<a name="errors"></a>
+<wo name="ErrorBlock">
+    <p>The following warnings and/or errors were produced during the
+    generation of this report.
+    <wo:if condition="$generatedReportExtraErrorInfo">
+    The error occurred at this point in the data access process:
+    <ul>
+        <li><b>Data set name:</b> <wo:str value="$generatedReportExtraErrorInfo.dataSetName"/></li>
+        <li><b>Column number:</b> <wo:str value="$generatedReportExtraErrorInfo.columnIndex"/></li>
+        <li><b>Expression:</b><br/><pre><wo:str value="$generatedReportExtraErrorInfo.expression"/></pre></li>
+        <li><b>Reason:</b> <wo:str value="$generatedReportExtraErrorInfo.reason"/></li>
+    </ul>
+    </wo:if>
+    </p>
+    <wo name="GenerationErrors" />
+    <p><b>Report ID:</b> <wo:str value="$generatedReport.id"/></p>
+</wo>
+</wo:if>
+</wo>
+
+</wo>

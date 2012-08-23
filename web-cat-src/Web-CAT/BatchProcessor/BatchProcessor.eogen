@@ -1,0 +1,1 @@
+ -destination src -extension java -java -javaTemplate JavaSourceEOF52.eotemplate -model BatchProcessor.eomodeld -packagedirs -refmodel ../Core/Core.eomodeld -refmodel ../EOJDBCPrototypes/EOJDBCPrototypes.eomodeld -refmodel ../JobQueue/JobQueue.eomodeld -subclassDestination src -subclassJavaTemplate JavaSubclassSourceEOF5.eotemplate -templatedir ../Core -verbose -loadModelGroup

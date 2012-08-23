@@ -1,0 +1,138 @@
+Cancel : WCButton {
+    label = "Cancel";
+    class = "neg";
+}
+
+CommitMessageForUpload: WCTextBox {
+    value = commitMessageForUpload;
+    style = "width: 100%";
+}
+
+CreateFolder: WCButton {
+    label = "New Folder...";
+    id = idFor.createFolder;
+    disabled = "~!canModifySelectedBranch";
+    action = displayCreateFolderDialog;
+    remote = true;
+}
+
+CreateFolderCancel : WCButton {
+    label = "Cancel";
+    class = "neg";
+}
+
+CreateFolderDialog: WCContentPane {
+    dojoType = "webcat.Dialog";
+    id = idFor.createFolderDialog;
+    title = "Create New Folder";
+    style = "display: none";
+    refreshOnShow = true;
+    alwaysDynamic = true;
+}
+
+CreateFolderOK: WCButton {
+    action = createFolderOkPressed;
+    remote = true;
+    label = "OK";
+    class = "pos";
+}
+
+Dialog : WCContentPane {
+    dojoType = "webcat.Dialog";
+    id = id;
+    title = title;
+    style = "display: none";
+    refreshOnShow = true;
+    alwaysDynamic = true;
+}
+
+EntryTree: WCTree {
+    id = idFor.entryTree;
+    treeModel = entryModel;
+    fixedSize = "34em,25em";
+    canSelectItems = true;
+    itemDoubleClickedAction = "entryWasDoubleClicked";
+    multipleSelection = false;
+}
+
+ExpandIfArchive: WCCheckBox {
+    id = idFor.expandIfArchive;
+    checked = expandIfArchive;
+}
+
+FileToUpload : WCFileUpload {
+    filePath = uploadedFilePath;
+    data = uploadedFileData;
+    action = fileWasUploaded;
+}
+
+Form : WCForm {
+}
+
+ItemSpan: WOGenericContainer {
+    elementName = "span";
+    style = cssStyleForItem;
+}
+
+NewFolderName: WCTextBox {
+    value = newFolderName;
+    style = "width: 100%";
+}
+
+OK: WCButton {
+    action = okPressed;
+    remote = true;
+    label = "OK";
+    class = "pos";
+}
+
+PickerItemImage: WOImage {
+    framework = "Core";
+    filename = iconPathForEntry;
+    class = "icon";
+}
+
+RepositoryItemImage: WOImage {
+    framework = "Core";
+    filename = iconPathForRepositoryItem;
+    class = "icon";
+}
+
+RepositoryTree: WCTree {
+    id = idFor.repositoryTree;
+    treeModel = refModel;
+    fixedSize = "15em,25em";
+    canSelectItems = true;
+    selectionAction = "refWasSelected";
+    multipleSelection = false;
+}
+
+UploadFile: WCButton {
+    label = "Upload File...";
+    id = idFor.uploadFile;
+    disabled = "~!canModifySelectedBranch";
+    action = displayUploadFileDialog;
+    remote = true;
+}
+
+UploadFileCancel : WCButton {
+    label = "Cancel";
+    class = "neg";
+}
+
+UploadFileDialog: WCContentPane {
+    dojoType = "webcat.Dialog";
+    id = idFor.uploadFileDialog;
+    title = "Upload File";
+    style = "display: none";
+    refreshOnShow = true;
+    alwaysDynamic = true;
+}
+
+UploadFileOK: WCButton {
+    id = idFor.uploadFileOk;
+    action = uploadFileOkPressed;
+    remote = true;
+    label = "OK";
+    class = "pos";
+}

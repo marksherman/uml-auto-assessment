@@ -1,0 +1,27 @@
+BatchNavigator: org.webcat.core.WCBatchNavigator {
+    displayGroup = submissionDisplayGroup;
+    persistentKey = "PickSubmissionPage.batchSize";
+}
+
+Page: PageWithAssignmentNavigation {
+}
+
+Repetition1: WORepetition {
+    item = aSubmission;
+    list = submissionDisplayGroup.displayedObjects;
+    index = index;
+}
+
+String2: WOString {
+    value     = aSubmission.submitTime;
+    formatter = session.timeFormatter;
+}
+
+String3: WOString {
+    numberformat = "0.0";
+    value        = aSubmission.result.finalScore;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}

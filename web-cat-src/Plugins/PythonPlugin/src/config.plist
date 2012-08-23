@@ -1,0 +1,176 @@
+{
+    name             = PythonPlugin;
+    version.major    = 0;
+    version.minor    = 9;
+    version.revision = 10;
+    version.date     = 20120128;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU Affero General Public License v.3";
+    license.url      = "http://www.gnu.org/copyleft/agpl.html";
+    copyright        = "(c) 2009-2012 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/PythonTddPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/PythonTddPlugin/ChangeHistory";
+    executable = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stefan Brandle (sbrandle@cse.taylor.edu)";
+    authorUid  = sbrandle;
+    languages  = ( { name = "Python"; version = "Python 2.5.2"; } );
+    description = "This Python execution script is designed to execute the
+student program against a set of student-provided tests and also against a
+set of instructor-provided tests (reference tests).";
+    timeoutMultiplier = 2;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+        {
+            property    = instructorUnitTest;
+            type        = fileOrDir;
+            fileTypes   = ( py );
+            name        = "Instructor Reference Tests";
+            description =
+  "Python unit tester[s] (file or directory of files) for testing the submitted
+  classes. If you select a directory, it should contain pyunit test
+  classes, all of which will be used. These should be ASCII \".py\" only, not
+  compiled \".pyc\" files. The required convention is that to test a module
+  named \"mod\", the tester be named \"modtests.py\".";
+        },
+        {
+            property    = localFiles;
+            type        = fileOrDir;
+            name        = "Data Files for Student";
+            description =
+  "A file (or a directory of files) to place in the student's current working
+  directory when running his/her tests and when running reference tests.  The
+  file you select (or the entire contents of the directory you select) will be
+  copied into the current working directory during grading so that
+  student-written and instructor-written test cases can read from and/or
+  write to the file(s).  The default is to copy no files.";
+        }
+    );
+    optionCategories = (
+        "Scoring Settings",
+        "Feedback Settings",
+        "Python Settings",
+        "Script Developer"
+    );
+    options = (
+        {
+            property    = useJES;
+            type        = boolean;
+            default     = false;
+            name        = "Use Jython";
+            category    = "Python Settings";
+            description =
+  "Choose to use the plug-in's built-in Jython v2.2.1 distribution (from JES,
+  and including media computation support), rather than the server's native
+  python installation.";
+        },
+        {
+            property    = showHints;
+            type        = boolean;
+            default     = true;
+            name        = "Show Hints";
+            category    = "Feedback Settings";
+            description =
+  "Hints: Shows the students extra feedback from the scripts, such
+  as which tests passed and failed, as well as the assert messages from failed
+  tests. Choosing good messages, such as 'getX() does not return the correct
+  value' is important. The default assert messages are something like
+  'getX() != 2', which is definitely not helpful and may encourage students to
+  hard-code values to pass the test.  Enabling hints is likely to be very useful
+  for beginning students, but might be counterproductive for more advanced
+  students.";
+        },
+        {
+            property    = hintsLimit;
+            disable     = false;
+            type        = integer;
+            default     = 3;
+            name        = "Hints Limit";
+            category    = "Feedback Settings";
+            description =
+  "Maximum number of hints the student will receive from
+  failed reference tests.";
+        },
+        {
+            property    = hideHintsWithin;
+            advanced    = true;
+            disable     = false;
+            type        = integer;
+            default     = 0;
+            name        = "Hide Hints (Hints Blackout Period)";
+            category    = "Feedback Settings";
+            description =
+  "Suppress all hints from failed reference tests for submissions within this
+  many days of the deadline (set to zero for hints to always be visible). Currently
+  turns off extra feedback as well, since hints are not implemented.";
+        },
+        {
+            property    = showExtraFeedback;
+            type        = boolean;
+            default     = false;
+            name        = "Show Extra Feedback";
+            category    = "Feedback Settings";
+            description =
+  "Currently a synonym for 'Show Hints': This will be repurposed after May 2009
+  to control whether to show specific information about failed tests.
+  Currently synonym for 'Show Hints' so as not to break deployed assignments
+  that expect the option to be available and have that meaning.";
+        },
+        {
+            property    = enableStudentTests;
+            type        = boolean;
+            default     = false;
+            name        = "Student Unit Tests Enabled/Required";
+            category    = "Scoring Settings";
+            description =
+  "Enabling this option activates the student test option. That means that
+  students must submit their own tests. Disabled, this option supports non-TDD
+  testing using only instructor tests. Enabled, this activates student TDD mode.";
+        },
+        {
+            property    = allStudentTestsMustPass;
+            type        = boolean;
+            default     = false;
+            name        = "All Student Tests Must Pass";
+            category    = "Scoring Settings";
+            description =
+  "If you are truly following test-driven development practices, then no code
+  is ever released until all of its unit tests pass. If this option is set to
+  true, students will not receive a non-zero score or receive further
+  assessment feedback unless all student tests pass. If this option is not
+  set, then students may continue to proceed even if some student-written
+  tests fail. The student's correctness/testing score is multiplied by the
+  proportion of their tests that pass. Should also set
+  \"Student Unit Tests Enabled/Required\".";
+        },
+        {
+            property    = coverageMetric;
+            advanced    = true;
+            type        = boolean;
+            name        = "Measure Student Test Coverage";
+            default     = false;
+            category    = "Scoring Settings";
+            description =
+  "This activates/deactivates student-written test coverage metrics. This is
+  currently running in a very simple mode that does methods + conditions and
+  decisions executed. To be meaningful, student unit test submission must be
+  active. Should also set
+  \"Student Unit Tests Enabled/Required\".";
+        },
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            category    = "Script Developer";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        }
+    );
+}
+

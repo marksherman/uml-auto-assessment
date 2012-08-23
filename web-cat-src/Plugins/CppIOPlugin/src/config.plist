@@ -1,0 +1,190 @@
+{
+    name             = CppIOPlugin;
+    version.major    = 0;
+    version.minor    = 8;
+    version.revision = 4;
+    version.date     = 20090924;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU Affero General Public License v.3";
+    license.url      = "http://www.gnu.org/copyleft/agpl.html";
+    copyright        = "(c) 2010 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/CppIoPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/CppIoPlugin/ChangeHistory";
+    executable = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stefan Brandle (sbrandle@cse.taylor.edu)";
+    authorUid  = sbrandle;
+    languages  = ( { name = "C++"; version = "g++ 3.4.x"; } );
+    description = "This script is designed to execute the student program with black box
+    testing to verify that the output of a program is correct for a given input set.
+    NOTE: UNIX-tested only -- remove when Windows-compatible.";
+    timeoutMultiplier = 2;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+        {
+            property    = instructorTestFiles;
+            type        = fileOrDir;
+            fileTypes   = ( cpp, c );
+            name        = "Instructor Test Program and Files";
+            description =
+  "Input/output tester[s] (directory of files) for black-box testing of the student-submitted
+  C++ program. You should upload one standalone C++ program and one or more input
+  files named according to the pattern 'input1.txt', 'input2.txt',
+  etc. Your program will be compiled and run with each input file to create the
+  respective output file 'output2.txt', 'output2.txt', and so on.
+  The student's program is compiled, and is then run once with each input test
+  file. The program output is saved and compared to the instructor's generated
+  output. Correctly matched output is a test pass, unmatched output is a test
+  failure.";
+        },
+        {
+            property    = localFiles;
+            type        = fileOrDir;
+            name        = "Data Files for Student";
+            description =
+  "A file (or a directory of files) to place in the student's current working
+  directory when running his/her tests and when running reference tests.  The
+  file you select (or the entire contents of the directory you select) will be
+  copied into the current working directory during grading so that
+  student-written and instructor-written test cases can read and/or write to
+  the file(s).  The default is to copy no files.";
+        },
+        {
+            property    = hintsFile;
+            type        = fileOrDir;
+            name        = "Hints File for Student";
+            description =
+  "If you wish to give students hints about why their program
+  may have failed a particular intout/output test, you can upload a file containing
+  hints. Within the file, it is expected that there will be a one-line description
+  per uploaded input file used as a test case. The format for each line is
+  'input-file-name=Description string'.
+  For example, the hint to display when failing testing with 'input1.txt' could be
+  'input1.txt=Testing with no user input'. The hints can be in any order.
+  Any line starting with a '#' character is ignored.
+  It is suggested that the file be named '*hints.txt', although the name can be anything
+  that does not look like part of a program.";
+        }
+    );
+    optionCategories = (
+        "Scoring Settings",
+        "Feedback Settings",
+        "Language Settings",
+        "Script Developer"
+    );
+    options = (
+        {
+            property    = ignoreWhiteSpaceDifferences;
+            type        = boolean;
+            default     = true;
+            name        = "Ignore White Space Differences Within A Line";
+	    category    = "Scoring Settings";
+            description =
+  "Any white space changes within a line are sometimes considered significant.
+  Setting this to true tells the plugin to ignore white space differences within
+  a line when comparing the student program output to the reference program output.
+  <br><b>NOTE: If you think that this option should be false by default, let the
+  developer ('sbrandle@cse.taylor.edu') know your preference.</b>";
+        },
+        {
+            property    = ignoreBlankLineDifferences;
+            type        = boolean;
+            default     = true;
+            name        = "Ignore Blank Line Differences";
+	    category    = "Scoring Settings";
+            description =
+  "Setting this to true tells the plugin to ignore blank lines
+  when comparing the student program output to the reference program output.
+  NOTE: There is a known bug/feature in option implementation ('-B') of at least
+  some versions of the UNIX diff program such that if it is told to ignore blank
+  line differences, a file with precisely one character (e.g., '0') is considered
+  to have no differences from an empty file.
+  <br><b>NOTE: If you think that this option should be false by default, let the developer
+  ('sbrandle@cse.taylor.edu') know your preference.</b>";
+        },
+        {
+            property    = ignoreCaseDifferences;
+            type        = boolean;
+            default     = true;
+            name        = "Ignore Upper/Lower Case Differences";
+	    category    = "Scoring Settings";
+            description =
+  "Setting this to true tells the plugin to ignore case differences
+  when comparing the student program output to the reference program output.
+  <br><b>NOTE: If you think that this option should be false by default, let the developer
+  ('sbrandle@cse.taylor.edu') know your preference.</b>";
+        },
+        {
+            property    = showHints;
+            type        = integer;
+            default     = 1;
+            name        = "Show Hints";
+            category    = "Feedback Settings";
+            description =
+  "Enables showing instructor hints about why a particular test case may
+  have failed. If you use this, you must also upload a hints file and set the 'hintsFile'
+  property.";
+        },
+        {
+            property    = hintsLimit;
+            type        = integer;
+            default     = 1;
+            name        = "Hints Limit";
+            category    = "Feedback Settings";
+            description =
+  "Maximum number of hints the student will receive from a set of failed reference
+  tests.";
+        },
+        {
+            property    = hideHintsWithin;
+            advanced    = true;
+            disable     = false;
+            type        = integer;
+            default     = 0;
+            name        = "Hide Hints";
+            category    = "Feedback Settings";
+            description =
+  "Suppress all hints from failed reference tests for submissions within this
+  many days of the deadline (set to zero for hints to always be visible).";
+        },
+        {
+            property    = acceptCPPSource;
+            disable     = false;
+            type        = boolean;
+            default     = 0;
+            name        = "Accept C++ Source";
+            category    = "Language Settings";
+            description =
+  "Turn this off to prevent the plugin from accepting C++ source code.
+  NOTE: You should accept at least one of C/C++. If both C and C++ are active, the
+  plugin will accept submissions in either language.";
+        },
+        {
+            property    = acceptCSource;
+            disable     = false;
+            type        = boolean;
+            default     = 1;
+            name        = "Accept C Source";
+            category    = "Language Settings";
+            description =
+  "Turn this off to prevent the plugin from accepting C source code.
+  NOTE: You should accept at least one of C/C++. If both C and C++ are active, the
+  plugin will accept submissions in either language.";
+        },
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            category    = "Script Developer";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        }
+    );
+}
+

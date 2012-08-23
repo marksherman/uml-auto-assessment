@@ -1,0 +1,56 @@
+<wo name="Page"><wo name="Form">
+
+<wo:if condition="$enqueuedReportsDisplayGroup.allObjects.count">
+<wo:WCPageModule title="Reports Currently Queued">
+    <p>Click on a report below to view its progress.</p>
+    <wo name="EnqueuedJobTable">
+        <wo:WCTableHeadings>
+            <wo name="JobTitleColumn"/>
+            <wo name="JobQueueTimeColumn"/>
+            <wo name="JobProgressColumn"/>
+        </wo:WCTableHeadings>
+        <wo:WCTableRows item="$reportJob">
+            <wo:WCTableRow>
+                <td><wo name="ViewReportProgress"/></td>
+                <td><wo:str value="$reportJob.enqueueTime" formatter="$session.timeFormatter"/></td>
+                <td><wo:str value="$reportJob.progressPercentage"/>%</td>
+            </wo:WCTableRow>
+        </wo:WCTableRows>
+    </wo>
+</wo:WCPageModule>
+</wo:if>
+
+<wo:WCPageModule title="Previously Generated Reports">
+<wo:if condition="$generatedReportsDisplayGroup.allObjects.count">
+    <p>Click on a previously generated report below to view it.</p>
+    <wo name="GeneratedReportTable">
+        <wo:WCTableHeadings>
+            <wo name="TitleColumn"/>
+            <th></th>
+            <wo name="GeneratedTimeColumn"/>
+        </wo:WCTableHeadings>
+        <wo:WCTableRows item="$generatedReport">
+            <wo:WCTableRow>
+                <td><wo name="ViewReport"/></td>
+                <td style="font-size: smaller">(template version <wo:str value="$generatedReport.reportTemplate.version"/>)</td>
+                <td><wo:str value="$generatedReport.generatedTime" formatter="$session.timeFormatter"/></td>
+            </wo:WCTableRow>
+        </wo:WCTableRows>
+    </wo>
+    <wo name="DeleteReports">
+        <script type="dojo/connect" event="onClick" args="evt">
+            webcat.confirm({
+                title: "Confirm Delete",
+                message: "Are you sure you want to delete the selected " +
+                    " reports? This operation cannot be undone.",
+                onYes: function() { deleteSelectedReports(); }
+            });
+        </script>
+    </wo>
+    <wo name="DeleteReportsAction"/>
+</wo:if><wo:else>
+    <p>There are currently no <b>generated reports</b> available for you to view.</p>
+</wo:else>
+</wo:WCPageModule>
+
+</wo></wo>

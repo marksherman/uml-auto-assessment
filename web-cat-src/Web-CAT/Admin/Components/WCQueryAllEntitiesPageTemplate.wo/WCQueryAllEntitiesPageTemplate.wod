@@ -1,0 +1,63 @@
+BannerConditional: WOConditional {
+	_unroll = YES;
+	condition = showBanner;
+}
+
+EntitiesRepetition: WORepetition {
+	_unroll = YES;
+	item = entityName;
+	list = d2wContext.visibleEntityNames;
+}
+
+EntityName: WOString {
+	_unroll = YES;
+	value = entity.name;
+}
+
+PageWrapper: WOSwitchComponent {
+	WOComponentName = pageWrapperName;
+	_componentUnroll = YES;
+	_unroll = YES;
+}
+
+QueryAnyField: D2WQueryAnyField {
+	_unroll = YES;
+	displayGroup = displayGroup;
+	localContext = localContext;
+}
+
+QueryForm: WOForm {
+	action = queryAction;
+}
+
+QueryTable: WOGenericContainer {
+	_unroll = YES;
+	elementName = "table";
+}
+
+QueryTableHeaderRow: WOGenericContainer {
+	_unroll = YES;
+	elementName = "tr";
+}
+
+RegularQueryHyperlink: WOHyperlink {
+	action = showRegularQueryAction;
+}
+
+RowContainer: WOGenericContainer {
+	class = cssClassForRow;
+	elementName = "tr";
+}
+
+SearchButtonImage: WOActiveImage {
+	action = queryAction;
+	alt = "Find objects matching the query";
+	border = "0";
+	filename = "icons/magnifier.png";
+	framework = "Core";
+	height = "16";
+	title = "Find objects matching the query";
+	width = "16";
+	class = "icon";
+}
+

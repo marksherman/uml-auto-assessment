@@ -1,0 +1,16 @@
+<webobject name="Page"><webobject name="ShowTable">For: <span class="hl"><webobject name="CourseName"/></span><p>
+<div class="shadow"><table><thead><tr><th>&nbsp;</th><th>Assignment</th><th>Due</th><th class="sm">Score Distribution</th></tr></thead><tbody>
+<webobject name="AssignmentRepetition">
+<webobject name="TR">
+<td><webobject name="RadioButton"/></td>
+<td><wo:if condition="$anAssignmentOffering.assignment.url"><webobject name="Name"/></wo:if><wo:else><wo:str value="$anAssignmentOffering.assignment.titleString"/></wo:else><webobject name="AssignmentIsUnpublished">
+<span style="background-color:yellow">(unpublished)</span></webobject><webobject name="AssignmentHasSuspendedSubs">
+<span style="background-color:yellow">(<webobject name="SuspendedCount"/> suspended)</span></webobject></td>
+<td class="nowrap"><webobject name="Deadline"/></td>
+<td><webobject name="Graph"/></td>
+</webobject></webobject>
+<webobject name="CanCreate"><webobject name="LastTR">
+  <td><webobject name="RadioButton2"/></td><td colspan="3">Add another assignment</td>
+</webobject></webobject></tbody></table></div></p>
+</webobject><webobject name="NoShowTable"><span class="hl"><webobject name="CourseName"/></span> has no assignments.
+</webobject></webobject>

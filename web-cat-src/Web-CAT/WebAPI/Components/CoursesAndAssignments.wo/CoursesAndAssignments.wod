@@ -1,0 +1,29 @@
+AssignmentOffering: WOGenericContainer {
+    elementName = "assignment-offering";
+    id = anAssignmentOffering.id;
+    name = anAssignmentOffering.assignment.name;
+    title = anAssignmentOffering.assignment.shortDescription;
+    due = anAssignmentOffering.dueDate.getTime;
+    published = anAssignmentOffering.publish;
+}
+
+CourseOffering: WOGenericContainer {
+    elementName = "course-offering";
+    id = aCourseOffering.id;
+    name = aCourseOffering.compactName;
+    semester = aCourseOffering.semester.id;
+    crn = aCourseOffering.crn;
+    dept = aCourseOffering.course.department.abbreviation;
+    number = aCourseOffering.course.number;
+    longName = aCourseOffering.course.name;
+}
+
+Semester: WOGenericContainer {
+    elementName = "semester";
+    id = aSemester.id;
+    name = aSemester.name;
+    season = aSemester.seasonName;
+    seasonNo = aSemester.season;
+    year = aSemester.year;
+    current = "~aSemester.id == session.user.preferences.semester";
+}

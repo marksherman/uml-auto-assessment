@@ -1,0 +1,49 @@
+adminNotifyAddrs: WOString {
+    value = adminNotifyAddrs;
+}
+
+adminPassword: WOString {
+    value = adminPassword;
+}
+
+adminUsername: WOString {
+    value = application.properties.AdminUsername;
+}
+
+ConfigWriteable: WOConditional {
+    condition = configIsWriteable;
+}
+
+ConfigNotWriteable: WOConditional {
+    condition = configIsWriteable;
+    negate    = true;
+}
+
+coreAdminEmail: WOString {
+    value = application.properties.coreAdminEmail;
+}
+
+Config: WOText {
+    value = application.properties.configSettingsAsString;
+    cols  = 70;
+    rows  = 40;
+}
+
+ConfigLocation: WOString {
+    value = configLocation;
+}
+
+ConfigNotSaved: WOConditional {
+    condition = configSaved;
+    negate    = true;
+}
+
+ConfigSaved: WOConditional {
+    condition = configSaved;
+}
+
+Page : org.webcat.core.install.InstallPageWrapper {
+    title  = "Congratulations! Web-CAT is Installed";
+    stepNo = stepNo;
+    errors = messages;
+}

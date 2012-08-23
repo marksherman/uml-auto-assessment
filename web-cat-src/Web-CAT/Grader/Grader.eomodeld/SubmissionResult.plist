@@ -1,0 +1,193 @@
+{
+    attributes = (
+        {
+            columnName = accumulatedSavedProperties; 
+            name = accumulatedSavedProperties; 
+            prototypeName = mutableDictionary; 
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData; 
+                isMutable = true; 
+                valueClassName = "org.webcat.core.MutableDictionary"; 
+                valueFactoryMethodName = objectWithArchiveData; 
+            }; 
+        }, 
+        {
+            columnName = CCOMMENTFORMAT; 
+            name = commentFormat; 
+            prototypeName = tinyInteger; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = byteValue; 
+                scalarDefault = 0; 
+                type = byte; 
+                valueClassName = Byte; 
+            }; 
+        }, 
+        {columnName = CCOMMENTS; name = comments; prototypeName = mediumText; }, 
+        {
+            columnName = CCORRECTNESSSCORE; 
+            name = correctnessScore; 
+            prototypeName = double; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = doubleValue; 
+                scalarDefault = "0.0"; 
+                type = double; 
+                valueClassName = Double; 
+            }; 
+        }, 
+        {name = id; prototypeName = id; }, 
+        {
+            allowsNull = Y; 
+            columnName = CISMOSTRECENT; 
+            name = isMostRecent; 
+            prototypeName = boolean; 
+            userInfo = {
+                isScalar = true; 
+                needsMigration = true; 
+                scalarDefault = false; 
+                type = boolean; 
+            }; 
+        }, 
+        {columnName = lastUpdated; name = lastUpdated; prototypeName = dateTime; }, 
+        {
+            columnName = staffReportStyleVersion; 
+            name = staffReportStyleVersion; 
+            prototypeName = integer; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = intValue; 
+                scalarDefault = 0; 
+                type = int; 
+                valueClassName = Integer; 
+            }; 
+        }, 
+        {
+            columnName = CSTATELEMENTSLABEL; 
+            name = statElementsLabel; 
+            prototypeName = tinyText; 
+        }, 
+        {
+            columnName = CSTATUS; 
+            name = status; 
+            prototypeName = tinyInteger; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = byteValue; 
+                scalarDefault = "org.webcat.core.Status.TO_DO"; 
+                type = byte; 
+                valueClassName = Byte; 
+            }; 
+        }, 
+        {
+            columnName = studentReportStyleVersion; 
+            name = studentReportStyleVersion; 
+            prototypeName = integer; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = intValue; 
+                scalarDefault = 0; 
+                type = int; 
+                valueClassName = Integer; 
+            }; 
+        }, 
+        {
+            columnName = CTASCORE; 
+            name = taScore; 
+            prototypeName = double; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = doubleValue; 
+                scalarDefault = "0.0"; 
+                type = double; 
+                valueClassName = Double; 
+            }; 
+        }, 
+        {
+            columnName = CTOOLSCORE; 
+            name = toolScore; 
+            prototypeName = double; 
+            userInfo = {
+                isScalar = true; 
+                scalarConversionMethodName = doubleValue; 
+                scalarDefault = "0.0"; 
+                type = double; 
+                valueClassName = Double; 
+            }; 
+        }, 
+        {
+            allowsNull = N; 
+            name = updateMutableFields; 
+            prototypeName = updateMutableFields; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        commentFormat, 
+        isMostRecent, 
+        staffReportStyleVersion, 
+        statElementsLabel, 
+        status, 
+        studentReportStyleVersion, 
+        updateMutableFields
+    ); 
+    className = "org.webcat.grader.SubmissionResult"; 
+    classProperties = (
+        accumulatedSavedProperties, 
+        commentFormat, 
+        comments, 
+        correctnessScore, 
+        isMostRecent, 
+        lastUpdated, 
+        resultFiles, 
+        resultOutcomes, 
+        staffReportStyleVersion, 
+        statElementsLabel, 
+        status, 
+        studentReportStyleVersion, 
+        submissionFileStats, 
+        submissions, 
+        taScore, 
+        toolScore, 
+        updateMutableFields
+    ); 
+    externalName = TSUBMISSIONRESULT; 
+    name = SubmissionResult; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = ResultFile; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = resultId; sourceAttribute = id; }); 
+            name = resultFiles; 
+            ownsDestination = Y; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = ResultOutcome; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = resultId; sourceAttribute = id; }); 
+            name = resultOutcomes; 
+            ownsDestination = Y; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = SubmissionFileStats; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = resultId; sourceAttribute = id; }); 
+            name = submissionFileStats; 
+            ownsDestination = Y; 
+        }, 
+        {
+            destination = Submission; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = resultId; sourceAttribute = id; }); 
+            name = submissions; 
+        }
+    ); 
+}

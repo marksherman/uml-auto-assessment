@@ -1,0 +1,22 @@
+{
+    /* optionCategories = ( ... ); */
+    options = (
+    {
+        property    = "CheckstyleForPlugins.checkstyle.jar";
+        type        = shortText;
+        size        = 70;
+        name        = "Checkstyle JAR File";
+        description =
+  "The jar file containing the
+  <a href=\"http://checkstyle.sourceforge.net/\">Checkstyle</a> version
+  that will be used when running plug-ins.  Leave this
+  setting blank to use the built-in Checkstyle distribution contained within
+  this subsystem.  Only enter a value if you wish to <b>override</b> the
+  subsystem's version of Checkstyle and use your own system-installed version
+  instead.  Your value should point to the completely self-contained
+  <code>checkstyle-all-*.jar</code> file from your chosen Checkstyle
+  installation.  If you specify a value here, it will be provided to plug-ins
+  as the <code>checkstyle.jar</code> property.";
+    }
+    );
+}

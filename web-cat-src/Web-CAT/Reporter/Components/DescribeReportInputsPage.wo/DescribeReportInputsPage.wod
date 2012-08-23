@@ -1,0 +1,21 @@
+Page: org.webcat.core.WCPageWithNavigation {
+}
+
+ChangeReportTemplate: WCLink {
+    action = changeReportTemplate;
+}
+
+QueryBuilder : org.webcat.core.objectquery.ObjectQueryBuilder {
+    objectType = dataSet.wcEntityName;
+    surrogate = objectQuerySurrogateForDataSet;
+}
+
+ReportParameter: ReportParameterValueComponent {
+    parameter = parameter;
+    value = valueForParameter;
+}
+
+GenerateReport: WCButton {
+    label = "Generate Report";
+    action = generateReport;
+}

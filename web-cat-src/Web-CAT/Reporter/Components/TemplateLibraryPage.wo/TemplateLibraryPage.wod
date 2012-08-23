@@ -1,0 +1,68 @@
+Page : org.webcat.core.WCPageWithNavigation {
+	title = "Report Template Library";
+}
+
+Form : WCForm {
+    multipleSubmit = true;
+    enctype = "multipart/form-data";
+}
+
+Date: WOString {
+    dateformat = "%m/%d/%y %I:%M%p";
+    value      = reportTemplate.uploadedTime;
+}
+
+DownloadNow: WOActiveImage {
+    border    = "0";
+    filename  = "icons/download.gif";
+    framework = "Core";
+    height    = "18";
+    width     = "18";
+    alt       = "Download this template";
+    title     = "Download this template";
+    action    = download;
+}
+
+TemplateUpload: WOFileUpload {
+    dojoType = "dojox.form.FileInput";
+    data     = uploadedData;
+    filePath = uploadedName;
+    size     = 60;
+}
+
+Publish: WOActiveImage {
+    border    = "0";
+    filename  = "icons/show.gif";
+    framework = "Grader";
+    height    = "11";
+    width     = "11";
+    alt       = "Publish report template (make visible to others)";
+    title     = "Publish report template (make visible to others)";
+    action    = togglePublished;
+}
+
+TerseDescriptions: WCButton {
+    label  = "Hide Descriptions";
+    action = toggleVerboseDescriptions;
+}
+
+Unpublish: WOActiveImage {
+    border    = "0";
+    filename  = "icons/hide.gif";
+    framework = "Grader";
+    height    = "11";
+    width     = "11";
+    alt       = "Unpublish report template (hide from others)";
+    title     = "Unpublish report template (hide from others)";
+    action    = togglePublished;
+}
+
+Upload: WCButton {
+    label = "Upload File & Install";
+    action = upload;
+}
+
+VerboseDescriptions: WCButton {
+    label  = "Show Descriptions";
+    action = toggleVerboseDescriptions;
+}

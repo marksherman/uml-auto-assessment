@@ -1,0 +1,75 @@
+AssignmentHasSuspendedSubs: WOConditional {
+    condition = assignmentHasSuspendedSubs;
+}
+
+AssignmentIsUnpublished: WOConditional {
+    condition = anAssignmentOffering.publish;
+    negate = true;
+}
+
+AssignmentRepetition: WORepetition {
+    item  = anAssignmentOffering;
+    list  = assignmentDisplayGroup.displayedObjects;
+    index = index;
+}
+
+CanCreate: WOConditional {
+    condition = session.tabs.selectedDescendant.config.allowCreate;
+}
+
+CourseName: WOString {
+    value = coreSelections.courseOffering.deptNumberAndName;
+}
+
+Deadline: WOString {
+    formatter = session.timeFormatter;
+    value     = anAssignmentOffering.dueDate;
+}
+
+Graph: org.webcat.grader.graphs.MiniBarGraph {
+    graphSummary = anAssignmentOffering.graphSummary;
+}
+
+LastTR: org.webcat.core.TableRow {
+    index = assignmentDisplayGroup.displayedObjects.count;
+}
+
+Name: WOHyperlink {
+    href   = anAssignmentOffering.assignment.url;
+    target = "_new";
+    string = anAssignmentOffering.assignment.titleString;
+}
+
+NoShowTable: WOConditional {
+    condition = showTable;
+    negate    = true;
+}
+
+Page : org.webcat.core.WizardPage {
+    finishEnabled = false;
+}
+
+RadioButton: WORadioButton {
+    name      = "Group";
+    selection = selectedIndex;
+    value     = index;
+}
+
+RadioButton2: WORadioButton {
+    name    = "Group";
+    checked = createNew;
+}
+
+ShowTable: WOConditional {
+    condition = showTable;
+}
+
+SuspendedCount: WOString {
+    value = anAssignmentOffering.suspendedSubmissionsInQueue.count;
+}
+
+TR: org.webcat.core.TableRow {
+    index       = index;
+    showCaution = anAssignmentOffering.isLate;
+    showError   = anAssignmentOffering.gradingSuspended;
+}

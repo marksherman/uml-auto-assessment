@@ -1,0 +1,130 @@
+AttributeName: WOString {
+	_unroll = YES;
+	value = d2wContext.displayNameForProperty;
+}
+
+AttributeRepetition: WORepetition {
+	_unroll = YES;
+	item = d2wContext.propertyKey;
+	list = d2wContext.displayPropertyKeys;
+}
+
+AttributeValue: WOSwitchComponent {
+	WOComponentName = d2wContext.componentName;
+	_componentUnroll = YES;
+	_unroll = YES;
+	object = object;
+	localContext = localContext;
+}
+
+BannerConditional: WOConditional {
+	_unroll = YES;
+	condition = showBanner;
+}
+
+CancelButton: WCButton {
+	action = cancelAction;
+	label  = "Cancel";
+	class  = "neg";
+}
+
+DeleteButton: WCButton {
+    label = "Delete";
+	action = deleteAction;
+}
+
+EditButton: WCButton {
+	action = editAction;
+	label  = "Edit";
+}
+
+EditingForm: WOForm {
+}
+
+EntityName: WOString {
+	_unroll = YES;
+	value = d2wContext.entity.name;
+}
+
+ErrorMessage: WOString {
+	escapeHTML = "NO";
+	value = errorMessage;
+}
+
+ErrorPanel: WOConditional {
+	condition = errorMessage.length;
+}
+
+InspectTable: WOGenericContainer {
+	_unroll = YES;
+	elementName = "table";
+	class = "d2w";
+}
+
+InspectTableHeaderRow: WOGenericContainer {
+	_unroll = YES;
+	elementName = "tr";
+}
+
+IsEditingConditional2: WOConditional {
+	_unroll = YES;
+	condition = isEditing;
+}
+
+IsEditingConditional: WOConditional {
+	_unroll = YES;
+	condition = isEditing;
+}
+
+IsEntityWritable2: WOConditional {
+	_unroll = YES;
+	condition = isEntityReadOnly;
+	negate = YES;
+}
+
+IsEntityWritable: WOConditional {
+	_unroll = YES;
+	condition = isEntityReadOnly;
+	negate = YES;
+}
+
+IsNotEditingConditional2: WOConditional {
+	_unroll = YES;
+	condition = isEditing;
+	negate = YES;
+}
+
+IsNotEditingConditional: WOConditional {
+	_unroll = YES;
+	condition = isEditing;
+	negate = YES;
+}
+
+PageWrapper: WOSwitchComponent {
+	WOComponentName = pageWrapperName;
+	_componentUnroll = YES;
+	_unroll = YES;
+    stylesheet           = "Grader.framework/WebServerResources/jscalendar/skins/aqua/theme.css";
+    externalJavascript   = "Grader.framework/WebServerResources/jscalendar/calendar.js,Grader.framework/WebServerResources/jscalendar/lang/calendar-en.js,Grader.framework/WebServerResources/jscalendar/calendar-setup.js";
+}
+
+ReturnButton: WCButton {
+    label = "Return";
+	action = nextPage;
+}
+
+RowContainer: WOGenericContainer {
+	class = cssClassForRow;
+	elementName = "tr";
+}
+
+ShowCancel: WOConditional {
+	condition = showCancel;
+}
+
+SubmitChanges: WCButton {
+	action = submitAction;
+	label  = "Save";
+	class  = "pos";
+}
+

@@ -1,0 +1,44 @@
+body		{ font-family: "Verdana" "Arial" "Helvetica" sans-serif;
+		  font-size: 10pt }
+
+h1			{ font-size: 14pt }
+
+div.block	{ padding: 8px; clear: both }
+
+pre		{ border: 1px solid silver;
+		  background-color: #F0F0F0;
+		  padding: 8px;
+		  clear: both }
+
+pre.output	{ border: 1px solid silver;
+		  background-color: white;
+		  padding: 8px;
+		  clear: both }
+
+img.right	{ float: right; margin: 8px }
+
+.keyword	{ font-weight: bold;
+		  color: #7F0055 }
+
+.header { color: #2A00FF }
+
+.classname { color: #003250 }
+
+.field { color: #0000C0 }
+
+.comment	{ color: #3F7F5F }
+
+.string	{ color: #2A00FF }
+
+.method	{ font-weight: bold; }
+
+.caution	{ border: 1px solid goldenrod;
+		  background-color: #FFFFE0;
+		  padding: 8px;
+		  margin: 16px }
+
+table		{ border: none;
+		  cell-spacing: 0px;
+		  cell-padding: 0px;
+		  padding: 0px;
+		  margin: 0px }

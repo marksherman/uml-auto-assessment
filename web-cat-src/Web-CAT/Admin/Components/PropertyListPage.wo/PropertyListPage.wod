@@ -1,0 +1,37 @@
+Properties: WORepetition {
+	item  = property;
+	list  = propertyDisplayGroup.displayedObjects;
+	index = propertyIndex;
+}
+
+PropForm: WOForm {
+    action = setNewProperty;
+	multipleSubmit = true;
+	style = "padding-bottom: 1em;";
+}
+
+Name: WOString {
+	value = propertyKey;
+}
+
+NameField: WOTextField {
+	value = newPropertyName;
+}
+
+Value: WOString {
+	value      = propertyValue;
+	escapeHTML = false;
+}
+
+ValueField: WOTextField {
+	value = newPropertyValue;
+}
+
+SetProperty: WCButton {
+    action = setNewProperty;
+    label  = "Set Property";
+}
+
+TR: org.webcat.core.TableRow {
+	index = propertyIndex;
+}

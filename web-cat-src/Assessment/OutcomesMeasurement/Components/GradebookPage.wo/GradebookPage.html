@@ -1,0 +1,13 @@
+<wo:WCPageWithNavigation>
+	<wo:WCPageModule title="Upload an Excel Gradebook">
+		<p>For information on how to arrange your grade book, please click here.</p>
+		<wo:WCForm enctype="multipart/form-data">
+			<p>Upload a gradebook containing accreditation mappings:</p>
+			<p>Excel File:
+				<wo:upload data="$data" filePath="$filePath" size="60" dojoType="dojox.form.FileInput"/>
+				<wo:WCButton action="$uploadGradebook" label="Upload"/>
+			</p>
+		</wo:WCForm>
+		<wo name="UploadInfo"/>
+	</wo:WCPageModule>
+</wo:WCPageWithNavigation>

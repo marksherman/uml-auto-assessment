@@ -1,0 +1,62 @@
+{
+    nextJob =
+    {
+        class = WCFetchSpecification;
+        entityName = JobBase;
+        fetchLimit = 1;
+        prefetchingRelationshipKeyPaths =
+        ();
+        qualifier =
+        {
+            class = EOAndQualifier;
+            qualifiers =
+            (
+
+               {
+                   class = EOKeyComparisonQualifier;
+                   leftKey = isCancelled;
+                   rightKey = true;
+                   selectorName = isNotEqualTo:;
+               },
+
+               {
+                   class = EOKeyComparisonQualifier;
+                   leftKey = isPaused;
+                   rightKey = true;
+                   selectorName = isNotEqualTo:;
+               },
+
+               {
+                   class = EOKeyValueQualifier;
+                   key = worker;
+                   selectorName = isEqualTo:;
+                   value =
+                   {
+                       class = EONull;
+                   };
+               }
+            );
+        };
+        sortOrderings =
+        (
+
+           {
+               class = EOSortOrdering;
+               key = priority;
+               selectorName = compareAscending;
+           },
+
+           {
+               class = EOSortOrdering;
+               key = dueTime;
+               selectorName = compareAscending;
+           },
+
+           {
+               class = EOSortOrdering;
+               key = enqueueTime;
+               selectorName = compareAscending;
+           }
+        );
+    };
+}

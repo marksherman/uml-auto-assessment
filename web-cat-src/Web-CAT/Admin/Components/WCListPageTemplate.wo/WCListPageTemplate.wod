@@ -1,0 +1,214 @@
+AttributeCell: WOGenericContainer {
+	_unroll = YES;
+	align = d2wContext.justification;
+	elementName = "td";
+	valign = "middle";
+}
+
+AttributeDisplay: WOSwitchComponent {
+	WOComponentName = d2wContext.componentName;
+	_componentUnroll = YES;
+	_unroll = YES;
+	object = object;
+	localContext = localContext;
+}
+
+AttributeRepetition: WORepetition {
+	_unroll = YES;
+	item = d2wContext.propertyKey;
+	list = d2wContext.displayPropertyKeys;
+}
+
+AttributeSorter: org.webcat.woextensions.WCSortOrder {
+	displayGroup = displayGroup;
+	displayKey = d2wContext.displayNameForProperty;
+	key = d2wContext.propertyKey;
+}
+
+ColumnLabelRepetition: WORepetition {
+	_unroll = YES;
+	item = d2wContext.propertyKey;
+	list = d2wContext.displayPropertyKeys;
+}
+
+HideReturnOnSelect1: WOConditional {
+	_unroll = YES;
+	condition = isSelecting;
+	negate = YES;
+}
+
+HideReturnOnSelect2: WOConditional {
+	_unroll = YES;
+	condition = isSelecting;
+	negate = YES;
+}
+
+DeleteEO: WOHyperlink {
+	action = deleteObjectAction;
+}
+
+DeleteImage: WOImage {
+	alt = "Delete this object";
+	title = "Delete this object";
+	border = "0";
+	filename = "icons/trash.gif";
+	framework = "Core";
+	height = "17";
+	width = "14";
+    class = "icon";
+}
+
+EditEO: WOHyperlink {
+	action = editObjectAction;
+}
+
+EditImage: WOImage {
+	alt = "Edit this object";
+	title = "Edit this object";
+	border = "0";
+	filename = "icons/edit.gif";
+	framework = "Core";
+	height = "17";
+	width = "18";
+    class = "icon";
+}
+
+EntityName: WOString {
+	_unroll = YES;
+	value = d2wContext.entity.name;
+}
+
+EntityRepetition: WORepetition {
+	item = object;
+	list = displayGroup.displayedObjects;
+}
+
+InspectEO: WOHyperlink {
+	action = inspectObjectAction;
+}
+
+InspectImage: WOImage {
+	alt = "Inspect this object";
+	title = "Inspect this object";
+	border = "0";
+	filename = "InspectMetalSmBtn.gif";
+	framework = "JavaDirectToWeb";
+	height = "21";
+	width = "51";
+}
+
+IsEntityNotWritable: WOConditional {
+	_unroll = YES;
+	condition = isEntityReadOnly;
+}
+
+IsEntityWritable2: WOConditional {
+	_unroll = YES;
+	condition = isEntityReadOnly;
+	negate = YES;
+}
+
+IsEntityWritable: WOConditional {
+	_unroll = YES;
+	condition = isEntityReadOnly;
+	negate = YES;
+}
+
+IsListing2: WOConditional {
+	_unroll = YES;
+	condition = isSelecting;
+	negate = YES;
+}
+
+IsListing: WOConditional {
+	_unroll = YES;
+	condition = isSelecting;
+	negate = YES;
+}
+
+IsPropertySortable: WOConditional {
+	_unroll = YES;
+	condition = isPropertyAnAttribute;
+}
+
+IsSelecting: WOConditional {
+	_unroll = YES;
+	condition = isSelecting;
+}
+
+ListEmpty: WOConditional {
+	condition = isListEmpty;
+}
+
+ListNotEmpty: WOConditional {
+	condition = isListEmpty;
+	negate = YES;
+}
+
+ListTable: WOGenericContainer {
+	_unroll = YES;
+	border = d2wContext.border;
+	cellpadding = 3;
+	cellspacing = 0;
+	elementName = "table";
+}
+
+NavBar: org.webcat.core.WCBatchNavigator {
+	displayGroup = displayGroup;
+	objectName = entity.name;
+	persistentKey = "WCListPageTemplate.batchSize";
+}
+
+NavBarTD: WOGenericContainer {
+    elementName = "td";
+    colspan = d2wContext.displayPropertyKeys.count;
+}
+
+NavBarForm: WOForm {
+    multipleSubmit = true;
+    enctype="multipart/form-data";
+}
+
+PageWrapper: WOSwitchComponent {
+	WOComponentName = pageWrapperName;
+	_componentUnroll = YES;
+	_unroll = YES;
+}
+
+PropertyName: WOString {
+	_unroll = YES;
+	value = d2wContext.displayNameForProperty;
+}
+
+ReturnButton: WCButton {
+    label  = "Return";
+    action = backAction;
+}
+
+RowContainer: WOGenericContainer {
+	style = "text-align: center; vertical-align: middle;";
+	class = cssClassForRow;
+	elementName = "tr";
+}
+
+SelectEO: WOHyperlink {
+	action = selectObjectAction;
+}
+
+SelectImage: WOImage {
+	alt = "Select this object";
+	title = "Select this object";
+	border = "0";
+	filename = d2wContext.selectButtonFileName;
+	framework = "JavaDirectToWeb";
+	height = "13";
+	width = "42";
+}
+
+ShowCancel2: WOConditional {
+	condition = showCancel;
+}
+
+ShowCancel: WOConditional {
+	condition = showCancel;
+}

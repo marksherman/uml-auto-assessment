@@ -1,0 +1,46 @@
+{
+    responsesForAssignmentOffering = {
+        class = WCFetchSpecification;
+        entityName = SurveyResponse;
+        prefetchingRelationshipKeyPaths = ();
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = assignmentOffering;
+            selectorName = "isEqualTo:";
+            value = {"_key" = assignmentOffering; class = EOQualifierVariable; };
+        };
+    };
+    responsesForAssignmentOfferingAndUser = {
+        class = WCFetchSpecification;
+        entityName = SurveyResponse;
+        prefetchingRelationshipKeyPaths = ();
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = assignmentOffering;
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = assignmentOffering; class = EOQualifierVariable; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = user;
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = user; class = EOQualifierVariable; };
+                }
+            );
+        };
+    };
+    responsesForUser = {
+        class = WCFetchSpecification;
+        entityName = SurveyResponse;
+        prefetchingRelationshipKeyPaths = ();
+        qualifier = {
+            class = EOKeyValueQualifier;
+            key = user;
+            selectorName = "isEqualTo:";
+            value = {"_key" = user; class = EOQualifierVariable; };
+        };
+    };
+}

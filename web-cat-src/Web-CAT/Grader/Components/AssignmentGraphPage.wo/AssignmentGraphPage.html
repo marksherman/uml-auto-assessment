@@ -1,0 +1,17 @@
+<wo name="Page">
+<wo name="Panel1">
+<p>For: <span class="hl"><webobject name="AssignmentName"/></span></p>
+<wo name="Chart1"/>
+</wo>
+<wo:org.webcat.core.WCPageModule title="Your Score Over Time">
+<wo name="Chart2"/>
+</wo:org.webcat.core.WCPageModule>
+<wo:org.webcat.core.WCPageModule title="Opportunities for Improvement">
+<webobject name="Chart3"/>
+</wo:org.webcat.core.WCPageModule>
+<wo:if condition="$isStaff">
+<wo:org.webcat.core.WCPageModule title="Submissions by Student">
+<webobject name="Chart4"/>
+</wo:org.webcat.core.WCPageModule>
+</wo:if>
+</wo>

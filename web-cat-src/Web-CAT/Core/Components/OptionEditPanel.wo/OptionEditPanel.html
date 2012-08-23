@@ -1,0 +1,43 @@
+<wo:not condition="$option.disable">
+<div style="display: inline-block; text-align: right; width: 18em">
+<wo:if condition="~isFile or isFileOrDir">
+    <wo:label for="$idFor.optionWidget" style="width: auto; margin-top: 2px;"><b><wo name="OptionName"/>:</b></wo:label>
+</wo:if><wo:else>
+    <wo:label for="$idFor.optionWidget" style="width: auto"><b><wo name="OptionName"/>:</b></wo:label>
+</wo:else>
+</div>
+<div style="display: inline-block;">
+<wo:if condition="$isBoolean">
+    <wo name="CheckBox"/>
+</wo:if><wo:if condition="$isAntBoolean">
+    <wo name="CheckBox"/>
+</wo:if><wo:if condition="$isInteger">
+    <wo name="IntegerBox"/>
+</wo:if><wo:if condition="$isDouble">
+    <wo name="DoubleBox"/>
+</wo:if><wo:if condition="$isListChoice">
+    <wo name="ListChoice"/>
+</wo:if><wo:if condition="$isRadioChoice">
+    <table class="layout" style="margin-bottom: 0; display: inline-block"><wo name="RadioRepetition"><tr>
+    <td style="padding: 0"><wo name="RadioButton"/></td><td><wo name="ChoiceLabel"/></td>
+    </tr></wo></table>
+</wo:if><wo:if condition="$isFile">
+    <wo name="FilePickerDialog"/>
+    <wo name="ValueContainer"><wo name="File"/>
+    <wo:if condition="$canBrowse"><wo:if condition="$hasValue"> <wo name="Download"><wo name="DownloadIcon"/></wo></wo:if><wo name="Browse"/><wo:if condition="$hasValue"> <wo name="UseDefault"/></wo:if>
+    </wo:if><wo:else><b class="warn">Cannot browse files</b></wo:else></wo>
+</wo:if><wo:if condition="$isFileOrDir">
+    <wo name="FilePickerDialog"/>
+    <wo name="ValueContainer"><wo name="File"/>
+    <wo:if condition="$canBrowse"><wo:if condition="$hasValue"> <wo name="Download"><wo name="DownloadIcon"/></wo></wo:if><wo name="Browse"/><wo:if condition="$hasValue"> <wo name="UseDefault"/></wo:if>
+    </wo:if><wo:else><b class="warn">Cannot browse files</b></wo:else></wo>
+</wo:if><wo:if condition="$isShortText">
+    <wo name="TextBox"/>
+</wo:if><wo:if condition="$isPassword">
+    <wo name="PasswordBox"/>
+</wo:if><wo:if condition="$isLongText">
+    <div style="margin-bottom:0"><wo name="TextArea"/></div>
+</wo:if>
+<wo name="DescriptionPopup"/>
+</div>
+</wo:not>

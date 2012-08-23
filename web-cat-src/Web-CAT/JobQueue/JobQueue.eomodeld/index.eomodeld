@@ -1,0 +1,30 @@
+{
+    EOModelVersion = "2.1";
+    adaptorName = JDBC;
+    connectionDictionary = {
+        URL = "";
+        driver = "com.mysql.jdbc.Driver";
+        password = "";
+        plugin = MySQL;
+        username = "";
+    };
+    entities = (
+        {className = "org.webcat.jobqueue.HostDescriptor"; name = HostDescriptor; },
+        {className = "org.webcat.jobqueue.JobBase"; name = JobBase; },
+        {
+            className = "org.webcat.jobqueue.QueueDescriptor";
+            name = QueueDescriptor;
+        },
+        {
+            className = "org.webcat.jobqueue.WorkerDescriptor";
+            name = WorkerDescriptor;
+        }
+    );
+    internalInfo = {
+        "_schemaSynchronizationOptions" = {
+            EOSchemaSynchronizationForeignKeyConstraintsKey = YES;
+            EOSchemaSynchronizationPrimaryKeyConstraintsKey = YES;
+            EOSchemaSynchronizationPrimaryKeySupportKey = YES;
+        };
+    };
+}

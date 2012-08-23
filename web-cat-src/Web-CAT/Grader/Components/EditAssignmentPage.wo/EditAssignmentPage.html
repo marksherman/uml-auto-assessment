@@ -1,0 +1,132 @@
+<wo name="Page">
+<wo:WCForm multipleSubmit="true">
+<wo:WCPageModule title="Properties for All Offerings of This Assignment">
+<table class="layout">
+<tr><td class="R"><label for="name">Name:</label></td>
+    <td><webobject name="Name"/> <webobject name="NameInfo"/></td></tr>
+<tr><td class="R"><label for="title">Title:</label></td>
+    <td><webobject name="Description"/>
+    <webobject name="DescriptionInfo"/></td></tr>
+<tr><td class="R"><label for="URL">URL:</label></td>
+    <td><webobject name="URL"/> <webobject name="URLInfo"/></td></TR>
+<tr><td class="R" valign="top" style="padding-left: 0"><label for="instructions">Upload&nbsp;<br/>
+    Instructions:</label></td>
+    <td valign="top"><webobject name="UploadInstructions"/>
+    <webobject name="UploadInstructionsInfo"/></td></tr>
+<wo:if condition="$surveysSupported">
+<tr><td class="R"><wo:label for="useSurvey">Survey:</wo:label></td>
+    <td><wo:checkbox id="useSurvey" checked="$assignment.trackOpinions"/>
+      <label for="useSurvey">Give student engagement/frustration
+      survey</label></td></tr></wo:if>
+</table>
+<h3>Grading Scheme for All Offerings</h3>
+<p><label for="policy">Submission Rules:</label>
+<wo:if condition="$submissionProfileDisplayGroup.displayedObjects.count">
+<webobject name="SubmissionProfileList"/><webobject name="EditSubmissionProfile"/>&nbsp;<webobject name="NewSubmissionProfile"/>
+</wo:if><wo:else>
+&lt;none available&gt; Please create a policy: <webobject name="NewSubmissionProfile"/>
+</wo:else>
+<webobject name="SubmissionProfileInfo"/></p>
+<p>Automatically grade using <b>these steps</b> in sequence:</p>
+<wo:WCContentPane id="gradingSteps">
+<wo name="GradingStepsTable"><thead>
+    <tr>
+      <th>&nbsp;</th><th>Plug-in</th><th class="sm">Time Limit (sec)</th>
+      <th>Action</th>
+    </tr>
+</thead><tbody>
+    <wo name="StepRepetition"><wo name="TR">
+        <td align="center"><wo name="DragHandle"/></td>
+        <td><webobject name="ScriptName"/></td>
+        <td align="center"><webobject name="StepAllowsTimeout"><webobject name="Timeout"/></webobject></td>
+        <td><webobject name="EditStep"/> <wo name="RemoveStep"/></td>
+    </wo></wo>
+    <wo name="LastTR">
+        <td colspan="4">
+            <label for="plugins">Add a step:</label>
+            <wo:if condition="$gradingPluginsToAdd.count">
+            <wo name="GradingPluginsToAdd">
+                <wo name="GradingPluginMenuItem">
+                    <p class="pluginListTitle"><wo:str value="$gradingPluginToAdd.name"/></p>
+                    <p class="pluginListSubtitle">version <wo:str value="$gradingPluginToAdd.descriptor.currentVersion"/>
+                    (<wo:str value="$gradingPluginToAdd.lastModified" formatter="$session.timeFormatter"/>)</p>
+                </wo>
+            </wo>
+            </wo:if><wo:else>&lt;no plug-ins available&gt;</wo:else>
+        </td>
+    </wo></tbody>
+</wo>
+</wo:WCContentPane>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Offerings of This Assignment">
+<wo:WCContentPane id="allOfferings">
+<table>
+    <thead><tr>
+        <th class="sm">Course Offering</th>
+        <th>Due Date <wo:if condition="$areDueDatesLocked"><wo name="UnlockDueDates"/></wo:if><wo:else><wo name="LockDueDates"/></wo:else></th>
+        <th>Score Summary <wo name="RefreshScoreSummaries"/></th>
+        <th>Queue Status</th>
+        <wo:if condition="$canDeleteAnyOffering"><th class="sm">Delete? <wo name="DeletePopupInfo"/></th></wo:if>
+    </tr></thead>
+    <tbody>
+        <wo:loop list="$offeringGroup.displayedObjects" item="$thisOffering" index="$thisOfferingIndex">
+        <wo:tr index="$thisOfferingIndex">
+            <td><strong><wo:str value="$thisOffering.courseOffering.compactName"/></strong></td>
+            <td><wo:if condition="$shouldShowDueDatePicker"><wo name="DueDate"/></wo></td>
+            <td><wo:WCContentSpan id="~'scoreHistogram' + thisOffering.id"><wo name="Graph"/></wo></td>
+            <td>
+                <wo:str value="$descriptionOfEnqueuedSubmissions" escapeHTML="false"/>
+            </td>
+            <wo:if condition="$canDeleteAnyOffering"><td><wo name="DeleteOffering"/></td></wo:if>
+        </wo:tr>
+        </wo:loop>
+    </tbody>
+</table>
+</wo:WCContentPane>
+
+<h3>Actions for All Offerings</h3>
+<wo:WCContentPane id="allOfferingsActions">
+<table class="actionlist"><tbody>
+    <tr>
+        <td><wo name="TogglePublishedIcon"/></td>
+        <wo:if condition="$isPublished">
+        <td>This assignment is <span class="check">published</span>, so students can see it.</td>
+        <td><wo name="TogglePublished">Unpublish it</wo>.</td>
+        </wo:if><wo:else>
+        <td>This assignment is <span class="warn">not published</span>, so only course staff can see it.</td>
+        <td><wo name="TogglePublished">Publish it</wo>.</td>
+        </wo:else>
+    </tr>
+    <tr>
+        <td><wo name="ToggleSuspendedIcon"/></td>
+        <wo:if condition="$isSuspended">
+        <td>Grading of this assignment is <span class="warn">suspended</span>.</td>
+        <td><wo name="ToggleSuspended">Resume grading</wo><wo:if condition="$hasSuspendedSubs">,
+            or <wo name="CancelSubs">cancel the suspended submissions</wo></wo:if>.</td>
+        </wo:if><wo:else>
+        <td>Grading of this assignment is <span class="check">enabled</span>.</td>
+        <td><wo name="ToggleSuspended">Suspend grading</wo><wo:if condition="$hasSuspendedSubs">,
+            <wo name="ReleaseSubs">re-grade the suspended submissions</wo>, or <wo name="CancelSubs">cancel them</wo></wo:if>.</td>
+        </wo:else>
+    </tr>
+</tbody></table>
+</wo:WCContentPane>
+</wo:WCPageModule>
+
+<wo:WCPageModule title="Other Upcoming Assignment Deadlines" open="false">
+<table><thead>
+<tr><th>Assignment</th><th>Due</th></tr></thead><tbody>
+<webobject name="UpcomingAssignmentRepetition">
+<webobject name="TR2"><td><wo:if condition="$upcomingOffering.assignment.url"><webobject name="UpcomingAssignmentName"/></wo:if><wo:else><wo:str value="$upcomingOffering.titleString"/></wo:else><webobject name="UpcomingIsUnpublished">
+<span style="background-color:yellow">(unpublished)</span></webobject></td>
+<td class="nowrap"><webobject name="UpcomingDueDate"/></td>
+</webobject></webobject></tbody></table>
+</wo:WCPageModule>
+
+<div class="module right">
+<wo:WCButton action="$apply" class="pos" label="Save All"/>
+<wo:WCButton action="$cancel" class="neg" label="Cancel"/>
+</div>
+</wo:WCForm>
+</wo>

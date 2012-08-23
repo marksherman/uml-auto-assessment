@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="net.sf.webcat.eclipse.perspective.cxx.VTCSCxxPespectiveFactory"
+            name="VT CS C/C++"
+            id="net.sf.webcat.eclipse.perspective.cxx.VTCSCxxPerspective"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="net.sf.webcat.eclipse.perspective.cxx.VTCSCxxPerspective">
+         <perspectiveShortcut id="net.sf.webcat.eclipse.perspective.cxx.VTCSCxxPerspective"/>
+         <perspectiveShortcut id="org.eclipse.cdt.ui.CPerspective"/>
+         <viewShortcut id="org.eclipse.ui.console.ConsoleView"/>
+         <viewShortcut id="org.eclipse.ui.views.ProblemView"/>
+         <viewShortcut id="org.eclipse.ui.views.TaskList"/>
+         <viewShortcut id="org.eclipse.cdt.ui.CView"/>
+         <viewShortcut id="org.eclipse.ui.views.ResourceNavigator"/>
+         <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+         <viewShortcut id="net.sf.webcat.eclipse.cxxtest.TestRunnerView"/>
+         <newWizardShortcut id="net.sf.webcat.eclipse.cxxtest.wizards.NewCxxTestSuiteWizard"/>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>

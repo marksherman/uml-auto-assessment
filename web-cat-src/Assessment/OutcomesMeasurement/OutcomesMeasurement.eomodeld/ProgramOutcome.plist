@@ -1,0 +1,70 @@
+{
+    attributes = (
+        {
+            definition = "outcome.description"; 
+            name = description; 
+            prototypeName = mediumText; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            definition = "outcome.keyPhrase"; 
+            name = keyPhrase; 
+            prototypeName = tinyText; 
+        }, 
+        {definition = "outcome.label"; name = label; prototypeName = tinyText; }, 
+        {
+            definition = "outcome.microLabel"; 
+            name = microLabel; 
+            prototypeName = tinyText; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = programId; 
+            name = programId; 
+            prototypeName = id; 
+        }
+    ); 
+    attributesUsedForLocking = (description, keyPhrase, label, microLabel, programId); 
+    className = "org.webcat.outcomesmeasurement.ProgramOutcome"; 
+    classProperties = (description, keyPhrase, label, measures, microLabel, outcomePairs, program); 
+    externalName = ProgramOutcome; 
+    fetchSpecificationDictionary = {}; 
+    name = ProgramOutcome; 
+    parent = Outcome; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = MeasureProgramOutcome; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = programOutcomeOid; sourceAttribute = id; }); 
+            name = measureProgramOutcomes; 
+            propagatesPrimaryKey = Y; 
+        }, 
+        {definition = "measureProgramOutcomes.measure"; name = measures; }, 
+        {
+            destination = Outcome; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = id; }); 
+            name = outcome; 
+        }, 
+        {
+            destination = OutcomePair; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = programOutcomeId; sourceAttribute = id; }); 
+            name = outcomePairs; 
+        }, 
+        {
+            destination = Program; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = programId; }); 
+            name = program; 
+        }
+    ); 
+}

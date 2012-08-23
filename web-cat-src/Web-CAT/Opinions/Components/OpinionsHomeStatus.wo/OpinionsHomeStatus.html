@@ -1,0 +1,31 @@
+<wo:if condition="$assignmentOfferingDisplayGroup.displayedObjects.count">
+<wo:org.webcat.core.WCPageModule title="Tell Us About Your Assignments">
+
+<p>Your instructor is giving students the opportunity to share their
+experiences about the following assignments.  We want to know how fun,
+challenging, or frustrating each assignment was through a short survey
+that should only take a couple of minutes.  Thank you for providing this
+feedback.  Your individual responses will be kept confidential
+and <b>WILL NOT</b> affect your grade in your courses.</p>
+
+<p>You are invited to provide your opinions on the following assignments:</p>
+
+<table><thead>
+  <tr><th>Assignment</th><th>Submissions</th><th>Most Recent</th>
+      <th class="sm">Score Distribution</th></tr>
+</thead><tbody>
+  <wo:loop list="$assignmentOfferingDisplayGroup.displayedObjects"
+      item="$assignmentOffering" index="$index">
+    <wo:tr index="$index">
+      <td><wo:link action="$surveyForAssignment"><wo:str
+        value="$assignmentOffering.titleString"/></wo:link></td>
+      <td><wo:str value="$highestSubmission.submitNumber"/></td>
+      <td class="nowrap"><wo:str value="$highestSubmission.submitTime"
+        formatter="$session.timeFormatter"/></td>
+      <td><wo:MiniBarGraph
+        graphSummary="$assignmentOffering.graphSummary"/></td>
+    </wo:tr>
+  </wo:loop>
+</tbody></table>
+
+</wo:org.webcat.core.WCPageModule></wo:if>

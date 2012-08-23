@@ -1,0 +1,71 @@
+/* webcat.ComboBox */
+
+.webcatComboBoxMenuItem {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 100%;
+}
+
+.webcatComboBoxMenuItemDivider {
+    border-bottom: 1px solid silver;
+}
+
+/* webcat.Table */
+
+.webcatTableReset {
+    margin-right: 0px !important;
+    padding: 0px !important;
+}
+
+.webcatTableToolbarIcon {
+    background-image: url('images/Table.gif');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
+.webcatTableToolbarIconFirst { background-position: 0px; }
+.webcatTableToolbarIconPrevious { background-position: -18px; }
+.webcatTableToolbarIconNext { background-position: -36px; }
+.webcatTableToolbarIconLast { background-position: -54px; }
+
+/* webcat.Spinner */
+
+.webcatSpinner {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    vertical-align: middle;
+}
+
+.webcatSpinnerSmall {
+    width: 18px;
+    height: 18px;
+    background-image: url('images/spinner18.png');
+}
+
+.webcatSpinnerMedium {
+    width: 36px;
+    height: 36px;
+    background-image: url('images/spinner36.png');
+}
+
+.webcatSpinnerLarge {
+    width: 72px;
+    height: 72px;
+    background-image: url('images/spinner72.png');
+}
+
+.webcatSpinnerHidden {
+    visibility: hidden;
+}
+
+/* webcat.Blocker */
+
+.webcatBlocker {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 999;
+}

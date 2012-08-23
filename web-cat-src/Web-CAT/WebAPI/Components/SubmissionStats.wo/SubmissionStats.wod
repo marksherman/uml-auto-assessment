@@ -1,0 +1,33 @@
+Comment: WOGenericContainer {
+	elementName = "comment";
+	type = "~submission.result.commentFormat ? \"text/plain\" : \"text/html\"";
+}
+
+CorrectnessScore: WOGenericContainer {
+    elementName = "criterion";
+    name = "Correctness/Testing";
+    score = submission.result.correctnessScore;
+    possible = submission.assignmentOffering.assignment.submissionProfile.correctnessPoints;
+}
+
+HasReports: WOConditional {
+    condition = "~submission.result.";
+}
+
+HasTAScore: WOConditional {
+    condition = "~submission.assignmentOffering.assignment.submissionProfile.taPoints > 0 || submission.result.taScore != 0";
+}
+
+TAScore: WOGenericContainer {
+    elementName = "criterion";
+    name = "Design/Readability";
+    score = submission.result.taScore;
+    possible = submission.assignmentOffering.assignment.submissionProfile.taPoints;
+}
+
+ToolScore: WOGenericContainer {
+    elementName = "criterion";
+    name = "Style/Coding";
+    score = submission.result.toolScore;
+    possible = submission.assignmentOffering.assignment.submissionProfile.toolPoints;
+}

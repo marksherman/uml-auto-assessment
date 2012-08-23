@@ -1,0 +1,51 @@
+<webobject name="Page"><div id="page" style="border:none;"><div id="contents" class="nomenu" style="width:100%; margin: 0; float: none;">
+<h1><webobject name="DeptNumber"/>: <webobject name="AssignmentName"/>, by
+<webobject name="StudentName"/>
+</h1>
+<webobject name="Form"><webobject name="Return"/></webobject>
+<webobject name="LongResponse">
+  <div class="shadow">
+    <webobject name="ResultInfo"/>
+  </div><div class="spacer">&nbsp;</div>
+  <webobject name="HasNonZeroScore">
+    <div class="shadow">
+      <webobject name="ScoreSummary"/>
+    </div><div class="spacer">&nbsp;</div>
+  </webobject>
+  <webobject name="SummaryReport"/>
+  <webobject name="HasTAComments">
+    <div class="shadow"><table><thead>
+      <tr><th>TA/Instructor Comments</th></tr></thead><tbody>
+      <tr class="o"><td><webobject name="TAComments"/></td></tr>
+    </tbody></table></div><div class="spacer">&nbsp;</div>
+  </webobject>
+  <webobject name="HasFileStats">
+    <div class="shadow"><table><thead>
+      <tr><th>File</th>
+        <th class="sm">Remarks</th>
+        <th class="sm">Deductions</th>
+        <webobject name="ShowCoverageData">
+          <th colspan="2"><webobject name="StatsLabel"/></th>
+        </webobject></tr></thead><tbody>
+      <webobject name="StatRepetition"><webobject name="TR">
+        <td><wo:str value="$stats.file.sourceFileName"/></td>
+        <td class="n"><webobject name="FileRemarks"/></td>
+        <td class="n"><webobject name="FileDeduction"/></td>
+        <webobject name="ShowCoverageData"><webobject name="HasCoverageData">
+          <td class="n"><webobject name="Coverage"/>%</td>
+          <td><webobject name="CoverageMeter"/></td>
+          </webobject><webobject name="HasNoCoverageData"><td>&nbsp;</td><td>&nbsp;</td>
+        </webobject></webobject>
+      </webobject></webobject>
+    </tbody></table></div><div class="spacer">&nbsp;</div>
+  </webobject>
+  <webobject name="PartialInlineReport"/>
+
+  <webobject name="StatRepetition">
+  <h2 class="collapsible"><wo name="CollapsibleAnchor"><wo name="Expanded"/><wo:str value="$stats.file.sourceFileName"/></wo></h2>
+  <wo name="CollapsibleDiv">
+  <wo:str value="$stats.html" escapeHTML="$false"/>
+  </wo></webobject>
+
+<webobject name="Form"><p><webobject name="Return"/></p></webobject>
+</webobject></div></div></webobject>

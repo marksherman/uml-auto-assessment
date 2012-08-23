@@ -1,0 +1,76 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = acceptableCutoff; 
+            name = acceptableCutoff; 
+            prototypeName = float; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = courseOfferingID; 
+            name = courseOfferingID; 
+            prototypeName = id; 
+        }, 
+        {columnName = dateCompleted; name = dateCompleted; prototypeName = dateTime; }, 
+        {
+            allowsNull = N; 
+            columnName = description; 
+            name = description; 
+            prototypeName = mediumText; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = excellentCutoff; 
+            name = excellentCutoff; 
+            prototypeName = float; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = "max_result"; name = "max_result"; prototypeName = float; }, 
+        {
+            allowsNull = Y; 
+            columnName = outcomePairID; 
+            name = outcomePairID; 
+            prototypeName = id; 
+        }
+    ); 
+    attributesUsedForLocking = (acceptableCutoff, dateCompleted, description, excellentCutoff, "max_result"); 
+    className = "org.webcat.outcomesmeasurement.Coursework"; 
+    classProperties = (
+        acceptableCutoff, 
+        courseOffering, 
+        dateCompleted, 
+        description, 
+        excellentCutoff, 
+        "max_result", 
+        outcomePair, 
+        studentAnswers
+    ); 
+    externalName = Coursework; 
+    fetchSpecificationDictionary = {}; 
+    name = Coursework; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = CourseOffering; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = courseOfferingID; }); 
+            name = courseOffering; 
+        }, 
+        {
+            destination = OutcomePair; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = outcomePairID; }); 
+            name = outcomePair; 
+        }, 
+        {
+            destination = StudentAnswer; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = courseworkID; sourceAttribute = id; }); 
+            name = studentAnswers; 
+        }
+    ); 
+}

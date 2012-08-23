@@ -1,0 +1,30 @@
+# ===================================================================
+# BatchProcessor subsystem characteristics
+# ===================================================================
+subsystem.BatchProcessor = org.webcat.batchprocessor.BatchProcessor
+
+BatchProcessor.version.major = 1
+BatchProcessor.version.minor = 0
+BatchProcessor.version.revision = 5
+BatchProcessor.requires = Core, JobQueue, Grader
+BatchProcessor.depends = env, pluginProperties
+
+BatchProcessor.copyright =\
+    (c) 2010-2012 Virginia Tech Department of Computer Science
+BatchProcessor.provider = Virginia Tech Computer Science
+BatchProcessor.provider.url = http\://web-cat.org/updates
+BatchProcessor.info.url =\
+    http\://wiki.web-cat.org/WCWiki/BatchProcessorSubsystem
+BatchProcessor.history.url =\
+    http\://wiki.web-cat.org/WCWiki/BatchProcessorSubsystem/ChangeHistory
+BatchProcessor.license = GNU Affero General Public License v.3
+BatchProcessor.license.url = http\://www.gnu.org/licenses/agpl.html
+
+BatchProcessor.description =\
+    This subsystem provides all of Web-CAT's batch processing services.
+
+
+# -------------------------------------------------------------------
+# BatchProcessor subsystem configuration property defaults
+# -------------------------------------------------------------------
+BatchProcessor.resumeSuspendedJobs = true

@@ -1,0 +1,19 @@
+Span: WOGenericContainer {
+    elementName = "span";
+    class = "webcatPopUpInfo";
+    id = idFor.tooltipTarget;
+}
+
+InfoImage : WOImage {
+    framework = "Core";
+    filename  = "icons/help.png";
+    width     = 16;
+    height    = 16;
+    border    = 0;
+    class     = "help";
+}
+
+Tooltip : WCTooltip {
+    connectId = idFor.tooltipTarget;
+    position = "below";
+}

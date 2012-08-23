@@ -1,0 +1,45 @@
+<wo:WCPageWithNavigation>
+<wo:WCPageModule title="Change in Outcomes Over Time">
+<wo:WCForm>
+	<div id="cutoffs">
+		<div>Select ABET Outcome: <wo:WCTextBox value="$newExcellentCutoff" style="width: 4em;" /></div>
+		<div>Select Program Outcome: <wo:WCTextBox value="$newModerateCutoff" style="width: 4em;" /></div>
+		<wo:WCButton action="$selectOutcome" label="Select Outcome" />
+	</div>
+	<div id="graphs">
+		<wo name="OutcomeRepetition">
+			<div style="float: left; margin-right: 1em; width: 100px;">
+				<div style="position: relative; left: 0;">
+					<div style="width: 20px; height: 100px; border: 1px solid black;">
+						<div style="height: <wo:str value="$anOutcomeStat.poorAsPercent"/>px; position: absolute; bottom: 0; background-color: red; width: 20px;">
+						</div>
+						<wo:str value="$anOutcomeStat.poorCount"/><br/>
+						<wo:str value="$anOutcomeStat.poorAsPercent"/> %
+					</div>
+				</div>
+				<div style="position: relative; left: 22px; bottom: 102px;">
+					<div style="width: 20px; height: 100px; border: 1px solid black;">
+						<div style="height: <wo:str value="$anOutcomeStat.moderateAsPercent"/>px; position: absolute; bottom: 0; background-color: yellow; width: 20px;">
+						</div>
+						<wo:str value="$anOutcomeStat.moderateCount"/><br/>
+						<wo:str value="$anOutcomeStat.moderateAsPercent"/> %
+					</div>
+				</div>
+				<div style="position: relative; left: 44px; bottom: 204px;">
+					<div style="width: 20px; height: 100px; border: 1px solid black;">
+						<div style="height: <wo:str value="$anOutcomeStat.excellentAsPercent"/>px; position: absolute; bottom: 0; background-color: green; width: 20px;">
+						</div>
+						<wo:str value="$anOutcomeStat.excellentCount"/><br/>
+						<wo:str value="$anOutcomeStat.excellentAsPercent"/> %
+					</div>
+				</div>
+				<div style="position: relative; bottom: 200px;s">
+					Outcome: <wo:str value="$anOutcomeStat.outcomePair.externalOutcome.microLabel"/>-<wo:str value="$anOutcomeStat.outcomePair.programOutcome.microLabel"/><br/>
+					Total # of Scores: <wo:str value="$anOutcomeStat.totalNumber"/>
+				</div>				
+			</div>
+		</wo>
+	</div>
+</wo:WCForm>
+</wo:WCPageModule>
+</wo:WCPageWithNavigation>

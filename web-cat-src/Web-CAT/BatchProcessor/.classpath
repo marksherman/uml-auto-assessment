@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Bootstrap"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Core"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JobQueue"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/DBUpdateEngine"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/EOJDBCPrototypes"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ERExtensions"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ERJars"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaWOExtensions"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaEOAccess"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaEOControl"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaFoundation"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaJDBCAdaptor"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaWebObjects"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/WOOgnl"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,265 @@
+<project name="student" default="install" basedir=".">
+
+  <property name="jar.file" value="${ant.project.name}.jar"/>
+  <property name="jar.web.file" value="${ant.project.name}-web.jar"/>
+  <property file="build.properties"/>
+  <property file="${user.home}/build.properties"/>
+  <property name="tmpdir" value="${java.io.tmpdir}/" />
+
+  <target name="export.jar" depends="compile"
+    description="Build a distributable jar file for this library">
+    <tstamp/>
+
+    <!-- first, get the fully qualified path name for the classes dir -->
+    <pathconvert property="fully.qualified.build.classes">
+      <dirset dir="${basedir}" file="${build.classes}"/>
+    </pathconvert>
+    <!-- Now, compute which abbot files have been patched, as relative
+         path names in a comma-separated list -->
+    <pathconvert property="overrideAbbotFiles" pathsep=",">
+      <fileset dir="${build.classes}/" includes="abbot/"/>
+      <mapper type="glob" from="${fully.qualified.build.classes}/*" to="*"/>
+    </pathconvert>
+
+    <!-- Now, build the main jar -->
+    <jar destfile="${jar.file}" update="false">
+      <manifest>
+        <attribute name="Specification-Version" value="${core.version}"/>
+        <attribute name="Implementation-Version"
+          value="${core.version} ${DSTAMP}"/>
+        <attribute name="Main-Class" value="student.Version"/>
+      </manifest>
+      <!-- We place the following files in the .jar:
+            + all classes, except student/web/internal/tests and student/tests
+            + Ostermiller's util.jar files
+            + abbot.jar files, except those patched here in this project
+      -->
+      <fileset dir="${build.classes}">
+        <exclude name="student/web/internal/tests/"/>
+        <exclude name="student/tests/"/>
+        <exclude name="student/testingsupport/reflection/test/"/>
+        <exclude name="Foo*.java"/>
+      </fileset>
+      <fileset dir="." includes="COPYING, COPYING.LESSER, LICENSE"/>
+      <zipfileset src="${build.lib}/utils.jar">
+        <include name="**/*.class"/>
+      </zipfileset>
+      <zipfileset src="${build.lib}/${commons.collections.jar}">
+        <include name="**/*.class"/>
+      </zipfileset>
+      <zipfileset src="${build.lib}/abbot.jar"
+                  excludes="META-INF/,${overrideAbbotFiles}"/>
+    </jar>
+
+    <!-- Last, export everything but the excludes into student-web.jar -->
+    <jar destfile="${jar.web.file}" update="false">
+      <zipfileset src="${jar.file}" excludes="${student.web.excludes}" />
+    </jar>
+  </target>
+
+  <target name="install" depends="export.jar"/>
+
+  <target name="find.external.jars"
+  	description="Downloads all of the external jar dependencies"
+  	depends="get.abbot,
+             get.acm,
+             get.commons.collections,
+             get.eddie,
+             get.junit,
+             get.objectdraw,
+             get.ostermiller,
+             get.tagsoup,
+             get.xstream,
+             get.zrss" />
+
+  <target name="create.dirs" description="Create necessary directories">
+    <mkdir dir="${build.classes}" />
+    <mkdir dir="${build.lib}" />
+  </target>
+
+  <target name="compile" depends="create.dirs, find.external.jars"
+      description="Compile Student Library">
+    <tstamp />
+    <javac destdir="${build.classes}" debug="on" deprecation="on"
+           source="1.5" target="1.5">
+      <src path="src/" />
+      <classpath>
+        <fileset dir="${build.classes}/" />
+        <fileset dir="${build.lib}/">
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
+      <compilerarg value="-Xlint:unchecked"/>
+    </javac>
+  </target>
+
+  <target name="clean" description="Remove all derived files (except for downloaded jars in lib)">
+    <delete dir="${build.classes}"/>
+  	<delete file="${jar.file}"/>
+    <delete file="${jar.web.file}"/>
+  </target>
+
+  <target name="check.abbot">
+    <condition property="need.abbot">
+      <not>
+        <and>
+          <available file="${build.lib}/abbot.jar" />
+          <available file="${build.lib}/costello.jar" />
+          <available file="${build.lib}/gnu-regexp-1.1.0.jar" />
+        </and>
+      </not>
+    </condition>
+  </target>
+  <target name="get.abbot" depends="check.abbot" if="need.abbot">
+    <get usetimestamp="true"
+      dest="${tmpdir}/abbot.zip" src="${abbot.download.url}" />
+    <unzip src="${tmpdir}/abbot.zip" dest="${tmpdir}" />
+    <copy overwrite="false" todir="${build.lib}" flatten="true">
+      <fileset dir="${tmpdir}/abbot-${abbot.version}/lib">
+        <include name="abbot.jar" />
+        <include name="costello.jar" />
+        <include name="gnu-regexp-1.1.0.jar" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="check.acm">
+    <condition property="need.acm">
+      <not>
+        <available file="${build.lib}/acm.jar" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.acm" depends="check.acm" if="need.acm">
+    <get usetimestamp="true" dest="${build.lib}/acm.jar"
+      src="${acm.download.url}" />
+  </target>
+
+  <target name="check.commons.collections">
+    <condition property="need.commons.collections">
+      <not>
+        <available file="${build.lib}/${commons.collections.jar}" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.commons.collections" depends="check.commons.collections"
+    if="need.commons.collections">
+    <get usetimestamp="true"
+      dest="${tmpdir}/commons-collections.zip"
+      src="${commons.collections.download.url}" />
+    <unzip src="${tmpdir}/commons-collections.zip" dest="${tmpdir}" />
+    <copy overwrite="false" todir="${build.lib}" flatten="true">
+      <fileset
+        dir="${tmpdir}/commons-collections-${commons.collections.version}">
+        <include name="${commons.collections.jar}" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="check.eddie">
+    <condition property="need.eddie">
+      <not>
+        <available file="${build.lib}/${eddie.jar}" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.eddie" depends="check.eddie" if="need.eddie">
+    <get usetimestamp="true" dest="${build.lib}/${eddie.jar}"
+      src="${eddie.download.url}" />
+  </target>
+
+  <target name="check.junit">
+    <condition property="need.junit">
+      <not>
+        <available file="${build.lib}/junit.jar" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.junit" depends="check.junit" if="need.junit">
+    <get usetimestamp="true" dest="${build.lib}/junit.jar"
+      src="${junit.download.url}" />
+  </target>
+
+  <target name="check.objectdraw">
+    <condition property="need.objectdraw">
+      <not>
+        <available file="${build.lib}/objectdraw.jar" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.objectdraw" depends="check.objectdraw"
+    if="need.objectdraw">
+    <get usetimestamp="true" dest="${build.lib}/objectdraw.jar"
+      src="${objectdraw.download.url}" />
+  </target>
+
+  <target name="check.ostermiller">
+    <condition property="need.ostermiller">
+      <not>
+        <available file="${build.lib}/utils.jar" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.ostermiller" depends="check.ostermiller"
+    if="need.ostermiller">
+    <get usetimestamp="true" dest="${build.lib}/utils.jar"
+      src="${ostermiller.download.url}" />
+  </target>
+
+  <target name="check.tagsoup">
+    <condition property="need.tagsoup">
+      <not>
+        <available file="${build.lib}/${tagsoup.jar}" />
+      </not>
+    </condition>
+  </target>
+  <target name="get.tagsoup" depends="check.tagsoup" if="need.tagsoup">
+    <get usetimestamp="true" dest="${build.lib}/${tagsoup.jar}"
+      src="${tagsoup.download.url}" />
+  </target>
+
+  <target name="check.xstream">
+    <condition property="need.xstream">
+      <not>
+        <and>
+          <available file="${build.lib}/${xpp3.jar}" />
+          <available file="${build.lib}/${xstream.jar}" />
+        </and>
+      </not>
+    </condition>
+  </target>
+  <target name="get.xstream" depends="check.xstream" if="need.xstream">
+    <get usetimestamp="true" dest="${tmpdir}/xstream.zip"
+      src="${xstream.download.url}" />
+    <unzip src="${tmpdir}/xstream.zip" dest="${tmpdir}" />
+    <copy overwrite="false" todir="${build.lib}" flatten="true">
+      <fileset dir="${tmpdir}/xstream-${xstream.version}/lib">
+        <include name="${xstream.jar}" />
+        <include name="${xpp3.jar}" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="check.zrss">
+    <condition property="need.zrss">
+      <not>
+        <and>
+          <available file="${build.lib}/jdom.jar" />
+          <available file="${build.lib}/rome-0.9.jar" />
+          <available file="${build.lib}/${zrss.jar}" />
+        </and>
+      </not>
+    </condition>
+  </target>
+  <target name="get.zrss" depends="check.zrss" if="need.zrss">
+    <get usetimestamp="true" dest="${tmpdir}/zrss.zip"
+      src="${zrss.download.url}" />
+    <unzip src="${tmpdir}/zrss.zip" dest="${tmpdir}" />
+    <copy overwrite="false" todir="${build.lib}" flatten="true">
+      <fileset dir="${tmpdir}/zrss-${zrss.version}">
+        <include name="*.jar" />
+      </fileset>
+    </copy>
+  </target>
+
+</project>

@@ -1,0 +1,182 @@
+{
+    name             = CppTddPluginDev;
+    version.major    = 2;
+    version.minor    = 4;
+    version.revision = 1;
+    version.date     = 20101201;
+    autoPublish      = false;
+    requires         = ( ANTForPlugins, PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU Affero General Public License v.3";
+    license.url      = "http://www.gnu.org/licenses/agpl.html";
+    copyright        = "(c) 2006-2009 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/CppTddPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/CppTddPlugin/ChangeHistory";
+    executable       = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (edwards@cs.vt.edu)";
+    authorUid  = edwards;
+    languages  = ( { name = "C++"; version = "g++ 3.4.x/4.x"; } );
+    description = "This is the standard C++ one-step grading script.
+It includes ANT-based compilation, CxxTest processing of student-written
+tests, and support for instructor-written reference tests.";
+    timeoutMultiplier = 2;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+        {
+            property    = testCases;
+            type        = fileOrDir;
+            fileTypes   = ( h );
+            name        = "CxxTest Reference Test Class(es)";
+            description =
+  "A C++ header file (or directory of header files) containing CxxTest tests
+  to run against student code to assess completeness of problem coverage.
+  If you select a single C++ header file, it must contain a CxxTest test class
+  definition.  If you select a directory, it should contain CxxTest test
+  classes, all of which will be used.  If you make no selection, an empty
+  set of instructor reference tests will be used instead.";
+        },
+        {
+            property    = localFiles;
+            type        = fileOrDir;
+            name        = "Data Files for Student";
+            description =
+  "A file (or a directory of files) to place in the student's current working
+  directory when running his/her tests and when running reference tests.  The
+  file you select (or the entire contents of the directory you select) will be
+  copied into the current working directory during grading so that
+  student-written and instructor-written test cases can read and/or write to
+  the file(s).  The default is to copy no files.";
+        },
+        {
+            property    = assignmentIncludes;
+            type        = fileOrDir;
+            fileTypes   = ();
+            name        = "#Include Directory";
+            description =
+  "A directory of files to place on the include path while compiling the
+  student's code (as well as instructor reference tests).  This directory
+  appears earlier on the include path than the reusable configuration setting.
+  The default is to use no path.";
+        },
+        {
+            property    = assignmentLib;
+            type        = file;
+            fileTypes   = ( a );
+            name        = "Static Linking Library";
+            description =
+  "A g++-compatible library file to link with the student's code.  This lib
+  file will be included in the link in addition to any specified in the
+  reusable options section.";
+        }
+    );
+    optionCategories = (
+        "C++ Settings",
+        "Scoring Settings",
+        "Feedback Settings",
+        "Script Developer"
+    );
+    options = (
+        {
+            property    = generalIncludes;
+            type        = fileOrDir;
+            fileTypes   = ();
+            name        = "#Include Directory";
+            description =
+  "A directory of files to place on the include path while compiling the
+  student's code (as well as instructor reference tests).  This directory
+  appears later on the include path than the assignment-specific configuration
+  setting.  The default is to use no path.";
+        },
+        {
+            property    = generalLib;
+            type        = file;
+            fileTypes   = ( a );
+            name        = "Static Linking Library";
+            category    = "C++ Settings";
+            description =
+  "A g++-compatible library file to link with the student's code.";
+        },
+        {
+            property    = allStudentTestsMustPass;
+            type        = boolean;
+            default     = false;
+            name        = "All Student Tests Must Pass";
+            category    = "Scoring Settings";
+            description =
+  "If you are truly following test-driven development practices, then no code
+  is ever released until all of its unit tests pass.  If this option is set to
+  true, students will not receive a non-zero score or receive further
+  assessment feedback unless all student tests pass.  If this option is not
+  set, then students may continue to proceed even if some student-written
+  tests fail  The student's correctness/testing score is multiplied by the
+  proportion of their tests that pass.";
+        },
+        {
+            property    = coverageMetric;
+            advanced    = true;
+            type        = radioChoice;
+            name        = "Test Coverage Metric";
+            default     = 0;
+            category    = "Scoring Settings";
+            description = "Choose the criterion used to measure how thoroughly
+                           a student's tests cover the corresponding code.";
+            choices     = ( { label = "No coverage used"; value = 0; },
+                            { label = "Methods executed"; value = 1; },
+                            { label = "Methods + conditions/decisions executed";
+                              value = 2; }
+                          );
+        },
+        {
+            property    = hintsLimit;
+            type        = integer;
+            default     = 3;
+            name        = "Hints Limit";
+            category    = "Feedback Settings";
+            description = "Maximum number of hints the
+                           student will receive from failed reference tests.";
+        },
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            category    = "Script Developer";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        },
+        {
+            property    = doNotDelete;
+            type        = antBoolean;
+            advanced    = true;
+            name        = "Preserve Derived Files";
+            category    = "Script Developer";
+            description =
+  "Set to true to prevent the plug-in from deleting the derived files it
+  creates during the build/test process for each submission.  Normally, these
+  files are deleted when a given submission has been completely processed.
+  This setting is provided for debugging purposes, when one wishes to
+  inspect the intermediate test driver source code or other derived files.";
+        }
+    );
+    globalOptions = (
+        {
+            property    = bullseyeDir;
+            type        = shortText;
+            size        = 40;
+            name        = "Bullseye Directory";
+            description =
+  "The directory on the local server that contains the Bullseye coverage
+  tool installation (this directory will contain the \"bin\", \"include\",
+  and \"lib\" directories for Bullseye, among others). If you do not have a
+  copy of Bullseye or wish to disable code coverage collection across all
+  assignments, you can leave this field blank. If you are not the user
+  administering this Web-CAT server, you will need to have your system
+  administrator install this tool and set this path if you wish to use it.";
+        }
+    );
+}

@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>student.adventure Package Summary</title>
+</head>
+<body>
+<p>
+This package provides all of the course-specific classes based
+on the "World of Zuul" adventure game example from Chapter 7
+of <i>Objects First with Java</i> by Michael Kolling
+and David Barnes.  These classes support program assignments
+where students write their own adventure games by adding to and
+extending these core classes.
+</p>
+<p>
+The primary differences between the classes in this package and those
+discussed in the <i>B&amp;K</i> text are:
+</p>
+<ol>
+<li><p>The <code>Command</code> objects use polymorphism
+    (object-oriented dispatch) for controlling execution of
+    the proper behavior, rather than a series of if statements as in
+    the textbook (see exercise 7.39 in the text).</p>
+<li><p>The <code>Game</code> class is abstract, and cannot be
+    played directly.  Instead, one must create a subclass and define
+    three abstract methods to produce a playable game.</p>
+<li><p>The classes in this package have been designed so that one
+    can implement a game and extend all necessary features by
+    appropriate subclassing and overriding.  As a result, these
+    classes are distributed in binary form only.  This contrasts with
+    the scenario in the text, where students directly modify the
+    source code of these classes.</p>
+</ol>
+</body>
+</html>

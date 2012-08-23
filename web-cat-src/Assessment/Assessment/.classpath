@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry combineaccessrules="false" kind="src" path="/Bootstrap"/>
+	<classpathentry kind="con" path="WOFramework/EOJDBCPrototypes"/>
+	<classpathentry kind="src" path="Sources"/>
+	<classpathentry kind="con" path="WOFramework/ERJars"/>
+	<classpathentry kind="con" path="WOFramework/ERExtensions"/>
+	<classpathentry kind="con" path="WOFramework/Core"/>
+	<classpathentry kind="con" path="WOFramework/JavaWOExtensions"/>
+	<classpathentry kind="con" path="WOFramework/WOOgnl"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOAccess"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOControl"/>
+	<classpathentry kind="con" path="WOFramework/JavaFoundation"/>
+	<classpathentry kind="con" path="WOFramework/JavaJDBCAdaptor"/>
+	<classpathentry kind="con" path="WOFramework/JavaWebObjects"/>
+	<classpathentry kind="con" path="WOFramework/DBUpdateEngine"/>
+	<classpathentry kind="con" path="WOFramework/ERDirectToWeb"/>
+	<classpathentry kind="con" path="WOFramework/ExternalJars"/>
+	<classpathentry kind="con" path="WOFramework/WebObjectsUpdater"/>
+	<classpathentry kind="con" path="WOFramework/JavaDirectToWeb"/>
+	<classpathentry kind="con" path="WOFramework/JavaWOJSPServlet"/>
+	<classpathentry kind="con" path="WOFramework/JavaDTWGeneration"/>
+	<classpathentry kind="con" path="WOFramework/Admin"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOApplication"/>
+	<classpathentry kind="con" path="WOFramework/WonderUpdater"/>
+	<classpathentry kind="con" path="WOFramework/Ajax"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOProject"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="WOFramework/WOUnitTest"/>
+	<classpathentry kind="con" path="WOFramework/OutcomesMeasurement"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

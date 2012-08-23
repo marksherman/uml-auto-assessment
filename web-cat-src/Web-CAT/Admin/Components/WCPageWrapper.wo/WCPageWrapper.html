@@ -1,0 +1,10 @@
+<wo:if condition="$alreadyWrapped">
+<wo:content _unroll="YES"/>
+</wo:if><wo:else>
+<wo:WCPageWithNavigation>
+<wo:org.webcat.core.WCPageModule title="$session.tabs.selectedDescendant.label">
+<wo:org.webcat.admin.WCMenuHeader/>
+<div class="dtw"><wo:content _unroll="YES"/></div>
+</wo:org.webcat.core.WCPageModule>
+</wo:WCPageWithNavigation>
+</wo:else>

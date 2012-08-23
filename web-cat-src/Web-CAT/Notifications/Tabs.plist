@@ -1,0 +1,20 @@
+{
+  admin = {
+    accessLevel = 75;
+    priority    = 1000;
+    children = {
+      Home = {
+        accessLevel = 75;
+        priority   = 1;
+        wantsStart = YES;
+        children   = {
+          "Messaging" = {
+            pageName    = org.webcat.notifications.SystemMessagingConfigPage;
+            accessLevel = 75;
+            priority    = 200;
+          };
+        };
+      };
+    };
+  };
+}

@@ -1,0 +1,24 @@
+Table : WOGenericContainer {
+    elementName = "table";
+    id = id;
+    otherTagString = attributeStringForOtherBindings;
+}
+
+DndTable : WOGenericContainer {
+    elementName = "table";
+    id = id;
+    dojoType = sourceDojoType;
+    proxy = fullProxyReference;
+    singular = "~multiple ? null : true";
+    withHandles = withHandles;
+    isSource = isSource;
+    copyOnly = copyOnly;
+    moveOnly = moveOnly;
+    accept = accept;
+    otherTagString = attributeStringForOtherBindings;
+}
+
+JSONRPC: WCJSONRPC {
+    name = JSONBridgeName;
+    proxyName = componentProxyName;
+}

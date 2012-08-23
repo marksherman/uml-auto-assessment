@@ -1,0 +1,19 @@
+Form: WOForm {
+    action = refresh;
+}
+
+Refresh: WOSubmitButton {
+    action = refresh;
+    value  = "Refresh";
+}
+
+State: WOString {
+    value = stateMsg;
+}
+
+HasErrors: WOString {
+    value = hasMessages;
+}
+
+Page: org.webcat.core.WCPageWithNavigation {
+}

@@ -1,0 +1,140 @@
+AssignmentName: WOString {
+    value = result.submission.assignmentOffering.assignment.name;
+}
+
+CollapsibleAnchor: WOGenericContainer {
+    elementName = "a";
+    title       = "show/hide";
+    href        = "javascript:void(0)";
+    onclick     = "~ \"showHide(this, 'srcexp\" + index + \"');\"";
+}
+
+CollapsibleDiv: WOGenericContainer {
+    elementName = "div";
+    class       = "expboxcontent";
+    id          = "~ \"srcexp\" + index";
+}
+
+Coverage: WOString {
+    numberformat = "0.0";
+    value        = stats.file.gradedElementsCoveragePercent;
+}
+
+CoverageMeter: WOString {
+    escapeHTML = false;
+    value      = coverageMeter;
+}
+
+DeptNumber: WOString {
+    value = result.submission.assignmentOffering.courseOffering.compactName;
+}
+
+Expanded : WOImage {
+    width     = "16";
+    height    = "16";
+    title     = "show/hide";
+    alt       = "show/hide";
+    filename  = "icons/expanded.gif";
+    framework = "Core";
+}
+
+FileDeduction: WOString {
+    numberformat = "0.0";
+    value        = stats.file.deductions;
+}
+
+FileRemarks: WOString {
+    numberformat = "0";
+    value        = stats.file.remarks;
+}
+
+Form : WOForm {
+}
+
+HasCoverageData: WOConditional {
+    condition = stats.file.elementsRaw;
+}
+
+HasFileStats: WOConditional {
+    condition = formattedFiles.count;
+}
+
+HasNoCoverageData: WOConditional {
+    condition = stats.file.elementsRaw;
+    negate    = true;
+}
+
+HasNonZeroScore: WOConditional {
+    condition = result.finalScore;
+}
+
+HasTAComments: WOConditional {
+    condition = hasTAComments;
+}
+
+LongResponse : org.webcat.core.LongResponse {
+    task = longResponse;
+    refreshInterval = 3;
+    message = "Formatting the file(s) submitted for this assignment";
+}
+
+Page : org.webcat.core.BarePage {
+//    title      = title;
+    stylesheet = "Grader.framework/WebServerResources/wc-code.css";
+    bodyClass  = currentTab.cssClass;
+    onLoad     = "expandAll()";
+}
+
+PartialInlineReport: org.webcat.grader.PartialInlineReport {
+    submissionResult = result;
+    file = result.resultFile;
+    substituteOldCollapsingRegions = false;
+}
+
+ResultInfo: org.webcat.grader.SubmissionResultInfo {
+    submission = result.submission;
+}
+
+Return : WOSubmitButton {
+    value  = "< Back to Summary";
+    action = next;
+}
+
+ScoreSummary: org.webcat.grader.ScoreSummaryBlock {
+    allowScoreEdit = false;
+    submission = result.submission;
+}
+
+ShowCoverageData: WOConditional {
+    condition = showCoverageData;
+}
+
+StatsLabel: WOString {
+    value = result.statElementsLabel;
+}
+
+StatRepetition: WORepetition {
+    item  = stats;
+    list  = formattedFiles;
+    index = index;
+}
+
+StudentName: WOString {
+    value = result.submission.user.name;
+}
+
+SummaryReport: org.webcat.grader.PartialInlineReport {
+    submissionResult = result;
+    file = result.summaryFile;
+    substituteOldCollapsingRegions = false;
+}
+
+TAComments: org.webcat.core.FormattedString {
+    value  = result.comments;
+    format = result.commentFormat;
+}
+
+TR: org.webcat.core.TableRow {
+    index = index;
+}
+

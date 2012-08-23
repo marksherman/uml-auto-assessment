@@ -1,0 +1,53 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = courseworkID; 
+            name = courseworkID; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = percentEarned; 
+            name = percentEarned; 
+            prototypeName = float; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = pointsEarned; 
+            name = pointsEarned; 
+            prototypeName = float; 
+        }, 
+        {columnName = response; name = response; prototypeName = text; }, 
+        {
+            allowsNull = N; 
+            columnName = userID; 
+            name = userOID; 
+            prototypeName = foreignId; 
+        }
+    ); 
+    attributesUsedForLocking = (percentEarned, pointsEarned, response, userOID); 
+    className = "org.webcat.outcomesmeasurement.StudentAnswer"; 
+    classProperties = (coursework, percentEarned, pointsEarned, response, user); 
+    externalName = StudentAnswer; 
+    fetchSpecificationDictionary = {}; 
+    name = StudentAnswer; 
+    primaryKeyAttributes = (userOID); 
+    relationships = (
+        {
+            destination = Coursework; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = courseworkID; }); 
+            name = coursework; 
+        }, 
+        {
+            destination = User; 
+            isMandatory = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userOID; }); 
+            name = user; 
+        }
+    ); 
+}

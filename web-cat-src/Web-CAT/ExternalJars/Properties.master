@@ -1,0 +1,24 @@
+# ===================================================================
+# ExternalJars subsystem characteristics
+# ===================================================================
+subsystem.ExternalJars =
+
+ExternalJars.version.major = 1
+ExternalJars.version.minor = 1
+ExternalJars.version.revision = 3
+
+ExternalJars.copyright =\
+	(c) 2007-2012 Virginia Tech Department of Computer Science
+ExternalJars.provider = Virginia Tech Computer Science
+ExternalJars.provider.url = http\://web-cat.org/updates
+ExternalJars.info.url =\
+	http\://web-cat.org/WCWiki/ExternalJarsSubsystem
+ExternalJars.history.url =\
+	http\://web-cat.org/WCWiki/ExternalJarsSubsystem/ChangeHistory
+ExternalJars.license = GNU Affero General Public License v.3
+ExternalJars.license.url = http\://www.gnu.org/licenses/agpl.html
+
+ExternalJars.description =\
+	This subsystem contains all of the external support jars used by Web-CAT \
+	ands its subsystems.  It provides for automatic update control over \
+	these jars.

@@ -1,0 +1,323 @@
+{
+    name             = HaskellDoctestPlugin;
+    version.major    = 0;
+    version.minor    = 1;
+    version.revision = 0;
+    version.date     = 20111017;
+    requires         = ( PerlForPlugins );
+    provider         = "Virginia Tech Computer Science";
+    provider.url     = "http://web-cat.cs.vt.edu/updates";
+    license          = "GNU Affero General Public License v.3";
+    license.url      = "http://www.gnu.org/copyleft/agpl.html";
+    copyright        = "(c) 2011 Virginia Tech Department of Computer Science";
+    info.url         = "http://web-cat.cs.vt.edu/WCWiki/HaskellDoctestPlugin";
+    history.url      = "http://web-cat.cs.vt.edu/WCWiki/HaskellDoctestPlugin/ChangeHistory";
+    executable = execute.pl;
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
+    author     = "Stephen Edwards (sedwards@cs.vt.edu)";
+    authorUid  = edwards;
+    languages  = ( { name = "Haskell"; version = "GHC 7"; } );
+    description = "This Haskell execution script is designed to execute the
+student program against a set of student-provided tests and also against a
+set of instructor-provided tests (reference tests).";
+    timeoutMultiplier = 2;
+    timeoutInternalPadding = 400;
+    assignmentOptions = (
+        {
+            property    = instructorSolution;
+            type        = fileOrDir;
+            fileTypes   = ( hs );
+            name        = "Instructor Reference Solution";
+            description =
+  "Haskell source (file or directory of files) for a reference solution
+  to use for checking student-written tests. If you select a directory, it
+  should contain Haskell source files, all of which will be used. These
+  should be ASCII \".hs\" only..";
+        },
+        {
+            property    = forceImports;
+            type        = shortText;
+            size        = 30;
+            name        = "Force Imports";
+            description =
+  "Just a hack!! Force student tests to import these module(s) only.  Provide
+  a single module name, or multiple modules separated by commas.";
+        }
+    );
+    optionCategories = (
+        "Scoring Settings",
+        "Feedback Settings",
+        "Python Settings",
+        "Script Developer"
+    );
+    options = (
+        {
+            property    = showHints;
+            type        = boolean;
+            default     = true;
+            disable     = true;
+            name        = "Show Hints";
+            category    = "Feedback Settings";
+            description =
+  "Hints: Shows the students extra feedback from the scripts, such
+  as which tests passed and failed, as well as the assert messages from failed
+  tests. Choosing good messages, such as 'getX() does not return the correct
+  value' is important. The default assert messages are something like
+  'getX() != 2', which is definitely not helpful and may encourage students to
+  hard-code values to pass the test.  Enabling hints is likely to be very useful
+  for beginning students, but might be counterproductive for more advanced
+  students.";
+        },
+        {
+            property    = hintsLimit;
+            disable     = false;
+            type        = integer;
+            default     = 3;
+            disable     = true;
+            name        = "Hints Limit";
+            category    = "Feedback Settings";
+            description =
+  "Maximum number of hints the student will receive from
+  failed reference tests.";
+        },
+        {
+            property    = hideHintsWithin;
+            advanced    = true;
+            disable     = false;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Hide Hints (Hints Blackout Period)";
+            category    = "Feedback Settings";
+            description =
+  "Suppress all hints from failed reference tests for submissions within this
+  many days of the deadline (set to zero for hints to always be visible). Currently
+  turns off extra feedback as well, since hints are not implemented.";
+        },
+        {
+            property    = showExtraFeedback;
+            type        = boolean;
+            default     = false;
+            disable     = true;
+            name        = "Show Extra Feedback";
+            category    = "Feedback Settings";
+            description =
+  "Currently a synonym for 'Show Hints': This will be repurposed after May 2009
+  to control whether to show specific information about failed tests.
+  Currently synonym for 'Show Hints' so as not to break deployed assignments
+  that expect the option to be available and have that meaning.";
+        },
+        {
+            property    = enableStudentTests;
+            type        = boolean;
+            default     = false;
+            disable     = true;
+            name        = "Student Unit Tests Enabled/Required";
+            category    = "Scoring Settings";
+            description =
+  "Enabling this option activates the student test option. That means that
+  students must submit their own tests. Disabled, this option supports non-TDD
+  testing using only instructor tests. Enabled, this activates student TDD mode.";
+        },
+        {
+            property    = allStudentTestsMustPass;
+            type        = boolean;
+            default     = false;
+            disable     = true;
+            name        = "All Student Tests Must Pass";
+            category    = "Scoring Settings";
+            description =
+  "If you are truly following test-driven development practices, then no code
+  is ever released until all of its unit tests pass. If this option is set to
+  true, students will not receive a non-zero score or receive further
+  assessment feedback unless all student tests pass. If this option is not
+  set, then students may continue to proceed even if some student-written
+  tests fail. The student's correctness/testing score is multiplied by the
+  proportion of their tests that pass. Should also set
+  \"Student Unit Tests Enabled/Required\".";
+        },
+        {
+            property    = coverageMetric;
+            advanced    = true;
+            type        = boolean;
+            name        = "Measure Student Test Coverage";
+            default     = false;
+            disable     = true;
+            category    = "Scoring Settings";
+            description =
+  "This activates/deactivates student-written test coverage metrics. This is
+  currently running in a very simple mode that does methods + conditions and
+  decisions executed. To be meaningful, student unit test submission must be
+  active. Should also set
+  \"Student Unit Tests Enabled/Required\".";
+        },
+        {
+            property    = allowUncoveredStudentExprs;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Expressions";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered expressions in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredStudentBooleans;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Booleans";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered booleans in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredStudentGuards;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Guards";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered guards in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredStudentConditionals;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Conditionals";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered conditionals in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredStudentQualifiers;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Qualifiers";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered qualifiers in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredStudentAlternatives;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Alternatives";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered alternatives in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredStudentLocals;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Student Locals";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered locals in the student code that are permitted.";
+        },
+        {
+            property    = allowUncoveredRefExprs;
+            type        = integer;
+            default     = 0;
+            name        = "Allowable Uncovered Reference Expressions";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered expressions in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = allowUncoveredRefBooleans;
+            type        = integer;
+            default     = 0;
+            name        = "Allowable Uncovered Reference Booleans";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered booleans in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = allowUncoveredRefGuards;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Reference Guards";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered guards in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = allowUncoveredRefConditionals;
+            type        = integer;
+            default     = 0;
+            disable     = true;
+            name        = "Allowable Uncovered Reference Conditionals";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered conditionals in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = allowUncoveredRefQualifiers;
+            type        = integer;
+            default     = 0;
+            name        = "Allowable Uncovered Reference Qualifiers";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered qualifiers in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = allowUncoveredRefAlternatives;
+            type        = integer;
+            default     = 0;
+            name        = "Allowable Uncovered Reference Alternatives";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered alternatives in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = allowUncoveredRefLocals;
+            type        = integer;
+            default     = 0;
+            name        = "Allowable Uncovered Reference Locals";
+            category    = "Scoring Settings";
+            description =
+  "Number of uncovered locals in the reference implementation that are
+   permitted.";
+        },
+        {
+            property    = debug;
+            type        = integer;
+            advanced    = true;
+            default     = 0;
+            name        = "Debug Level";
+            category    = "Script Developer";
+            description =
+  "Set to a non-zero value for the script to produce debugging output (the
+  larger the number, the greater the detail, up to about 5).  Debugging output
+  on each grading script run will be e-mailed to the instructor.";
+        }
+    );
+    globalOptions = (
+        {
+            property    = haskellPath;
+            type        = shortText;
+            size        = 40;
+            name        = "Haskell Path";
+            description =
+  "A list of one or more directories to add to the command search path
+  when invoking Haskell tools such as ghc, doctest, etc.
+  Use the host platform's native path separator (: on linux-based systems,
+  or ; on Windows-based systems).";
+        }
+    );
+}
+

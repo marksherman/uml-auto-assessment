@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="extraProjectOptions" name="Extra Project Options Handler" schema="schema/extraProjectOptions.exsd"/>
+   <extension-point id="stackTraceDependencyCheck" name="Stack Trace Dependency Check" schema="schema/stackTraceDependencyCheck.exsd"/>
+
+     <extension
+         id="cxxtestbuilder"
+         name="CxxTest Driver Generator"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run class="net.sf.webcat.eclipse.cxxtest.CxxTestDriverBuilder"/>
+      </builder>
+   </extension>
+   <extension
+         id="cxxtestrunner"
+         name="CxxTest Driver Runner"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run class="net.sf.webcat.eclipse.cxxtest.CxxTestDriverRunner"/>
+      </builder>
+   </extension>
+   <extension
+         id="cxxtestNature"
+         name="CxxTest Driver"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="net.sf.webcat.eclipse.cxxtest.CxxTestNature"/>
+      </runtime>
+      <requires-nature id="org.eclipse.cdt.core.ccnature"/>
+      <builder id="net.sf.webcat.eclipse.cxxtest.cxxtestbuilder"/>
+   </extension>
+   <extension
+         id="failedTest"
+         name="CxxTest Failed Test"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <attribute name="assertionType"/>
+   </extension>
+   <extension
+         id="invocationProblem"
+         name="CxxTest Invocation Problem"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="net.sf.webcat.eclipse.cxxtest.internal.options.ConfigurationPropertyTester"
+            id="net.sf.webcat.eclipse.cxxtest.IConfigurationExtender"
+            namespace="net.sf.webcat.eclipse.cxxtest"
+            properties="configurationName,preference,evaluatePredicate"
+            type="org.eclipse.cdt.managedbuilder.core.IConfiguration">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.annotationTypes">
+      <type
+            markerType="net.sf.webcat.eclipse.cxxtest.failedTest"
+            name="net.sf.webcat.eclipse.cxxtest.failedTestAnnotation"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.markerAnnotationSpecification">
+      <specification
+            annotationImageProvider="net.sf.webcat.eclipse.cxxtest.ui.CxxTestAnnotationImageProvider"
+            annotationType="net.sf.webcat.eclipse.cxxtest.failedTestAnnotation"
+            colorPreferenceKey="cxxTestFailedIndicationColor"
+            colorPreferenceValue="0,0,128"
+            contributesToHeader="true"
+            highlightPreferenceKey="cxxTestFailedHighlighting"
+            highlightPreferenceValue="false"
+            icon="/icons/full/obj16/assertfail.gif"
+            label="CxxTest Notifications"
+            overviewRulerPreferenceKey="cxxTestFailedIndicationInOverviewRuler"
+            overviewRulerPreferenceValue="true"
+            presentationLayer="3"
+            textPreferenceKey="cxxTestFailedIndication"
+            verticalRulerPreferenceKey="cxxTestFailedIndicationInVerticalRuler"
+            verticalRulerPreferenceValue="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+       <initializer class="net.sf.webcat.eclipse.cxxtest.preferences.CxxTestPreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.sf.webcat.eclipse.cxxtest.preferences.CxxTestPreferencePage"
+            name="CxxTest"
+            id="net.sf.webcat.eclipse.cxxtest.preferences"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="net.sf.webcat.eclipse.cxxtest.properties.CxxTestPropertyPage"
+            id="net.sf.webcat.eclipse.cxxtest.properties"
+            name="CxxTest">
+			<enabledWhen>
+				<instanceof value="org.eclipse.core.resources.IProject" />
+			</enabledWhen>
+         <filter name="nature" value="org.eclipse.cdt.core.ccnature"/>
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.eclipse.cdt.ui.views"
+            class="net.sf.webcat.eclipse.cxxtest.ui.TestRunnerViewPart"
+            icon="icons/full/eview16/cxxtest.gif"
+            id="net.sf.webcat.eclipse.cxxtest.TestRunnerView"
+            name="CxxTest"/>
+   </extension>
+   <extension
+         point="net.sf.webcat.eclipse.cxxtest.extraProjectOptions">
+      <extraProjectOptions
+            id="net.sf.webcat.eclipse.cxxtest.frameworkIncludeOptions">
+         <optionSets
+               version="1.5.0">
+            <optionSet>
+               <runnerIncludes
+                     path="/runner-include"
+                     pluginId="net.sf.webcat.eclipse.cxxtest.framework">
+                  <includeFile
+                        path="dereferee-src/allocation_info_impl.cpp">
+                  </includeFile>
+                  <includeFile
+                        path="dereferee-src/cxxtest_listener.cpp">
+                  </includeFile>
+                  <includeFile
+                        path="dereferee-src/manager.cpp">
+                  </includeFile>
+                  <includeFile
+                        path="dereferee-src/memtab.cpp">
+                  </includeFile>
+                  <includeFile
+                        path="dereferee-src/usage_stats_impl.cpp">
+                  </includeFile>
+               </runnerIncludes>
+               <tool
+                     superClassId="cdt.managedbuild.tool.gnu.cpp.compiler">
+                  <includesOption
+                        id="gnu.cpp.compiler.option.include.paths">
+                     <path
+                           pluginId="net.sf.webcat.eclipse.cxxtest.framework"
+                           relativePath="include">
+                     </path>
+                  </includesOption>
+               </tool>
+               <enablement>
+                  <test
+                        property="net.sf.webcat.eclipse.cxxtest.configurationName"
+                        value="Debug">
+                  </test>
+               </enablement>
+            </optionSet>
+            <optionSet>
+               <runnerIncludes
+                     path="/runner-include"
+                     pluginId="net.sf.webcat.eclipse.cxxtest.framework">
+                  <includeFile
+                        path="dereferee-src/gcc_nodebug_platform.cpp">
+                  </includeFile></runnerIncludes>
+               <enablement>
+                  <test
+                        property="net.sf.webcat.eclipse.cxxtest.configurationName"
+                        value="Debug">
+                  </test>
+                  <test
+                        args="traceStack,boolean"
+                        property="net.sf.webcat.eclipse.cxxtest.preference"
+                        value="false">
+                  </test></enablement>
+            </optionSet>
+         </optionSets>
+      </extraProjectOptions>
+   </extension>
+   <extension
+         point="org.eclipse.cdt.core.templates">
+      <template
+            filterPattern=".*"
+            id="net.sf.webcat.eclipse.cxxtest.templates.CxxTestProject"
+            location="$nl$/cdt-templates/CxxTestProject/template.xml"
+            projectType="org.eclipse.cdt.build.core.buildArtefactType.exe">
+      </template>
+   </extension>
+   <extension
+         point="org.eclipse.cdt.core.templateAssociations">
+      <template
+            id="net.sf.webcat.eclipse.cxxtest.templates.CxxTestProject">
+            <toolChain id="cdt.managedbuild.toolchain.gnu.mingw.base"/>
+            <toolChain id="cdt.managedbuild.toolchain.gnu.cygwin.base"/>
+            <toolChain id="cdt.managedbuild.toolchain.gnu.base"/>
+            <toolChain id="cdt.managedbuild.toolchain.gnu.macosx.base"/>
+            <toolChain id="cdt.managedbuild.toolchain.gnu.solaris.base"/>
+      </template>
+   </extension>
+   <extension
+         point="org.eclipse.cdt.core.templateProcessTypes">
+      <processType
+            name="AddCxxTestNature"
+            processRunner="net.sf.webcat.eclipse.cxxtest.templates.AddCxxTestNatureProcessRunner">
+         <simple
+               name="projectName">
+         </simple>
+      </processType>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="net.sf.webcat.eclipse.cxxtest.internal.CxxTestEarlyStartup">
+      </startup>
+   </extension>
+
+</plugin>

@@ -1,0 +1,38 @@
+{
+  staff = {
+    children = {
+      "Reports" = {
+        accessLevel = 50;
+        priority = 500;
+        children = {
+          Generate = {
+            pageName   = org.webcat.reporter.PickTemplateToGeneratePage;
+            accessLevel = 50;
+            priority   = 1;
+            wantsStart = YES;
+          };
+          View = {
+            pageName = org.webcat.reporter.PickReportToViewPage;
+            accessLevel = 50;
+            priority = 2;
+          };
+          Schedule = {
+            pageName = org.webcat.reporter.ScheduleReportPage;
+            accessLevel = 50;
+            priority = 3;
+          };
+          "Templates" = {
+            pageName = org.webcat.reporter.TemplateLibraryPage;
+            accessLevel = 50;
+            priority = 4;
+          };
+          "Debugging" = {
+            pageName = org.webcat.reporter.DebuggingPage;
+            accessLevel = 50;
+            priority = 100;
+          };
+        };
+      };
+    };
+  };
+}

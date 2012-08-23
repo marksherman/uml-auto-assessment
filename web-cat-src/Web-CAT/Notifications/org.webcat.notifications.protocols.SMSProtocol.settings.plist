@@ -1,0 +1,32 @@
+{
+    globalOptions = (
+        {
+            property    = org.webcat.notifications.protocols.SMSProtocol.accountEmail;
+            type        = shortText;
+            size        = 15;
+            name        = "Google Voice Account E-mail";
+            description =
+  "The e-mail address associated with the Google Voice account
+   from which any SMS messages will be sent.";
+        },
+        {
+            property    = org.webcat.notifications.protocols.SMSProtocol.password;
+            type        = password;
+            size        = 15;
+            name        = "Google Voice Password";
+            description =
+  "The password of the Google Voice account.";
+        }
+    );
+
+    options = (
+        {
+            property    = org.webcat.notifications.protocols.SMSProtocol.mobileNumber;
+            type        = shortText;
+            size        = 15;
+            name        = "Mobile Number";
+            description =
+  "The mobile number to which SMS messages will be sent.";
+        },
+    );
+}

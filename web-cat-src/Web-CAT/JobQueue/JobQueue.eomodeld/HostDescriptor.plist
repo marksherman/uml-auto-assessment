@@ -1,0 +1,28 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = hostName; 
+            name = hostName; 
+            prototypeName = tinyText; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (hostName); 
+    className = "org.webcat.jobqueue.HostDescriptor"; 
+    classProperties = (hostName, workers); 
+    externalName = THostDescriptor; 
+    fetchSpecificationDictionary = {}; 
+    name = HostDescriptor; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = WorkerDescriptor; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = hostId; sourceAttribute = id; }); 
+            name = workers; 
+        }
+    ); 
+}

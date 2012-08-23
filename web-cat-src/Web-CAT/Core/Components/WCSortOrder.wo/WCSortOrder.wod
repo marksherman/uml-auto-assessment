@@ -1,0 +1,15 @@
+Toggle: WOHyperlink {
+	action = toggleClicked;
+	name   = helpString;
+}
+
+ToggleImage: WOImage {
+	border    = "0";
+	alt       = helpString;
+	title     = helpString;
+	filename  = imageName;
+	framework = "Core";
+	height    = "11";
+	width     = "11";
+	class     = "icon so";
+}

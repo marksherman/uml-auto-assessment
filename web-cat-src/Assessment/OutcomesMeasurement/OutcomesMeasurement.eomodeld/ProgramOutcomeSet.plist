@@ -1,0 +1,39 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = outcomeSetId; 
+            name = outcomeSetId; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = programOid; 
+            name = programOid; 
+            prototypeName = id; 
+        }
+    ); 
+    className = EOGenericRecord; 
+    externalName = ProgramOutcomeSet; 
+    fetchSpecificationDictionary = {}; 
+    name = ProgramOutcomeSet; 
+    primaryKeyAttributes = (outcomeSetId, programOid); 
+    relationships = (
+        {
+            destination = OutcomeSet; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = outcomeSetId; }); 
+            name = outcomeSet; 
+        }, 
+        {
+            destination = Program; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = programOid; }); 
+            name = program; 
+        }
+    ); 
+}

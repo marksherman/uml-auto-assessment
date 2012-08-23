@@ -1,0 +1,42 @@
+{
+    attributes = (
+        {
+            columnName = CID; 
+            externalType = INT; 
+            name = id; 
+            valueClassName = NSNumber; 
+            valueType = l; 
+        }, 
+        {
+            columnName = CID1; 
+            externalType = INT; 
+            name = id1; 
+            valueClassName = NSNumber; 
+            valueType = l; 
+        }
+    ); 
+    attributesUsedForLocking = (id, id1); 
+    className = EOGenericRecord; 
+    externalName = TINSTRUCTORCOURSE; 
+    fetchSpecificationDictionary = {}; 
+    name = InstructorCourse; 
+    primaryKeyAttributes = (id, id1); 
+    relationships = (
+        {
+            destination = CourseOffering; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = id; }); 
+            name = courseOffering; 
+        }, 
+        {
+            destination = User; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = id1; }); 
+            name = user; 
+        }
+    ); 
+}

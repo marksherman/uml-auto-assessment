@@ -1,0 +1,17 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Mon Oct 11 14:59:45 EDT 2010
+CloverForPlugins.provider.url=http\://web-cat.cs.vt.edu/updates
+CloverForPlugins.version.minor=0
+CloverForPlugins.version.revision=2
+CloverForPlugins.history.url=http\://web-cat.cs.vt.edu/WCWiki/CloverForPluginsSubsystem/ChangeHistory
+CloverForPlugins.info.url=http\://web-cat.cs.vt.edu/WCWiki/CloverForPluginsSubsystem
+CloverForPlugins.version.date=20101011
+CloverForPlugins.license.url=http\://www.gnu.org/license/agpl.html
+CloverForPlugins.provides=pluginProperties
+CloverForPlugins.version.major=1
+CloverForPlugins.provider=Virginia Tech Computer Science
+CloverForPlugins.description=This subsystem provides <a href\="http\://www.cenqua.com/clover/">clover</a> to support grading plug-ins that measure code coverage in Java code.
+subsystem.CloverForPlugins=org.webcat.cloverforplugins.CloverForPlugins
+CloverForPlugins.license=GNU Affero General Public License v.3
+CloverForPlugins.copyright=(c) 2006-2010 Virginia Tech Department of Computer Science
+CloverForPlugins.requires=Core, ANTForPlugins

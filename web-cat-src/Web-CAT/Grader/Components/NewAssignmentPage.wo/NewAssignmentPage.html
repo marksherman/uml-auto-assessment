@@ -1,0 +1,55 @@
+<webobject name="Page">
+<wo:org.webcat.core.WCPageModule title="Create New Assignment">
+<wo:WOForm multipleSubmit="true" enctype="multipart/form-data" action="$next">
+<table class="layout"><tbody>
+<tr><td class="R"><label for="name">Name:</label></td>
+    <td><wo:textfield value="$aName" size="40" id="name"/>
+      <webobject name="NameInfo"/></td></tr>
+<tr><td class="R"><label for="title">Title:</label></td>
+    <td><wo:textfield value="$title" size="40" id="title"/>
+    <webobject name="TitleInfo"/></td></tr>
+<wo:not condition="$coreSelections.course"><wo:if condition="$hasMultipleSections">
+<tr><td></td>
+    <td><wo:checkbox checked="$forAllSections"/> Create for all sections in
+    <wo:str value="$coreSelections.courseOffering.semester"/>
+    </td></tr>
+</wo:if></wo:not>
+<tr><td></td><td><wo:WCButton action="$next" label="Create"/></td></tr>
+</tbody></table>
+</wo:WOForm></wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Re-offer an Existing Assignment" open="$reuseOpen" id="$idFor.reofferPane">
+<p>You can reuse (or re-offer) an existing assignment in a different course
+offering by picking where you want to add the re-offered
+assignment:</p>
+<wo:WOForm multipleSubmit="true" enctype="multipart/form-data">
+<fieldset class="reoffer">
+<legend>Select Where to Re-offer an Existing Assignment</legend>
+<ol>
+<li>
+<wo:label for="$idFor.toSemesterSelector">Re-offer in semester:</wo:label>
+<wo name="ToSemesterFilter">
+  <wo:WCConnectAction event="onChange" action="$updateReofferPane" remote="true"/>
+</wo></li>
+<wo:if condition="$toSemester">
+  <li><wo:label for="$idFor.toCourseSelector">Re-offer in course:</wo:label>
+  <wo name="ToCourseFilter">
+    <wo:WCConnectAction event="onChange" action="$updateReofferPane" remote="true"/>
+  </wo></li>
+  <wo:if condition="$toCourseOffering">
+    <wo:if condition="$assignments.count">
+      <li><wo:label for="$idFor.assignmentSelector">Assignment to reoffer:</wo:label>
+      <wo name="AssignmentFilter"/></li>
+      <li><label></label><wo:WCButton label="Re-offer This Assignment" action="$reoffer"/></li>
+    </wo:if><wo:else>
+    <li><p>No assignments are available to re-offer in the selected course
+    offering.  Remember that you can only re-offer an assignment in the
+    selected course offering if there is not already another assignment
+    offering with the same name in the selected course offering.
+    </p></li>
+    </wo:else>
+  </wo:if>
+</wo:if>
+</ol></fieldset>
+</wo:WOForm></wo:org.webcat.core.WCPageModule>
+</webobject>

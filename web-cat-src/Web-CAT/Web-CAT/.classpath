@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="build/Web-CAT.woa/Contents/Resources/Java"/>
+	<classpathentry kind="lib" path="/Bootstrap/bin"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Bootstrap"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/EOJDBCPrototypes"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ExternalJars"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ERExtensions"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ERJars"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/BIRTRuntime"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Reporter"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Admin"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ANTForPlugins"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/BatchProcessor"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/CheckstyleForPlugins"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/CloverForPlugins"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Core"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/DBUpdateEngine"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Grader"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JobQueue"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Notifications"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Opinions"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/PerlForPlugins"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/PMDForPlugins"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/WebAPI"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/WebObjectsUpdater"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/WonderUpdater"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/WOUnitTest"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/Ajax"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/ERDirectToWeb"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaWOExtensions"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/WOOgnl"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaDirectToWeb"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaDTWGeneration"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaEOAccess"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaEOControl"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaEOProject"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaFoundation"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaWebObjects"/>
+	<classpathentry exported="true" kind="con" path="WOFramework/JavaWOJSPServlet"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="WOFramework/JavaJDBCAdaptor"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

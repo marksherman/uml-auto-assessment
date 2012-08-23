@@ -1,0 +1,30 @@
+ContentPane: WCContentPane {
+    id = id;
+}
+
+FooterCell: WOGenericContainer {
+    elementName = "th";
+    class = "pagination";
+    style = "text-align: right; vertical-align: middle;";
+    colspan = numberOfColumns;
+}
+
+PaginationBar: WCPaginationBar {
+    displayGroup = displayGroup;
+    action = refreshTable;
+    onChange = renderTableBusyScript;
+    settingsKey = settingsKey;
+}
+
+TableElement: WOGenericContainer {
+    elementName = "table";
+    otherTagString = passthroughAttributes;
+}
+
+TableJSInstance: WCDiv {
+    dojoType = "webcat.Table";
+    jsId = idFor.table;
+    contentPane = id;
+    idPrefix = idFor.ComponentIDPrefix;
+    style = "display: none;";
+}

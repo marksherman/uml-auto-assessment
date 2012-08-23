@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: export-plugin.xml,v 1.5 2010/09/20 14:17:35 aallowat Exp $ -->
+
+<project default="plugin_export" name="build" basedir=".">
+    <target name="plugin_export">
+        <pde.exportPlugins
+            destination="../BIRTRuntime/Resources/ReportEngine"
+            exportSource="false"
+            exportType="directory"
+            plugins="net.sf.webcat.oda.core"
+            useJARFormat="true"/>
+        <eclipse.refreshLocal
+            resource="BIRTRuntime/Resources/ReportEngine"
+            depth="infinite"/>
+    </target>
+</project>

@@ -1,0 +1,102 @@
+RPC : WCJSONRPC {
+    name = "jsonrpc";
+    proxyName = "page";
+}
+
+Page : org.webcat.core.WCPageWithNavigation {
+    title = "Your Generated Report";
+}
+
+MainBlock : org.webcat.core.WCPageModule {
+    collapsible = false;
+    title = mainBlockTitle;
+}
+
+GoToFirstPage : WCButton {
+    iconClass = "webcatReportPageNavigationIcon webcatReportPageNavigationIconFirst";
+    label = "Go to first page";
+    showLabel = false;
+}
+
+GoToPreviousPage : WCButton {
+    iconClass = "webcatReportPageNavigationIcon webcatReportPageNavigationIconPrevious";
+    label = "Go to previous page";
+    showLabel = false;
+}
+
+GoToNextPage : WCButton {
+    iconClass = "webcatReportPageNavigationIcon webcatReportPageNavigationIconNext";
+    label = "Go to next page";
+    showLabel = false;
+}
+
+GoToLastPage : WCButton {
+    iconClass = "webcatReportPageNavigationIcon webcatReportPageNavigationIconLast";
+    label = "Go to last page";
+    showLabel = false;
+}
+
+ProgressBar: WCSpan {
+    id = "reportProgressBar";
+    dojoType = "dijit.ProgressBar";
+    progress = initialProgress;
+}
+
+Cancel: WCButton {
+    id = "cancelButton";
+}
+
+ClickToSeeErrors : WOGenericContainer {
+    elementName = "a";
+    onclick = "var pane = dijit.byId('errorBlockTitlePane'); pane.attr('open', true);";
+    href = "#errors";
+}
+
+ErrorBlockContainer : WCContentPane {
+    id = "errorBlock";
+}
+
+ErrorBlock : org.webcat.core.WCPageModule {
+    id = "errorBlockTitlePane";
+    title = "Errors That Occurred While Generating This Report";
+    open = false;
+}
+
+CurrentReportPageContainer : WCContentPane {
+    id = "reportPageContainer";
+    alwaysDynamic = true;
+    style = "border: 1px solid gray; min-width: 90%; min-height: 250px; background-color: white";
+}
+
+CurrentReportPageContent : ReportPageContent {
+    report = generatedReport;
+    pageNumber = currentPageNumber;
+}
+
+GenerationErrors: ReportErrorsBlock {
+    errors = generatedReportErrors;
+}
+
+SavePDF: WOHyperlink {
+    action = savePDF;
+}
+
+SaveExcel: WOHyperlink {
+    action = saveExcel;
+}
+
+SaveZippedHTML: WOHyperlink {
+    action = saveZippedHTML;
+}
+
+SaveAllCSV: WOHyperlink {
+    action = saveZippedCSV;
+}
+
+SaveOneCSV: WOHyperlink {
+    action = saveOneCSV;
+}
+
+ReportIsReady: ERXWOConditional {
+    condition = "~isReportComplete && !generatedReportErrors";
+}

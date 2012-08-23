@@ -1,0 +1,29 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Thu Jun 09 09:16:38 EDT 2011
+log4j.loggerFactory=er.extensions.logging.ERXLogger$Factory
+webcat.license.url=http\://www.gnu.org/licenses/agpl.html
+log4j.appender.logfile.layout.ConversionPattern=%5p %d{DATE} [%t] %c{1}\: %m%n
+webcat.description=This bundle is not a real subsystem. It is the main application startup configuration for the Web-CAT server. it contains very little code, since all behaviors are provided by subsystems instead.
+webcat.history.url=http\://web-cat.org/WCWiki/WebCatApplication/ChangeHistory
+webcat.provider.url=http\://web-cat.org/updates
+subsystem.webcat=
+log4j.appender.logfile.ImmediateFlush=true
+log4j.appender.logfile.file=web-cat.log
+webcat.version.major=1
+webcat.version.revision=0
+log4j.appender.console.layout.ConversionPattern=%5p %d{DATE} %c{1}\: %m%n
+webcat.license=GNU Affero General Public License v.3
+log4j.appender.logfile.MaxBackupIndex=2
+log4j.appender.console.layout=er.extensions.logging.ERXPatternLayout
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.ImmediateFlush=true
+log4j.appender.logfile.MaxFileSize=200000
+webcat.version.minor=5
+webcat.info.url=http\://web-cat.org/WCWiki/WebCatApplication
+webcat.provider=Virginia Tech Computer Science
+webcat.version.date=20110609
+webcat.copyright=(c) 2006-2010 Virginia Tech Department of Computer Science
+log4j.rootLogger=WARN, console
+log4j.appender.logfile.layout=er.extensions.logging.ERXPatternLayout
+log4j.appender.logfile=org.apache.log4j.RollingFileAppender
+log4j.logger.NSLog=WARN

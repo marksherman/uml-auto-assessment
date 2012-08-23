@@ -1,0 +1,61 @@
+{
+  staff = {
+    accessLevel = 40;
+    priority    = 100;
+    wantsStart  = YES;
+    children = {
+      Home = {
+        accessLevel = 40;
+        priority   = 10;
+        wantsStart = YES;
+        children   = {
+          Status = {
+            pageName   = org.webcat.core.StatusPage;
+            accessLevel = 40;
+            priority   = 100;
+            wantsStart = YES;
+          };
+          "My Profile" = {
+            pageName = org.webcat.core.MyProfilePage;
+            accessLevel = 40;
+            priority = 1001;
+            id       = Profile;
+          };
+          Feedback = {
+            pageName = org.webcat.core.FeedbackPage;
+            accessLevel = 40;
+            priority = 1003;
+            id       = Feedback;
+          };
+        };
+      };
+    };
+  };
+  student = {
+    priority    = 200;
+    wantsStart  = YES;
+    children = {
+      Home = {
+        priority   = 10;
+        wantsStart = YES;
+        children   = {
+          Status = {
+            pageName   = org.webcat.core.StatusPage;
+            priority   = 100;
+            wantsStart = YES;
+          };
+          "My Profile" = {
+            pageName = org.webcat.core.MyProfilePage;
+            priority = 1001;
+            id       = Profile;
+          };
+          Feedback = {
+            pageName = org.webcat.core.FeedbackPage;
+            priority = 1002;
+            id       = Feedback;
+          };
+        };
+      };
+    };
+  };
+}

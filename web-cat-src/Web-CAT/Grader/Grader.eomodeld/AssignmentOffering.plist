@@ -1,0 +1,102 @@
+{
+    attributes = (
+        {columnName = CASSIGNMENTID; name = assignmentId; prototypeName = foreignId; }, 
+        {columnName = closedOnDate; name = closedOnDate; prototypeName = dateTime; }, 
+        {
+            columnName = CCOURSEOFFERINGID; 
+            name = courseOfferingId; 
+            prototypeName = foreignId; 
+        }, 
+        {columnName = CDUEDATE; name = dueDate; prototypeName = dateTime; }, 
+        {
+            columnName = FGRADINGSUSPENDED; 
+            name = gradingSuspended; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = CGRAPHSUMMARY; 
+            externalType = BLOB; 
+            name = graphSummary; 
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData; 
+                isMutable = true; 
+                valueClassName = "org.webcat.grader.graphs.AssignmentSummary"; 
+                valueFactoryMethodName = objectWithArchiveData; 
+            }; 
+            valueClassName = NSData; 
+        }, 
+        {name = id; prototypeName = id; }, 
+        {columnName = lastModified; name = lastModified; prototypeName = dateTime; }, 
+        {columnName = CMOODLEID; name = moodleId; prototypeName = foreignId; }, 
+        {
+            columnName = CPUBLISH; 
+            name = publish; 
+            prototypeName = boolean; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }, 
+        {
+            name = updateMutableFields; 
+            prototypeName = updateMutableFields; 
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; }; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        assignmentId, 
+        courseOfferingId, 
+        gradingSuspended, 
+        moodleId, 
+        publish, 
+        updateMutableFields
+    ); 
+    className = "org.webcat.grader.AssignmentOffering"; 
+    classProperties = (
+        assignment, 
+        closedOnDate, 
+        courseOffering, 
+        dueDate, 
+        graderPrefs, 
+        gradingSuspended, 
+        graphSummary, 
+        lastModified, 
+        moodleId, 
+        publish, 
+        submissions, 
+        updateMutableFields
+    ); 
+    externalName = TASSIGNMENTOFFERING; 
+    name = AssignmentOffering; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Assignment; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = assignmentId; }); 
+            name = assignment; 
+        }, 
+        {
+            destination = CourseOffering; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = courseOfferingId; }); 
+            name = courseOffering; 
+        }, 
+        {
+            destination = GraderPrefs; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = assignmentOfferingId; sourceAttribute = id; }); 
+            name = graderPrefs; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = Submission; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = assignmentOfferingId; sourceAttribute = id; }); 
+            name = submissions; 
+        }
+    ); 
+}

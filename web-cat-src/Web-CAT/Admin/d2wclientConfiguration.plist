@@ -1,0 +1,81 @@
+{
+	"components" = {
+		"WCListPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable",
+				"border",
+				"alternateRowColor",
+				"readOnly",
+				"batchSize"
+			);
+			"page" = "yes";
+			"inspectionInformation" = "A simple list page, listing entries in a table.";
+			"supports" = (
+				"justification"
+			);
+		};
+		"WCEditRelationshipPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable"
+			);
+			"inspectionInformation" = "A page that allows the editing of to-one or to-many relationship. You can configure the query/list/edit showing up at the bottom of this page by editing the query/list/edit settings for the same entity in expert mode";
+			"page" = "yes";
+			"supportsPropertyConfiguration" = "no";
+		};
+		"WCErrorPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable"
+			);
+			"page" = "yes";
+			"supportsPropertyConfiguration" = "no";
+		};
+		"WCQueryPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable",
+				"border",
+				"showBanner",
+				"fetchLimit",
+				"isDeep",
+				"usesDistinct",
+				"refreshRefetchedObjects"
+			);
+			"page" = "yes";
+			"inspectionInformation" = "A simple query page.";
+		};
+		"WCConfirmPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable"
+			);
+			"page" = "yes";
+			"supportsPropertyConfiguration" = "no";
+		};
+		"WCQueryAllEntitiesPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable",
+				"border",
+				"showBanner"
+			);
+			"inspectionInformation" = "A query page displaying a simple query form for all available entities.";
+			"page" = "yes";
+			"supportsPropertyConfiguration" = "no";
+		};
+		"WCInspectPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable",
+				"border",
+				"showBanner"
+			);
+			"inspectionInformation" = "A simple inspect page.";
+			"page" = "yes";
+		};
+		"WCEditPageTemplate" = {
+			"editors" = (
+				"backgroundColorForTable",
+				"border",
+				"showBanner"
+			);
+			"page" = "yes";
+			"inspectionInformation" = "A simple inspect page.";
+		};
+	};
+}

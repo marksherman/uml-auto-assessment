@@ -1,0 +1,27 @@
+<wo:WCPageWithNavigation>
+<wo:WCForm multipleSubmit="true" enctype="multipart/form-data">
+<wo:WCPageModule title="Measurement Setup">
+<p>Semester = <span class="hl"><wo:str value="$semester"/></span>
+  (<wo:str value="$offeringCount"/> offerings,
+  <wo:str value="$userCount"/> users).<br/>
+Accrediting agency = <span class="hl"><wo:str value="$abet"/></span>
+  (<wo:str value="$abetOutcomeCount"/> outcomes).<br/>
+Department = <span class="hl"><wo:str value="$dept"/></span>
+  (<wo:str value="$deptCourseCount"/> courses,
+  <wo:str value="$deptOutcomeCount"/> outcomes).<br/>
+Program = <span class="hl"><wo:str value="$program.name"/></span>.</p>
+
+<p>Upload:
+<wo:upload data="$data" filePath="$filePath"/></p>
+
+<p><wo:WCButton label="Upload More ABET Outcomes" action="$abetUpload"/></p>
+
+<p><wo:WCButton label="Upload More Department Outcomes" action="$deptUpload"/></p>
+
+<p><wo:WCButton label="Upload More Measures" action="$measureUpload"/></p>
+
+<p><wo:WCButton label="Upload Course Offering List" action="$courseUpload"/></p>
+
+</wo:WCPageModule>
+</wo:WCForm>
+</wo:WCPageWithNavigation>

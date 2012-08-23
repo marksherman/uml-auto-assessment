@@ -1,0 +1,45 @@
+BlobContentImage : WOImage {
+    data = blobContent;
+    mimeType = mimeType;
+}
+
+BlobContentText : CodeEditor {
+    value = blobContentString;
+    mimeType = blobMimeType;
+    sizeToFit = true;
+}
+
+Breadcrumbs : GitBreadcrumbsComponent {
+    gitContext = gitContext;
+}
+
+CommitList : GitCommitListComponent {
+    commits = commits;
+    showsOnlyLatestCommit = true;
+    gitContext = gitContext;
+}
+
+CommitMessageForChanges: WCTextBox {
+    value = commitMessageForChanges;
+    style = "width: 40em";
+}
+
+GitPage : GitBasePage {
+    gitContext = gitContext;
+}
+
+HistoryLink : WOGenericContainer {
+    elementName = "a";
+    href = historyURL;
+}
+
+RawLink : WOGenericContainer {
+    elementName = "a";
+    href = rawURL;
+}
+
+CommitChanges: WCButton {
+    class = "pos";
+    label = "Commit";
+    action = commitChanges;
+}

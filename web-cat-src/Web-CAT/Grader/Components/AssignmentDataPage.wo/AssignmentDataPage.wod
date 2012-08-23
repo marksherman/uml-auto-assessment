@@ -1,0 +1,9 @@
+LongResponse : org.webcat.core.LongResponse {
+	task = longResponse;
+	refreshInterval = 3;
+	message = "Generating the CSV file ...";
+}
+
+PageWrapper: org.webcat.core.WCPageWithNavigation {
+    title = "Assignment Scheduling/Grading Data";
+}

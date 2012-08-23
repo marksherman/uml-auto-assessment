@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %plugin.name
+Bundle-SymbolicName: net.sf.webcat.oda.core;singleton:=true
+Bundle-Version: 1.2.0
+Bundle-Activator: org.webcat.oda.core.Activator
+Bundle-Localization: plugin
+Export-Package: org.webcat.oda.core;uses:="org.webcat.oda.commons,org.osgi.framework,org.eclipse.core.runtime",
+ org.webcat.oda.core.impl;
+  uses:="org.webcat.oda.commons,
+   org.eclipse.datatools.connectivity.oda.spec,
+   com.ibm.icu.util,
+   org.eclipse.datatools.connectivity.oda"
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.2.0,4.0.0)",
+ org.eclipse.datatools.connectivity.oda;bundle-version="[3.1.0,4.0.0)",
+ org.eclipse.datatools.connectivity.oda.profile;bundle-version="[3.0.4,4.0.0)";resolution:=optional,
+ net.sf.webcat.oda.commons;bundle-version="1.2.0";resolution:=optional;visibility:=reexport
+Eclipse-BuddyPolicy: app
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Virginia Tech Computer Science
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

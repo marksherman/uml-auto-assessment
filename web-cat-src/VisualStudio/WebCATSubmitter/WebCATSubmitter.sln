@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCATSubmitterPackage", "WebCATSubmitterPackage\WebCATSubmitterPackage.csproj", "{D8D2EFC6-A0F4-464A-9CC2-D7A7107F7547}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCATSubmitterCore", "WebCATSubmitterCore\WebCATSubmitterCore.csproj", "{368B7817-D7A9-4E6E-9A4C-C7E31DF32F04}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{BE6BC83E-9A7F-4230-A4CD-E48AFDC6A2C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevenvSetupInstallerAction", "DevenvSetupInstallerAction\DevenvSetupInstallerAction.csproj", "{9144E0EC-09C5-461E-9691-C36337B4261F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8D2EFC6-A0F4-464A-9CC2-D7A7107F7547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D2EFC6-A0F4-464A-9CC2-D7A7107F7547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D2EFC6-A0F4-464A-9CC2-D7A7107F7547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D2EFC6-A0F4-464A-9CC2-D7A7107F7547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{368B7817-D7A9-4E6E-9A4C-C7E31DF32F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{368B7817-D7A9-4E6E-9A4C-C7E31DF32F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{368B7817-D7A9-4E6E-9A4C-C7E31DF32F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{368B7817-D7A9-4E6E-9A4C-C7E31DF32F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE6BC83E-9A7F-4230-A4CD-E48AFDC6A2C9}.Debug|Any CPU.ActiveCfg = Debug
+		{BE6BC83E-9A7F-4230-A4CD-E48AFDC6A2C9}.Release|Any CPU.ActiveCfg = Release
+		{9144E0EC-09C5-461E-9691-C36337B4261F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9144E0EC-09C5-461E-9691-C36337B4261F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9144E0EC-09C5-461E-9691-C36337B4261F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9144E0EC-09C5-461E-9691-C36337B4261F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

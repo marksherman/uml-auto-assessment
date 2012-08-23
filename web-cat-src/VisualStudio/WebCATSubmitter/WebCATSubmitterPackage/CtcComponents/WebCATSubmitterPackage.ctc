@@ -1,0 +1,117 @@
+/*==========================================================================*\
+ |  $Id: WebCATSubmitterPackage.ctc,v 1.2 2008/12/12 01:44:09 aallowat Exp $
+ |*-------------------------------------------------------------------------*|
+ |  Copyright (C) 2008 Virginia Tech
+ |
+ |  This file is part of the Web-CAT Electronic Submission Package for Visual
+ |	Studio.NET.
+ |
+ |  Web-CAT is free software; you can redistribute it and/or modify
+ |  it under the terms of the GNU Affero General Public License as published
+ |  by the Free Software Foundation; either version 3 of the License, or
+ |  (at your option) any later version.
+ |
+ |  Web-CAT is distributed in the hope that it will be useful,
+ |  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ |  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ |  GNU General Public License for more details.
+ |
+ |  You should have received a copy of the GNU Affero General Public License
+ |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
+\*==========================================================================*/
+
+
+#include "stdidcmd.h"
+#include "vsshlids.h"
+#include "msobtnid.h"
+
+#include "CommandIds.h"
+#include "Resource.h"
+#include "Guids.h"
+
+// shorthand macros for a more compact and manageable table
+#define OI_NOID         guidOfficeIcon:msotcidNoIcon
+#define DIS_DEF         DEFAULTDISABLED | DEFAULTINVISIBLE | DYNAMICVISIBILITY
+#define VIS_DEF         COMMANDWELLONLY
+
+
+CMDS_SECTION guidWebCATSubmitterPackage
+
+	MENUS_BEGIN
+		// NewMenu, Relative to Group, Priority, Type, Name, Text
+	MENUS_END
+
+	NEWGROUPS_BEGIN
+		// NewGroup, Parent Group, Priority
+		guidWebCATSubmitterPackageCmdSet:SubmitSolutionGroup,
+		guidSHLMainMenu:IDM_VS_MENU_FILE,
+		0x0800;
+
+		guidWebCATSubmitterPackageCmdSet:SubmitSolutionGroup,
+		guidSHLMainMenu:IDM_VS_TOOL_STANDARD,
+		0x0100;
+
+		guidWebCATSubmitterPackageCmdSet:SubmitSolutionGroup,
+		guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,
+		0x0100;
+
+		guidWebCATSubmitterPackageCmdSet:SubmitProjectGroup,
+		guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,
+		0x0100;
+
+		guidWebCATSubmitterPackageCmdSet:SubmitProjectGroup,
+		guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,
+		0x0100;
+	NEWGROUPS_END
+
+	BUTTONS_BEGIN
+		// Command, Parent Group, Priority, Image, Type, Visibility
+		guidWebCATSubmitterPackageCmdSet:cmdidSubmitSolution,
+		guidWebCATSubmitterPackageCmdSet:SubmitSolutionGroup,
+		0x0100,
+		guidWebCATSubmitterPackageCmdSet:bmpPicSubmit,
+		BUTTON,
+		,
+		"Submit Solution...";
+
+		guidWebCATSubmitterPackageCmdSet:cmdidSubmitProject,
+		guidWebCATSubmitterPackageCmdSet:SubmitProjectGroup,
+		0x0100,
+		guidWebCATSubmitterPackageCmdSet:bmpPicSubmit,
+		BUTTON,
+		,
+		"Submit Project...";
+	BUTTONS_END
+
+	BITMAPS_BEGIN
+		// Bitmap, Bitmap Index, Bitmap Index, ...
+		guidWebCATSubmitterPackageCmdSet:IDB_MENU_IMAGES,
+		bmpPicSubmit,
+		bmpPic2,
+		bmpPic3,
+		bmpPic4,
+		bmpPic5;
+	BITMAPS_END
+
+CMDS_END
+
+
+CMDUSED_SECTION
+CMDUSED_END
+
+
+CMDPLACEMENT_SECTION
+	// Command, Group, Priority
+CMDPLACEMENT_END
+
+
+VISIBILITY_SECTION
+	// Command, GUID when visible
+	guidWebCATSubmitterPackageCmdSet:cmdidSubmitSolution,
+	UICONTEXT_SolutionExistsAndNotBuildingAndNotDebugging;
+VISIBILITY_END
+
+
+KEYBINDINGS_SECTION
+	// Command, when available, emulation, keystate
+KEYBINDINGS_END

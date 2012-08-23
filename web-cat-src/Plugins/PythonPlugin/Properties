@@ -1,0 +1,22 @@
+#This file is automatically rewritten by ANT, so all formatting will be trashed.
+#Tue Feb 02 10:46:33 EST 2010
+timeoutMultiplier=2
+version.minor=9
+copyright="(c) 2009-2010 Virginia Tech Department of Computer Science"
+requires=( PerlForPlugins )
+license.url="http\://www.gnu.org/copyleft/agpl.html"
+author="Stefan Brandle (sbrandle@cse.taylor.edu)"
+executable=execute.pl
+license="GNU Affero General Public License v.3"
+info.url="http\://web-cat.cs.vt.edu/WCWiki/PythonTddPlugin"
+interpreter.prefix="${PerlForPlugins.perl.exe}"
+languages=( { name \= "Python"; version \= "Python 2.5.2"; } )
+version.major=0
+version.date=20100202
+history.url="http\://web-cat.cs.vt.edu/WCWiki/PythonTddPlugin/ChangeHistory"
+timeoutInternalPadding=400
+provider="Virginia Tech Computer Science"
+authorUid=sbrandle
+provider.url="http\://web-cat.cs.vt.edu/updates"
+version.revision=8
+name=PythonPlugin

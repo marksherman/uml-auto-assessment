@@ -1,0 +1,37 @@
+{
+    /* optionCategories = ( ... ); */
+    options = (
+    {
+        property    = "ANTForPlugins.JAVA_HOME";
+        type        = shortText;
+        size        = 70;
+        name        = "JAVA_HOME";
+        description =
+  "The directory containing the JDK installation that will be used when
+  running Java and ANT-based plug-ins.  Note that the JDK you specify
+  here need <b>not</b> be the same one used to run the Web-CAT server
+  itself (or its servlet container).  We recommend that you select the
+  newest JDK implementation you have installed here.  If you leave this
+  setting blank, the existing system environment variable value for
+  JAVA_HOME (if any) will be used instead.  If you specify a value here,
+  in addition to exporting the new value as the JAVA_HOME environment
+  variable for plug-ins, the corresponding bin directory will also be
+  prepended to the system PATH when executing plug-ins.";
+    },
+    {
+        property    = "ANTForPlugins.ANT_HOME";
+        type        = shortText;
+        size        = 70;
+        name        = "ANT_HOME";
+        description =
+  "The directory containing the ANT installation that will be used when
+  running Java and ANT-based plug-ins.  Leave this setting blank to use
+  the built-in ANT distribution contained within this subsystem.  Only
+  enter a value if you wish to <b>override</b> the subsystem's version of
+  ANT and use your own system-installed version instead.  If you specify a
+  value here, in addition to exporting the new value as the ANT_HOME
+  environment variable for plug-ins, the corresponding bin directory will
+  also beprepended to the system PATH when executing plug-ins.";
+    }
+    );
+}

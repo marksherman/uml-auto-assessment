@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOAccess"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOControl"/>
+	<classpathentry kind="con" path="WOFramework/JavaFoundation"/>
+	<classpathentry kind="con" path="WOFramework/JavaJDBCAdaptor"/>
+	<classpathentry kind="con" path="WOFramework/JavaWebObjects"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOProject"/>
+	<classpathentry kind="con" path="WOFramework/JavaWOExtensions"/>
+	<classpathentry kind="con" path="WOFramework/ERJars"/>
+	<classpathentry kind="con" path="WOFramework/DBUpdateEngine"/>
+	<classpathentry kind="con" path="WOFramework/ExternalJars"/>
+	<classpathentry kind="con" path="WOFramework/ERExtensions"/>
+	<classpathentry kind="con" path="WOFramework/EOJDBCPrototypes"/>
+	<classpathentry kind="con" path="WOFramework/Core"/>
+	<classpathentry kind="con" path="WOFramework/Ajax"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

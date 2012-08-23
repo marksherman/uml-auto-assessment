@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-Name: Web-CAT Submitter Documentation
+Bundle-SymbolicName: net.sf.webcat.eclipse.submitter.documentation;singleton:=true
+Bundle-Version: 1.4.3.qualifier
+Bundle-Vendor: Virginia Tech Computer Science
+Require-Bundle: org.eclipse.help
+Bundle-ManifestVersion: 2

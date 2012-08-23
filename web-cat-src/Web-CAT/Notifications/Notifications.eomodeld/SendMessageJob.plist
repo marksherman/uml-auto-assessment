@@ -1,0 +1,195 @@
+{
+    attributes = (
+        {
+            columnName = attachments;
+            name = attachments;
+            prototypeName = mutableDictionary;
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData;
+                isMutable = true;
+                valueClassName = "org.webcat.core.MutableDictionary";
+                valueFactoryMethodName = objectWithArchiveData;
+            };
+        },
+        {
+            columnName = broadcastProtocolSettingsId;
+            name = broadcastProtocolSettingsId;
+            prototypeName = foreignId;
+        },
+        {
+            columnName = broadcastProtocolSettingsSnapshot;
+            name = broadcastProtocolSettingsSnapshot;
+            prototypeName = mutableDictionary;
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData;
+                isMutable = true;
+                valueClassName = "org.webcat.core.MutableDictionary";
+                valueFactoryMethodName = objectWithArchiveData;
+            };
+        },
+        {
+            allowsNull = N;
+            definition = "jobBase.enqueueTime";
+            name = enqueueTime;
+            prototypeName = dateTime;
+        },
+        {columnName = fullBody; name = fullBody; prototypeName = mediumText; },
+        {allowsNull = N; name = id; prototypeName = id; valueType = i; },
+        {
+            definition = "jobBase.isCancelled";
+            name = isCancelled;
+            prototypeName = boolean;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {
+            definition = "jobBase.isReady";
+            name = isReady;
+            prototypeName = boolean;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {
+            columnName = isSevere;
+            name = isSevere;
+            prototypeName = boolean;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {
+            columnName = links;
+            name = links;
+            prototypeName = mutableDictionary;
+            userInfo = {
+                adaptorValueConversionMethodName = archiveData;
+                isMutable = true;
+                valueClassName = "org.webcat.core.MutableDictionary";
+                valueFactoryMethodName = objectWithArchiveData;
+            };
+        },
+        {columnName = messageType; name = messageType; prototypeName = tinyText; },
+        {
+            definition = "jobBase.priority";
+            name = priority;
+            prototypeName = integer;
+            userInfo = {
+                isScalar = true;
+                scalarConversionMethodName = intValue;
+                scalarDefault = 0;
+                type = int;
+                valueClassName = Integer;
+            };
+        },
+        {
+            definition = "jobBase.progress";
+            name = progress;
+            prototypeName = double;
+            userInfo = {
+                isScalar = true;
+                scalarConversionMethodName = doubleValue;
+                scalarDefault = "0.0";
+                type = double;
+                valueClassName = Double;
+            };
+        },
+        {
+            definition = "jobBase.progressMessage";
+            name = progressMessage;
+            prototypeName = mediumText;
+        },
+        {
+            definition = "jobBase.scheduledTime";
+            name = scheduledTime;
+            prototypeName = dateTime;
+        },
+        {columnName = shortBody; name = shortBody; prototypeName = mediumText; },
+        {
+            definition = "jobBase.suspensionReason";
+            name = suspensionReason;
+            prototypeName = mediumText;
+        },
+        {columnName = title; name = title; prototypeName = mediumText; },
+        {
+            name = updateMutableFields;
+            prototypeName = updateMutableFields;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {definition = "jobBase.userId"; name = userId; prototypeName = foreignId; },
+        {definition = "jobBase.workerId"; name = workerId; prototypeName = foreignId; }
+    );
+    attributesUsedForLocking = (
+        attachments,
+        broadcastProtocolSettingsId,
+        broadcastProtocolSettingsSnapshot,
+        fullBody,
+        isCancelled,
+        isReady,
+        isSevere,
+        links,
+        messageType,
+        priority,
+        progressMessage,
+        shortBody,
+        suspensionReason,
+        title,
+        updateMutableFields,
+        userId,
+        workerId
+    );
+    className = "org.webcat.notifications.SendMessageJob";
+    classProperties = (
+        attachments,
+        broadcastProtocolSettings,
+        broadcastProtocolSettingsId,
+        broadcastProtocolSettingsSnapshot,
+        destinationUsers,
+        enqueueTime,
+        fullBody,
+        isCancelled,
+        isReady,
+        isSevere,
+        links,
+        messageType,
+        priority,
+        progress,
+        progressMessage,
+        scheduledTime,
+        shortBody,
+        suspensionReason,
+        title,
+        updateMutableFields,
+        user,
+        worker
+    );
+    externalName = SendMessageJob;
+    fetchSpecificationDictionary = {};
+    name = SendMessageJob;
+    parent = JobBase;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            destination = ProtocolSettings;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = broadcastProtocolSettingsId; });
+            name = broadcastProtocolSettings;
+        },
+        {definition = "sendMessageJobUsers.user"; name = destinationUsers; },
+        {
+            destination = JobBase;
+            isMandatory = Y;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = id; });
+            name = jobBase;
+        },
+        {
+            deleteRule = EODeleteRuleCascade;
+            destination = SendMessageJobUser;
+            isToMany = Y;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = sendMessageJobId; sourceAttribute = id; });
+            name = sendMessageJobUsers;
+            propagatesPrimaryKey = Y;
+        },
+        {definition = "jobBase.user"; name = user; },
+        {definition = "jobBase.worker"; name = worker; }
+    );
+}

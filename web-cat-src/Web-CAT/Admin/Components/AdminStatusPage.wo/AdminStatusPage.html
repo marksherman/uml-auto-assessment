@@ -1,0 +1,56 @@
+<webobject name="Page">
+<webobject name="SystemStatus"/>
+<wo:org.webcat.core.WCPageModule title="Shutdown Controls" open="false">
+<webobject name="Form"><webobject name="ThrowException"/><webobject name="CanRestart">
+<webobject name="GracefulShutdown"/>
+<webobject name="DieNow"/>
+</webobject><webobject name="CannotRestart">
+<p>To enable kill/restart controls, please use the <b>Subsystems</b> tab above
+to edit the settings for the <b>Core subsystem</b> and provide a value for
+the <b>Web-CAT Shutdown/Restart External Command</b> setting.
+</p></webobject></webobject>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Log4J Configuration" open="false">
+<wo:org.webcat.admin.Log4JConfigurationPage/>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:if condition="$application.isDevelopmentMode">
+<wo:org.webcat.core.WCPageModule title="Test Pages" open="false">
+<ul>
+<li><wo:link pageName="org.webcat.core.TypographyDemoPage">Typography
+    demo page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.WidgetTestPage">Widget
+    test page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.TitlePaneTestPage">Title pane
+    test page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.FileUploadTestPage">File upload test
+    page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.PartialSubmitTestPage">Ajax partial submit test
+    page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.ConfirmingActionTestPage">Confirming action
+test page</wo:link></li>
+<li><wo:link pageName="org.webcat.admin.SamplePage">Sample page for theme
+    screen captures</wo:link></li>
+<li><wo:link pageName="org.webcat.core.tests.CoreNavigatorTestPage">Core
+    navigator test page</wo:link></li>
+<li><wo:link pageName="org.webcat.grader.NavTestPage">Grader
+    navigator test page</wo:link></li>
+<li><wo:link pageName="org.webcat.admin.tests.NoticeTestPage">Notice/message
+    test page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.WCTableTestPage">WCTable test page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.WCTreeTestPage">WCTree test page</wo:link></li>
+<li><wo:link pageName="org.webcat.core.WCDropDownListTestPage">WCDropDownList test page</wo:link></li>
+</ul>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Unit Test Controls" open="false">
+<wo:org.webcat.admin.UnitTestPage/>
+</wo:org.webcat.core.WCPageModule>
+</wo:if>
+
+<wo:org.webcat.core.WCPageModule title="System Properties" open="false">
+<wo:org.webcat.admin.PropertyListPage/>
+</wo:org.webcat.core.WCPageModule>
+
+</webobject>

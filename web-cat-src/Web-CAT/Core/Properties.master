@@ -1,0 +1,103 @@
+# ===================================================================
+# Core subsystem characteristics
+# ===================================================================
+subsystem.Core
+
+Core.version.major=2
+Core.version.minor=2
+Core.version.revision=9
+
+Core.copyright=(c) 2006-2012 Virginia Tech Department of Computer Science
+Core.provider=Virginia Tech Computer Science
+Core.provider.url=http\://web-cat.org/updates
+Core.info.url=http\://wiki.web-cat.org/WCWiki/CoreSubsystem
+Core.history.url=http\://wiki.web-cat.org/WCWiki/CoreSubsystem/ChangeHistory
+Core.license=GNU Affero General Public License v.3
+Core.license.url=http\://www.gnu.org/licenses/agpl.html
+Core.requires=\
+	ExternalJars, WebObjectsUpdater, WonderUpdater, \
+	DBUpdateEngine, EOJDBCPrototypes
+
+Core.description=\
+    This is the principal subsystem for Web-CAT, and provides all the \
+    capabilities necessary for loading and operating all other subsystems.  \
+    It also provides authentication services, and common UI elements used \
+    system-wide.
+
+
+# -------------------------------------------------------------------
+# Core subsystem configuration property defaults
+# -------------------------------------------------------------------
+# see config.plist for docs on each property
+
+Core.archive.handler.list=(\
+    org.webcat.archives.internal.ZipArchiveHandler,   \
+    org.webcat.archives.internal.TarGzArchiveHandler, \
+    org.webcat.archives.internal.TarArchiveHandler)
+help.baseURL = http://web-cat.org/Web-CAT.help/
+
+
+# -------------------------------------------------------------------
+# Run-time control
+# -------------------------------------------------------------------
+# forcibly die 24 hours after starting up (no refusal period)
+# ERTimeToLive = 86700
+# Or, start refusing new sessions 24 hours after starting up
+# ERTimeToDie = 86400
+# Forcibly die 180 seconds after starting to refuse new sessions
+ERTimeToKill = 180
+
+
+# -------------------------------------------------------------------
+# Configure WebObjects settings
+# -------------------------------------------------------------------
+WODefaultUndoStackLimit           = 0
+WOSessionTimeOut                  = 3600
+WOAllowsConcurrentRequestHandling = true
+
+
+# -------------------------------------------------------------------
+# Configure ERExtensions settings
+# -------------------------------------------------------------------
+dbConnectDriverGLOBAL = com.mysql.jdbc.Driver
+er.extensions.ERXApplication.useEditingContextUnlocker = true
+er.extensions.ERXApplication.DefaultEncoding = UTF-8
+er.extensions.ERXEC.safeLocking = true
+er.extensions.ERXEC.traceOpenLocks = true
+er.extensions.ERXEnterpriseObject.updateInverseRelationships = true
+
+er.extensions.ERXResourceManager.versionManager = \
+    org.webcat.woextensions.WCResourceManager$WCVersionManager
+ognl.active          = true
+ognl.helperFunctions = true
+ognl.inlineBindings  = true
+er.extensions.logging.ERXNSLogLog4jBridge.ignoreNSLogSettings = true
+er.ajax.json.backtrackCacheSize = 100
+WOPageCacheSize      = 50
+
+
+# -------------------------------------------------------------------
+# Core logging defaults
+# -------------------------------------------------------------------
+log4j.logger.org.webcat.core.Application          = INFO
+log4j.logger.org.webcat.core.install              = INFO
+log4j.logger.org.webcat.core.Theme                = INFO
+log4j.logger.er.extensions.appserver.ERXApplication$JarChecker = ERROR
+log4j.logger.er.extensions.eof.ERXEC              = ERROR
+log4j.logger.er.extensions.ERXEC                  = ERROR
+
+# This entry ensures that one must specifically request that this be
+# turned on separately from turning on generic Application class logging,
+# since this dumps high volumes of info that is only desirable in special
+# circumstances.
+log4j.logger.org.webcat.core.Application.requests = WARN
+
+# These duplicate settings in the main app properties file, but are
+# placed here for the near term to avoid an update of the main app bundle
+# for a while.
+ognl.active          = true
+ognl.helperFunctions = true
+ognl.inlineBindings  = true
+er.extensions.ERXNSLogLog4jBridge.ignoreNSLogSettings = true
+log4j.logger.NSLog = WARN
+

@@ -1,0 +1,56 @@
+Breadcrumbs : GitBreadcrumbsComponent {
+    gitContext = gitContext;
+}
+
+CommitMessageForUpload: WCTextBox {
+    value = commitMessageForUpload;
+    style = "width: 40em";
+}
+
+CreateFolder: WCButton {
+    label  = "Create Folder";
+    action = createFolder;
+}
+
+DownloadIcon : WOImage {
+    framework = "Core";
+    filename = "icons/filetypes/box.png";
+    alt = "Download this folder";
+    title = "Download this folder";
+    class = "icon";
+}
+
+DownloadLink : WOHyperlink {
+    action = downloadTree;
+}
+
+ExpandIfArchive: WCCheckBox {
+    checked = expandIfArchive;
+}
+
+FileToUpload: WOFileUpload {
+    data = fileDataToUpload;
+    filePath = filePathToUpload;
+    dojoType = "dojox.form.FileInput";
+}
+
+FolderName: WCTextBox {
+    value = folderName;
+    id    = "folderName";
+    width = 25;
+}
+
+GitPage : GitBasePage {
+    gitContext = gitContext;
+}
+
+Tree : GitTreeComponent {
+    gitContext = gitContext;
+    entries = entries;
+}
+
+Upload: WCButton {
+    class = "pos";
+    label = "Upload File";
+    action = uploadFile;
+}

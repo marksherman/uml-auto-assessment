@@ -1,0 +1,120 @@
+{
+    mostRecentResultsForAssignment = {
+        class = WCFetchSpecification;
+        entityName = SubmissionResult;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = isMostRecent;
+                    selectorName = "isEqualTo:";
+                    value = {class = NSNumber; value = 1; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = "submissions.assignmentOffering";
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = assignmentOffering; class = EOQualifierVariable; };
+                }
+            );
+        };
+    };
+    mostRecentResultsForAssignmentAndUser = {
+        class = WCFetchSpecification;
+        entityName = SubmissionResult;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = isMostRecent;
+                    selectorName = "isEqualTo:";
+                    value = {class = NSNumber; value = 1; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = "submissions.assignmentOffering";
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = assignmentOffering; class = EOQualifierVariable; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = "submissions.user";
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = user; class = EOQualifierVariable; };
+                }
+            );
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "submissions.submitTime";
+                selectorName = "compareDescending:";
+            }
+        );
+    };
+    mostRecentResultsForAssignmentOrderedByNumber = {
+        class = WCFetchSpecification;
+        entityName = SubmissionResult;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = isMostRecent;
+                    selectorName = "isEqualTo:";
+                    value = {class = NSNumber; value = 1; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = "submissions.assignmentOffering";
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = assignmentOffering; class = EOQualifierVariable; };
+                }
+            );
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "submissions.submitNumber";
+                selectorName = "compareAscending:";
+            }
+        );
+    };
+    resultsForAssignmentAndUser = {
+        class = WCFetchSpecification;
+        entityName = SubmissionResult;
+        fetchLimit = 0;
+        isDeep = YES;
+        qualifier = {
+            class = EOAndQualifier;
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier;
+                    key = "submissions.assignmentOffering";
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = assignmentOffering; class = EOQualifierVariable; };
+                },
+                {
+                    class = EOKeyValueQualifier;
+                    key = "submissions.user";
+                    selectorName = "isEqualTo:";
+                    value = {"_key" = user; class = EOQualifierVariable; };
+                }
+            );
+        };
+        sortOrderings = (
+            {
+                class = EOSortOrdering;
+                key = "submissions.submitTime";
+                selectorName = "compareAscending:";
+            }
+        );
+    };
+}

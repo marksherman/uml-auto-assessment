@@ -1,0 +1,32 @@
+<webobject name="Form1">
+<table class="layout">
+  <tr>
+    <td><b>Test Cases</b></td>
+    <td rowspan="2" width="5%"></td>
+    <td><b>Settings</b></td>
+  </tr>
+  <tr valign="top">
+    <td>
+      <table class="layout">
+        <tr><td>
+          <webobject name="Conditional2"><wo name="SubmitButton2">Run All</wo></webobject>
+        </td></tr>
+        <tr><td><webobject name="Browser1"/></td></tr>
+        <tr><td align="right"><webobject name="Conditional3"><wo name="SubmitButton1">Run Selected</wo></webobject></td></tr>
+      </table>
+    </td>
+    <td>
+      <table class="layout" style="white-space:nowrap">
+        <tr><td><webobject name="CheckBox1"/>Continue after Failure/Error</td></tr>
+        <tr><td><webobject name="CheckBox3"/>Filter Stack Traces</td></tr>
+        <tr><td><webobject name="CheckBox2"/>Log Tests</td></tr>
+        <tr><td><webobject name="CheckBox4"/>EOAdaptorDebugEnabled</td></tr>
+        <tr><td><webobject name="CheckBox5"/>Hide Package Names</td></tr>
+        <tr><td><wo name="SubmitButton3">Save</wo></td></tr>
+      </table>
+    </td>
+  </tr>
+</table><br/>
+<webobject name="Conditional1"><h3>Result</h3>
+<webobject name="UTTestResultDisplay1"/>
+</webobject></webobject>

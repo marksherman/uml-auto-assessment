@@ -1,0 +1,9 @@
+Properties
+**/*.eomodeld/
+**/*.d2wmodel
+**/*.wo/
+**/*.api
+**/*.strings
+*.d2wmodel
+d2wclientConfiguration.plist
+Tabs.plist

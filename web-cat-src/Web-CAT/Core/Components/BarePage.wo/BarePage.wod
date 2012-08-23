@@ -1,0 +1,70 @@
+PageContent: WOComponentContent {
+}
+
+PageTitle: WOString {
+	value = pageTitle;
+}
+
+StyleSheet: WOString {
+	value      = styleSheetLink;
+	escapeHTML = false;
+}
+
+Overlib: WOString {
+	value      = overlibLink;
+	escapeHTML = false;
+}
+
+JavaScript: WOString {
+	value      = javaScriptLink;
+	escapeHTML = false;
+}
+
+InlineHeaderContents: WOString {
+	value      = inlineHeaderContents;
+	escapeHTML = false;
+}
+
+Body: WOGenericContainer {
+    elementName = "body";
+    onload      = onLoad;
+    class       = bodyClass;
+}
+
+IncludeStdStyleSheet: WOConditional {
+    condition = omitStdStyleSheet;
+    negate    = true;
+}
+
+WCStyleSheet: WOString {
+    value = wcStylesheet;
+}
+
+BeforeIE5: WOString {
+	escapeHTML = false;
+	// The value is placed here to keep the IE-directed comments from being
+    // stripped out by WO.
+    value = "<!--[if IE 5]>";
+}
+
+WCIE5StyleSheet: WOString {
+    value = wcIE5Stylesheet;
+}
+
+BeforeIE6: WOString {
+	escapeHTML = false;
+	// The value is placed here to keep the IE-directed comments from being
+    // stripped out by WO.
+    value = "<![endif]--><!--[if IE 6]>";
+}
+
+WCIE6StyleSheet: WOString {
+    value = wcIE6Stylesheet;
+}
+
+AfterIE6: WOString {
+	escapeHTML = false;
+	// The value is placed here to keep the IE-directed comments from being
+    // stripped out by WO.
+    value = "<![endif]-->";
+}

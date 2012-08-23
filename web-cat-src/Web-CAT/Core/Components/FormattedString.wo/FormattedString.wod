@@ -1,0 +1,3 @@
+Preformatted: WOGenericContainer {
+	elementName = "~preformatted ? \"pre\" : \"span\"";
+}

@@ -1,0 +1,119 @@
+{
+    attributes = (
+        {
+            columnName = assignmentOfferingId;
+            name = assignmentOfferingId;
+            prototypeName = foreignId;
+        },
+        {columnName = dueTime; name = dueTime; prototypeName = dateTime; },
+        {
+            allowsNull = N;
+            definition = "jobBase.enqueueTime";
+            name = enqueueTime;
+            prototypeName = dateTime;
+        },
+        {allowsNull = N; name = id; prototypeName = id; valueType = i; },
+        {
+            definition = "jobBase.isCancelled";
+            name = isCancelled;
+            prototypeName = boolean;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {
+            definition = "jobBase.isReady";
+            name = isReady;
+            prototypeName = boolean;
+            userInfo = {isScalar = true; scalarDefault = false; type = boolean; };
+        },
+        {
+            definition = "jobBase.priority";
+            name = priority;
+            prototypeName = integer;
+            userInfo = {
+                isScalar = true;
+                scalarConversionMethodName = intValue;
+                scalarDefault = 0;
+                type = int;
+                valueClassName = Integer;
+            };
+        },
+        {
+            definition = "jobBase.progress";
+            name = progress;
+            prototypeName = double;
+            userInfo = {
+                isScalar = true;
+                scalarConversionMethodName = doubleValue;
+                scalarDefault = "0.0";
+                type = double;
+                valueClassName = Double;
+            };
+        },
+        {
+            definition = "jobBase.progressMessage";
+            name = progressMessage;
+            prototypeName = mediumText;
+        },
+        {
+            definition = "jobBase.scheduledTime";
+            name = scheduledTime;
+            prototypeName = dateTime;
+        },
+        {
+            definition = "jobBase.suspensionReason";
+            name = suspensionReason;
+            prototypeName = mediumText;
+        },
+        {definition = "jobBase.userId"; name = userId; prototypeName = foreignId; },
+        {definition = "jobBase.workerId"; name = workerId; prototypeName = foreignId; }
+    );
+    attributesUsedForLocking = (
+        assignmentOfferingId,
+        id,
+        isCancelled,
+        isReady,
+        priority,
+        progressMessage,
+        suspensionReason,
+        userId,
+        workerId
+    );
+    className = "org.webcat.opinions.SurveyReminderJob";
+    classProperties = (
+        assignmentOffering,
+        dueTime,
+        enqueueTime,
+        isCancelled,
+        isReady,
+        priority,
+        progress,
+        progressMessage,
+        scheduledTime,
+        suspensionReason,
+        user,
+        worker
+    );
+    externalName = TSurveyReminderJob;
+    fetchSpecificationDictionary = {};
+    name = SurveyReminderJob;
+    parent = JobBase;
+    primaryKeyAttributes = (id);
+    relationships = (
+        {
+            destination = AssignmentOffering;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = assignmentOfferingId; });
+            name = assignmentOffering;
+        },
+        {
+            destination = JobBase;
+            isMandatory = Y;
+            isToMany = N;
+            joinSemantic = EOInnerJoin;
+            joins = ({destinationAttribute = id; sourceAttribute = id; });
+            name = jobBase;
+        },
+        {definition = "jobBase.user"; name = user; },
+        {definition = "jobBase.worker"; name = worker; }
+    );
+}

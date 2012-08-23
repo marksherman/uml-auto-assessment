@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="create-jar" name="cxxtestgen">
+
+	<!--
+	    Property definitions
+	-->
+	<property environment="env"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+	<property name="target" value="1.5"/>
+	<property name="source" value="1.5"/>
+
+	
+	<!--
+	    Classpath definition for the compilation task
+	-->
+	<path id="cxxtestgen.classpath">
+		<pathelement location="bin"/>
+		<pathelement location="lib/antlr-2.7.7.jar"/>
+		<pathelement location="lib/stringtemplate.jar"/>
+	</path>
+
+	
+	<!--
+	    Initializes the build.
+	-->
+	<target name="init">
+		<mkdir dir="bin"/>
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src" excludes="**/*.launch, **/*.java"/>
+		</copy>
+	</target>
+
+	
+	<!--
+	   Cleans the build by deleting the bin directory.
+	-->
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+
+	
+	<!--
+	   Compiles the project source.
+	-->
+	<target name="build" depends="init">
+		<echo message="${ant.project.name}: ${ant.file}"/>
+		<javac debug="true"
+			debuglevel="${debuglevel}"
+			destdir="bin"
+			source="${source}"
+			target="${target}"
+		>
+			<src path="src"/>
+			<classpath refid="cxxtestgen.classpath"/>
+		</javac>
+	</target>
+
+	
+	<!--
+	    Creates the executable JAR file for the project (the default task).
+	-->
+	<target name="create-jar" depends="build">
+		<jar destfile="../cxxtestgen.jar">
+			<manifest>
+				<attribute
+					name="Main-Class"
+					value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+				<attribute
+					name="Rsrc-Main-Class"
+					value="net.sf.webcat.cxxtest.generator.Main"/>
+				<attribute
+					name="Class-Path"
+					value="."/>
+				<attribute
+					name="Rsrc-Class-Path"
+					value="./ antlr-2.7.7.jar stringtemplate.jar"/>
+			</manifest>
+			<zipfileset src="jar-in-jar-loader.zip"/>
+			<fileset dir="bin"/>
+			<zipfileset dir="lib" includes="antlr-2.7.7.jar"/>
+			<zipfileset dir="lib" includes="stringtemplate.jar"/>
+		</jar>
+	</target>
+
+</project>
