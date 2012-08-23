@@ -1,0 +1,365 @@
+<project name="web-cat" default="run">
+
+    <!-- ============================================================
+         Property Definitions
+         ============================================================ -->
+
+    <property environment="env"/>
+    <property name="build"  value="${resultDir}/bin"/>
+    <property name="student.tests" value="${build}/runStudentTests.exe"/>
+    <property name="instructor.tests" value="${build}/runInstructorTests.exe"/>
+    <property name="exec.timeout" value="10000"/>
+    <property name="cxxtest.dir" location="${scriptHome}/cxxtest"/>
+    <property name="testCasePath" location="${scriptHome}/tests"/>
+    <property name="testCasePattern" value="**/*.h"/>
+    <property name="covfile" value="${env.COVFILE}"/>
+
+    <taskdef resource="cpptasks.tasks"/>
+    <typedef resource="cpptasks.types"/>
+
+
+    <!-- ============================================================
+         Initialization and OS-specific setup
+         ============================================================ -->
+
+    <!-- The following properties check OS and check for OS-dependent
+         binary files. -->
+    <condition property="is.mac">
+        <os family="mac"/>
+    </condition>
+    <available property="has.assert.o" file="${scriptHome}/obj/assert.o"/>
+
+    <!-- Check for Bullseye presence. -->
+    <target name="bullseye.properties" unless="bullseye.lib">
+      <available property="bullseye.lib"
+        value="c:/cygwin/BullseyeCoverage/lib/libcov.a"
+        file="c:/cygwin/BullseyeCoverage/lib/libcov.a"/>
+      <condition property="turnOffCodeCoverage"><and>
+        <isset property="disableCodeCoverage"/>
+        <isset property="bullseye.lib"/>
+      </and></condition>
+      <condition property="turnOnCodeCoverage"><and>
+        <not><isset property="disableCodeCoverage"/></not>
+        <isset property="bullseye.lib"/>
+      </and></condition>
+    </target>
+
+    <!-- Set OS-specific property values -->
+    <target name="mac.properties" if="is.mac">
+      <property name="cxxtest.symreader.dir"
+        value="${cxxtest.dir}/mac"/>
+      <property name="cxxtest.extra.libs"
+        value=",objc,symreader"/>
+    </target>
+
+    <target name="nonmac.properties" unless="is.mac">
+        <property name="cxxtest.symreader.dir"
+          value="${cxxtest.dir}${file.separator}bfd"/>
+        <property name="cxxtest.extra.libs"
+          value=",bfd,iberty,intl"/>
+    </target>
+
+    <!-- Build OS-specific binary files, if necessary -->
+    <target name="assert.o" unless="has.assert.o">
+      <cc name="gcc" objdir="${scriptHome}/obj">
+        <compilerarg value="-c"/>
+        <compilerarg value="-w"/>
+        <compilerarg value="-O0"/>
+        <compilerarg value="-g3"/>
+        <fileset dir="${scriptHome}/obj" includes="*.c"/>
+      </cc>
+    </target>
+
+    <!-- Make sure all initial setup is performed correctly. -->
+    <target name="init"
+      depends="bullseye.properties,mac.properties,nonmac.properties,assert.o"
+      description="Initialize necessary properties"/>
+
+
+    <!-- ============================================================
+         Individual targets
+         ============================================================ -->
+
+    <target name="clean"
+        depends="init"
+        description="removes compiled classes">
+    <echo message="basedir = ${basedir}"/>
+    <echo
+        message="timeout = ${exec.timeout} (for each of two test runs)"/>
+    <echo message="env.COVFILE = ${env.COVFILE}"/>
+    <echo message="env.Path = ${env.Path}"/>
+    <echo message="cxxtest.symreader.dir = ${cxxtest.symreader.dir}"/>
+    <delete includeEmptyDirs="true">
+        <fileset dir="${resultDir}" casesensitive="false">
+        <include name="bin/"/>
+        </fileset>
+    </delete>
+    <delete includeEmptyDirs="true">
+        <fileset dir="${basedir}">
+        <include name="**/*.exe"/>
+        <include name="**/*.o"/>
+        <include name="**/*.obj"/>
+        <include name="Debug/"/>
+        <include name="Release/"/>
+        </fileset>
+    </delete>
+    <mkdir dir="${build}"/>
+    </target>
+
+
+    <target name="generateStudentMain"
+        description="generate runStudentTests.cpp from student's tests">
+    <apply executable="perl"
+           failonerror="true"
+           parallel="true"
+           skipemptyfilesets="true"
+           forwardslash="true"
+           >
+        <arg value="${cxxtest.dir}/cxxtestgen.pl"/>
+        <arg value="--error-printer"/>
+        <arg value="--force-main"/>
+        <arg value="--track-heap"/>
+        <arg value="--trap-signals"/>
+        <arg value="--trace-stack"/>
+        <!--arg value="- -stack-trace-exe=${student.tests}"/-->
+        <arg value="--have-eh"/>
+        <arg value="--abort-on-fail"/>
+        <arg value="--no-static-init"/>
+    <!-- <arg value="- -ErrorPrinterFile=${resultDir}/student.raw"/> -->
+        <arg value="-o"/>
+        <arg value="${build}/runStudentTests.cpp"/>
+        <!-- arg value="test-cases/*.h"/ -->
+        <fileset dir="." casesensitive="no">
+            <include name="**/*.h"/>
+        </fileset>
+    </apply>
+    </target>
+
+
+    <target name="generateInstructorMain"
+    description="generate runInstructorTests.cpp from instructor's tests">
+    <apply executable="perl"
+           failonerror="true"
+           parallel="true"
+           skipemptyfilesets="true"
+           forwardslash="true"
+           >
+        <arg file="${cxxtest.dir}/cxxtestgen.pl"/>
+        <arg value="--error-printer"/>
+        <arg value="--force-main"/>
+        <arg value="--track-heap"/>
+        <arg value="--trap-signals"/>
+        <arg value="--trace-stack"/>
+        <!--arg value="- -stack-trace-exe=${instructor.tests}"/-->
+        <arg value="--have-eh"/>
+        <arg value="--abort-on-fail"/>
+        <arg value="--no-static-init"/>
+    <!--<arg value="- -ErrorPrinterFile=${resultDir}/instructor.raw"/>-->
+        <arg value="-o"/>
+        <arg file="${build}/runInstructorTests.cpp"/>
+        <fileset dir="${testCasePath}" casesensitive="no">
+            <include name="${testCasePattern}"/>
+        </fileset>
+    </apply>
+    </target>
+
+
+    <target name="enable.coverage"
+        description="enable coverage instrumentation, if desired"
+        if="turnOnCodeCoverage">
+    <exec executable="cov01">
+            <arg value="-q"/>
+        <arg value="-1"/>
+    </exec>
+    </target>
+
+
+    <target name="disable.coverage"
+        description="enable coverage instrumentation, if desired"
+        if="turnOffCodeCoverage">
+    <exec executable="cov01">
+            <arg value="-q"/>
+        <arg value="-0"/>
+    </exec>
+    </target>
+
+
+    <target name="compile"
+        depends="init,generateStudentMain,enable.coverage,disable.coverage"
+        description="compile student's code">
+    <cc    name="g++"
+           objdir="${build}"
+           outfile="${student.tests}"
+           outtype="executable"
+           rebuild="true"
+           relentless="true"
+           >
+        <compilerarg value="-O0"/>
+        <compilerarg value="-g3"/>
+        <compilerarg value="-Wall"/>
+        <compilerarg value="-fnon-call-exceptions"/>
+        <compilerarg value="-finstrument-functions"/>
+        <compilerarg value="-DCXXTEST_INCLUDE_SYMREADER_DIRECTLY"
+          unless="is.mac"/>
+        <includepath location="${cxxtest.dir}"/>
+        <includepath location="${cxxtest.symreader.dir}"
+          unless="is.mac"/>
+        <includepath location="${basedir}"/>
+        <includepath location="${assignmentIncludes.abs}"
+                     if="assignmentIncludes.abs"/>
+        <includepath location="${generalIncludes.abs}"
+                     if="generalIncludes.abs"/>
+        <fileset dir="${basedir}" casesensitive="false">
+        <include name="**/*.cpp"/>
+        <exclude name="**/main.cpp"/>
+        <exclude name="**/runAllTests.cpp"/>
+        <exclude name="**/run*Tests.cpp"/>
+        </fileset>
+        <fileset dir="${scriptHome}/obj">
+        <include name="**/*.o"/>
+        </fileset>
+        <fileset dir="${build}">
+        <include name="runStudentTests.cpp"/>
+        </fileset>
+        <linkerarg location="end" value ="${assignmentLib.abs}"
+                   if="assignmentLib.abs"/>
+        <linkerarg location="end" value ="${generalLib.abs}"
+                   if="generalLib.abs"/>
+        <linkerarg location="end" value ="${bullseye.lib}" if="bullseye.lib"/>
+        <linkerarg location="start" value ="-F/System/Library/PrivateFrameworks"
+          if="is.mac"/>
+        <linkerarg location="start" value ="-framework" if="is.mac"/>
+        <linkerarg location="start" value ="vmutils" if="is.mac"/>
+        <linkerarg location="start" value ="-L${cxxtest.symreader.dir}"
+          if="is.mac"/>
+        <libset libs="stdc++${cxxtest.extra.libs}"/>
+    </cc>
+    </target>
+
+
+    <target name="run.student.tests"
+        depends="compile"
+        description="run student's test cases">
+    <exec executable="${student.tests}"
+          timeout="${exec.timeout}">
+        <env key="CXXTEST_EXE_PATH" value="${student.tests}"/>
+    </exec>
+    </target>
+
+
+    <target name="test"
+            depends="run.student.tests"
+        description="runs students tests, including coverage info"
+        if="turnOnCodeCoverage">
+    <exec executable="covsrc" output="${resultDir}/covfile.out">
+        <arg value="-q"/>
+        <arg value="-c"/>
+        <arg value="-k"/>
+        <arg value="!${resultDir}"/>
+        <arg value="!${cxxtest.dir}"/>
+        <arg value="!${cxxtest.symreader.dir}"/>
+    </exec>
+    <exec executable="covbr" output="${resultDir}/covfunc.out">
+        <arg value="-q"/>
+        <arg value="--csv"/>
+        <arg value="!${resultDir}"/>
+        <arg value="!${cxxtest.dir}"/>
+        <arg value="!${cxxtest.symreader.dir}"/>
+    </exec>
+    <exec executable="covbr" output="${resultDir}/covsrc.out">
+            <arg value="-q"/>
+        <arg value="-c0"/>
+        <arg value="-w500"/>
+        <arg value="!${resultDir}"/>
+        <arg value="!${cxxtest.dir}"/>
+        <arg value="!${cxxtest.symreader.dir}"/>
+    </exec>
+    <exec executable="cov01">
+        <arg value="-q"/>
+        <arg value="-0"/>
+    </exec>
+    </target>
+
+
+    <target name="compileInstructorTests"
+        depends="init,generateInstructorMain"
+        description="compile student's code with instructor's tests">
+    <mkdir dir="__"/>
+    <delete file="${build}/runStudentTests.o"/>
+    <cc    name="g++"
+           objdir="${build}"
+           outfile="${instructor.tests}"
+           outtype="executable"
+           >
+        <compilerarg value="-O0"/>
+        <compilerarg value="-g3"/>
+        <compilerarg value="-fnon-call-exceptions"/>
+        <compilerarg value="-finstrument-functions"/>
+        <compilerarg value="-DCXXTEST_INCLUDE_SYMREADER_DIRECTLY"
+          unless="is.mac"/>
+        <compilerarg value='"-DHINT_PREFIX=\"hint: \""'/>
+        <compilerarg value='"-DMW_PREFIX=\"/=MEMWATCH=/: \""'/>
+        <includepath location="${cxxtest.dir}"/>
+        <includepath location="${cxxtest.symreader.dir}"
+          unless="is.mac"/>
+        <includepath location="${basedir}"/>
+        <includepath location="${assignmentIncludes.abs}"
+                     if="assignmentIncludes.abs"/>
+        <includepath location="${generalIncludes.abs}"
+                     if="generalIncludes.abs"/>
+        <includepath location="__"/>
+        <fileset dir="${basedir}" casesensitive="false">
+        <include name="**/*.cpp"/>
+        <exclude name="**/main.cpp"/>
+        <exclude name="**/runAllTests.cpp"/>
+        <exclude name="**/run*Tests.cpp"/>
+        </fileset>
+        <fileset dir="${build}">
+        <include name="runInstructorTests.cpp"/>
+        </fileset>
+        <fileset dir="${scriptHome}/obj">
+        <include name="**/*.o"/>
+        </fileset>
+        <linkerarg location="end" value ="${assignmentLib.abs}"
+                   if="assignmentLib.abs"/>
+        <linkerarg location="end" value ="${generalLib.abs}"
+                   if="generalLib.abs"/>
+        <libset libs="stdc++${cxxtest.extra.libs}"/>
+    </cc>
+    </target>
+
+
+    <target name="instructorTest"
+        depends="compileInstructorTests"
+        description="run instructor's test cases">
+    <exec executable="${instructor.tests}"
+          timeout="${exec.timeout}">
+        <env key="CXXTEST_EXE_PATH" value="${instructor.tests}"/>
+    </exec>
+    </target>
+
+
+    <target name="final-clean"
+            unless="doNotDelete"
+        description="removes unnecessary derived files">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${resultDir}" casesensitive="false">
+        <include name="bin/"/>
+        </fileset>
+    </delete>
+    <delete includeEmptyDirs="true">
+        <fileset dir="${basedir}">
+        <include name="__/"/>
+        </fileset>
+    </delete>
+    </target>
+
+
+    <!-- ============================================================
+         The main target
+         ============================================================ -->
+
+    <target name="run"
+            depends="init, clean, test, instructorTest, final-clean"/>
+
+</project>

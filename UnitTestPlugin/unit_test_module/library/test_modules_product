@@ -1,0 +1,6 @@
+ static char * test_return_number() { 
+    int x; 
+    x = product(2,3); 
+    mu_assert("error, 6 is supposed to be returned, dumbass!", x == 6); 
+    return 0; 
+  } 

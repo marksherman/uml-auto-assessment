@@ -1,0 +1,13 @@
+static char * test1() { 
+       int x; 
+       x = sum( 5432 ); 
+       mu_assert("Function sum returns incorrect value.", x == 14); 
+       return 0; 
+} 
+
+static char * test2() { 
+       int x; 
+       x = sum( 9 ); 
+       mu_assert("Function sum returns incorrect value.", x == 9); 
+       return 0; 
+} 

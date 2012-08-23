@@ -1,0 +1,25 @@
+static char * test1() { 
+       int x; 
+       int size = 8; 
+       float u_test[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+       float v_test[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+       x = inner( u_test, v_test, size );
+       mu_assert("Function inner returns incorrect value.", x == 204); 
+       tests_passed++;
+       return 0; 
+}
+
+static char * run_test1() {
+    mu_run_test(test1);
+    return 0;
+}
+ 
+int main(){
+    FILE * fin; 
+    run_test1();
+    printf("You passed %d out of %d tests run.\n", tests_passed, tests_run);
+    fin = fopen("log.txt", "r+");
+    fprintf(fin, "[section]\ncount_pass = %d\ncount = %d", tests_passed, tests_run);
+    fclose(fin);
+    return 0; 
+ }
