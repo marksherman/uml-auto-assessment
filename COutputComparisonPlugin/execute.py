@@ -19,7 +19,7 @@ import ConfigParser
 import glob
 import shutil 
 import re
-from subprocess import check_call 
+from subprocess import call
 from decimal import *
 
 DEBUG = 1
@@ -169,6 +169,11 @@ def run_tests():
     count = 0
     count_pass = 0
     temp = 0
+
+
+    
+
+
 
     # The number of reference.out exclusively determines the number of test cases.
     for each_file in glob.glob('*reference.out'):
