@@ -1,0 +1,140 @@
+#!/usr/bin/env python
+
+#-----------------------------------------
+# unit_test.py 
+# Version Number: 1.0.0 
+# Last Revision: 8/16/2012 
+# by James DeFilippo 
+# as part of a project under the supervision of Mark Sherman, Professor Fred Martin, and Professor Sarita Bassil
+#-----------------------------------------
+
+import os
+import sys 
+from subprocess import call 
+import StringIO 
+import ConfigParser
+import glob
+import shutil 
+import re
+from subprocess import check_call
+from decimal import * 
+
+DEBUG = 0
+
+stdout_output = " " 
+
+#Assignments come in the form 'px' where x is some number. The function extracts x from the compound expression.
+def get_assignment_Number ( assignment ): 
+    # Transforms p as a regular expression into an object that represents a regular expression.
+    p = re.compile( 'p' )
+    # Substitute '' for any instance of the regular expression found in assignment.
+    assignment_Number = p.sub('', assignment)
+    # Make sure assignment_Number is a string.
+    assignment_Number = str(assignment_Number)
+    return assignment_Number
+
+#def str_is_digit(s): return s.isdigit()
+
+#def get_score_correctness ( s ):
+    #x = re.compile( ('passed '[0-9][0-9][0-9]) | ('passed '[0-9][0-9]) | ('passed '[0-9]))
+    #result = x.match(s)
+    #score_correctness = x.sub(' ', s)
+    #return score_correctness
+    # use findall?
+
+
+
+# A sectionless configuration file is passed to WebCAT as the second argument to the command line. ConfigParser can only read configuration files with section headers. To get aroudn this problem, the configuration is read in as a string with an arbitrary section header prepended to it.
+initial_string = '[section]\n' + open(sys.argv[1], 'r').read()
+# The string is transformed into a string buffer which serves as a file-like object.
+initial_filepointer = StringIO.StringIO(initial_string) 
+# A raw config parser object of class ConfigParser is initialized under the name of config. 
+config = ConfigParser.RawConfigParser()
+# The config parser object is fed the string-buffer. 
+config.readfp(initial_filepointer)
+
+# Read in relevant values from the WebCAT configuration file.
+assignment = config.get('section', 'assignment')
+user_Name = config.get('section', 'userName')
+result_Dir = config.get('section', 'resultDir')
+working_Dir = config.get('section', 'workingDir')
+script_Home = config.get('section', 'scriptHome')
+max_score_correctness = config.get('section', 'max.score.correctness')
+# Extract assignment number from the assignment of form p[number]
+assignment_Number = get_assignment_Number ( assignment )
+
+
+os.chdir(script_Home + "/" + assignment) 
+for each_file in glob.glob('*testmodules'):
+    shutil.copy(each_file, working_Dir)
+shutil.copy('destinationfile.c', working_Dir)
+shutil.copy(assignment_Number + 'templatefile', working_Dir)
+shutil.copy('minunit.h', working_Dir)
+
+os.chdir(working_Dir)      
+
+destination_file = open("destinationfile.c", "a+b")
+source_file = open(assignment + ".c", "r") 
+
+for line in source_file: 
+    line = line.replace('main', 'student_main')
+    destination_file.write(line)
+
+#destination_file.write('\nint tests_run = 0;\n') 
+test_modules = open(assignment_Number + 'testmodules', 'r') 
+test_modules_content = test_modules.read()
+destination_file.write(test_modules_content) 
+
+# Read in test template, copy to dst_file
+# Template provides standard setup functions for testing system, including the new main
+template_file = open(assignment_Number + 'templatefile', 'r+')
+template_file_content = template_file.read()
+destination_file.write(template_file_content)
+
+# Done using files, close them up.
+destination_file.close()
+source_file.close()
+test_modules.close()
+template_file.close()
+
+destination_file_output = open("destinationfileoutput", "w")
+destination_file_output = open("destinationfileoutput", "r+")
+os.system("gcc -ansi -Wall destinationfile.c")
+os.system("./a.out >> destinationfileoutput")
+
+destination_file_output_string = destination_file_output.read()
+
+
+
+log = ConfigParser.RawConfigParser()
+log.read('log.txt')
+count_pass = log.get('section', 'count_pass')
+count = log.get('section', 'count')
+count_pass = Decimal(count_pass)
+count = Decimal(count)
+max_score_correctness = Decimal(max_score_correctness)
+
+score_correctness = (count_pass / count) * max_score_correctness
+
+compile_log = result_Dir + "/" + "compile.log"
+compile_log_handle = open(compile_log, 'w') 
+compile_log_handle = open(compile_log, 'r+')
+
+compile_log_handle.write('<div class="shadow"><table><tbody>\n') 
+compile_log_handle.write('<tr><th>\n')
+compile_log_handle.write('Feedback</th></tr>\n')
+compile_log_handle.write('<tr><td><pre>\n')
+compile_log_handle.write(destination_file_output_string)
+compile_log_handle.write('</pre></td></tr></tbody></table></div><div class="spacer">&nbsp;</div>')
+
+# UNCOMMENT!
+config_file = open(sys.argv[1]).read()
+config_file = config_file.replace('numReports=0', 'numReports=1')
+config_file_write = open(sys.argv[1], 'w')
+config_file_write.write(config_file)
+config_file_write.close()
+config_file = open(sys.argv[1], 'a+b').write('disableCodeCoverage=1\nexec.timeout=6000\nreport1.file=compile.log\nreport1.mimeType=text/html\nnumCodeMarkups=0\nscore.correctness=')
+config_file = open(sys.argv[1], 'a+b').write(str(score_correctness))
+config_file = open(sys.argv[1], 'a+b').write('\nscore.tools=0')
+
+destination_file_output.close()
