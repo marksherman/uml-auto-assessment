@@ -1,11 +1,11 @@
 {
-    name             = CPlugin;
+    name             = UMLOutputComparisonPlugin;
     version.major    = 1;
     version.minor    = 0;
-    version.revision = 1;
-    version.date     = 07262012;
+    version.revision = 0;
+    version.date     = 8272012;
+    requires         = ( PerlForPlugins );
     autoPublish      = true;
-    requires         = ( ANTForPlugins, PerlForPlugins );
     provider         = "University of Massachusetts Lowell Department of Computer Science";
     provider.url     = "http://www.webcat.cs.uml.edu";
     license          = "GNU Affero General Public License v.3";
@@ -14,8 +14,8 @@
     info.url         = "http://www.webcat.cs.uml.edu";
     history.url      = "http://www.webcat.cs.uml.edu";
     executable       = execute.py;
-    interpreter.prefix = "${PerlForPlugins.perl.exe}";
     author     = "Mark Sherman and James DeFilippo";
+    interpreter.prefix = "${PerlForPlugins.perl.exe}";
     authorUid  = uml;
     languages  = ( { name = "C"; version = "gcc 3.4.x"; } );
     description = "This is an output comparison plugin designed to faciliate C programming.";

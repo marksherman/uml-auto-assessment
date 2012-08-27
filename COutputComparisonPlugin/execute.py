@@ -22,7 +22,7 @@ import re
 from subprocess import call
 from decimal import *
 
-DEBUG = 0
+DEBUG = 1
 
 
 stdout_output = " " 
@@ -135,6 +135,7 @@ os.chdir(working_Dir)
 import configuration
 
 
+
 score_correctness = 0
 
 #if configuration.file_flag: 
@@ -184,7 +185,7 @@ def run_tests():
        temp = compare_substring(reference_output_string, student_output_string, configuration.substrings)
        if (temp == 0):
            count_pass = count_pass + 1
-       else: 
+       else:
            pass
 
    if (count_pass != number_of_test_cases): 
@@ -193,12 +194,25 @@ def run_tests():
         stdout_output = "Congrats! Your submission succeeded for all " + str(count_pass) + " test cases."
    score_correctness = ( Decimal(count_pass) / Decimal(number_of_test_cases) ) * Decimal(max_score_correctness)
 
+
+
+
+
+
+
+
+
+
+
 compile_command = configuration.compile_command
 
 if (call(compile_command)) == 0:
     run_tests()
 else:
     stdout_output = 'Compile errors found. Tests not executed.'
+
+
+
 
 
 
