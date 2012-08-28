@@ -2,14 +2,12 @@
 
 #---------------------------------
 # substringcomparisonmodule.py
-# Version Number: 1.1.0 
-# Last Revision: 8/8/2012
-# by James DeFilippo (jms.defilippo@gmail.com)
-# as part of a project under the supervision of Mark Sherman, Professor Fred Martin, and Professor Sarita Bassil 
+# Version Number: 1.2.0 
+# Last Revision: 8/27/2012
+# by Mark Sherman (msherman@cs.uml.edu) and James DeFilippo (jms.defilippo@gmail.com)
+# as part of a project under the supervision of Professor Fred Martin, and Professor Sarita Bassil 
 #---------------------------------
 
-
- 
 
 import os
 import sys
@@ -128,18 +126,23 @@ max_score_correctness = config.get('section', 'max.score.correctness')
 assignment_Number = get_assignment_Number ( assignment )
 
 
-os.chdir(script_Home + "/" + assignment)
+os.chdir(script_Home + "/" + assignment) 
+
+for each_file in glob.glob('*testdata*'):
+    shutil.copy(each_file, working_Dir)
+for each_file in glob.glob('*testdata'): 
+    shutil.copy(each_file, working_Dir)
+
+# TODO One of these shutil commands is unnecessary which one?
 shutil.copy('configuration.py', working_Dir)
 shutil.copy('configuration.py', script_Home)
+
 os.chdir(working_Dir)
 import configuration
 
 
 
 score_correctness = 0
-
-#if configuration.file_flag: 
-#   call("ln -fs -T " + count_str + "testdata" + assignment_Number + " testdata" + assignment_Number, shell=True)
 
 def get_execute_command (stdin, args, count): 
     execute_command.append("echo")
@@ -152,32 +155,30 @@ def get_execute_command (stdin, args, count):
 
 
 def run_tests():
-   # All references to stdout_output in the function refere to the variable defined at the beginning of the script. 
+    # TODO Are these global variables really necessary? 
    global stdout_output 
    global execute_command
-   global execute_command_string 
+   global execute_command_string
+   global score_correctness 
    number_of_test_cases = configuration.number_of_test_cases
    tests = configuration.tests
-   reference_output_string = configuration.reference_output_string
    count_pass = 0
    temp = 0
    count = 0
 
-   for stdin, args, reference_output_string in tests:
+   for stdin, args, reference_output_string, files in tests:
 
        execute_command = []
        execute_command_string = " "
        count = count + 1
        
-       #if os.path.exists( str(count) + user_Name + ".out" ):
-       #     student_file = open(str(count) + user_Name + ".out", 'r+')
-       #else: 
-       #     student_file = open(str(count) + user_Name + ".out", 'w')
-       #     student_file = open(str(count) + user_Name + ".out", 'r+')
+       # Create symbolic links for data files. 
+       if ((files != " ") and (files != "")): 
+           call("ln -fs -T " + files, shell=True)
 
        execute_command_string = get_execute_command(stdin, args, count)
        call(execute_command_string, shell=True)
-       
+     
 
        student_output = open(str(count) + user_Name + ".out")
        student_output_string = student_output.read()
@@ -193,17 +194,14 @@ def run_tests():
    else:
         stdout_output = "Congrats! Your submission succeeded for all " + str(count_pass) + " test cases."
    score_correctness = ( Decimal(count_pass) / Decimal(number_of_test_cases) ) * Decimal(max_score_correctness)
+   
+   
 
 
 
 
 
-
-
-
-
-
-
+        
 compile_command = configuration.compile_command
 
 if (call(compile_command)) == 0:
