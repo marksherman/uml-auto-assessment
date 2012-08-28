@@ -160,14 +160,21 @@ def run_tests():
    global execute_command
    global execute_command_string
    global score_correctness 
+<<<<<<< HEAD
    global error_list
+=======
+>>>>>>> unit-test-add-config-file
    number_of_test_cases = configuration.number_of_test_cases
    tests = configuration.tests
    count_pass = 0
    temp = 0
    count = 0
 
+<<<<<<< HEAD
    for stdin, args, reference_output_string, files, errors in tests:
+=======
+   for stdin, args, reference_output_string, files in tests:
+>>>>>>> unit-test-add-config-file
 
        execute_command = []
        execute_command_string = " "
