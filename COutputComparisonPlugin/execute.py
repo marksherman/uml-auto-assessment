@@ -8,7 +8,7 @@
 # as part of a project under the supervision of Professor Fred Martin, and Professor Sarita Bassil 
 #---------------------------------
 
-#
+
 import os
 import sys
 from subprocess import call
@@ -27,16 +27,6 @@ stdout_output = " "
 error_list = []
 execute_command = []
 execute_command_string = " "
-
-
-def get_assignment_Number ( assignment ): 
-    # Transforms p as a regular expression into an object that represents a regular expression.
-    p = re.compile( 'p' ) 
-    # Substitute '' for any instance of the regular expression found in assignment.
-    assignment_Number = p.sub('', assignment)
-    # Make sure assignment_Number is a string.
-    assignment_Number = str(assignment_Number)
-    return assignment_Number
 
 def element_is_substring(s):
      # Create a null list for storing new values created by function.
@@ -140,8 +130,6 @@ shutil.copy('configuration.py', script_Home)
 os.chdir(working_Dir)
 import configuration
 
-
-
 score_correctness = 0
 
 def get_execute_command (stdin, args, count): 
@@ -169,7 +157,7 @@ def run_tests():
    count = 0
 
 
-   for stdin, args, reference_output_string, files, errors in tests:
+   for stdin, args, reference_output_string, files, messages in tests:
 
        execute_command = []
        execute_command_string = " "
@@ -190,7 +178,7 @@ def run_tests():
        if (temp == 0):
            count_pass = count_pass + 1
        else:
-           error_list.append(errors)
+           error_list.append(messages)
            pass
 
    if (count_pass != number_of_test_cases): 
@@ -201,11 +189,7 @@ def run_tests():
    
    
 
-
-
-
-
-        
+       
 compile_command = configuration.compile_command
 
 if (call(compile_command)) == 0:
