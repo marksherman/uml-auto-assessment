@@ -24,7 +24,7 @@ DEBUG = 1
 
 
 stdout_output = " " 
-error_msg = []
+error_list = []
 execute_command = []
 execute_command_string = " "
 
@@ -160,13 +160,14 @@ def run_tests():
    global execute_command
    global execute_command_string
    global score_correctness 
+   global error_list
    number_of_test_cases = configuration.number_of_test_cases
    tests = configuration.tests
    count_pass = 0
    temp = 0
    count = 0
 
-   for stdin, args, reference_output_string, files in tests:
+   for stdin, args, reference_output_string, files, errors in tests:
 
        execute_command = []
        execute_command_string = " "
@@ -187,6 +188,7 @@ def run_tests():
        if (temp == 0):
            count_pass = count_pass + 1
        else:
+           error_list.append(errors)
            pass
 
    if (count_pass != number_of_test_cases): 
@@ -211,9 +213,8 @@ else:
 
 
 
-
-
-
+error_message = " "
+error_message = " ".join(error_list)
 
 # Create a compile.log which contains arbitrarary XML as part of a feedback. If it does not exist, touch the file and then open it with read-write permissions.
 compile_log = result_Dir + "/" + "compile.log"
@@ -222,7 +223,8 @@ compile_log_handle = open(compile_log, 'r+')
 
 # Create a table which contains feedback information. 
 compile_log_handle.write('<div class="shadow"><table><tbody>\n<tr><th>\nFeedback</th></tr>\n<tr><td><pre>\n')
-compile_log_handle.write(stdout_output)
+compile_log_handle.write(stdout_output + '\n')
+compile_log_handle.write(error_message)
 compile_log_handle.write('</pre></td></tr></tbody></table></div><div class="spacer">&nbsp;</div>')
 
 # ---
