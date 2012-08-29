@@ -7,7 +7,6 @@
 # by James DeFilippo (jms.defilippo@gmail.com) with Mark Sherman (msherman@cs.uml.edu)
 # as part of a project under the supervision of Professor Fred Martin and Professor Sarita Bassil
 #-----------------------------------------
-
 import UMLFunctionLibrary
 
 stdout_output = " "

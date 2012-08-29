@@ -1,5 +1,5 @@
 from decimal import * 
-DEBUG = 1
+DEBUG = 0 
 
 def read_configuration_properties():
      import StringIO
@@ -34,7 +34,6 @@ def get_assignment_data(assignment, working_Dir, script_Home):
      for each_file in glob.glob('*testdata'): 
          if os.path.exists(each_file): 
              shutil.copy(each_file, working_Dir)
-     shutil.copy('configuration.py', script_Home)
      shutil.copy('configuration.py', working_Dir)
      os.chdir(script_Home)
      if os.path.exists('minunit.h'): 
@@ -142,6 +141,7 @@ def grade_submission(user_Name, max_score_correctness):
 
      for stdin, args, reference_output_string, files, messages in tests:
        (count, count_pass, error_list) = run_comparison_test(stdin, args, reference_output_string, files, messages, count, count_pass, error_list, user_Name)
+
      error_message = " "
      error_message = " ".join(error_list)
             
