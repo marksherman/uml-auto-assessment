@@ -1,5 +1,5 @@
 from decimal import * 
-DEBUG = 1
+DEBUG = 0
 
 def read_configuration_properties():
      import StringIO
@@ -115,7 +115,7 @@ def run_comparison_test(stdin, args, reference_output_string, files, messages, c
      count = count + 1
        
      # Create symbolic links for data files. 
-     if ((files != " ") and (files != "")): 
+     if files != "" : 
            call("ln -fs -T " + files, shell=True)
 
      execute_command_string = get_execute_command(stdin, args, count, user_Name)
