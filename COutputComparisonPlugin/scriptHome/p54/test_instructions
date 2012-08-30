@@ -1,6 +1,0 @@
-test case 1: 1 => 1 
-test case 2: 9 => 34
-
-Make instructions 
-echo "1" | ./a.out => 1 
-echo "9" | ./a.out => 34
