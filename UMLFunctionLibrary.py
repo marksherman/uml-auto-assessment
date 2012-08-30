@@ -97,32 +97,37 @@ def compare_substring(reference_output_string, student_output_string):
         return 1
 
 
-def get_execute_command (stdin, args, count, user_Name): 
-     execute_command = []
-     execute_command.append("echo")
-     execute_command.append(stdin)
-     execute_command.append("|")
-     execute_command.append(args)
-     execute_command.append(">>")
-     execute_command.append(str(count) + user_Name + ".out")
-     return " ".join(execute_command)
-
+def get_execute_command (args): 
+     execute_command = [] 
+     execute_command = args.split()
+     return execute_command
 
 
 def run_comparison_test(stdin, args, reference_output_string, files, messages, count, count_pass, error_list, user_Name): 
-     from subprocess import call
-     execute_command_string = " "
+     from subprocess import Popen, PIPE, STDOUT, call
+
+     execute_command_string = ""
+     symlink_command = "" 
+     symlink_command_split = []
      count = count + 1
        
      # Create symbolic links for data files. 
-     if files != "" : 
-           call("ln -fs -T " + files, shell=True)
+     #if files != "" : 
+     #      symlink_commmand = "ln -fs -T " + files
+     #      symlink_comand_split = symlink_command.split()
+     #      Popen(symlink_command_split)
 
-     execute_command_string = get_execute_command(stdin, args, count, user_Name)
-     call(execute_command_string, shell=True)
-     
+     if files != "": 
+          call("ln -fs -T " + files, shell=True)
+          
+     student_output = open(str(count) + user_Name + ".out", "w")
 
-     student_output = open(str(count) + user_Name + ".out")
+     execute_command_string = get_execute_command(args) 
+     p = Popen(execute_command_string, stdout=student_output, stdin=PIPE, stderr=STDOUT)
+     p.communicate(input=stdin)
+
+     student_output = open(str(count) + user_Name + ".out", "r")
+
      student_output_string = student_output.read()
        
      if ((compare_substring(reference_output_string, student_output_string)) == 0): 
@@ -241,19 +246,31 @@ def generate_feedback_file(result_Dir, stdout_output, error_message):
      # Muy importante.
      compile_log_handle.close()
 
-def compile_student_code(): 
+def compile_student_code(stdout_output): 
      import configuration
-     from subprocess import call 
-     #call(configuration.compile_command)
-     call(configuration.compile_command, shell=True)
+     from subprocess import Popen, PIPE, STDOUT
+
+
+     compile_command = configuration.compile_command
+     compile_command_split = compile_command.split()
+
+     p = Popen(compile_command_split, stdout=PIPE, stderr=STDOUT)
+     (x, y) = p.communicate()
+     
+
+     return (x, p.returncode)
+          
 
 def run_unit_test(): 
     import configuration
-    from subprocess import call
+    from subprocess import Popen, PIPE, STDOUT 
     # Execute the program and send the output to some file specified in configuration.py
     execute_command = configuration.execute_command
-    call(execute_command, shell=True)
+    execute_command_split = execute_command.split()
+
+    p = Popen(execute_commnad_split, stdout=PIPE, stderr=STDOUT)
     
+
     output_file = configuration.output_file 
     # Open the file which contains output and read its contents into the current script in string form.
     output_file = open(output_file, "r")

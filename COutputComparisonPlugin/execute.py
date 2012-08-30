@@ -10,16 +10,22 @@
 
 import UMLFunctionLibrary 
 
-stdout_output = " " 
+stdout_output = "" 
+error_message = "" 
+score_correctness = 0
+return_code = 0
 
 (assignment, user_Name, result_Dir, working_Dir, script_Home, max_score_correctness) = UMLFunctionLibrary.read_configuration_properties()
 
 UMLFunctionLibrary.get_assignment_data(assignment, working_Dir, script_Home)
 
-UMLFunctionLibrary.compile_student_code()
+(stdout_output, return_code) = UMLFunctionLibrary.compile_student_code(stdout_output)
 
-(score_correctness, error_message, stdout_output) = UMLFunctionLibrary.grade_submission(user_Name, max_score_correctness)
-
+if return_code == 0: 
+    (score_correctness, error_message, stdout_output) = UMLFunctionLibrary.grade_submission(user_Name, max_score_correctness)
+else: 
+    stdout_output = "Your submission compiled with errors or warnings:" + stdout_output
+    
 UMLFunctionLibrary.generate_feedback_file(result_Dir, stdout_output, error_message)
 
 UMLFunctionLibrary.write_configuration_properties(score_correctness)
