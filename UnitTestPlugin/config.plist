@@ -1,9 +1,9 @@
 {
-    name             = AbUnitTest;
-    version.major    = 0;
+    name             = UMLUnitTestPlugin;
+    version.major    = 1;
     version.minor    = 0;
-    version.revision = 1;
-    version.date     = 07262012;
+    version.revision = 0;
+    version.date     = 0828012;
     autoPublish      = true;
     requires         = ( PerlForPlugins );
     provider         = "University of Massachusetts Lowell Department of Computer Science";
@@ -15,10 +15,10 @@
     history.url      = "http://www.webcat.cs.uml.edu";
     executable       = execute.py;
     interpreter.prefix = "${PerlForPlugins.perl.exe}";
-    author     = "James DeFilippo";
+    author     = "James DeFilippo with Mark Sherman";
     authorUid  = uml;
     languages  = ( { name = "C"; version = "gcc 3.4.x"; } );
-    description = "This is an output comparison plugin designed to faciliate C programming.";
+    description = "This plugin tests student functions to see if they return the correct values.";
     timeoutMultiplier = 2;
     timeoutInternalPadding = 400;
     assignmentOptions = (
