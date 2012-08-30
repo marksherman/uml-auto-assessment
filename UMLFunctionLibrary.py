@@ -34,6 +34,9 @@ def get_assignment_data(assignment, working_Dir, script_Home):
      for each_file in glob.glob('*testdata'): 
          if os.path.exists(each_file): 
              shutil.copy(each_file, working_Dir)
+     for each_file in glob.glob('*.h'): 
+         if os.path.exists(each_file): 
+             shutil.copy(each_file, working_Dir)
      shutil.copy('configuration.py', script_Home)
      shutil.copy('configuration.py', working_Dir)
      os.chdir(script_Home)
