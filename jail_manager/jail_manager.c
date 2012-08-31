@@ -77,7 +77,10 @@ int main( void ) {
         /* In here we will exec the python script to do the real work*/
         
         close( mypipe[0] ); /* closes READ end of pipe */
-        write_to_pipe( mypipe[1] );
+        /*write_to_pipe( mypipe[1] );*/
+        
+        exec_python( mypipe[1] ); /* give the python the IN side of the pipe */
+        
         return EXIT_SUCCESS;
         
     } else if(pid < (pid_t) 0){
@@ -94,7 +97,6 @@ int main( void ) {
         
         close( mypipe[1] ); /* close the WRITE end of the pipe */
         read_from_pipe( mypipe[0] );
-        exec_python(12345);
         
         return EXIT_SUCCESS;
     }
