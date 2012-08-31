@@ -10,8 +10,8 @@ void read_from_pipe( int file ) {
     int c;
     stream = fdopen( file, "r" );
     
-    printf("My PID: %d\n", (int)getpid() );
-    printf("My parent is %d\n", (int)getppid() );
+    printf("My PID: %d\n", getpid() );
+    printf("My parent is %d\n", getppid() );
     
     while ( (c = fgetc(stream)) != EOF )
         putchar(c);
@@ -32,8 +32,8 @@ int main( void ) {
     pid_t pid = 0;
     int mypipe[2];
     
-    printf("Parent started with PID %d\n", (int)getpid() );
-    printf("My parent is %d\n", (int)getppid() );
+    printf("Parent started with PID %d\n", getpid() );
+    printf("My parent is %d\n", getppid() );
     
     /* Create the pipe */
     if( pipe(mypipe) ){
