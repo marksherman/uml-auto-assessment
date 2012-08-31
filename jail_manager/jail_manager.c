@@ -43,7 +43,7 @@ void write_to_pipe( int file ) {
     fclose( stream );
 }
 
-int run_python_child( void ){
+int exec_python( void ){
     char* child_args[2];
     char* CHILD_EXEC = "child1.py";
 
@@ -91,7 +91,7 @@ int main( void ) {
         
         close( mypipe[1] ); /* close the WRITE end of the pipe */
         read_from_pipe( mypipe[0] );
-        run_python_child();
+        exec_python();
         
         return EXIT_SUCCESS;
     }
