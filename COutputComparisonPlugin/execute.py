@@ -24,7 +24,7 @@ UMLFunctionLibrary.get_assignment_data(assignment, working_Dir, script_Home)
 if return_code == 0: 
     (score_correctness, error_message, stdout_output) = UMLFunctionLibrary.grade_submission(user_Name, max_score_correctness)
 else: 
-    stdout_output = "Your submission compiled with errors or warnings:" + stdout_output
+    stdout_output = "Your submission compiled with the following errors and/or warnings:" + stdout_output
     
 UMLFunctionLibrary.generate_feedback_file(result_Dir, stdout_output, error_message)
 

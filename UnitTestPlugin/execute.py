@@ -9,8 +9,10 @@
 #-----------------------------------------
 import UMLFunctionLibrary
 
-stdout_output = " "
-error_message = " " 
+stdout_output = "" 
+error_message = "" 
+score_correctness = 0
+return_code = 0
 
 (assignment, user_Name, result_Dir, working_Dir, script_Home, max_score_correctness) = UMLFunctionLibrary.read_configuration_properties()
 
@@ -20,13 +22,15 @@ destination_file = UMLFunctionLibrary.copy_src_to_destination_file(assignment)
 
 UMLFunctionLibrary.create_test_functions(destination_file)
 
-UMLFunctionLibrary.compile_student_code()
+(stdout_output, return_code) = UMLFunctionLibrary.compile_student_code(stdout_output)
 
-stdout_output = UMLFunctionLibrary.run_unit_test()
+if return_code == 0: 
+    stdout_output = UMLFunctionLibrary.run_unit_test(stdout_output)
+    score_correctness = UMLFunctionLibrary.get_score(max_score_correctness)
+else: 
+    stdout_output = "Your submission compiled the following errors and/or warnings:" + stdout_output
 
-score_correctness = UMLFunctionLibrary.get_score(max_score_correctness)
-
+  
 UMLFunctionLibrary.generate_feedback_file(result_Dir, stdout_output, error_message)
 
 UMLFunctionLibrary.write_configuration_properties(score_correctness)
-

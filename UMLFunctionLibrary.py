@@ -261,21 +261,18 @@ def compile_student_code(stdout_output):
      return (x, p.returncode)
           
 
-def run_unit_test(): 
+def run_unit_test(stdout_output): 
+    stdout_output = ""
     import configuration
     from subprocess import Popen, PIPE, STDOUT 
-    # Execute the program and send the output to some file specified in configuration.py
+
     execute_command = configuration.execute_command
     execute_command_split = execute_command.split()
 
-    p = Popen(execute_commnad_split, stdout=PIPE, stderr=STDOUT)
+    p = Popen(execute_command_split, stdout=PIPE, stderr=STDOUT)
+    (stdout_output, y) = p.communicate()
     
-
-    output_file = configuration.output_file 
-    # Open the file which contains output and read its contents into the current script in string form.
-    output_file = open(output_file, "r")
-    stdout_output = output_file.read() 
-    return stdout_output 
+    return stdout_output
 
 def get_score(max_score_correctness): 
     import ConfigParser
