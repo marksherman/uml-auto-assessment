@@ -1,3 +1,5 @@
 #! /usr/bin/env python
 
-print "Running python!"
+import sys
+
+print "Running python! Argument: " + sys.argv[1]

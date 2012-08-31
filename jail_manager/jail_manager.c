@@ -43,12 +43,15 @@ void write_to_pipe( int file ) {
     fclose( stream );
 }
 
-int exec_python( void ){
-    char* child_args[2];
+int exec_python( int send_pipe ){
+    char* child_args[3];
     char* CHILD_EXEC = "child1.py";
+    
+    child_args[1] = (char*) malloc( sizeof(char) * 6 );
 
     child_args[0] = CHILD_EXEC;
-    child_args[1] = NULL;
+    sprintf(child_args[1], "%d", send_pipe);
+    child_args[2] = NULL;
     
     return execv(CHILD_EXEC, child_args);
 }
@@ -91,7 +94,7 @@ int main( void ) {
         
         close( mypipe[1] ); /* close the WRITE end of the pipe */
         read_from_pipe( mypipe[0] );
-        exec_python();
+        exec_python(12345);
         
         return EXIT_SUCCESS;
     }
