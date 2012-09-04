@@ -1,5 +1,6 @@
 /*****************************************************************************
 * jail_manager.c
+* --> This is becoming a background process / daemon. <--
 * Main executable that provides a secure jail for student code to be run in.    
 * THIS PROGRAM RUNS WITH ROOT PRIVILEDGES. This program forks a subp which 
 * exec's the python code to do the real plugin work, establishing 
@@ -31,7 +32,7 @@ int create_socket(const char* filename){
     /* Create Socket */
     sock = socket( AF_UNIX, SOCK_STREAM, 0 );
     if( sock < 0 ){
-        perror("create_socket:socket");
+        perror("create_socket:create");
         return EXIT_FAILURE;
     }
     
@@ -44,16 +45,18 @@ int create_socket(const char* filename){
         return EXIT_FAILURE;
     }
     
+    listen( sock , 5 ); /* chose 3 as # of backlog connections arbitrarily */
+    
     return sock;
 }
 
 int close_socket(int sock, const char* filename){
     if( close(sock) ){
-        perror("close_socket:close");
+        perror("close_socket:close_socket");
         return EXIT_FAILURE;
     }
     if( remove(filename) ){
-        perror("close_socket:remove");
+        perror("close_socket:remove_file");
         return EXIT_FAILURE;
     }
     
@@ -103,6 +106,8 @@ int main( void ){
     sock = create_socket("loc_sock");
     
     /* Mark! Make sure to add error handling for EVERYTHING */
+    
+    
     
     close_socket(sock, "loc_sock");
     
