@@ -1,13 +1,3 @@
-/************************************************/
-/*                                              */
-/*     Programmer: Chris Leger                  */
-/*                                              */
-/*     Title: Digit Sum                         */
-/*                                              */
-/*     Time to Completion: 1 Hour               */
-/*                                              */
-/************************************************/
-
 #include<stdio.h>
 
 int sum( int input );
