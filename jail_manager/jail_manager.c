@@ -59,7 +59,7 @@ int exec_python( int send_pipe ){
 int main( void ) {
     pid_t pid = 0;
     int mypipe[2];
-    
+    int ret_val = 999;
     printf("Parent started with PID %d\n", getpid() );
     printf("My parent is %d\n", getppid() );
     
@@ -79,7 +79,8 @@ int main( void ) {
         close( mypipe[0] ); /* closes READ end of pipe */
         /*write_to_pipe( mypipe[1] );*/
         
-        exec_python( mypipe[1] ); /* give the python the IN side of the pipe */
+        ret_val = exec_python( mypipe[1] ); /* give the python the IN side of the pipe */
+        printf("ret: %d\n", ret_val);
         
         return EXIT_SUCCESS;
         
