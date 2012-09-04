@@ -14,10 +14,51 @@
 ******************************************************************************/   
 
 #include <sys/types.h>
+#include <string.h>
+#include <stdarg.h>
 #include <sys/socket.h>
+#include <sys/un.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+/* Creates a new socket, binds it to a local file socket file, and returns
+    the socket. */
+int create_socket(const char* filename){
+    struct sockaddr_un name;    /* the name structure */
+    int sock;
+    
+    /* Create Socket */
+    sock = socket( AF_UNIX, SOCK_STREAM, 0 );
+    if( sock < 0 ){
+        perror("create_socket:socket");
+        return EXIT_FAILURE;
+    }
+    
+    /* Bind to a file, given as argument */
+    name.sun_family = AF_UNIX;
+    strncpy( name.sun_path , filename , sizeof(name.sun_path) - 1 );
+    
+    if( bind( sock, (struct sockaddr *) &name, sizeof(struct sockaddr_un)) ){
+        perror("create_socket:bind");
+        return EXIT_FAILURE;
+    }
+    
+    return sock;
+}
+
+int close_socket(int sock, const char* filename){
+    if( close(sock) ){
+        perror("close_socket:close");
+        return EXIT_FAILURE;
+    }
+    if( remove(filename) ){
+        perror("close_socket:remove");
+        return EXIT_FAILURE;
+    }
+    
+    return EXIT_SUCCESS;
+}
 
 /* Read characters from the pipe and echo them to stdout */
 
@@ -57,18 +98,23 @@ int exec_python( int send_pipe ){
     return execv(CHILD_EXEC, child_args);
 }
 
-int main( void ) {
-    pid_t pid = 0;
-    int mypipe[2];
-    int ret_val = 999;
-    printf("Parent started with PID %d\n", getpid() );
-    printf("My parent is %d\n", getppid() );
+int main( void ){
+    int sock;
+    sock = create_socket("loc_sock");
     
-    /* Create the pipe */
-    if( pipe(mypipe) ){
-        fprintf(stderr, "Pipe creation failed.\n");
-        return EXIT_FAILURE;
-    }
+    /* Mark! Make sure to add error handling for EVERYTHING */
+    
+    close_socket(sock, "loc_sock");
+    
+    return 0;
+}
+
+int main2( void ) {
+    pid_t pid = 0;
+    int ret_val = 999;
+    int mypipe[2];
+    
+    printf("Parent started with PID %d\n", getpid() );
     
     /* Create a child process */
     pid = fork();
