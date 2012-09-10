@@ -17,7 +17,8 @@ return_code = 0
 
 (assignment, user_Name, result_Dir, working_Dir, script_Home, max_score_correctness) = UMLFunctionLibrary.read_configuration_properties()
 
-UMLFunctionLibrary.get_assignment_data(assignment, working_Dir, script_Home)
+# The following line makes it so this plugin ONLY works with the built-in assignment lib
+# UMLFunctionLibrary.get_assignment_data(assignment, working_Dir, script_Home)
 
 (stdout_output, return_code) = UMLFunctionLibrary.compile_student_code(stdout_output)
 
