@@ -1,13 +1,13 @@
 {
     name             = UMLOutputComparisonPlugin;
     version.major    = 1;
-    version.minor    = 0;
-    version.revision = 0;
-    version.date     = 8272012;
+    version.minor    = 3;
+    version.revision = 2;
+    version.date     = 9102012;
     requires         = ( PerlForPlugins );
     autoPublish      = true;
     provider         = "University of Massachusetts Lowell Department of Computer Science";
-    provider.url     = "http://www.webcat.cs.uml.edu";
+    provider.url     = "http://webcat.cs.uml.edu";
     license          = "GNU Affero General Public License v.3";
     license.url      = "http://www.gnu.org/licenses/agpl.html";
     copyright        = "(c) 2012 University of Massachusetts Lowell Department of Computer Science";
@@ -33,7 +33,7 @@
         {
             property    = localFiles;
             type        = fileOrDir;
-            name        = "Data Files for Student";
+            name        = "Local Files";
             description =
   "A file (or a directory of files) to place in the student's current working  directory when running his/her tests and when running reference tests.  The   file you select (or the entire contents of the directory you select) will be   copied into the current working directory during grading so that   student-written and instructor-written test cases can read and/or write to the file(s).  The default is to copy no files.";
         },
